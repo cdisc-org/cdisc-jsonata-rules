@@ -1,0 +1,18 @@
+{
+    "ddf00050" : function($data)
+                {
+                    ($data.**.studyDesigns)@$s.
+                        [
+                            $s.arms.populationIds[$ != $s.population.id and $not($ in $s.population.cohorts.id)].
+                            {
+                            "message": "The study arm references a populationId that does not match the id of any study population or study cohort defined within the same study design as the study arm",
+                            "parent_id": $s.id,
+                            "parent_entity": $s.instanceType,
+                            "id": %.id,
+                            "name": %.name,
+                            "populationId": $,
+                            "instanceType": %.instanceType
+                            }
+                        ]
+                }
+}

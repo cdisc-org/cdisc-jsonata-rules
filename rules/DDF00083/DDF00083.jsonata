@@ -1,0 +1,18 @@
+{
+    "ddf00083" : function($data)
+                    {
+                        (
+                            $output := ($data).**.*[id and instanceType].{
+                                "id": id, "instance": {
+                                            "id": id, 
+                                            "instanceType": instanceType, 
+                                            "name": name, 
+                                            "parent_id": %.id,
+                                            "parent_entity": %.instanceType,
+                                            "parent_name": %.name,
+                                            "parent_rel": ($parent := %; $utils.parent_rel($,$parent))
+                                    }
+                                }.${id: instance} ~> $sift(function($v){$count($v) > 1});
+                        )
+                    }
+}
