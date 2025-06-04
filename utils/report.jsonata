@@ -1,0 +1,38 @@
+{
+    "report": function($rule,$data)
+                {
+                    (
+                        $errors := $append(null,$rule.check_func($data));
+                        $data.**.instanceType@$it.($errors)
+                            {
+                                $it: 
+                                    {
+                                        "executionStatus": "success",
+                                        "class": $it[0]
+                                    }
+                            } ~> |*|
+                                    (
+                                        $class := $.class;
+                                        $class in $errors.instanceType 
+                                            ? 
+                                                {
+                                                    "message": $rule.message,
+                                                    "errors" : $map($errors[instanceType = $class],
+                                                                    function($obj)
+                                                                        {
+                                                                            $merge($map($rule.variables, function($var)
+                                                                                    {
+                                                                                        {
+                                                                                            $var: $var in $keys($obj) ? $lookup($obj,$var) : "Not in output"
+                                                                                        }
+                                                                                    }
+                                                                                )
+                                                                            )
+                                                                        }
+                                                                )
+                                                }
+                                            : {}
+                                    )|
+                    )
+                }
+}

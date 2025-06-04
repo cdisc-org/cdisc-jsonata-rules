@@ -1,0 +1,67 @@
+{
+    "rule": {
+        "Authorities": [
+            {
+                "Organization": "CDISC",
+                "Standards": [
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "Within a study version, all id values must be unique."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00083",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "3.0"
+                    }
+                ]
+            }
+        ],
+        "Check": {
+            "all": [
+                {
+                    "operator": "$sift(\n    ($data).**.*[id and instanceType].\n        {\n            \"id\": id,\n            \"instance\":\n                {\n                    \"id\": id, \n                    \"instanceType\": instanceType, \n                    \"name\": name, \n                    \"parent_id\": %.id,\n                    \"parent_entity\": %.instanceType,\n                    \"parent_name\": %.name,\n                    \"parent_rel\":\n                        (\n                            $this :=$;\n                            $parent := %;\n                            $utils.parent_rel($this,$parent)\n                        )\n                }\n        }.${id: instance},\n    function($v){$count($v) > 1}\n).*"
+                }
+            ]
+        },
+        "Core": {
+            "Id": "",
+            "Status": "Draft",
+            "Version": "1"
+        },
+        "Description": "Within a study version, all id values must be unique.",
+        "Executability": "Fully Executable",
+        "Outcome": {
+            "Message": "The id value is not unique.",
+            "Output_Variables": [
+                "id",
+                "name",
+                "parent_id",
+                "parent_entity",
+                "parent_name",
+                "parent_rel"
+            ]
+        },
+        "Scope": {
+            "Entities": {
+                "Include": [
+                    "All"
+                ]
+            }
+        },
+        "Sensitivity": "Record",
+        "Rule_Type": "Record Data"
+    },
+    "datasets": [],
+    "codelists": []
+}

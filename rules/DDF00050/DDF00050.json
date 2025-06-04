@@ -1,0 +1,69 @@
+{
+    "rule": {
+        "Authorities": [
+            {
+                "Organization": "CDISC",
+                "Standards": [
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "A study arm must only reference study populations or cohorts that are defined within the same study design as the study arm."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00050",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "3.0"
+                    }
+                ]
+            }
+        ],
+        "Check": {
+            "all": [
+                {
+                    "operator": "($data.**.studyDesigns)@$s.\n                    [\n                        $s.arms.populationIds[$ != $s.population.id and $not($ in $s.population.cohorts.id)].\n                        {\n                        \"parent_id\": $s.id,\n                        \"parent_entity\": $s.instanceType,\n                        \"id\": %.id,\n                        \"name\": %.name,\n                        \"populationId\": $,\n                        \"instanceType\": %.instanceType\n                        }\n                    ]"
+                }
+            ]
+        },
+        "Core": {
+            "Id": "",
+            "Status": "Draft",
+            "Version": "1"
+        },
+        "Description": "A study arm must only reference study populations or cohorts that are defined within the same study design as the study arm.",
+        "Executability": "Fully Executable",
+        "Outcome": {
+            "Message": "The id value referenced in the populationIds attribute of the study arm does not correspond with a study population or cohort that is defined with the same study design as the study arm.",
+            "Output_Variables": [
+                "parent_entity",
+                "parent_id",
+                "parent_rel",
+                "id",
+                "name",
+                "parent_id.StudyArm",
+                "populationId",
+                "$parent_of_cohort"
+            ]
+        },
+        "Scope": {
+            "Entities": {
+                "Include": [
+                    "StudyArm"
+                ]
+            }
+        },
+        "Sensitivity": "Record",
+        "Rule_Type": "JSONata"
+    },
+    "datasets": [],
+    "codelists": []
+}
