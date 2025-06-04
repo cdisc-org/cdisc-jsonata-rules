@@ -1,5 +1,5 @@
 {
-    "ddf00083" : function($data)
+    "check_func" : function($data)
                     {
                         $sift(
                             ($data).**.*[id and instanceType].

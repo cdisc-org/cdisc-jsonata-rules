@@ -1,0 +1,17 @@
+{
+    "check_func": function($data)
+                    {
+                        [$data.study.versions@$sv.
+                            (
+                                $spIds := $sv.studyIdentifiers[scopeId in $sv.roles[code.code="C70793"].organizationIds].text;
+                                {
+                                    "id": $sv.id,
+                                    "versionIdentifier": $sv.versionIdentifier,
+                                    "instanceType": $sv.instanceType,
+                                    "Sponsor Identifier(s)": $spIds,
+                                    "count": $count($spIds)
+                                }
+                            )][count != 1]
+
+                    }
+}

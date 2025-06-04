@@ -1,5 +1,5 @@
 {
-    "ddf00050" : function($data)
+    "check_func" : function($data)
                 {
                     ($data.**.studyDesigns)@$s.
                         [
