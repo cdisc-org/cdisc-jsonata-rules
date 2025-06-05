@@ -1,0 +1,39 @@
+{
+    "check_func" : function($data)
+                    {
+                        $data.study.versions@$sv.
+                            [
+                                ($sv.roles)@$r.($sv.studyDesigns)@$sd
+                                    [
+                                        (
+                                            $sv.id in $r.appliesToIds or
+                                            $sd.id in $r.appliesToIds
+                                        ) and
+                                        $r.masking.isMasked and
+                                        $sd.blindingSchema.standardCode.code = "C49659"
+                                    ].
+                                        {
+                                            "id": $r.id,
+                                            "name": $r.name,
+                                            "code": $r.code.decode,
+                                            "appliesToIds": $r.appliesToIds,
+                                            "instanceType": $r.instanceType,
+                                            "Masking.text": $r.masking.text,
+                                            "Masking.isMasked": $r.masking.isMasked,
+                                            "InterventionalStudyDesign.id": $sd.id,
+                                            "InterventionalStudyDesign.blindingSchema": $sd.blindingSchema.standardCode.decode
+                                        }
+                            ]
+                    },
+    "message": "A masking is defined for the study role, but the role applies to a study design with an open label blinding schema.",
+    "variables": [
+        "id",
+        "name",
+        "code",
+        "appliesToIds",
+        "Masking.text",
+        "Masking.isMasked",
+        "InterventionalStudyDesign.id",
+        "InterventionalStudyDesign.blindingSchema"
+    ]
+}

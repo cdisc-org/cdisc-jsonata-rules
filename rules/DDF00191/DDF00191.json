@@ -1,0 +1,69 @@
+{
+    "rule": {
+        "Authorities": [
+            {
+                "Organization": "CDISC",
+                "Standards": [
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "A masking is not expected to be defined for any study role in a study design with an open label blinding schema."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00191",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "4.0"
+                    }
+                ]
+            }
+        ],
+        "Check": {
+            "all": [
+                {
+                    "operator": "$data.study.versions@$sv.\n    [\n        ($sv.roles)@$r.($sv.studyDesigns)@$sd\n            [\n                (\n                    $sv.id in $r.appliesToIds or\n                    $sd.id in $r.appliesToIds\n                ) and\n                $r.masking.isMasked and\n                $sd.blindingSchema.standardCode.code = \"C49659\"\n            ].\n                {\n                    \"id\": $r.id,\n                    \"name\": $r.name,\n                    \"code\": $r.code.decode,\n                    \"appliesToIds\": $r.appliesToIds,\n                    \"instanceType\": $r.instanceType,\n                    \"Masking.text\": $r.masking.text,\n                    \"Masking.isMasked\": $r.masking.isMasked,\n                    \"InterventionalStudyDesign.id\": $sd.id,\n                    \"InterventionalStudyDesign.blindingSchema\": $sd.blindingSchema.standardCode.decode\n                }\n    ]"
+                }
+            ]
+        },
+        "Core": {
+            "Id": "",
+            "Status": "Draft",
+            "Version": "1"
+        },
+        "Description": "A masking is not expected to be defined for any study role in a study design with an open label blinding schema.",
+        "Executability": "Fully Executable",
+        "Outcome": {
+            "Message": "A masking is defined for the study role, but the role applies to a study design with an open label blinding schema.",
+            "Output_Variables": [
+                "id",
+                "name",
+                "code",
+                "appliesToIds",
+                "Masking.text",
+                "Masking.isMasked",
+                "InterventionalStudyDesign.id",
+                "InterventionalStudyDesign.blindingSchema"
+            ]
+        },
+        "Scope": {
+            "Entities": {
+                "Include": [
+                    "StudyRole"
+                ]
+            }
+        },
+        "Sensitivity": "Record",
+        "Rule_Type": "JSONata"
+    },
+    "datasets": [],
+    "codelists": []
+}
