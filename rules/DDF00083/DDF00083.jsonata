@@ -1,27 +1,49 @@
 {
     "check_func" : function($data)
                     {
-                        $sift(
-                            ($data).**.*[id and instanceType].
-                                {
-                                    "id": id,
-                                    "instance":
-                                        {
-                                            "id": id, 
-                                            "instanceType": instanceType, 
-                                            "name": name, 
-                                            "parent_id": %.id,
-                                            "parent_entity": %.instanceType,
-                                            "parent_name": %.name,
-                                            "parent_rel":
-                                                (
-                                                    $this :=$;
-                                                    $parent := %;
-                                                    $utils.parent_rel($this,$parent)
-                                                )
-                                        }
-                                }.${id: instance},
-                            function($v){$count($v) > 1}
-                        ).*
-                    }
+                        (
+                            $iid:=0;
+                            $iidd := $data ~> |**.*[id]|{"iid": $iid:=$iid+1}|;
+                            $sift(
+                                ($iidd).**.*[id and instanceType].
+                                    {
+                                        "id": id,
+                                        "details":
+                                            {
+                                                "id": id, 
+                                                "instanceType": instanceType,
+                                                "iid": iid,
+                                                "name": name, 
+                                                "parent_id": %.id,
+                                                "parent_entity": %.instanceType,
+                                                "parent_name": %.name,
+                                                "parent_rel":
+                                                    (
+                                                        $this :=$;
+                                                        $parent := %;
+                                                        $utils.parent_rel($this,$parent)
+                                                    )
+                                            }
+                                    }.${id: details},
+                                function($v){$count($v) > 1}
+                            ).*
+                            ~> $map(function($v)
+                                    {
+                                        $v ~> |$|{"path": 
+                                                    (
+                                                        $this:=$;
+                                                        $utils.get_path($iidd.**.*[iid=$this.iid],$iidd))
+                                                    }|})
+                        )
+                    },
+    "message": "The id value is not unique.",
+    "variables": [
+        "id",
+        "name",
+        "parent_id",
+        "parent_entity",
+        "parent_name",
+        "parent_rel",
+        "path"
+    ]
 }
