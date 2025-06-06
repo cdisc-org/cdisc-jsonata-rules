@@ -40,7 +40,7 @@
             "Version": "1"
         },
         "Description": "A masking is not expected to be defined for any study role in a study design with an open label blinding schema.",
-        "Executability": "Fully Executable",
+        "Executability": "Partially Executable - Possible Overreporting",
         "Outcome": {
             "Message": "A masking is defined for the study role, but the role applies to a study design with an open label blinding schema.",
             "Output_Variables": [

@@ -11,13 +11,13 @@
                                 "Citations": [
                                     {
                                         "Document": "USDM_CORE_Rules.xlsx",
-                                        "Cited_Guidance": "A masking is not expected to be defined for any study role in a study design with an open label blinding schema."
+                                        "Cited_Guidance": "A masking is expected to be defined for at least two study roles in a study design with a double blind blinding schema."
                                     }
                                 ],
                                 "Origin": "USDM Conformance Rules",
                                 "Version": "1.0",
                                 "Rule_Identifier": {
-                                    "Id": "DDF00191",
+                                    "Id": "DDF00192",
                                     "Version": "1"
                                 }
                             }
@@ -30,7 +30,7 @@
         "Check": {
             "all": [
                 {
-                    "operator": "$data.study.versions@$sv.\n    [\n        ($sv.roles)@$r.($sv.studyDesigns)@$sd\n            [\n                (\n                    $sv.id in $r.appliesToIds or\n                    $sd.id in $r.appliesToIds\n                ) and\n                $r.masking.isMasked and\n                $sd.blindingSchema.standardCode.code = \"C49659\"\n            ].\n                {\n                    \"id\": $r.id,\n                    \"name\": $r.name,\n                    \"code\": $r.code.decode,\n                    \"appliesToIds\": $r.appliesToIds,\n                    \"instanceType\": $r.instanceType,\n                    \"Masking.text\": $r.masking.text,\n                    \"Masking.isMasked\": $r.masking.isMasked,\n                    \"InterventionalStudyDesign.id\": $sd.id,\n                    \"InterventionalStudyDesign.blindingSchema\": $sd.blindingSchema.standardCode.decode\n                }\n    ]"
+                    "operator": "($data.study.versions)@$sv.($sv.studyDesigns)@$sd[$sd.blindingSchema.standardCode.code = \"C15228\"].\n    [\n        ( \n            $maskedRoles :=$sv.roles@$r [$r.masking.isMasked and\n                                            (\n                                                $sv.id in $r.appliesToIds or\n                                                $sd.id in $r.appliesToIds\n                                            )\n                                        ].  {\n                                                \"id\": $r.id,\n                                                \"name\": $r.name,\n                                                \"code\": $r.code.decode,\n                                                \"Masking.text\": $r.masking.text,\n                                                \"Masking.isMasked\": $r.masking.isMasked,\n                                                \"appliesToIds\": [$r.appliesToIds]\n                                            };\n            {\n                            \"id\": $sd.id,\n                            \"name\": $sd.name,\n                            \"blindingSchema\": $sd.blindingSchema.standardCode.decode,\n                            \"instanceType\": $sd.instanceType,\n                            \"Masked Roles\": $maskedRoles,\n                            \"count\": $count($maskedRoles)\n            }\n        )                                     \n            \n    ][count < 2]"
                 }
             ]
         },
@@ -39,25 +39,22 @@
             "Status": "Draft",
             "Version": "1"
         },
-        "Description": "A masking is not expected to be defined for any study role in a study design with an open label blinding schema.",
-        "Executability": "Fully Executable",
+        "Description": "A masking is expected to be defined for at least two study roles in a study design with a double blind blinding schema.",
+        "Executability": "Partially Executable - Possible Overreporting",
         "Outcome": {
-            "Message": "A masking is defined for the study role, but the role applies to a study design with an open label blinding schema.",
+            "Message": "The study design has a double blind blinding schema but there are not at least two applicable study roles that are masked.",
             "Output_Variables": [
                 "id",
                 "name",
-                "code",
-                "appliesToIds",
-                "Masking.text",
-                "Masking.isMasked",
-                "InterventionalStudyDesign.id",
-                "InterventionalStudyDesign.blindingSchema"
+                "blindingSchema",
+                "Masked Roles",
+                "count"
             ]
         },
         "Scope": {
             "Entities": {
                 "Include": [
-                    "StudyRole"
+                    "InterventionalStudyDesign"
                 ]
             }
         },
