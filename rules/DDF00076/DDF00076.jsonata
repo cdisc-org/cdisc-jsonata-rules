@@ -1,0 +1,42 @@
+{
+    "check_func" : function($data)
+                    {
+                        ($data.study.versions)@$sv.
+                            [
+                                (
+                                    $collate_members := function($dict)
+                                                    {
+                                                        $count($dict.**.childIds) > 0
+                                                        ?   (
+                                                                $d := $dict ~> |*|
+                                                                        {
+                                                                            "memberIds": $append(memberIds,childIds.$lookup($dict,$).memberIds),
+                                                                            "childIds": [childIds.$lookup($dict,$).childIds]
+                                                                        }|;
+                                                                $collate_members($d)
+                                                            )
+                                                        : $dict
+                                                    };
+                                    $catMembers :=  $collate_members($sv.bcCategories{id: {"memberIds": memberIds, "childIds": childIds}})
+                                                    ~> $each(function($v,$k){{$k:$v.memberIds}})
+                                                    ~> $merge;
+                                    ($sv.studyDesigns.activities)@$a.
+                                    ($a.biomedicalConceptIds)[$count($a.bcCategoryIds) > 0 and $ in [$a.bcCategoryIds.$lookup($catMembers,$)]].
+                                        {
+                                            "id": $a.id,
+                                            "name": $a.name,
+                                            "biomedicalConceptId": $,
+                                            "bcCategoryIds": $a.bcCategoryIds,
+                                            "instanceType": $a.instanceType
+                                        }                
+                                )
+                            ]
+                    },
+    "message": "The activity references both a biomedical concept category and a biomedical concept, but the biomedical concept is a member of the referenced category or one of its subcategories.",
+    "variables": [
+        "id",
+        "name",
+        "biomedicalConceptId",
+        "bcCategoryIds"
+    ]
+}

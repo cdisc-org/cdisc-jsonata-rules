@@ -1,74 +1,65 @@
 {
-  "study": {
-    "versions": [
-      {
-        "studyDesigns": [
-          {
-            "activities": [
-              {
-                "id": "Activity_1",
-                "name": "Informed consent",
-                "previousId": null,
-                "nextId": "Activity_2",
-                "biomedicalConceptIds": ["bc_1", "bc_2", "bc_3"],
-                "bcCategoryIds": ["bccat_1"],
-                "instanceType": "Activity"
-              },
-              {
-                "id": "Activity_2",
-                "name": "Inclusion/exclusion criteria",
-                "previousId": "Activity_1",
-                "nextId": null,
-                "biomedicalConceptIds": [],
-                "bcCategoryIds": ["bccat_1"],
-                "instanceType": "Activity"
-              }
-            ],
-            "biomedicalConcepts": [
-              {
-                "id": "bc_1",
-                "name": "BC1",
-                "instanceType": "BiomedicalConcept"
-              },
-
-              {
-                "id": "bc_2",
-                "name": "BC2",
-                "instanceType": "BiomedicalConcept"
-              },
-              {
-                "id": "bc_3",
-                "name": "BC3",
-                "instanceType": "BiomedicalConcept"
-              }
-            ],
-            "bcCategories": [
-              {
-                "id": "bccat_1",
-                "name": "BCCAT1",
-                "memberIds": [],
-                "childIds": ["bccat_2", "bccat_3"],
-                "instanceType": "BiomedicalConceptCategory"
-              },
-
-              {
-                "id": "bccat_2",
-                "name": "BCCAT2",
-                "memberIds": ["bc_2"],
-                "childIds": ["bccat_3"],
-                "instanceType": "BiomedicalConceptCategory"
-              },
-              {
-                "id": "bccat_3",
-                "name": "BCCAT3",
-                "memberIds": ["bc_3"],
-                "childIds": [],
-                "instanceType": "BiomedicalConceptCategory"
-              }
+    "rule": {
+        "Authorities": [
+            {
+                "Organization": "CDISC",
+                "Standards": [
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "If a biomedical concept is referenced from an activity then it is not expected to be referenced as well by a biomedical concept category that is referenced from the same activity."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00076",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "3.0"
+                    }
+                ]
+            }
+        ],
+        "Check": {
+            "all": [
+                {
+                    "operator": "($data.study.versions)@$sv.\n    [\n        (\n            $collate_members := function($dict)\n                            {\n                                $count($dict.**.childIds) > 0\n                                ?   (\n                                        $d := $dict ~> |*|\n                                                {\n                                                    \"memberIds\": $append(memberIds,childIds.$lookup($dict,$).memberIds),\n                                                    \"childIds\": [childIds.$lookup($dict,$).childIds]\n                                                }|;\n                                        $collate_members($d)\n                                    )\n                                : $dict\n                            };\n            $catMembers :=  $collate_members($sv.bcCategories{id: {\"memberIds\": memberIds, \"childIds\": childIds}})\n                            ~> $each(function($v,$k){{$k:$v.memberIds}})\n                            ~> $merge;\n            ($sv.studyDesigns.activities)@$a.\n            ($a.biomedicalConceptIds)[$count($a.bcCategoryIds) > 0 and $ in [$a.bcCategoryIds.$lookup($catMembers,$)]].\n                {\n                    \"id\": $a.id,\n                    \"name\": $a.name,\n                    \"biomedicalConceptId\": $,\n                    \"bcCategoryIds\": $a.bcCategoryIds,\n                    \"instanceType\": $a.instanceType\n                }                \n        )\n    ]"
+                }
             ]
-          }
-        ]
-      }
-    ]
-  }
+        },
+        "Core": {
+            "Id": "",
+            "Status": "Draft",
+            "Version": "1"
+        },
+        "Description": "If a biomedical concept is referenced from an activity then it is not expected to be referenced as well by a biomedical concept category that is referenced from the same activity.",
+        "Executability": "Partially Executable - Possible Overreporting",
+        "Outcome": {
+            "Message": "The activity references both a biomedical concept category and a biomedical concept, but the biomedical concept is a member of the referenced category or one of its subcategories.",
+            "Output_Variables": [
+                "id",
+                "name",
+                "biomedicalConceptId",
+                "bcCategoryIds"
+            ]
+        },
+        "Scope": {
+            "Entities": {
+                "Include": [
+                    "Activity"
+                ]
+            }
+        },
+        "Sensitivity": "Record",
+        "Rule_Type": "Record Data"
+    },
+    "datasets": [],
+    "codelists": []
 }
