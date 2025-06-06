@@ -1,0 +1,40 @@
+{
+    "check_func" : function($data)
+                    {
+                        ($data.study.versions)@$sv.($sv.studyDesigns)@$sd[$sd.blindingSchema.standardCode.code = "C15228"].
+                            [
+                                ( 
+                                    $maskedRoles :=$sv.roles@$r [$r.masking.isMasked and
+                                                                    (
+                                                                        $sv.id in $r.appliesToIds or
+                                                                        $sd.id in $r.appliesToIds
+                                                                    )
+                                                                ].  {
+                                                                        "id": $r.id,
+                                                                        "name": $r.name,
+                                                                        "code": $r.code.decode,
+                                                                        "Masking.text": $r.masking.text,
+                                                                        "Masking.isMasked": $r.masking.isMasked,
+                                                                        "appliesToIds": [$r.appliesToIds]
+                                                                    };
+                                    {
+                                                    "id": $sd.id,
+                                                    "name": $sd.name,
+                                                    "blindingSchema": $sd.blindingSchema.standardCode.decode,
+                                                    "instanceType": $sd.instanceType,
+                                                    "Masked Roles": $maskedRoles,
+                                                    "count": $count($maskedRoles)
+                                    }
+                                )                                     
+                                    
+                            ][count < 2]
+                    },
+    "message": "The study design has a double blind blinding schema but there are not at least two applicable study roles that are masked.",
+    "variables": [
+        "id",
+        "name",
+        "blindingSchema",
+        "Masked Roles",
+        "count"
+    ]
+}
