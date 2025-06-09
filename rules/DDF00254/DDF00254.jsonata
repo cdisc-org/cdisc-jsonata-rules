@@ -3,24 +3,23 @@
                 {
                     ($data.**.studyDesigns)@$s.
                         [
-                            $s.arms.populationIds[$ != $s.population.id and $not($ in $s.population.cohorts.id)].
+                            $s.activities.childIds[$not($ in $s.activities.id)].
                             {
                             "parent_id": $s.id,
                             "parent_entity": $s.instanceType,
                             "id": %.id,
                             "name": %.name,
-                            "populationId": $,
+                            "childId": $,
                             "instanceType": %.instanceType
                             }
                         ]
                 },
-    "message": "The study arm references a populationId that does not match the id of any study population or study cohort defined within the same study design as the study arm",
-    "variables": 
-        [
+    "message": "The activity references a childId that does not match the id of any activity defined within the same study design as the activity.",
+    "variables": [
             "parent_id",
             "parent_entity",
             "id",
             "name",
-            "populationId"
-        ]                        
+            "childId"
+        ]
 }

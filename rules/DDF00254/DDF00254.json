@@ -44,11 +44,14 @@
         "Outcome": {
             "Message": "The id value referenced in the populationIds attribute of the study arm does not correspond with a study population or cohort that is defined with the same study design as the study arm.",
             "Output_Variables": [
-                "parent_id",
                 "parent_entity",
+                "parent_id",
+                "parent_rel",
                 "id",
                 "name",
-                "populationId"
+                "parent_id.StudyArm",
+                "populationId",
+                "$parent_of_cohort"
             ]
         },
         "Scope": {
