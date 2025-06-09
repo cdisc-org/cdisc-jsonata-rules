@@ -17,7 +17,7 @@
                                 "Origin": "USDM Conformance Rules",
                                 "Version": "1.0",
                                 "Rule_Identifier": {
-                                    "Id": "DDF00254",
+                                    "Id": "DDF00204",
                                     "Version": "1"
                                 }
                             }
@@ -30,7 +30,7 @@
         "Check": {
             "all": [
                 {
-                    "operator": "($data.**.studyDesigns)@$s.\n    [\n        $s.activities.childIds[$not($ in $s.activities.id)].\n        {\n        \"parent_id\": $s.id,\n        \"parent_entity\": $s.instanceType,\n        \"id\": %.id,\n        \"name\": %.name,\n        \"childId\": $,\n        \"instanceType\": %.instanceType\n        }\n    ]"
+                    "operator": "($data.study.documentedBy.versions)@$sddv.$filter(($sddv.contents),function($v)\n    {\n        $not(\n            $type($v.previousId) = \"null\" or\n            $v.previousId in $sddv.contents.id\n            ) or\n        $not(\n            $type($v.nextId) = \"null\" or\n            $v.nextId in $sddv.contents.id\n            ) or\n        $v.childIds[$not($ in $sddv.contents.id)]\n    }\n)@$c.\n    {\n        \"parent_id\": $sddv.id,\n        \"parent_entity\": $sddv.instanceType,\n        \"id\": $c.id,\n        \"name\": $c.name,\n        \"previousId\":   $not(\n                            $type($c.previousId) = \"null\" or\n                            $c.previousId in $sddv.contents.id\n                            )\n                        ? $c.previousId,\n        \"nextId\":   $not(\n                        $type($c.nextId) = \"null\" or\n                        $c.nextId in $sddv.contents.id\n                        )\n                    ? $c.nextId,\n        \"childIds\": $c.childIds[$not($ in $sddv.contents.id)],\n        \"instanceType\": $c.instanceType\n    }"
                 }
             ]
         },
@@ -42,13 +42,15 @@
         "Description": "An activity must only reference child activities that are specified within the same study design.",
         "Executability": "Fully Executable",
         "Outcome": {
-            "Message": "The activity references a childId that does not match the id of any activity defined within the same study design as the activity.",
+            "Message": "The narrative content references a previous, next or child id value that does not match the id of any narrative content defined within the same study definition document version.",
             "Output_Variables": [
                 "parent_id",
                 "parent_entity",
                 "id",
                 "name",
-                "childId"
+                "previousId",
+                "nextId",
+                "childIds"
             ]
         },
         "Scope": {

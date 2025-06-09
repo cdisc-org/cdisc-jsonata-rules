@@ -1,0 +1,46 @@
+{
+    "check_func" : function($data)
+                {
+                    ($data.study.documentedBy.versions)@$sddv.$filter(($sddv.contents),function($v)
+                                {
+                                    $not(
+                                        $type($v.previousId) = "null" or
+                                        $v.previousId in $sddv.contents.id
+                                        ) or
+                                    $not(
+                                        $type($v.nextId) = "null" or
+                                        $v.nextId in $sddv.contents.id
+                                        ) or
+                                    $v.childIds[$not($ in $sddv.contents.id)]
+                                }
+                            )@$c.
+                                {
+                                    "parent_id": $sddv.id,
+                                    "parent_entity": $sddv.instanceType,
+                                    "id": $c.id,
+                                    "name": $c.name,
+                                    "previousId":   $not(
+                                                        $type($c.previousId) = "null" or
+                                                        $c.previousId in $sddv.contents.id
+                                                        )
+                                                    ? $c.previousId,
+                                    "nextId":   $not(
+                                                    $type($c.nextId) = "null" or
+                                                    $c.nextId in $sddv.contents.id
+                                                    )
+                                                ? $c.nextId,
+                                    "childIds": $c.childIds[$not($ in $sddv.contents.id)],
+                                    "instanceType": $c.instanceType
+                                }
+                },
+    "message": "The narrative content references a previous, next or child id value that does not match the id of any narrative content defined within the same study definition document version.",
+    "variables": [
+            "parent_id",
+            "parent_entity",
+            "id",
+            "name",
+            "previousId",
+            "nextId",
+            "childIds"
+        ]
+}
