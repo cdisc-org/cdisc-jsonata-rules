@@ -4,31 +4,23 @@
                         ($data.study.versions)@$sv.
                             [
                                 (
-                                    $collate_members := function($dict)
-                                                    {
-                                                        $count($dict.**.childIds) > 0
-                                                        ?   (
-                                                                $d := $dict ~> |*|
-                                                                        {
-                                                                            "memberIds": $append(memberIds,childIds.$lookup($dict,$).memberIds),
-                                                                            "childIds": [childIds.$lookup($dict,$).childIds]
-                                                                        }|;
-                                                                $collate_members($d)
-                                                            )
-                                                        : $dict
-                                                    };
-                                    $catMembers :=  $collate_members($sv.bcCategories{id: {"memberIds": memberIds, "childIds": childIds}})
-                                                    ~> $each(function($v,$k){{$k:$v.memberIds}})
-                                                    ~> $merge;
+                                    $pcats := $utils.parse_refs("childIds","children",$sv.bcCategories);                
                                     ($sv.studyDesigns.activities)@$a.
-                                    ($a.biomedicalConceptIds)[$count($a.bcCategoryIds) > 0 and $ in [$a.bcCategoryIds.$lookup($catMembers,$)]].
-                                        {
-                                            "id": $a.id,
-                                            "name": $a.name,
-                                            "biomedicalConceptId": $,
-                                            "bcCategoryIds": $a.bcCategoryIds,
-                                            "instanceType": $a.instanceType
-                                        }                
+                                        ($a.biomedicalConceptIds)
+                                            [
+                                                $count($a.bcCategoryIds) > 0 and
+                                                $ in [$a.bcCategoryIds.$lookup($pcats{id: **.memberIds},$)]
+                                            ].
+                                            (
+                                                $this := $;
+                                                {
+                                                    "id": $a.id,
+                                                    "name": $a.name,
+                                                    "biomedicalConceptId": $this,
+                                                    "bcCategoryId(s) containing BC": [$utils.sift_tree($pcats[id in $a.bcCategoryIds],$this,["id","name"])],
+                                                    "instanceType": $a.instanceType
+                                                }
+                                            )     
                                 )
                             ]
                     },
@@ -37,6 +29,6 @@
         "id",
         "name",
         "biomedicalConceptId",
-        "bcCategoryIds"
+        "bcCategoryId(s) containing BC"
     ]
 }
