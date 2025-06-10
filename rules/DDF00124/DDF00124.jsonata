@@ -1,0 +1,58 @@
+{
+    "check_func" : function($data)
+                {
+                    $data.study.versions.dictionaries.parameterMaps.
+                        {
+                            "parent_entity": %.instanceType,
+                            "parent_id": %.id,
+                            "parent_name": %.name,
+                            "id": id,
+                            "tag": tag,
+                            "reference": reference,
+                            "instanceType": instanceType
+                        }
+                    ~>  $map(function($v)
+                            {
+                                (
+                                    $ref := $match($v.reference,
+                                                /<usdm:ref((?=[^>]* klass=\"([a-zA-Z]+)\")(?=[^>]* id=\"(\w+)\")(?=[^>]* attribute=\"([a-zA-Z]+)\")[^>]*)(\/>|><\/usdm:ref>)/
+                                            )
+                                            {
+                                                "value": $v.reference,
+                                                "usdm_ref": $contains($v.reference,/usdm:ref/) ? 
+                                                            {
+                                                                "klass": groups[1],
+                                                                "id": groups[2],
+                                                                "attribute": groups[3]
+                                                            }
+                                            };
+                                    $v ~> |$|{"reference": $ref}|
+                                )
+                            }
+                        )
+                    ~>  $map(function($v)
+                            {
+                                (
+                                    $ref_val := "usdm_ref" in $keys($v.reference)
+                                                ? $utils.get_ref_value($v.reference.usdm_ref,$data,"!!NOT FOUND!!")
+                                                : $v.reference.value;
+                                    $v ~> |$|{"Referenced Value": $ref_val}|
+                                )
+                            }
+                        )
+                    ~> $filter(function($v)
+                            {
+                                $v.`Referenced Value` = "!!NOT FOUND!!"
+                            }
+                        )
+                },
+    "message": "The item referenced in the parameter map is not availalble elsewhere in the model.",
+    "variables": [
+            "parent_entity",
+            "parent_id",
+            "parent_name",
+            "id",
+            "tag",
+            "reference"
+        ]
+}

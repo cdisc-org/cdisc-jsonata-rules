@@ -1,0 +1,87 @@
+{
+    "rule": {
+        "Authorities": [
+            {
+                "Organization": "CDISC",
+                "Standards": [
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "Referenced items in a parameter map must be available elsewhere in the data model."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00124",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "3.0"
+                    },
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "Referenced items in a parameter map must be available elsewhere in the data model."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00124",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "4.0"
+                    }
+                ]
+            }
+        ],
+        "Check": {
+            "all": [
+                {
+                    "operator": "$data.study.versions.dictionaries.parameterMaps.\n    {\n        \"parent_entity\": %.instanceType,\n        \"parent_id\": %.id,\n        \"parent_name\": %.name,\n        \"id\": id,\n        \"tag\": tag,\n        \"reference\": reference,\n        \"instanceType\": instanceType\n    }\n~>  $map(function($v)\n        {\n            (\n                $ref := $match($v.reference,\n                            /<usdm:ref((?=[^>]* klass=\\\"([a-zA-Z]+)\\\")(?=[^>]* id=\\\"(\\w+)\\\")(?=[^>]* attribute=\\\"([a-zA-Z]+)\\\")[^>]*)(\\/>|><\\/usdm:ref>)/\n                        )\n                        {\n                            \"value\": $v.reference,\n                            \"usdm_ref\": $contains($v.reference,/usdm:ref/) ? \n                                        {\n                                            \"klass\": groups[1],\n                                            \"id\": groups[2],\n                                            \"attribute\": groups[3]\n                                        }\n                        };\n                $v ~> |$|{\"reference\": $ref}|\n            )\n        }\n    )\n~>  $map(function($v)\n        {\n            (\n                $ref_val := \"usdm_ref\" in $keys($v.reference)\n                            ? $utils.get_ref_value($v.reference.usdm_ref,$data,\"!!NOT FOUND!!\")\n                            : $v.reference.value;\n                $v ~> |$|{\"Referenced Value\": $ref_val}|\n            )\n        }\n    )\n~> $filter(function($v)\n        {\n            $v.`Referenced Value` = \"!!NOT FOUND!!\"\n        }\n    )"
+                }
+            ]
+        },
+        "Core": {
+            "Id": "",
+            "Status": "Draft",
+            "Version": "1"
+        },
+        "Description": "Referenced items in a parameter map must be available elsewhere in the data model.",
+        "Executability": "Fully Executable",
+        "Outcome": {
+            "Message": "The item referenced in the parameter map is not availalble elsewhere in the model.",
+            "Output_Variables": [
+                "parent_entity",
+                "parent_id",
+                "parent_name",
+                "id",
+                "tag",
+                "reference"
+            ]
+        },
+        "Scope": {
+            "Entities": {
+                "Include": [
+                    "ParameterMap"
+                ]
+            }
+        },
+        "Sensitivity": "Record",
+        "Rule_Type": "Record Data"
+    },
+    "datasets": [],
+    "codelists": []
+}
