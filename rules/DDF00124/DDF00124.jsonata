@@ -46,7 +46,7 @@
                             }
                         )
                 },
-    "message": "The item referenced in the parameter map is not availalble elsewhere in the model.",
+    "message": "The item referenced in the parameter map is not available elsewhere in the model.",
     "variables": [
             "parent_entity",
             "parent_id",

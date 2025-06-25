@@ -62,7 +62,7 @@
         "Description": "Referenced items in a parameter map must be available elsewhere in the data model.",
         "Executability": "Fully Executable",
         "Outcome": {
-            "Message": "The item referenced in the parameter map is not availalble elsewhere in the model.",
+            "Message": "The item referenced in the parameter map is not available elsewhere in the model.",
             "Output_Variables": [
                 "parent_entity",
                 "parent_id",
