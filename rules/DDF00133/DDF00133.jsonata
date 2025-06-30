@@ -3,22 +3,29 @@
          {
 	    ($data.**.studyDesigns)@$sd.
     		$sd.population@$p.
-    			$p.[
-   				($NullCohort:=function(){null in cohorts.plannedEnrollmentNumber};
-    				$InCohort:=function(){$boolean(cohorts.plannedEnrollmentNumber)};
-   				$InPop:=function(){plannedEnrollmentNumber != null};
-      				   ($InPop()=true and $InCohort()=true) 
-				       or ($InPop()=false and $NullCohort()=true and $InCohort()=true))
-			    ]
-			    {
-                            	"parent_entity": $sd.instanceType,
-                            	"parent_id": $sd.id,
-                           	"instanceType": $p.instanceType,
-                           	"id": $p.id,
-                           	"name": $p.name,
-                           	"plannedEnrollmentNumber.id": $p.plannedEnrollmentNumber.id,
-                           	"cohort.plannedEnrolmentNumber.ids":$p.cohorts.plannedNerollmentNumber.id
-                            }
+    		   $p.
+		   [
+   			($NullCohort:=function(){null in cohorts.plannedEnrollmentNumber};
+    			$InCohort:=function(){$boolean(cohorts.plannedEnrollmentNumber)};
+    			$InPop:=function(){plannedEnrollmentNumber != null};
+   			$ChkX:=function()
+				{
+       					($InPop()=true and $InCohort()=true) 
+       					or ($InPop()=false and $NullCohort()=true and $InCohort()=true)
+				};
+				{
+                            		"parent_entity": $sd.instanceType,
+                            		"parent_id": $sd.id,
+                            		"instanceType": $p.instanceType,
+                            		"id": $p.id,
+                            		"name": $p.name,
+                           		"plannedEnrollmentNumber.id": $p.plannedEnrollmentNumber.id,
+                            		"cohort.plannedEnrolmentNumber.ids":$p.cohorts.plannedNerollmentNumber.id,
+                            		"check":$ChkX()
+                            	}
+			)
+		   ]
+		   [check=true]
            },
     "message": "Within the study design, no plannedEnrollmentNumber is defined for either the population or any of the cohorts",
     "variables": 
