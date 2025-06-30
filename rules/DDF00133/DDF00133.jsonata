@@ -27,13 +27,12 @@
 		   ]
 		   [check=true]
            },
-    "message": "Within the study design, no plannedEnrollmentNumber is defined for either the population or any of the cohorts",
+    "message": "Planned enrollment number has not been specified for either the study population or the cohort, or it has been specified for both.",
     "variables": 
         [
             "parent_id",
             "parent_entity",
             "id",
-            "name",
-            "population.plannedEnrollmentNumber.id"
+            "name"
         ]                        
 }
