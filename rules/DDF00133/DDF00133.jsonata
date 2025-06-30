@@ -1,0 +1,26 @@
+{
+    "check_func" : function($data)
+                {
+                    ($data.**.studyDesigns)@$sd.
+                        [
+                            $sd.population[($exists(plannedEnrollmentNumber.value)=false and 			$exists(cohorts.plannedEnrollmentNumber.value)=false)].
+                            {
+                            "parent_id": $sd.id,
+                            "parent_entity": $sd.instanceType,
+                            "id": id,
+                            "name": name,
+                            "population.plannedEnrollmentNumber.id": plannedEnrollmentNumber.id
+                            
+                            }
+                        ]
+                },
+    "message": "Within the study design, no plannedEnrollmentNumber is defined for either the population or any of the cohorts",
+    "variables": 
+        [
+            "parent_id",
+            "parent_entity",
+            "id",
+            "name",
+            "population.plannedEnrollmentNumber.id"
+        ]                        
+}
