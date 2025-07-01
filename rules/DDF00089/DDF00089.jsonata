@@ -34,7 +34,7 @@
                                                             : "[The dictionaryId is invalid]"
                                                         : "[The dictionaryId is missing]",
                                         "instanceType": $st.instanceType,
-                                        "path": $utils.get_path($st,$data)
+                                        "path": $utils.sift_tree($sv,$st,["id","name"],true)
                                     }
                             )
                 },

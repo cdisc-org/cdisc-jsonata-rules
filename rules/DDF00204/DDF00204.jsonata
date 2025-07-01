@@ -15,8 +15,8 @@
                                 }
                             )@$c.
                                 {
-                                    "parent_id": $sddv.id,
-                                    "parent_entity": $sddv.instanceType,
+                                    "StudyDefinitionDocumentVersion.id": $sddv.id,
+                                    "StudyDefinitionDocumentVersion.name": $sddv.name,
                                     "id": $c.id,
                                     "name": $c.name,
                                     "previousId":   $not(
@@ -35,8 +35,8 @@
                 },
     "message": "The narrative content references a previous, next or child id value that does not match the id of any narrative content defined within the same study definition document version.",
     "variables": [
-            "parent_id",
-            "parent_entity",
+            "StudyDefinitionDocumentVersion.id",
+            "StudyDefinitionDocumentVersion.name",
             "id",
             "name",
             "previousId",

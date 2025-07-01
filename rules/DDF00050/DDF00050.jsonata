@@ -5,8 +5,10 @@
                         [
                             $s.arms.populationIds[$ != $s.population.id and $not($ in $s.population.cohorts.id)].
                             {
-                            "parent_id": $s.id,
-                            "parent_entity": $s.instanceType,
+                            "StudyDesign.id": $s.id,
+                            "StudyDesign.name": $s.name,
+                            "StudyDesign.population.id": $s.population.id,
+                            "StudyDesign.population.cohorts.id": $s.population.cohorts.id,
                             "id": %.id,
                             "name": %.name,
                             "populationId": $,
@@ -14,11 +16,13 @@
                             }
                         ]
                 },
-    "message": "The study arm references a populationId that does not match the id of any study population or study cohort defined within the same study design as the study arm",
+    "message": "The study arm references a populationId that does not match the id of any study population or study cohort defined within the same study design as the study arm.",
     "variables": 
         [
-            "parent_id",
-            "parent_entity",
+            "StudyDesign.id",
+            "StudyDesign.name",
+            "StudyDesign.population.id",
+            "StudyDesign.population.cohorts.id",
             "id",
             "name",
             "populationId"

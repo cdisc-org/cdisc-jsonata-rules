@@ -5,7 +5,7 @@
                             [
                                 (
                                     $pcats := $utils.parse_refs("childIds","children",$sv.bcCategories);                
-                                    ($sv.studyDesigns.activities)@$a.
+                                    ($sv.studyDesigns)@$sd.($sd.activities)@$a.
                                         ($a.biomedicalConceptIds)
                                             [
                                                 $count($a.bcCategoryIds) > 0 and
@@ -14,6 +14,8 @@
                                             (
                                                 $this := $;
                                                 {
+                                                    "StudyDesign.id": $sd.id,
+                                                    "StudyDesign.name": $sd.name,
                                                     "id": $a.id,
                                                     "name": $a.name,
                                                     "biomedicalConceptId": $this,
@@ -26,6 +28,8 @@
                     },
     "message": "The activity references both a biomedical concept category and a biomedical concept, but the biomedical concept is a member of the referenced category or one of its subcategories.",
     "variables": [
+        "StudyDesign.id",
+        "StudyDesign.name",
         "id",
         "name",
         "biomedicalConceptId",

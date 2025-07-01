@@ -3,9 +3,8 @@
                 {
                     $data.study.versions.dictionaries.parameterMaps.
                         {
-                            "parent_entity": %.instanceType,
-                            "parent_id": %.id,
-                            "parent_name": %.name,
+                            "SyntaxTemplateDictionary.id": %.id,
+                            "SyntaxTemplateDictionary.name": %.name,
                             "id": id,
                             "tag": tag,
                             "reference": reference,
@@ -40,7 +39,7 @@
                                 )
                             }
                         )
-                    ~> $filter(function($v)
+                    ~>  $filter(function($v)
                             {
                                 $v.`Referenced Value` = "!!NOT FOUND!!"
                             }
@@ -48,9 +47,8 @@
                 },
     "message": "The item referenced in the parameter map is not available elsewhere in the model.",
     "variables": [
-            "parent_entity",
-            "parent_id",
-            "parent_name",
+            "SyntaxTemplateDictionary.id",
+            "SyntaxTemplateDictionary.name",
             "id",
             "tag",
             "reference"

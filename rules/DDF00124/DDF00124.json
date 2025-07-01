@@ -50,7 +50,7 @@
         "Check": {
             "all": [
                 {
-                    "operator": "$data.study.versions.dictionaries.parameterMaps.\n    {\n        \"parent_entity\": %.instanceType,\n        \"parent_id\": %.id,\n        \"parent_name\": %.name,\n        \"id\": id,\n        \"tag\": tag,\n        \"reference\": reference,\n        \"instanceType\": instanceType\n    }\n~>  $map(function($v)\n        {\n            (\n                $ref := $match($v.reference,\n                            /<usdm:ref((?=[^>]* klass=\\\"([a-zA-Z]+)\\\")(?=[^>]* id=\\\"(\\w+)\\\")(?=[^>]* attribute=\\\"([a-zA-Z]+)\\\")[^>]*)(\\/>|><\\/usdm:ref>)/\n                        )\n                        {\n                            \"value\": $v.reference,\n                            \"usdm_ref\": $contains($v.reference,/usdm:ref/) ? \n                                        {\n                                            \"klass\": groups[1],\n                                            \"id\": groups[2],\n                                            \"attribute\": groups[3]\n                                        }\n                        };\n                $v ~> |$|{\"reference\": $ref}|\n            )\n        }\n    )\n~>  $map(function($v)\n        {\n            (\n                $ref_val := \"usdm_ref\" in $keys($v.reference)\n                            ? $utils.get_ref_value($v.reference.usdm_ref,$data,\"!!NOT FOUND!!\")\n                            : $v.reference.value;\n                $v ~> |$|{\"Referenced Value\": $ref_val}|\n            )\n        }\n    )\n~> $filter(function($v)\n        {\n            $v.`Referenced Value` = \"!!NOT FOUND!!\"\n        }\n    )"
+                    "operator": "$data.study.versions.dictionaries.parameterMaps.\n    {\n        \"SyntaxTemplateDictionary.id\": %.id,\n        \"SyntaxTemplateDictionary.name\": %.name,\n        \"id\": id,\n        \"tag\": tag,\n        \"reference\": reference,\n        \"instanceType\": instanceType\n    }\n~>  $map(function($v)\n        {\n            (\n                $ref := $match($v.reference,\n                            /<usdm:ref((?=[^>]* klass=\\\"([a-zA-Z]+)\\\")(?=[^>]* id=\\\"(\\w+)\\\")(?=[^>]* attribute=\\\"([a-zA-Z]+)\\\")[^>]*)(\\/>|><\\/usdm:ref>)/\n                        )\n                        {\n                            \"value\": $v.reference,\n                            \"usdm_ref\": $contains($v.reference,/usdm:ref/) ? \n                                        {\n                                            \"klass\": groups[1],\n                                            \"id\": groups[2],\n                                            \"attribute\": groups[3]\n                                        }\n                        };\n                $v ~> |$|{\"reference\": $ref}|\n            )\n        }\n    )\n~>  $map(function($v)\n        {\n            (\n                $ref_val := \"usdm_ref\" in $keys($v.reference)\n                            ? $utils.get_ref_value($v.reference.usdm_ref,$data,\"!!NOT FOUND!!\")\n                            : $v.reference.value;\n                $v ~> |$|{\"Referenced Value\": $ref_val}|\n            )\n        }\n    )\n~>  $filter(function($v)\n        {\n            $v.`Referenced Value` = \"!!NOT FOUND!!\"\n        }\n    )"
                 }
             ]
         },
@@ -62,11 +62,10 @@
         "Description": "Referenced items in a parameter map must be available elsewhere in the data model.",
         "Executability": "Fully Executable",
         "Outcome": {
-            "Message": "The item referenced in the parameter map is not available elsewhere in the model.",
+            "Message": "The item referenced in the parameter map is not availalble elsewhere in the model.",
             "Output_Variables": [
-                "parent_entity",
-                "parent_id",
-                "parent_name",
+                "SyntaxTemplateDictionary.id",
+                "SyntaxTemplateDictionary.name",
                 "id",
                 "tag",
                 "reference"

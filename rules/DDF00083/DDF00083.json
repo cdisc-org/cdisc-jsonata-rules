@@ -30,7 +30,7 @@
         "Check": {
             "all": [
                 {
-                    "operator": "(\n    $iid:=0;\n    $iidd := $data ~> |**.*[id]|{\"iid\": $iid:=$iid+1}|;\n    $sift(\n        ($iidd).**.*[id and instanceType].\n            {\n                \"id\": id,\n                \"details\":\n                    {\n                        \"id\": id, \n                        \"instanceType\": instanceType,\n                        \"iid\": iid,\n                        \"name\": name, \n                        \"parent_id\": %.id,\n                        \"parent_entity\": %.instanceType,\n                        \"parent_name\": %.name,\n                        \"parent_rel\":\n                            (\n                                $this :=$;\n                                $parent := %;\n                                $utils.parent_rel($this,$parent)\n                            )\n                    }\n            }.${id: details},\n        function($v){$count($v) > 1}\n    ).*\n    ~> $map(function($v)\n            {\n                $v ~> |$|{\"path\": \n                            (\n                                $this:=$;\n                                $utils.get_path($iidd.**.*[iid=$this.iid],$iidd))\n                            }|})\n)"
+                    "operator": "(\n    $iid:=0;\n    $iidd := $data ~> |**.*[id]|{\"iid\": $iid:=$iid+1}|;\n    $sift(\n        ($iidd).**.*[id and instanceType].\n            {\n                \"id\": id,\n                \"details\":\n                    {\n                        \"id\": id, \n                        \"instanceType\": instanceType,\n                        \"iid\": iid,\n                        \"name\": name\n                    }\n            }.${id: details},\n        function($v){$count($v) > 1}\n    ).*\n    ~>  $map(function($v)\n            {   \n                (\n                    $this := $iidd.**[iid=$v.iid];\n                    $v ~> |$|{\"path\": $utils.sift_tree($iidd.study,$this,[\"id\",\"name\"],true)}|\n                )\n            }\n        )\n)"
                 }
             ]
         },
@@ -46,10 +46,6 @@
             "Output_Variables": [
                 "id",
                 "name",
-                "parent_id",
-                "parent_entity",
-                "parent_name",
-                "parent_rel",
                 "path"
             ]
         },

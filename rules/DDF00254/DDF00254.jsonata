@@ -5,8 +5,8 @@
                         [
                             $s.activities.childIds[$not($ in $s.activities.id)].
                             {
-                            "parent_id": $s.id,
-                            "parent_entity": $s.instanceType,
+                            "StudyDesign.id": $s.id,
+                            "StudyDesign.name": $s.name,
                             "id": %.id,
                             "name": %.name,
                             "childId": $,
@@ -16,8 +16,8 @@
                 },
     "message": "The activity references a childId that does not match the id of any activity defined within the same study design as the activity.",
     "variables": [
-            "parent_id",
-            "parent_entity",
+            "StudyDesign.id",
+            "StudyDesign.name",
             "id",
             "name",
             "childId"

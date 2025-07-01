@@ -30,7 +30,7 @@
         "Check": {
             "all": [
                 {
-                    "operator": "($data.**.studyDesigns)@$s.\n    [\n        $s.activities.childIds[$not($ in $s.activities.id)].\n        {\n        \"parent_id\": $s.id,\n        \"parent_entity\": $s.instanceType,\n        \"id\": %.id,\n        \"name\": %.name,\n        \"childId\": $,\n        \"instanceType\": %.instanceType\n        }\n    ]"
+                    "operator": "($data.**.studyDesigns)@$s.\n    [\n        $s.activities.childIds[$not($ in $s.activities.id)].\n        {\n        \"StudyDesign.id\": $s.id,\n        \"StudyDesign.name\": $s.name,\n        \"id\": %.id,\n        \"name\": %.name,\n        \"childId\": $,\n        \"instanceType\": %.instanceType\n        }\n    ]"
                 }
             ]
         },
@@ -44,8 +44,8 @@
         "Outcome": {
             "Message": "The activity references a childId that does not match the id of any activity defined within the same study design as the activity.",
             "Output_Variables": [
-                "parent_id",
-                "parent_entity",
+                "StudyDesign.id",
+                "StudyDesign.name",
                 "id",
                 "name",
                 "childId"

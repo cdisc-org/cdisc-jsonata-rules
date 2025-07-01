@@ -30,7 +30,7 @@
         "Check": {
             "all": [
                 {
-                    "operator": "($data.study.versions)@$sv.\n    [\n        (\n            $pcats := $utils.parse_refs(\"childIds\",\"children\",$sv.bcCategories);                \n            ($sv.studyDesigns.activities)@$a.\n                ($a.biomedicalConceptIds)\n                    [\n                        $count($a.bcCategoryIds) > 0 and\n                        $ in [$a.bcCategoryIds.$lookup($pcats{id: **.memberIds},$)]\n                    ].\n                    (\n                        $this := $;\n                        {\n                            \"id\": $a.id,\n                            \"name\": $a.name,\n                            \"biomedicalConceptId\": $this,\n                            \"bcCategoryId(s) containing BC\": [$utils.sift_tree($pcats[id in $a.bcCategoryIds],$this,[\"id\",\"name\"])],\n                            \"instanceType\": $a.instanceType\n                        }\n                    )     \n        )\n    ]"
+                    "operator": "($data.study.versions)@$sv.\n    [\n        (\n            $pcats := $utils.parse_refs(\"childIds\",\"children\",$sv.bcCategories);                \n            ($sv.studyDesigns)@$sd.($sd.activities)@$a.\n                ($a.biomedicalConceptIds)\n                    [\n                        $count($a.bcCategoryIds) > 0 and\n                        $ in [$a.bcCategoryIds.$lookup($pcats{id: **.memberIds},$)]\n                    ].\n                    (\n                        $this := $;\n                        {\n                            \"StudyDesign.id\": $sd.id,\n                            \"StudyDesign.name\": $sd.name,\n                            \"id\": $a.id,\n                            \"name\": $a.name,\n                            \"biomedicalConceptId\": $this,\n                            \"bcCategoryId(s) containing BC\": [$utils.sift_tree($pcats[id in $a.bcCategoryIds],$this,[\"id\",\"name\"])],\n                            \"instanceType\": $a.instanceType\n                        }\n                    )     \n        )\n    ]"
                 }
             ]
         },
@@ -44,6 +44,8 @@
         "Outcome": {
             "Message": "The activity references both a biomedical concept category and a biomedical concept, but the biomedical concept is a member of the referenced category or one of its subcategories.",
             "Output_Variables": [
+                "StudyDesign.id",
+                "StudyDesign.name",
                 "id",
                 "name",
                 "biomedicalConceptId",

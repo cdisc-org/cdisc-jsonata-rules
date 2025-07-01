@@ -1,5 +1,5 @@
 {
-    "sift_tree" : function($tree,$find_val,$include)
+    "sift_tree" : function($tree,$find_val,$include,$prefix)
                     {
                         (
                             $iter := function($t)
@@ -22,9 +22,9 @@
                                                 ) ~>
                                                 $each(function($v, $k)
                                                     {
-                                                        $k in $include 
-                                                        ?   {$k: $v}
-                                                        :   {$k : $iter($v)}
+                                                        $k in $include
+                                                        ?   {$join([$prefix ? $t.instanceType,$k],"."): $v}
+                                                        :   {$join([$prefix ? $t.instanceType,$k],"."): $iter($v)}
                                                     }) ~> $merge
                                             :   $t
                                     };

@@ -4920,7 +4920,7 @@
           {
             "id": "InterventionalStudyDesign_2",
             "extensionAttributes": [],
-            "name": "Study Design 1",
+            "name": "Study Design 2",
             "label": "USDM Example Study Design",
             "description": "The main design for the study",
             "studyType": {

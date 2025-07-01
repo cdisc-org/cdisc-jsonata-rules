@@ -30,7 +30,7 @@
         "Check": {
             "all": [
                 {
-                    "operator": "($data.**.studyDesigns)@$s.\n                    [\n                        $s.arms.populationIds[$ != $s.population.id and $not($ in $s.population.cohorts.id)].\n                        {\n                        \"parent_id\": $s.id,\n                        \"parent_entity\": $s.instanceType,\n                        \"id\": %.id,\n                        \"name\": %.name,\n                        \"populationId\": $,\n                        \"instanceType\": %.instanceType\n                        }\n                    ]"
+                    "operator": "($data.**.studyDesigns)@$s.\n    [\n        $s.arms.populationIds[$ != $s.population.id and $not($ in $s.population.cohorts.id)].\n        {\n        \"StudyDesign.id\": $s.id,\n        \"StudyDesign.name\": $s.name,\n        \"StudyDesign.population.id\": $s.population.id,\n        \"StudyDesign.population.cohorts.id\": $s.population.cohorts.id,\n        \"id\": %.id,\n        \"name\": %.name,\n        \"populationId\": $,\n        \"instanceType\": %.instanceType\n        }\n    ]"
                 }
             ]
         },
@@ -42,10 +42,12 @@
         "Description": "A study arm must only reference study populations or cohorts that are defined within the same study design as the study arm.",
         "Executability": "Fully Executable",
         "Outcome": {
-            "Message": "The id value referenced in the populationIds attribute of the study arm does not correspond with a study population or cohort that is defined with the same study design as the study arm.",
+            "Message": "The study arm references a populationId that does not match the id of any study population or study cohort defined within the same study design as the study arm.",
             "Output_Variables": [
-                "parent_id",
-                "parent_entity",
+                "StudyDesign.id",
+                "StudyDesign.name",
+                "StudyDesign.population.id",
+                "StudyDesign.population.cohorts.id",
                 "id",
                 "name",
                 "populationId"
