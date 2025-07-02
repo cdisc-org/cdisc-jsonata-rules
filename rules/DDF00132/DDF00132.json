@@ -1,0 +1,89 @@
+{
+    "rule": {
+        "Authorities": [
+            {
+                "Organization": "CDISC",
+                "Standards": [
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "Within a study design, if a planned completion number is defined, it must be specified either in the study population or in all cohorts."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00132",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "3.0"
+                    },
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "Within a study design, if a planned completion number is defined, it must be specified either in the study population or in all cohorts."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00132",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "4.0"
+                    }
+                ]
+            }
+        ],
+        "Check": {
+            "all": [
+                {
+                    "operator": "($data.**.studyDesigns)@$sd.\n    $sd.population@$p.\n        $p.\n        [\n            ($NullCohort:=function(){\"null\" in cohorts.$type(plannedCompletionNumber)}; \n            $InCohort:=function(){$boolean(cohorts.plannedCompletionNumber)};      \n            $InPop:=function(){$type(plannedCompletionNumber) != \"null\"};           \n                $ChkX:=function()\n                    {\n                        ($InPop()=true and $InCohort()=true) or ($InPop()=false and $NullCohort()=true and $InCohort()=true) \n                    };\n                    {\n                        \"studyDesigns.id\": $sd.id,\n                        \"studyDesigns.name\": $sd.name,\n                        \"population.id\": $p.id,\n                        \"population.name\": $p.name,\n                        \"population.plannedCompletionNumber.id\": $p.plannedCompletionNumber.id,\n                        \"cohorts.id\":$p.cohorts.id,\n                        \"cohorts.name\": $p.cohorts.name,\n                        \"cohorts.plannedCompletionNumber.id\":$p.cohorts.plannedCompletionNumber.id,\n                        \"check\":$ChkX()\n                    }\n            )\n        ]\n        [check=true] "
+                }
+            ]
+        },
+        "Core": {
+            "Id": "",
+            "Status": "Draft",
+            "Version": "1"
+        },
+        "Description": "Within a study design, if a planned completion number is defined, it must be specified either in the study population or in all cohorts.",
+        "Executability": "Fully Executable",
+        "Outcome": {
+            "Message": "A planned completion number has been specified for both the study population and the cohorts, or it has been specified for only a subset of the cohorts.",
+            "Output_Variables": [
+                "studyDesigns.id",
+                "studyDesigns.name",
+                "population.id",
+                "population.name",
+                "population.plannedCompletionNumber.id",
+                "cohorts.id",
+                "cohorts.name",
+                "cohorts.plannedCompletionNumber.id"
+            ]
+        },
+        "Scope": {
+            "Entities": {
+                "Include": [
+                    "StudyDesignPopulation"
+                ]
+            }
+        },
+        "Sensitivity": "Record",
+        "Rule_Type": "Record Data"
+    },
+    "datasets": [],
+    "codelists": []
+}

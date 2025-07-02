@@ -2,37 +2,42 @@
     "check_func" : function($data)
          {
 	    ($data.**.studyDesigns)@$sd.
-    		$sd.population@$p.
-    		   $p.
-		   [
-   			($NullCohort:=function(){null in cohorts.plannedCompletionNumber};
-    			$InCohort:=function(){$boolean(cohorts.plannedCompletionNumber)};
-    			$InPop:=function(){plannedCompletionNumber != null};
-   			$ChkX:=function()
-				{
-       					($InPop()=true and $InCohort()=true) 
-       					or ($InPop()=false and $NullCohort()=true and $InCohort()=true)
-				};
-				{
-                            		"parent_entity": $sd.instanceType,
-                            		"parent_id": $sd.id,
-                            		"instanceType": $p.instanceType,
-                            		"id": $p.id,
-                            		"name": $p.name,
-                           		"plannedEnrollmentNumber.id": $p.plannedEnrollmentNumber.id,
-                            		"cohort.plannedEnrolmentNumber.ids":$p.cohorts.plannedNerollmentNumber.id,
-                            		"check":$ChkX()
-                            	}
-			)
-		   ]
-		   [check=true]
+    	            $sd.population@$p.
+   	                $p.
+   	                    [
+   	                        ($NullCohort:=function(){"null" in cohorts.$type(plannedCompletionNumber)}; 
+   	                         $InCohort:=function(){$boolean(cohorts.plannedCompletionNumber)};      
+   	                         $InPop:=function(){$type(plannedCompletionNumber) != "null"};           
+   	                             $ChkX:=function()
+   	                                 {
+   	            	                     ($InPop()=true and $InCohort()=true)                            
+   	            	                      or ($InPop()=false and $NullCohort()=true and $InCohort()=true) 
+   	                                  };
+   	            		          {
+   	                                      "studyDesigns.id": $sd.id,
+   	                                      "studyDesigns.name": $sd.name,
+   	                                      "population.id": $p.id,
+   	                                      "population.name": $p.name,
+   	                                      "population.plannedCompletionNumber.id": $p.plannedCompletionNumber.id,
+   	                                      "cohorts.id":$p.cohorts.id,
+   	                                      "cohorts.name": $p.cohorts.name,
+   	                                      "cohorts.plannedCompletionNumber.id":$p.cohorts.plannedCompletionNumber.id,
+   	                                      "check":$ChkX()
+   	                                   }
+   	            	          )
+   	                    ]
+   	                    [check=true]
            },
-    "message": "Planned completion number has not been specified for either the study population or all the cohorts, or it has been specified for both.",
+    "message": "A planned completion number has been specified for both the study population and the cohorts, or it has been specified for only a subset of the cohorts.",
     "variables": 
         [
-            "parent_id",
-            "parent_entity",
-            "id",
-            "name"
+            "studyDesigns.id",
+            "studyDesigns.name",
+            "population.id",
+            "population.name",
+	    "population.plannedCompletionNumber.id",
+	    "cohorts.id",
+	    "cohorts.name",
+	    "cohorts.plannedCompletionNumber.id"
         ]                        
 }
