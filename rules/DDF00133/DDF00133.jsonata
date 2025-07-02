@@ -28,7 +28,7 @@
 		                ]
 		                [check=true]
            },
-    "message": "Planned enrollment number has been specified for both the study population or all the cohorts, or it has been defined for only a subset of the cohorts.",
+    "message": "Planned enrollment number has been specified for both the study population and the cohorts, or it has been specified for only a subset of the cohorts.",
     "variables": 
         [
             "studyDesigns.id",
