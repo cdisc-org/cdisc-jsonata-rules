@@ -1,0 +1,89 @@
+{
+    "rule": {
+        "Authorities": [
+            {
+                "Organization": "CDISC",
+                "Standards": [
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "Within a study design, if a planned enrollment number is defined, it must be specified either in the study population or in all cohorts."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00133",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "3.0"
+                    },
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "Within a study design, if a planned enrollment number is defined, it must be specified either in the study population or in all cohorts."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00133",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "4.0"
+                    }
+                ]
+            }
+        ],
+        "Check": {
+            "all": [
+                {
+                    "operator": "($data.**.studyDesigns)@$sd.\n    $sd.population@$p.\n        $p.\n          [\n                  (\n                $NullCohort:=function(){\"null\" in cohorts.$type(plannedEnrollmentNumber)}; \n                  $InCohort:=function(){$boolean(cohorts.plannedEnrollmentNumber)};      \n                  $InPop:=function(){$type(plannedEnrollmentNumber) != \"null\"};           \n                    $ChkX:=function()\n                    {\n                        (\n                            $InPop()=true and\n                            $InCohort()=true\n                        ) or \n                        (\n                            $InPop()=false and\n                            $NullCohort()=true and\n                            $InCohort()=true\n                        ) \n                    };\n                    {\n                        \"studyDesigns.id\": $sd.id,\n                        \"studyDesigns.name\": $sd.name,\n                        \"population.id\": $p.id,\n                        \"population.name\": $p.name,\n                        \"population.plannedEnrollmentNumber.id\": $p.plannedEnrollmentNumber.id,\n                        \"cohorts.id\":$p.cohorts.id,\n                        \"cohorts.name\": $p.cohorts.name,\n                        \"cohorts.plannedEnrollmentNumber.id\":$p.cohorts.plannedEnrollmentNumber.id,\n                        \"check\":$ChkX()\n                    }\n                  )\n            ]\n            [check=true]"
+                }
+            ]
+        },
+        "Core": {
+            "Id": "",
+            "Status": "Draft",
+            "Version": "1"
+        },
+        "Description": "Within a study design, if a planned enrollment number is defined, it must be specified either in the study population or in all cohorts.",
+        "Executability": "Fully Executable",
+        "Outcome": {
+            "Message": "\"Planned enrollment number has been specified for both the study population and the cohorts, or it has been specified for only a subset of the cohorts.",
+            "Output_Variables": [
+                "studyDesigns.id",
+                "studyDesigns.name",
+                "population.id",
+                "population.name",
+                "population.plannedEnrollmentNumber.id",
+                "cohorts.id",
+                "cohorts.name",
+                "cohorts.plannedEnrollmentNumber.id"
+            ]
+        },
+        "Scope": {
+            "Entities": {
+                "Include": [
+                    "StudyDesignPopulation"
+                ]
+            }
+        },
+        "Sensitivity": "Record",
+        "Rule_Type": "Record Data"
+    },
+    "datasets": [],
+    "codelists": []
+}
