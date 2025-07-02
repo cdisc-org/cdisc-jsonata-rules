@@ -1,0 +1,66 @@
+{
+    "rule": {
+        "Authorities": [
+            {
+                "Organization": "CDISC",
+                "Standards": [
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "Referenced items in the narrative content item texts must be available elsewhere in the data model."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00244",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "4.0"
+                    }
+                ]
+            }
+        ],
+        "Check": {
+            "all": [
+                {
+                    "operator": "($data.study.versions)@$sv.\n    ($sv.narrativeContentItems[$contains(text,/usdm:ref/)])@$nci.\n        $match( $nci.text,\n                /<usdm:ref([^>]*)(\\/>|><\\/usdm:ref>)/\n        )@$ref.\n        (\n            $g0_or_null := function($m){$m ? $m.groups[0] : null};\n            {\n                \"StudyVersion.id\": $sv.id,\n                \"StudyVersion.name\": $sv.name,\n                \"id\": $nci.id,\n                \"name\": $nci.name,\n                \"text\": {\n                            \"value\": $nci.text,\n                            \"usdm_ref\": {\n                                            \"match\": $ref.match,\n                                            \"klass\": $match($ref.groups[0],/klass=\\\"([a-zA-Z]+)\\\"/) ~> $g0_or_null(),\n                                            \"id\": $match($ref.groups[0],/id=\\\"(\\w+)\\\"/) ~> $g0_or_null(),\n                                            \"attribute\": $match($ref.groups[0],/attribute=\\\"([a-zA-Z]+)\\\"/) ~> $g0_or_null()\n                                        }\n                },                            \n                \"instanceType\": $nci.instanceType\n            }\n        )\n        ~>  $map(function($v)\n                {\n                    (\n                        $ref_val := \"usdm_ref\" in $keys($v.text)\n                                    ? $utils.get_ref_value($v.text.usdm_ref,$data,\"!!NOT FOUND!!\")\n                                    : $v.text.value;\n                        $v ~> |$|{\"Referenced Value\": $ref_val}|\n                    )\n                }\n            )\n        ~>  $filter(function($v)\n                {\n                    $v.`Referenced Value` = \"!!NOT FOUND!!\"\n                }\n            )"
+                }
+            ]
+        },
+        "Core": {
+            "Id": "",
+            "Status": "Draft",
+            "Version": "1"
+        },
+        "Description": "Referenced items in the narrative content item texts must be available elsewhere in the data model.",
+        "Executability": "Fully Executable",
+        "Outcome": {
+            "Message": "The item referenced in the narrative content item text is not available elsewhere in the model.",
+            "Output_Variables": [
+                "StudyVersion.id",
+                "StudyVersion.name",
+                "id",
+                "name",
+                "text"
+            ]
+        },
+        "Scope": {
+            "Entities": {
+                "Include": [
+                    "NarrativeContentItem"
+                ]
+            }
+        },
+        "Sensitivity": "Record",
+        "Rule_Type": "JSONata"
+    },
+    "datasets": [],
+    "codelists": []
+}
