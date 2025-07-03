@@ -1,0 +1,60 @@
+{
+    "check_func" : function($data)
+         {
+	    ($data.**.studyDesigns)@$sd.
+    	            $sd.population@$p.
+   	                $p.
+   	                    [
+   	                        ($InCohortQ:=function(){$boolean(cohorts.plannedEnrollmentNumber.unit)};      
+   	                         $InCohortR:=function(){$boolean(cohorts.plannedEnrollmentNumber.minValue.unit) 
+                                                             or $boolean(cohorts.plannedEnrollmentNumber.maxValue.unit)};
+                             $InPopQ:=function(){$boolean(plannedEnrollmentNumber.unit)};      
+   	                         $InPopR:=function(){$boolean(plannedEnrollmentNumber.minValue.unit) 
+                                                             or $boolean(plannedEnrollmentNumber.maxValue.unit)};
+                                $ChkX:=function()
+   	                                 {(($InCohortQ()=true or $InCohortR()) and ($InPopQ()=true or $InPopR()=true)) ? "Unit in 1 or more cohort and in population numbers" 
+                                        : ($InCohortQ()=true or $InCohortR()=true) ? "Unit in 1 or more cohort numbers"
+                                        : ($InPopQ()=true or $InPopR()) ? "Unit in population number" : "No unit" };
+   	            		          {
+   	                                      "studyDesigns.id": $sd.id,
+   	                                      "studyDesigns.name": $sd.name,
+   	                                      "population.id": $p.id,
+   	                                      "population.name": $p.name,
+   	                                      "population.plannedEnrollmentNumber.id": $p.plannedEnrollmentNumber.id,
+   	                                      "population.plannedEnrollmentNumber.unit":  $p.plannedEnrollmentNumber.unit.standardCode.decode,
+   	                                      "population.plannedEnrollmentNumber.minValue.unit": $p.plannedEnrollmentNumber.minValue.unit.standardCode.decode,
+   	                                      "population.plannedEnrollmentNumber.maxValue.unit": $p.plannedEnrollmentNumber.maxValue.unit.standardCode.decode,
+   	                                      "cohorts.id":$p.cohorts.id,
+   	                                      "cohorts.name": $p.cohorts.name,
+   	                                      "cohorts.plannedEnrollmentNumber.id":$p.cohorts.plannedEnrollmentNumber.id,
+   	                                      "cohorts.plannedEnrollmentNumber.unit":  $p.cohorts.plannedEnrollmentNumber.unit.standardCode.decode,
+   	                                      "cohorts.plannedEnrollmentNumber.minValue.unit": $p.cohorts.{id: plannedEnrollmentNumber.minValue.unit.standardCode.decode},
+   	                                      "cohorts.plannedEnrollmentNumber.maxValue.unit": $p.cohorts.{id: plannedEnrollmentNumber.maxValue.unit.standardCode.decode},
+   	                                      "output":$ChkX()
+   	                                   }
+   	            	          )
+   	                    ]
+   	                    [output != "No unit"]
+
+           },
+    "message": "A unit has been specified for a planned enrollment number.",
+    "variables": 
+        [
+            "studyDesigns.id",
+            "studyDesigns.name",
+            "population.id",
+            "population.name",
+   	    "population.plannedEnrollmentNumber.id",
+   	    "population.plannedEnrollmentNumber.unit",
+   	    "population.plannedEnrollmentNumber.minValue.unit",
+   	    "population.plannedEnrollmentNumber.maxValue.unit",
+   	    "cohorts.id",
+   	    "cohorts.name",
+   	    "cohorts.plannedEnrollmentNumber.id",
+   	    "cohorts.plannedEnrollmentNumber.unit",
+   	    "cohorts.plannedEnrollmentNumber.minValue.unit",
+   	    "cohorts.plannedEnrollmentNumber.maxValue.unit",
+   	    "output"
+
+        ]                        
+}
