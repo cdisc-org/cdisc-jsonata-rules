@@ -3,6 +3,16 @@
                 {
                     (
                         $errors := $append(null,$rule.check_func($data));
+                        $rule_applies := function($instyp,$rs)
+                                            {
+                                                (
+                                                    $incent := [$rs.Include];
+                                                    $excent := [$rs.Exclude];
+                                                    $is_inc := $instyp in $incent or "ALL" in $incent;
+                                                    $is_exc := $instyp in $excent or "ALL" in $excent;
+                                                    $is_inc and $not($is_exc)
+                                                )
+                                            };
                         $data.**.instanceType@$it.($errors)
                             {
                                 $it: 
@@ -13,25 +23,31 @@
                             } ~> |*|
                                     (
                                         $class := $.class;
-                                        $class in $errors.instanceType 
-                                            ? 
-                                                {
-                                                    "message": $rule.message,
-                                                    "errors" : $map($errors[instanceType = $class],
-                                                                    function($obj)
-                                                                        {
-                                                                            $merge($map($rule.variables, function($var)
-                                                                                    {
-                                                                                        {
-                                                                                            $var: $var in $keys($obj) ? $lookup($obj,$var) : "Not in output"
-                                                                                        }
-                                                                                    }
-                                                                                )
-                                                                            )
-                                                                        }
-                                                                )
+                                        $rule_applies($class,$rule.scope)
+                                            ?
+                                                $class in $errors.instanceType 
+                                                    ? 
+                                                        {
+                                                            "message": $rule.message,
+                                                            "errors" : $map($errors[instanceType = $class],
+                                                                            function($obj)
+                                                                                {
+                                                                                    $merge($map($rule.variables, function($var)
+                                                                                            {
+                                                                                                {
+                                                                                                    $var: $var in $keys($obj) ? $lookup($obj,$var) : "Not in output"
+                                                                                                }
+                                                                                            }
+                                                                                        )
+                                                                                    )
+                                                                                }
+                                                                        )
+                                                        }
+                                                    : {}
+                                            :   {
+                                                    "executionStatus": "skipped",
+                                                    "message": "Rule skipped - doesn't apply to entity for rule id=, dataset=" & $class
                                                 }
-                                            : {}
                                     )|
                     )
                 }
