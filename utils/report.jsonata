@@ -20,35 +20,37 @@
                                         "executionStatus": "success",
                                         "class": $it[0]
                                     }
-                            } ~> |*|
-                                    (
-                                        $class := $.class;
-                                        $rule_applies($class,$rule.scope)
-                                            ?
-                                                $class in $errors.instanceType 
-                                                    ? 
-                                                        {
-                                                            "message": $rule.message,
-                                                            "errors" : $map($errors[instanceType = $class],
-                                                                            function($obj)
-                                                                                {
-                                                                                    $merge($map($rule.variables, function($var)
+                            } 
+                            ~> |*|
+                                (
+                                    $class := $.class;
+                                    $rule_applies($class,$rule.scope)
+                                        ?
+                                            $class in $errors.instanceType 
+                                                ? 
+                                                    {
+                                                        "message": $rule.message,
+                                                        "errors" : $map($errors[instanceType = $class],
+                                                                        function($obj)
+                                                                            {
+                                                                                $merge($map($rule.variables, function($var)
+                                                                                        {
                                                                                             {
-                                                                                                {
-                                                                                                    $var: $var in $keys($obj) ? $lookup($obj,$var) : "Not in output"
-                                                                                                }
+                                                                                                $var: $var in $keys($obj) ? $lookup($obj,$var) : "Not in output"
                                                                                             }
-                                                                                        )
+                                                                                        }
                                                                                     )
-                                                                                }
-                                                                        )
-                                                        }
-                                                    : {}
-                                            :   {
-                                                    "executionStatus": "skipped",
-                                                    "message": "Rule skipped - doesn't apply to entity for rule id=, dataset=" & $class
-                                                }
-                                    )|
+                                                                                )
+                                                                            }
+                                                                    )
+                                                    }
+                                                : {}
+                                        :   {
+                                                "executionStatus": "skipped",
+                                                "message": "Rule skipped - doesn't apply to entity for rule id=, dataset=" & $class
+                                            }
+                                )|
+                            ~> $spread() ~> $sort(function($l,$r){$keys($l)[0]>$keys($r)[0]}) ~> $merge()
                     )
                 }
 }
