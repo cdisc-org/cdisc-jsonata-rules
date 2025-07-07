@@ -1,0 +1,87 @@
+{
+    "rule": {
+        "Authorities": [
+            {
+                "Organization": "CDISC",
+                "Standards": [
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "Within a study design, if study type is Interventional then at least one intervention is expected to be referenced from a procedure."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00101",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "3.0"
+                    },
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "Within a study design, if study type is Interventional then at least one intervention is expected to be referenced from a procedure."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00101",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "4.0"
+                    }
+                ]
+            }
+        ],
+        "Check": {
+            "all": [
+                {
+                    "operator": "($data.study.versions)@$sv.\n    ($sv.studyDesigns[studyType.code = \"C98388\"])@$sd.\n            {\n                \"id\": $sd.id,\n                \"name\": $sd.name,\n                \"studyType.code\": $sd.studyType.code,\n                \"studyType.decode\": $sd.studyType.decode,\n                \"Study Interventions\": $count($sd.activities.definedProcedures[studyInterventionId in $sv.studyInterventions.id]),\n                \"instanceType\": $sd.instanceType\n            }[`Study Interventions` < 1]"
+                }
+            ]
+        },
+        "Core": {
+            "Id": "",
+            "Status": "Draft",
+            "Version": "1"
+        },
+        "Description": "Within a study design, if study type is Interventional then at least one intervention is expected to be referenced from a procedure.",
+        "Executability": "Partially Executable - Possible Overreporting",
+        "Outcome": {
+            "Message": "The study type is Interventional but a study intervention is not referenced from any procedure.",
+            "Output_Variables": [
+                "id",
+                "name",
+                "studyType.code",
+                "studyType.decode",
+                "Study Interventions"
+            ]
+        },
+        "Scope": {
+            "Entities": {
+                "Include": [
+                    "StudyDesign",
+                    "InterventionalStudyDesign"
+                ]
+            }
+        },
+        "Sensitivity": "Record",
+        "Rule_Type": "JSONata"
+    },
+    "datasets": [],
+    "codelists": []
+}

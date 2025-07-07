@@ -1,0 +1,28 @@
+{
+    "check_func" : function($data)
+                {
+                    ($data.study.versions)@$sv.
+                        ($sv.studyDesigns[studyType.code = "C98388"])@$sd.
+                                {
+                                    "id": $sd.id,
+                                    "name": $sd.name,
+                                    "studyType.code": $sd.studyType.code,
+                                    "studyType.decode": $sd.studyType.decode,
+                                    "Study Interventions": $count($sd.activities.definedProcedures[studyInterventionId in $sv.studyInterventions.id]),
+                                    "instanceType": $sd.instanceType
+                                }[`Study Interventions` < 1]
+                },
+    "message": "The study type is Interventional but a study intervention is not referenced from any procedure.",
+    "variables": [
+            "id",
+            "name",
+            "studyType.code",
+            "studyType.decode",
+            "Study Interventions"
+        ],
+    "scope": {
+        "Include": [
+            "InterventionalStudyDesign"
+        ]
+    }
+}
