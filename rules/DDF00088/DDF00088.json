@@ -1,0 +1,90 @@
+{
+    "rule": {
+        "Authorities": [
+            {
+                "Organization": "CDISC",
+                "Standards": [
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "Epoch ordering using previous and next attributes is expected to be consistent with the order of corresponding scheduled activity instances according to their specified default conditions."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00088",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "3.0"
+                    },
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "Epoch ordering using previous and next attributes is expected to be consistent with the order of corresponding scheduled activity instances according to their specified default conditions."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00088",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "4.0"
+                    }
+                ]
+            }
+        ],
+        "Check": {
+            "all": [
+                {
+                    "operator": "($data.study.versions)@$sv.\n    ($sv.studyDesigns)@$sd.\n        ($sd.scheduleTimelines[mainTimeline = true])@$st.\n            (\n                $actord := $utils.parse_refs(\"nextId\",\"next\",$sd.epochs)\n                            [previousId = null].$append(id,**.next.id);\n                $reford := $utils.parse_refs(\"defaultConditionId\",\"defaultCondition\",$st.instances)\n                            [id = $st.entryId].**[instanceType=\"ScheduledActivityInstance\" and epochId in $sd.epochs.id].epochId\n                            ~> $utils.del_reps;\n                $epoch := function($id){($e:=$sd.epochs[id=$id];$id & \" [\" & $e.name & \"]\")};\n                {\n                    \"id\": $sd.id,\n                    \"name\": $sd.name,\n                    \"ScheduleTimeline.id\": $st.id,\n                    \"ScheduleTimeline.name\": $st.name,\n                    \"ScheduleTimeline.mainTimeline\": $st.mainTimeline,\n                    \"Epoch order\": $actord ~> $map($epoch),\n                    \"Referenced epoch order\": $reford ~> $map($epoch),\n                    \"instanceType\": $sd.instanceType\n                }[`Epoch order` != `Referenced epoch order`]\n            )"
+                }
+            ]
+        },
+        "Core": {
+            "Id": "",
+            "Status": "Draft",
+            "Version": "1"
+        },
+        "Description": "Epoch ordering using previous and next attributes is expected to be consistent with the order of corresponding scheduled activity instances according to their specified default conditions.",
+        "Executability": "Partially Executable - Possible Overreporting",
+        "Outcome": {
+            "Message": "The order of the epochs in the study design (as defined by the next attribute) does not match the order of epochs as referenced from scheduled activity instances in the main timeline that are ordered by default condition.",
+            "Output_Variables": [
+                "id",
+                "name",
+                "ScheduleTimeline.id",
+                "ScheduleTimeline.name",
+                "ScheduleTimeline.mainTimeline",
+                "Epoch order",
+                "Referenced epoch order"
+            ]
+        },
+        "Scope": {
+            "Entities": {
+                "Include": [
+                    "StudyDesign",
+                    "InterventionalStudyDesign",
+                    "ObservationalStudyDesign"
+                ]
+            }
+        },
+        "Sensitivity": "Record",
+        "Rule_Type": "Record Data"
+    },
+    "datasets": [],
+    "codelists": []
+}
