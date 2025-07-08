@@ -30,6 +30,7 @@
                                 "cohorts.id":$p.cohorts.id,
                                 "cohorts.name": $p.cohorts.name,
                                 "cohorts.plannedEnrollmentNumber.id":$p.cohorts.plannedEnrollmentNumber.id,
+                                "instanceType": $p.instanceType,
                                 "check":$ChkX()
                             }
                           )
@@ -43,9 +44,14 @@
             "studyDesigns.name",
             "population.id",
             "population.name",
-	    "population.plannedEnrollmentNumber.id",
-	    "cohorts.id",
-	    "cohorts.name",
-	    "cohorts.plannedEnrollmentNumber.id"
-        ]                        
+            "population.plannedEnrollmentNumber.id",
+            "cohorts.id",
+            "cohorts.name",
+            "cohorts.plannedEnrollmentNumber.id"
+        ],
+    "scope": {
+        "Include": [
+            "StudyDesignPopulation"
+        ]
+    }        
 }

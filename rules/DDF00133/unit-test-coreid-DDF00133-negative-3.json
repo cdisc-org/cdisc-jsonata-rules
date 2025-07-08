@@ -10,9 +10,7 @@
         "extensionAttributes": [],
         "versionIdentifier": "2",
         "rationale": "<p>The principal aim of this exploratory study is to investigate the effects of ALXN1840 on copper balance in participants with Wilson disease (WD). The study will specifically evaluate the effects of 2 different ALXN1840 doses as well as the duration of treatment on copper balance to further elucidate the dose response of \u201cdecoppering\u201d versus \u201cmaintenance\u201d dose in participants with WD.</p>\n<p>The secondary aim of the study is to characterize the steady-state absorption, distribution, metabolism, and excretion (ADME; mass balance) of total molybdenum which is a surrogate measure of ALXN1840 disposition in participants with WD.</p>\n<p>ALXN1840 contains the active anion tetrathiomolybdate and has been shown to cause negative copper balance when administered to healthy animals as well as decopper the liver in animal models of WD. In Study WTX101-201, which assessed the safety and efficacy of ALXN1840 in participants with WD, ALXN1840 demonstrated enhanced copper control as measured by reduced plasma non-ceruloplasmin-bound copper (NCC) corrected (NCCcorrected ) for the stable tetrathiomolybdate- copper -albumin tripartite complex (TPC).</p>\n<p>Depletion of copper by ALXN1840 has been shown to occur primarily through fecal elimination in both healthy and WD animal models. In this study, copper balance will be calculated as the difference between measured copper input in food and drink and measured copper output in urine and feces. This method is classically considered the most objective measure of decoppering ability with a decoppering agent able to drive a net negative copper balance.</p>\n<p>As part of the secondary objective, to confirm that ALXN1840 steady state is adequately characterized by the plasma pharmacokinetics (PK), a molybdenum mass balance assessment will be performed at predicted steady state for the 15 mg/day and 30 mg/day doses: if steady state is achieved, molybdenum(out) will equal molybdenum(in). This approach may also detect potential accumulation in the liver or other tissues of participants with WD.</p>",
-        "documentVersionIds": [
-          "StudyDefinitionDocumentVersion_1"
-        ],
+        "documentVersionIds": ["StudyDefinitionDocumentVersion_1"],
         "dateValues": [],
         "amendments": [
           {
@@ -3895,11 +3893,7 @@
                 "description": "Enrollment grouping activity",
                 "previousId": "Activity_15",
                 "nextId": "Activity_16",
-                "childIds": [
-                  "Activity_16",
-                  "Activity_17",
-                  "Activity_18"
-                ],
+                "childIds": ["Activity_16", "Activity_17", "Activity_18"],
                 "definedProcedures": [],
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
@@ -3967,11 +3961,7 @@
                 "description": "Administration of Study Intervention grouping activity",
                 "previousId": "Activity_18",
                 "nextId": "Activity_19",
-                "childIds": [
-                  "Activity_19",
-                  "Activity_20",
-                  "Activity_21"
-                ],
+                "childIds": ["Activity_19", "Activity_20", "Activity_21"],
                 "definedProcedures": [],
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
@@ -4039,9 +4029,7 @@
                 "description": "PK/PD Analyses grouping activity",
                 "previousId": "Activity_21",
                 "nextId": "Activity_22",
-                "childIds": [
-                  "Activity_22"
-                ],
+                "childIds": ["Activity_22"],
                 "definedProcedures": [],
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
@@ -4354,9 +4342,7 @@
                 "description": "Other grouping activity",
                 "previousId": "Activity_34",
                 "nextId": "Activity_35",
-                "childIds": [
-                  "Activity_35"
-                ],
+                "childIds": ["Activity_35"],
                 "definedProcedures": [],
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
@@ -4437,9 +4423,7 @@
                 "extensionAttributes": [],
                 "armId": "StudyArm_1",
                 "epochId": "StudyEpoch_1",
-                "elementIds": [
-                  "StudyElement_1"
-                ],
+                "elementIds": ["StudyElement_1"],
                 "instanceType": "StudyCell"
               },
               {
@@ -4447,9 +4431,7 @@
                 "extensionAttributes": [],
                 "armId": "StudyArm_1",
                 "epochId": "StudyEpoch_2",
-                "elementIds": [
-                  "StudyElement_2"
-                ],
+                "elementIds": ["StudyElement_2"],
                 "instanceType": "StudyCell"
               },
               {
@@ -4457,9 +4439,7 @@
                 "extensionAttributes": [],
                 "armId": "StudyArm_1",
                 "epochId": "StudyEpoch_3",
-                "elementIds": [
-                  "StudyElement_3"
-                ],
+                "elementIds": ["StudyElement_3"],
                 "instanceType": "StudyCell"
               },
               {
@@ -4467,9 +4447,7 @@
                 "extensionAttributes": [],
                 "armId": "StudyArm_1",
                 "epochId": "StudyEpoch_4",
-                "elementIds": [
-                  "StudyElement_4"
-                ],
+                "elementIds": ["StudyElement_4"],
                 "instanceType": "StudyCell"
               }
             ],
@@ -4662,9 +4640,7 @@
                 "instanceType": "Indication"
               }
             ],
-            "studyInterventionIds": [
-              "StudyIntervention_1"
-            ],
+            "studyInterventionIds": ["StudyIntervention_1"],
             "objectives": [
               {
                 "id": "Objective_1",
@@ -5277,12 +5253,12 @@
               "description": "Patients with Wilson's Disease",
               "includesHealthySubjects": false,
               "plannedEnrollmentNumber": {
-						"id": "Quantity_102",
-						"extensionAttributes": [],
-						"value": 20.0,
-						"unit": null,
-						"instanceType": "Quantity"
-					},
+                "id": "Quantity_102",
+                "extensionAttributes": [],
+                "value": 20.0,
+                "unit": null,
+                "instanceType": "Quantity"
+              },
               "plannedCompletionNumber": {
                 "id": "Quantity_10",
                 "extensionAttributes": [],
@@ -5393,12 +5369,12 @@
                   "description": "Treatment experienced",
                   "includesHealthySubjects": false,
                   "plannedEnrollmentNumber": {
-						"id": "Quantity_101",
-						"extensionAttributes": [],
-						"value": 10.0,
-						"unit": null,
-						"instanceType": "Quantity"
-					},
+                    "id": "Quantity_101",
+                    "extensionAttributes": [],
+                    "value": 10.0,
+                    "unit": null,
+                    "instanceType": "Quantity"
+                  },
                   "plannedCompletionNumber": null,
                   "plannedSex": [],
                   "criterionIds": [],
@@ -5428,12 +5404,12 @@
                   "description": "Treatment na\u00efve",
                   "includesHealthySubjects": false,
                   "plannedEnrollmentNumber": {
-						"id": "Quantity_103",
-						"extensionAttributes": [],
-						"value": 20.0,
-						"unit": null,
-						"instanceType": "Quantity"
-					},
+                    "id": "Quantity_103",
+                    "extensionAttributes": [],
+                    "value": 20.0,
+                    "unit": null,
+                    "instanceType": "Quantity"
+                  },
                   "plannedCompletionNumber": null,
                   "plannedSex": [],
                   "criterionIds": [],
@@ -7238,9 +7214,7 @@
                     "instanceType": "ScheduledActivityInstance",
                     "timelineId": null,
                     "timelineExitId": null,
-                    "activityIds": [
-                      "Activity_18"
-                    ],
+                    "activityIds": ["Activity_18"],
                     "encounterId": "Encounter_2"
                   },
                   {
@@ -7304,9 +7278,7 @@
                     "instanceType": "ScheduledActivityInstance",
                     "timelineId": null,
                     "timelineExitId": null,
-                    "activityIds": [
-                      "Activity_35"
-                    ],
+                    "activityIds": ["Activity_35"],
                     "encounterId": null
                   },
                   {
@@ -8421,9 +8393,7 @@
                     "instanceType": "ScheduledActivityInstance",
                     "timelineId": null,
                     "timelineExitId": "ScheduleTimelineExit_1",
-                    "activityIds": [
-                      "Activity_29"
-                    ],
+                    "activityIds": ["Activity_29"],
                     "encounterId": null
                   }
                 ],
@@ -8903,9 +8873,7 @@
                     "instanceType": "ScheduledActivityInstance",
                     "timelineId": null,
                     "timelineExitId": null,
-                    "activityIds": [
-                      "Activity_36"
-                    ],
+                    "activityIds": ["Activity_36"],
                     "encounterId": null
                   },
                   {
@@ -8947,9 +8915,7 @@
                     "instanceType": "ScheduledActivityInstance",
                     "timelineId": null,
                     "timelineExitId": null,
-                    "activityIds": [
-                      "Activity_36"
-                    ],
+                    "activityIds": ["Activity_36"],
                     "encounterId": null
                   },
                   {
@@ -8977,9 +8943,7 @@
                     "instanceType": "ScheduledActivityInstance",
                     "timelineId": null,
                     "timelineExitId": null,
-                    "activityIds": [
-                      "Activity_36"
-                    ],
+                    "activityIds": ["Activity_36"],
                     "encounterId": null
                   },
                   {
@@ -8993,9 +8957,7 @@
                     "instanceType": "ScheduledActivityInstance",
                     "timelineId": null,
                     "timelineExitId": null,
-                    "activityIds": [
-                      "Activity_36"
-                    ],
+                    "activityIds": ["Activity_36"],
                     "encounterId": null
                   },
                   {
@@ -9009,9 +8971,7 @@
                     "instanceType": "ScheduledActivityInstance",
                     "timelineId": null,
                     "timelineExitId": null,
-                    "activityIds": [
-                      "Activity_36"
-                    ],
+                    "activityIds": ["Activity_36"],
                     "encounterId": null
                   },
                   {
@@ -9025,9 +8985,7 @@
                     "instanceType": "ScheduledActivityInstance",
                     "timelineId": null,
                     "timelineExitId": null,
-                    "activityIds": [
-                      "Activity_36"
-                    ],
+                    "activityIds": ["Activity_36"],
                     "encounterId": null
                   },
                   {
@@ -9041,9 +8999,7 @@
                     "instanceType": "ScheduledActivityInstance",
                     "timelineId": null,
                     "timelineExitId": null,
-                    "activityIds": [
-                      "Activity_36"
-                    ],
+                    "activityIds": ["Activity_36"],
                     "encounterId": null
                   },
                   {
@@ -9057,9 +9013,7 @@
                     "instanceType": "ScheduledActivityInstance",
                     "timelineId": null,
                     "timelineExitId": "ScheduleTimelineExit_3",
-                    "activityIds": [
-                      "Activity_36"
-                    ],
+                    "activityIds": ["Activity_36"],
                     "encounterId": null
                   }
                 ],
@@ -11210,9 +11164,7 @@
             },
             "appliesToIds": [],
             "assignedPersons": [],
-            "organizationIds": [
-              "Organization_1"
-            ],
+            "organizationIds": ["Organization_1"],
             "masking": {
               "id": "Masking_1",
               "extensionAttributes": [],
@@ -11245,9 +11197,7 @@
               "id": "Address_1",
               "extensionAttributes": [],
               "text": "121 Seaport Boulevard, Boston, , MA, 02210, United States of America",
-              "lines": [
-                "121 Seaport Boulevard"
-              ],
+              "lines": ["121 Seaport Boulevard"],
               "city": "Boston",
               "district": "",
               "state": "MA",
@@ -11286,9 +11236,7 @@
               "id": "Address_2",
               "extensionAttributes": [],
               "text": "8600 Rockville Pike, Bethesda, , MD, 20894, United States of America",
-              "lines": [
-                "8600 Rockville Pike"
-              ],
+              "lines": ["8600 Rockville Pike"],
               "city": "Bethesda",
               "district": "",
               "state": "MD",
@@ -11327,9 +11275,7 @@
               "id": "Address_3",
               "extensionAttributes": [],
               "text": "Domenico Scarlattilaan 6, Amsterdam, , , 1083 HS, Netherlands",
-              "lines": [
-                "Domenico Scarlattilaan 6"
-              ],
+              "lines": ["Domenico Scarlattilaan 6"],
               "city": "Amsterdam",
               "district": "",
               "state": "",
@@ -11368,9 +11314,7 @@
               "id": "Address_4",
               "extensionAttributes": [],
               "text": "10903 New Hampshire Ave, Silver Spring, , MD, 20903, United States of America",
-              "lines": [
-                "10903 New Hampshire Ave"
-              ],
+              "lines": ["10903 New Hampshire Ave"],
               "city": "Silver Spring",
               "district": "",
               "state": "MD",
@@ -11409,9 +11353,7 @@
               "id": "Address_5",
               "extensionAttributes": [],
               "text": "line, city, district, state, postal_code, United Kingdom of Great Britain and Northern Ireland",
-              "lines": [
-                "line"
-              ],
+              "lines": ["line"],
               "city": "city",
               "district": "district",
               "state": "state",
@@ -11703,9 +11645,7 @@
             "extensionAttributes": [],
             "name": "Subject Age",
             "label": "Subject Age",
-            "synonyms": [
-              "Age"
-            ],
+            "synonyms": ["Age"],
             "reference": "/mdr/bc/packages/2025-04-01/biomedicalconcepts/C69260",
             "properties": [
               {
@@ -11929,9 +11869,7 @@
             "extensionAttributes": [],
             "name": "Race",
             "label": "Race",
-            "synonyms": [
-              "Racial Group"
-            ],
+            "synonyms": ["Racial Group"],
             "reference": "/mdr/bc/packages/2025-04-01/biomedicalconcepts/C17049",
             "properties": [
               {
@@ -12012,11 +11950,7 @@
             "extensionAttributes": [],
             "name": "Ethnicity",
             "label": "Ethnicity",
-            "synonyms": [
-              "Ethnicity",
-              "Ethnic Origin",
-              "Ethnic Group"
-            ],
+            "synonyms": ["Ethnicity", "Ethnic Origin", "Ethnic Group"],
             "reference": "/mdr/specializations/sdtm/packages/2025-04-01/datasetspecializations/ETHNIC",
             "properties": [
               {
@@ -12097,10 +12031,7 @@
             "extensionAttributes": [],
             "name": "Weight",
             "label": "Weight",
-            "synonyms": [
-              "WEIGHT",
-              "Body Weight"
-            ],
+            "synonyms": ["WEIGHT", "Body Weight"],
             "reference": "/mdr/specializations/sdtm/packages/2024-12-16/datasetspecializations/WEIGHT",
             "properties": [
               {
@@ -12287,10 +12218,7 @@
             "extensionAttributes": [],
             "name": "Height",
             "label": "Height",
-            "synonyms": [
-              "HEIGHT",
-              "Body Height"
-            ],
+            "synonyms": ["HEIGHT", "Body Height"],
             "reference": "/mdr/specializations/sdtm/packages/2024-12-16/datasetspecializations/HEIGHT",
             "properties": [
               {
@@ -12477,11 +12405,7 @@
             "extensionAttributes": [],
             "name": "Body Mass Index",
             "label": "Body Mass Index",
-            "synonyms": [
-              "BMI",
-              "Quetelet Index",
-              "Body Mass Index"
-            ],
+            "synonyms": ["BMI", "Quetelet Index", "Body Mass Index"],
             "reference": "/mdr/specializations/sdtm/packages/2024-12-16/datasetspecializations/BMI",
             "properties": [
               {
@@ -12651,10 +12575,7 @@
             "extensionAttributes": [],
             "name": "Temperature",
             "label": "Temperature",
-            "synonyms": [
-              "Temperature",
-              "Body Temperature"
-            ],
+            "synonyms": ["Temperature", "Body Temperature"],
             "reference": "/mdr/specializations/sdtm/packages/2024-12-16/datasetspecializations/TEMP",
             "properties": [
               {
@@ -12954,10 +12875,7 @@
             "extensionAttributes": [],
             "name": "Heart Rate",
             "label": "Heart Rate",
-            "synonyms": [
-              "HR",
-              "Heart Rate"
-            ],
+            "synonyms": ["HR", "Heart Rate"],
             "reference": "/mdr/specializations/sdtm/packages/2025-04-01/datasetspecializations/HR",
             "properties": [
               {
@@ -13397,11 +13315,7 @@
             "extensionAttributes": [],
             "name": "Respiratory Rate",
             "label": "Respiratory Rate",
-            "synonyms": [
-              "RESP",
-              "RESPRATE",
-              "Respiratory Rate"
-            ],
+            "synonyms": ["RESP", "RESPRATE", "Respiratory Rate"],
             "reference": "/mdr/specializations/sdtm/packages/2024-12-16/datasetspecializations/RESP",
             "properties": [
               {
@@ -13536,10 +13450,7 @@
             "extensionAttributes": [],
             "name": "Systolic Blood Pressure",
             "label": "Systolic Blood Pressure",
-            "synonyms": [
-              "SYSBP",
-              "Systolic Blood Pressure"
-            ],
+            "synonyms": ["SYSBP", "Systolic Blood Pressure"],
             "reference": "/mdr/specializations/sdtm/packages/2025-04-01/datasetspecializations/SYSBP",
             "properties": [
               {
@@ -13979,10 +13890,7 @@
             "extensionAttributes": [],
             "name": "Diastolic Blood Pressure",
             "label": "Diastolic Blood Pressure",
-            "synonyms": [
-              "DIABP",
-              "Diastolic Blood Pressure"
-            ],
+            "synonyms": ["DIABP", "Diastolic Blood Pressure"],
             "reference": "/mdr/specializations/sdtm/packages/2025-04-01/datasetspecializations/DIABP",
             "properties": [
               {
@@ -14422,10 +14330,7 @@
             "extensionAttributes": [],
             "name": "Adverse Event Prespecified",
             "label": "Adverse Event Prespecified",
-            "synonyms": [
-              "Adverse Event",
-              "Solicited Adverse Event"
-            ],
+            "synonyms": ["Adverse Event", "Solicited Adverse Event"],
             "reference": "/mdr/specializations/sdtm/packages/2025-04-01/datasetspecializations/AEPRESP",
             "properties": [
               {
@@ -15564,9 +15469,7 @@
             "notes": [],
             "instanceType": "Condition",
             "contextIds": [],
-            "appliesToIds": [
-              "Activity_2"
-            ]
+            "appliesToIds": ["Activity_2"]
           },
           {
             "id": "Condition_3",
@@ -15582,9 +15485,7 @@
               "ScheduledActivityInstance_34",
               "ScheduledActivityInstance_46"
             ],
-            "appliesToIds": [
-              "Activity_2"
-            ]
+            "appliesToIds": ["Activity_2"]
           },
           {
             "id": "Condition_4",
@@ -15596,9 +15497,7 @@
             "dictionaryId": null,
             "notes": [],
             "instanceType": "Condition",
-            "contextIds": [
-              "ScheduledActivityInstance_14"
-            ],
+            "contextIds": ["ScheduledActivityInstance_14"],
             "appliesToIds": [
               "Activity_8",
               "Activity_9",
@@ -15632,9 +15531,7 @@
             "notes": [],
             "instanceType": "Condition",
             "contextIds": [],
-            "appliesToIds": [
-              "Activity_20"
-            ]
+            "appliesToIds": ["Activity_20"]
           },
           {
             "id": "Condition_6",
@@ -15650,9 +15547,7 @@
               "ScheduledActivityInstance_33",
               "ScheduledActivityInstance_64"
             ],
-            "appliesToIds": [
-              "Activity_3"
-            ]
+            "appliesToIds": ["Activity_3"]
           },
           {
             "id": "Condition_7",
@@ -15671,10 +15566,7 @@
               "ScheduledActivityInstance_41",
               "ScheduledActivityInstance_42"
             ],
-            "appliesToIds": [
-              "Activity_4",
-              "Activity_24"
-            ]
+            "appliesToIds": ["Activity_4", "Activity_24"]
           },
           {
             "id": "Condition_8",
@@ -15693,9 +15585,7 @@
               "ScheduledActivityInstance_41",
               "ScheduledActivityInstance_42"
             ],
-            "appliesToIds": [
-              "Activity_21"
-            ]
+            "appliesToIds": ["Activity_21"]
           },
           {
             "id": "Condition_9",
@@ -15708,9 +15598,7 @@
             "notes": [],
             "instanceType": "Condition",
             "contextIds": [],
-            "appliesToIds": [
-              "Activity_7"
-            ]
+            "appliesToIds": ["Activity_7"]
           },
           {
             "id": "Condition_10",
@@ -15723,9 +15611,7 @@
             "notes": [],
             "instanceType": "Condition",
             "contextIds": [],
-            "appliesToIds": [
-              "Activity_11"
-            ]
+            "appliesToIds": ["Activity_11"]
           },
           {
             "id": "Condition_11",
@@ -15738,9 +15624,7 @@
             "notes": [],
             "instanceType": "Condition",
             "contextIds": [],
-            "appliesToIds": [
-              "Activity_13"
-            ]
+            "appliesToIds": ["Activity_13"]
           },
           {
             "id": "Condition_12",
@@ -15753,9 +15637,7 @@
             "notes": [],
             "instanceType": "Condition",
             "contextIds": [],
-            "appliesToIds": [
-              "Activity_14"
-            ]
+            "appliesToIds": ["Activity_14"]
           },
           {
             "id": "Condition_13",
@@ -15767,12 +15649,8 @@
             "dictionaryId": null,
             "notes": [],
             "instanceType": "Condition",
-            "contextIds": [
-              "ScheduledActivityInstance_15"
-            ],
-            "appliesToIds": [
-              "Activity_15"
-            ]
+            "contextIds": ["ScheduledActivityInstance_15"],
+            "appliesToIds": ["Activity_15"]
           },
           {
             "id": "Condition_14",
@@ -15785,10 +15663,7 @@
             "notes": [],
             "instanceType": "Condition",
             "contextIds": [],
-            "appliesToIds": [
-              "Activity_19",
-              "Activity_20"
-            ]
+            "appliesToIds": ["Activity_19", "Activity_20"]
           },
           {
             "id": "Condition_15",
@@ -15827,9 +15702,7 @@
             "notes": [],
             "instanceType": "Condition",
             "contextIds": [],
-            "appliesToIds": [
-              "Activity_23"
-            ]
+            "appliesToIds": ["Activity_23"]
           },
           {
             "id": "Condition_18",
@@ -15855,9 +15728,7 @@
             "notes": [],
             "instanceType": "Condition",
             "contextIds": [],
-            "appliesToIds": [
-              "Activity_25"
-            ]
+            "appliesToIds": ["Activity_25"]
           },
           {
             "id": "Condition_20",
@@ -15870,9 +15741,7 @@
             "notes": [],
             "instanceType": "Condition",
             "contextIds": [],
-            "appliesToIds": [
-              "Activity_26"
-            ]
+            "appliesToIds": ["Activity_26"]
           },
           {
             "id": "Condition_21",
@@ -15885,9 +15754,7 @@
             "notes": [],
             "instanceType": "Condition",
             "contextIds": [],
-            "appliesToIds": [
-              "Activity_27"
-            ]
+            "appliesToIds": ["Activity_27"]
           },
           {
             "id": "Condition_22",
@@ -15900,9 +15767,7 @@
             "notes": [],
             "instanceType": "Condition",
             "contextIds": [],
-            "appliesToIds": [
-              "Activity_30"
-            ]
+            "appliesToIds": ["Activity_30"]
           },
           {
             "id": "Condition_23",
@@ -15915,9 +15780,7 @@
             "notes": [],
             "instanceType": "Condition",
             "contextIds": [],
-            "appliesToIds": [
-              "Activity_33"
-            ]
+            "appliesToIds": ["Activity_33"]
           },
           {
             "id": "Condition_24",
@@ -15930,9 +15793,7 @@
             "notes": [],
             "instanceType": "Condition",
             "contextIds": [],
-            "appliesToIds": [
-              "Activity_34"
-            ]
+            "appliesToIds": ["Activity_34"]
           },
           {
             "id": "Condition_25",
@@ -15944,12 +15805,8 @@
             "dictionaryId": null,
             "notes": [],
             "instanceType": "Condition",
-            "contextIds": [
-              "ScheduledActivityInstance_4"
-            ],
-            "appliesToIds": [
-              "Activity_36"
-            ]
+            "contextIds": ["ScheduledActivityInstance_4"],
+            "appliesToIds": ["Activity_36"]
           },
           {
             "id": "Condition_26",
@@ -15961,12 +15818,8 @@
             "dictionaryId": null,
             "notes": [],
             "instanceType": "Condition",
-            "contextIds": [
-              "ScheduledActivityInstance_13"
-            ],
-            "appliesToIds": [
-              "Activity_36"
-            ]
+            "contextIds": ["ScheduledActivityInstance_13"],
+            "appliesToIds": ["Activity_36"]
           }
         ],
         "notes": [],
@@ -16351,9 +16204,7 @@
                 "sectionTitle": "Risk Assessment",
                 "displaySectionNumber": true,
                 "displaySectionTitle": true,
-                "childIds": [
-                  "NarrativeContent_11"
-                ],
+                "childIds": ["NarrativeContent_11"],
                 "previousId": "NarrativeContent_9",
                 "nextId": "NarrativeContent_11",
                 "contentItemId": "NarrativeContentItem_10",
@@ -16456,9 +16307,7 @@
                 "sectionTitle": "Scientific Rationale for Study Design",
                 "displaySectionNumber": true,
                 "displaySectionTitle": true,
-                "childIds": [
-                  "NarrativeContent_18"
-                ],
+                "childIds": ["NarrativeContent_18"],
                 "previousId": "NarrativeContent_16",
                 "nextId": "NarrativeContent_18",
                 "contentItemId": "NarrativeContentItem_17",
@@ -16667,10 +16516,7 @@
                 "sectionTitle": "Concomitant Therapy",
                 "displaySectionNumber": true,
                 "displaySectionTitle": true,
-                "childIds": [
-                  "NarrativeContent_32",
-                  "NarrativeContent_33"
-                ],
+                "childIds": ["NarrativeContent_32", "NarrativeContent_33"],
                 "previousId": "NarrativeContent_30",
                 "nextId": "NarrativeContent_32",
                 "contentItemId": "NarrativeContentItem_31",
@@ -16825,9 +16671,7 @@
                 "sectionTitle": "Efficacy Assessments",
                 "displaySectionNumber": true,
                 "displaySectionTitle": true,
-                "childIds": [
-                  "NarrativeContent_42"
-                ],
+                "childIds": ["NarrativeContent_42"],
                 "previousId": "NarrativeContent_40",
                 "nextId": "NarrativeContent_42",
                 "contentItemId": "NarrativeContentItem_41",
@@ -16964,10 +16808,7 @@
                 "sectionTitle": "Clinical Safety Laboratory Assessments",
                 "displaySectionNumber": true,
                 "displaySectionTitle": true,
-                "childIds": [
-                  "NarrativeContent_51",
-                  "NarrativeContent_52"
-                ],
+                "childIds": ["NarrativeContent_51", "NarrativeContent_52"],
                 "previousId": "NarrativeContent_49",
                 "nextId": "NarrativeContent_51",
                 "contentItemId": "NarrativeContentItem_50",
@@ -17262,9 +17103,7 @@
                 "sectionTitle": "Statistical Hypotheses",
                 "displaySectionNumber": true,
                 "displaySectionTitle": true,
-                "childIds": [
-                  "NarrativeContent_71"
-                ],
+                "childIds": ["NarrativeContent_71"],
                 "previousId": "NarrativeContent_69",
                 "nextId": "NarrativeContent_71",
                 "contentItemId": "NarrativeContentItem_70",
@@ -17698,10 +17537,7 @@
                 "sectionTitle": "Contraceptive Guidance and Collection of Pregnancy Information",
                 "displaySectionNumber": true,
                 "displaySectionTitle": true,
-                "childIds": [
-                  "NarrativeContent_100",
-                  "NarrativeContent_101"
-                ],
+                "childIds": ["NarrativeContent_100", "NarrativeContent_101"],
                 "previousId": "NarrativeContent_98",
                 "nextId": "NarrativeContent_100",
                 "contentItemId": "NarrativeContentItem_99",
