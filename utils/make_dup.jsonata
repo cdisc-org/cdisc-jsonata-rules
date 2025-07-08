@@ -17,7 +17,7 @@
                                                                 {
                                                                 
                                                                     $k: $contains($k,/Ids$/)
-                                                                        ? $map($v,$get_id)
+                                                                        ? [$map($v,$get_id)]
                                                                         : $get_id($v)
                                                                 
                                                             
