@@ -30,7 +30,7 @@
         "Check": {
             "all": [
                 {
-                    "operator": "($data.study.versions)@$sv.\n    ($sv.studyDesigns[studyType.code = \"C98388\"])@$sd.\n            {\n                \"id\": $sd.id,\n                \"name\": $sd.name,\n                \"studyType.code\": $sd.studyType.code,\n                \"studyType.decode\": $sd.studyType.decode,\n                \"model.code\": $sd.model.code,\n                \"model.decode\": $sd.model.decode,\n                \"# Referenced Study Interventions\":  $count(\n                                                        $distinct(\n                                                            $append(\n                                                                $sd.activities.definedProcedures.studyInterventionId[$ in $sv.studyInterventions.id],\n                                                                $sd.elements.studyInterventionIds[$ in $sv.studyInterventions.id]\n                                                            )\n                                                        )\n                                                    ),\n                \"instanceType\": $sd.instanceType\n            }\n            [\n                (`model.code` = \"C82640\" and `# Referenced Study Interventions` != 1) or\n                (`model.code` != \"C82640\" and `# Referenced Study Interventions` <= 1)\n            ]"
+                    "operator": "($data.study.versions)@$sv.\n    ($sv.studyDesigns[studyType.code = \"C98388\"])@$sd.\n            {\n                \"id\": $sd.id,\n                \"name\": $sd.name,\n                \"studyType.code\": $sd.studyType.code,\n                \"studyType.decode\": $sd.studyType.decode,\n                \"model.code\": $sd.model.code,\n                \"model.decode\": $sd.model.decode,\n                \"# Referenced Study Interventions\":  $count($distinct($sd.studyInterventionIds[$ in $sv.studyInterventions.id])),\n                \"instanceType\": $sd.instanceType\n            }\n            [\n                (`model.code` = \"C82640\" and `# Referenced Study Interventions` != 1) or\n                (`model.code` != \"C82640\" and `# Referenced Study Interventions` <= 1)\n            ]"
                 }
             ]
         },
@@ -42,7 +42,7 @@
         "Description": "If the intervention model indicates a single group design then only one intervention is expected. In all other cases more interventions are expected.",
         "Executability": "Partially Executable - Possible Overreporting",
         "Outcome": {
-            "Message": "The number of study interventions referenced for the interventional study design (either in activity procedures or in study elements) is not consistent with intervention model specified for the study design - either the model indicates a single group and there is not reference to only one study intervention, or the model does not indicate a single group and there are not references to multiple study interventions.",
+            "Message": "The number of study interventions referenced for the interventional study design is not consistent with intervention model specified for the study design - either the model indicates a single group and there is not reference to only one study intervention, or the model does not indicate a single group and there are not references to multiple study interventions.",
             "Output_Variables": [
                 "id",
                 "name",
