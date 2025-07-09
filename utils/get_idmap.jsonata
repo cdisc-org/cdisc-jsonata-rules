@@ -10,7 +10,7 @@
                             function($idx,$v)
                                 {
                                     (
-                                        $nxt := $lookup($idx,$v.instanceType).next + 1;
+                                        $nxt := $v.instanceType in $keys($idx) ? $lookup($idx,$v.instanceType).next + 1 : 1;
                                         $idx := $idx ~> |$|
                                             {
                                                 $v.instanceType: 
