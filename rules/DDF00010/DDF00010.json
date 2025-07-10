@@ -1,0 +1,85 @@
+{
+    "rule": {
+        "Authorities": [
+            {
+                "Organization": "CDISC",
+                "Standards": [
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "The names of all child instances of the same parent class must be unique."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00010",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "3.0"
+                    },
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "The names of all child instances of the same parent class must be unique."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00010",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "4.0"
+                    }
+                ]
+            }
+        ],
+        "Check": {
+            "all": [
+                {
+                    "operator": "(\n    $iid:=0;\n    $iidd := $data ~> |**.*[id]|{\"iid\": $iid:=$iid+1}|;   \n    ($iidd).**.*[id and instanceType and *.name].\n        {\n            \"id\": id,\n            \"name\": name,\n            \"path\": \"\",\n            \"iid\": iid,\n            \"Duplicate child names\":\n                $filter([*[name]],function($v,$i,$a){$count($a[$.name=$v.name])>1}){\n                    name: $.{\n                        \"id\": id, \n                        \"name\": name,\n                        \"Relative path\": \"\",\n                        \"instanceType\": instanceType,\n                        \"iid\": iid}}, \n            \"instanceType\": instanceType\n        }[`Duplicate child names`]\n    ~> |$|\n        {\n            \"path\": (\n                $this:=$;\n                $utils.get_path($iidd.**.*[iid=$this.iid],$iidd)\n            ),\n            \"Duplicate child names\": (\n                $parent:=$;\n                `Duplicate child names`\n                ~> |*|\n                    {\n                        \"Relative path\": \n                            (\n                                $this:=$;\n                                \"#.\"&$utils.get_path($iidd.**.*[iid=$this.iid],$iidd.**.*[iid=$parent.iid])\n                            )\n                    },[\"iid\"]|\n            )\n        }|\n)"
+                }
+            ]
+        },
+        "Core": {
+            "Id": "",
+            "Status": "Draft",
+            "Version": "1"
+        },
+        "Description": "The names of all child instances of the same parent class must be unique.",
+        "Executability": "Fully Executable",
+        "Outcome": {
+            "Message": "The same name has been used for more than one child instance of the same parent class.",
+            "Output_Variables": [
+                "id",
+                "name",
+                "path",
+                "Duplicate child names"
+            ]
+        },
+        "Scope": {
+            "Entities": {
+                "Include": [
+                    "ALL"
+                ]
+            }
+        },
+        "Sensitivity": "Record",
+        "Rule_Type": "Record Data"
+    },
+    "datasets": [],
+    "codelists": []
+}

@@ -33,5 +33,10 @@
         "id",
         "name",
         "path"
-    ]
+    ],
+    "scope": {
+        "Include": [
+            "ALL"
+        ]
+    }
 }

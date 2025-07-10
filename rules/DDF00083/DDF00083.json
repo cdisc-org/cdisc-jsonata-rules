@@ -52,7 +52,7 @@
         "Scope": {
             "Entities": {
                 "Include": [
-                    "All"
+                    "ALL"
                 ]
             }
         },
