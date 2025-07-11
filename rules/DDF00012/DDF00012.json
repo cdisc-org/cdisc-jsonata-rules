@@ -1,0 +1,87 @@
+{
+    "rule": {
+        "Authorities": [
+            {
+                "Organization": "CDISC",
+                "Standards": [
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "Within a study design, there must be exactly one scheduled timeline which identifies as the main Timeline."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00012",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "3.0"
+                    },
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "Within a study design, there must be exactly one scheduled timeline which identifies as the main Timeline."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00012",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "4.0"
+                    }
+                ]
+            }
+        ],
+        "Check": {
+            "all": [
+                {
+                    "operator": "$data.study.versions.studyDesigns.\n    {\n        \"id\": id,\n        \"name\": name,\n        \"# Main timelines\": $count(scheduleTimelines[mainTimeline=true]),\n        \"Main timelines\": scheduleTimelines[mainTimeline=true].$sift(function($v,$k){$k in [\"id\",\"name\",\"mainTimeline\"]})[],\n        \"instanceType\": instanceType\n    }[`# Main timelines` != 1]"
+                }
+            ]
+        },
+        "Core": {
+            "Id": "CORE-000407",
+            "Status": "Draft",
+            "Version": "1"
+        },
+        "Description": "Within a study design, there must be exactly one scheduled timeline which identifies as the main Timeline.",
+        "Executability": "Fully Executable",
+        "Outcome": {
+            "Message": "The study design does not have exactly one main timeline.",
+            "Output_Variables": [
+                "id",
+                "name",
+                "# Main timelines",
+                "Main timelines"
+            ]
+        },
+        "Scope": {
+            "Entities": {
+                "Include": [
+                    "StudyDesign",
+                    "InterventionalStudyDesign",
+                    "ObservationalStudyDesign"
+                ]
+            }
+        },
+        "Sensitivity": "Record",
+        "Rule_Type": "JSONata"
+    },
+    "datasets": [],
+    "codelists": []
+}
