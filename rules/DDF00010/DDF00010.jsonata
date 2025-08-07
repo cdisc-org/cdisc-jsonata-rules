@@ -4,49 +4,19 @@
                         (
                             $iid:=0;
                             $iidd := $data ~> |**.*[id]|{"iid": $iid:=$iid+1}|;   
-                            ($iidd).**.*[id and instanceType and *.name].
+                            ($iidd).**.*[id and instanceType and name].$
                                 {
-                                    "id": id,
-                                    "name": name,
-                                    "path": "",
-                                    "iid": iid,
-                                    "Duplicate child names":
-                                        $filter([*[name]],function($v,$i,$a){$count($a[$.name=$v.name])>1}){
-                                            name: $.{
-                                                "id": id, 
-                                                "name": name,
-                                                "Relative path": "",
-                                                "instanceType": instanceType,
-                                                "iid": iid}}, 
-                                    "instanceType": instanceType
-                                }[`Duplicate child names`]
-                            ~> |$|
-                                {
-                                    "path": (
-                                        $this:=$;
-                                        $utils.get_path($iidd.**.*[iid=$this.iid],$iidd)
-                                    ),
-                                    "Duplicate child names": (
-                                        $parent:=$;
-                                        `Duplicate child names`
-                                        ~> |*|
-                                            {
-                                                "Relative path": 
-                                                    (
-                                                        $this:=$;
-                                                        "#."&$utils.get_path($iidd.**.*[iid=$this.iid],$iidd.**.*[iid=$parent.iid])
-                                                    )
-                                            },["iid"]|
-                                    )
-                                }|
+                                    instanceType: {
+                                        name: [$.{"id":id, "name":name,"iid": iid}]
+                                    } ~> $sift(function($v,$k){$count($v)>1})
+                                }
+                                ~> |*.*|{"path": "TBD"}|
+                                ~> $each(function($v,$k){{"instanceType":$k,"Duplicate names":$v}})
                         )
                     },
-    "message": "The same name has been used for more than one child instance of the same parent class.",
+    "message": "The same name has been used for more than one instance of the class.",
     "variables": [
-        "id",
-        "name",
-        "path",
-        "Duplicate child names"
+        "Duplicate names"
     ],
     "scope": {
         "Include": [

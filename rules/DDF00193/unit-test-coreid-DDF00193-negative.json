@@ -5671,7 +5671,9 @@
                   "BiomedicalConcept_21"
                 ],
                 "bcCategoryIds": [],
-                "bcSurrogateIds": "BiomedicalConceptSurrogate_1",
+                "bcSurrogateIds": [
+                  "BiomedicalConceptSurrogate_1"
+                ],
                 "timelineId": null,
                 "notes": [],
                 "instanceType": "Activity"
@@ -6042,7 +6044,9 @@
                 "nextId": "Activity_61",
                 "childIds": [],
                 "definedProcedures": [],
-                "biomedicalConceptIds": "BiomedicalConcept_32",
+                "biomedicalConceptIds": [
+                  "BiomedicalConcept_32"
+                ],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
                 "timelineId": null,
@@ -6161,7 +6165,9 @@
                 "nextId": "Activity_68",
                 "childIds": [],
                 "definedProcedures": [],
-                "biomedicalConceptIds": "BiomedicalConcept_1",
+                "biomedicalConceptIds": [
+                  "BiomedicalConcept_1"
+                ],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
                 "timelineId": null,
@@ -6399,7 +6405,9 @@
                 "extensionAttributes": [],
                 "armId": "StudyArm_4",
                 "epochId": "StudyEpoch_6",
-                "elementIds": "StudyElement_8",
+                "elementIds": [
+                  "StudyElement_8"
+                ],
                 "instanceType": "StudyCell"
               },
               {
@@ -6407,7 +6415,9 @@
                 "extensionAttributes": [],
                 "armId": "StudyArm_4",
                 "epochId": "StudyEpoch_7",
-                "elementIds": "StudyElement_9",
+                "elementIds": [
+                  "StudyElement_9"
+                ],
                 "instanceType": "StudyCell"
               },
               {
@@ -6415,7 +6425,9 @@
                 "extensionAttributes": [],
                 "armId": "StudyArm_4",
                 "epochId": "StudyEpoch_8",
-                "elementIds": "StudyElement_9",
+                "elementIds": [
+                  "StudyElement_9"
+                ],
                 "instanceType": "StudyCell"
               },
               {
@@ -6423,7 +6435,9 @@
                 "extensionAttributes": [],
                 "armId": "StudyArm_4",
                 "epochId": "StudyEpoch_9",
-                "elementIds": "StudyElement_9",
+                "elementIds": [
+                  "StudyElement_9"
+                ],
                 "instanceType": "StudyCell"
               },
               {
@@ -6431,7 +6445,9 @@
                 "extensionAttributes": [],
                 "armId": "StudyArm_4",
                 "epochId": "StudyEpoch_10",
-                "elementIds": "StudyElement_10",
+                "elementIds": [
+                  "StudyElement_10"
+                ],
                 "instanceType": "StudyCell"
               },
               {
@@ -6439,7 +6455,9 @@
                 "extensionAttributes": [],
                 "armId": "StudyArm_5",
                 "epochId": "StudyEpoch_6",
-                "elementIds": "StudyElement_8",
+                "elementIds": [
+                  "StudyElement_8"
+                ],
                 "instanceType": "StudyCell"
               },
               {
@@ -6447,7 +6465,9 @@
                 "extensionAttributes": [],
                 "armId": "StudyArm_5",
                 "epochId": "StudyEpoch_7",
-                "elementIds": "StudyElement_11",
+                "elementIds": [
+                  "StudyElement_11"
+                ],
                 "instanceType": "StudyCell"
               },
               {
@@ -6455,7 +6475,9 @@
                 "extensionAttributes": [],
                 "armId": "StudyArm_5",
                 "epochId": "StudyEpoch_8",
-                "elementIds": "StudyElement_11",
+                "elementIds": [
+                  "StudyElement_11"
+                ],
                 "instanceType": "StudyCell"
               },
               {
@@ -6463,7 +6485,9 @@
                 "extensionAttributes": [],
                 "armId": "StudyArm_5",
                 "epochId": "StudyEpoch_9",
-                "elementIds": "StudyElement_11",
+                "elementIds": [
+                  "StudyElement_11"
+                ],
                 "instanceType": "StudyCell"
               },
               {
@@ -6471,7 +6495,9 @@
                 "extensionAttributes": [],
                 "armId": "StudyArm_5",
                 "epochId": "StudyEpoch_10",
-                "elementIds": "StudyElement_10",
+                "elementIds": [
+                  "StudyElement_10"
+                ],
                 "instanceType": "StudyCell"
               },
               {
@@ -6479,7 +6505,9 @@
                 "extensionAttributes": [],
                 "armId": "StudyArm_6",
                 "epochId": "StudyEpoch_6",
-                "elementIds": "StudyElement_8",
+                "elementIds": [
+                  "StudyElement_8"
+                ],
                 "instanceType": "StudyCell"
               },
               {
@@ -6487,7 +6515,9 @@
                 "extensionAttributes": [],
                 "armId": "StudyArm_6",
                 "epochId": "StudyEpoch_7",
-                "elementIds": "StudyElement_12",
+                "elementIds": [
+                  "StudyElement_12"
+                ],
                 "instanceType": "StudyCell"
               },
               {
@@ -6495,7 +6525,9 @@
                 "extensionAttributes": [],
                 "armId": "StudyArm_6",
                 "epochId": "StudyEpoch_8",
-                "elementIds": "StudyElement_13",
+                "elementIds": [
+                  "StudyElement_13"
+                ],
                 "instanceType": "StudyCell"
               },
               {
@@ -6503,7 +6535,9 @@
                 "extensionAttributes": [],
                 "armId": "StudyArm_6",
                 "epochId": "StudyEpoch_9",
-                "elementIds": "StudyElement_14",
+                "elementIds": [
+                  "StudyElement_14"
+                ],
                 "instanceType": "StudyCell"
               },
               {
@@ -6511,7 +6545,9 @@
                 "extensionAttributes": [],
                 "armId": "StudyArm_6",
                 "epochId": "StudyEpoch_10",
-                "elementIds": "StudyElement_10",
+                "elementIds": [
+                  "StudyElement_10"
+                ],
                 "instanceType": "StudyCell"
               }
             ],
@@ -6785,7 +6821,9 @@
                 "description": "",
                 "populationSummary": "Group mean changes from baseline in the primary efficacy parameters",
                 "analysisPopulationId": "AnalysisPopulation_2",
-                "interventionIds": "StudyIntervention_1",
+                "interventionIds": [
+                  "StudyIntervention_1"
+                ],
                 "variableOfInterestId": "Endpoint_12",
                 "intercurrentEvents": [
                   {
@@ -6849,7 +6887,9 @@
                 "instanceType": "Indication"
               }
             ],
-            "studyInterventionIds": "StudyIntervention_1",
+            "studyInterventionIds": [
+              "StudyIntervention_1"
+            ],
             "objectives": [
               {
                 "id": "Objective_7",
@@ -8067,7 +8107,9 @@
                     "instanceType": "ScheduledActivityInstance",
                     "timelineId": null,
                     "timelineExitId": null,
-                    "activityIds": "Activity_66",
+                    "activityIds": [
+                      "Activity_66"
+                    ],
                     "encounterId": "Encounter_19"
                   },
                   {
@@ -8105,7 +8147,9 @@
                     "instanceType": "ScheduledActivityInstance",
                     "timelineId": null,
                     "timelineExitId": null,
-                    "activityIds": "Activity_66",
+                    "activityIds": [
+                      "Activity_66"
+                    ],
                     "encounterId": "Encounter_20"
                   },
                   {
@@ -8144,7 +8188,9 @@
                     "instanceType": "ScheduledActivityInstance",
                     "timelineId": null,
                     "timelineExitId": null,
-                    "activityIds": "Activity_66",
+                    "activityIds": [
+                      "Activity_66"
+                    ],
                     "encounterId": "Encounter_21"
                   },
                   {
@@ -8181,7 +8227,9 @@
                     "instanceType": "ScheduledActivityInstance",
                     "timelineId": null,
                     "timelineExitId": null,
-                    "activityIds": "Activity_66",
+                    "activityIds": [
+                      "Activity_66"
+                    ],
                     "encounterId": "Encounter_22"
                   },
                   {
@@ -8301,7 +8349,9 @@
                     "instanceType": "ScheduledActivityInstance",
                     "timelineId": null,
                     "timelineExitId": "ScheduleTimelineExit_6",
-                    "activityIds": "Activity_67",
+                    "activityIds": [
+                      "Activity_67"
+                    ],
                     "encounterId": null
                   }
                 ],
@@ -8622,7 +8672,9 @@
                     "instanceType": "ScheduledActivityInstance",
                     "timelineId": null,
                     "timelineExitId": null,
-                    "activityIds": "Activity_69",
+                    "activityIds": [
+                      "Activity_69"
+                    ],
                     "encounterId": null
                   },
                   {
@@ -8636,7 +8688,9 @@
                     "instanceType": "ScheduledActivityInstance",
                     "timelineId": null,
                     "timelineExitId": null,
-                    "activityIds": "Activity_70",
+                    "activityIds": [
+                      "Activity_70"
+                    ],
                     "encounterId": null
                   },
                   {
@@ -8650,7 +8704,9 @@
                     "instanceType": "ScheduledActivityInstance",
                     "timelineId": null,
                     "timelineExitId": null,
-                    "activityIds": "Activity_71",
+                    "activityIds": [
+                      "Activity_71"
+                    ],
                     "encounterId": null
                   },
                   {
@@ -8664,7 +8720,9 @@
                     "instanceType": "ScheduledActivityInstance",
                     "timelineId": null,
                     "timelineExitId": null,
-                    "activityIds": "Activity_72",
+                    "activityIds": [
+                      "Activity_72"
+                    ],
                     "encounterId": null
                   },
                   {
@@ -8678,7 +8736,9 @@
                     "instanceType": "ScheduledActivityInstance",
                     "timelineId": null,
                     "timelineExitId": null,
-                    "activityIds": "Activity_71",
+                    "activityIds": [
+                      "Activity_71"
+                    ],
                     "encounterId": null
                   },
                   {
@@ -8692,7 +8752,9 @@
                     "instanceType": "ScheduledActivityInstance",
                     "timelineId": null,
                     "timelineExitId": "ScheduleTimelineExit_8",
-                    "activityIds": "Activity_72",
+                    "activityIds": [
+                      "Activity_72"
+                    ],
                     "encounterId": null
                   }
                 ],
@@ -9394,7 +9456,9 @@
                 "label": null,
                 "description": null,
                 "text": "Patients with Mild to Moderate Alzheimer’s Disease.",
-                "subsetOfIds": "StudyDesignPopulation_2",
+                "subsetOfIds": [
+                  "StudyDesignPopulation_2"
+                ],
                 "notes": [],
                 "instanceType": "AnalysisPopulation"
               }
@@ -10229,7 +10293,9 @@
                   "BiomedicalConcept_21"
                 ],
                 "bcCategoryIds": [],
-                "bcSurrogateIds": "BiomedicalConceptSurrogate_1",
+                "bcSurrogateIds": [
+                  "BiomedicalConceptSurrogate_1"
+                ],
                 "timelineId": null,
                 "notes": [],
                 "instanceType": "Activity"
@@ -10600,7 +10666,9 @@
                 "nextId": "Activity_97",
                 "childIds": [],
                 "definedProcedures": [],
-                "biomedicalConceptIds": "BiomedicalConcept_32",
+                "biomedicalConceptIds": [
+                  "BiomedicalConcept_32"
+                ],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
                 "timelineId": null,
@@ -10719,7 +10787,9 @@
                 "nextId": "Activity_104",
                 "childIds": [],
                 "definedProcedures": [],
-                "biomedicalConceptIds": "BiomedicalConcept_1",
+                "biomedicalConceptIds": [
+                  "BiomedicalConcept_1"
+                ],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
                 "timelineId": null,
@@ -10957,7 +11027,9 @@
                 "extensionAttributes": [],
                 "armId": "StudyArm_7",
                 "epochId": "StudyEpoch_11",
-                "elementIds": "StudyElement_15",
+                "elementIds": [
+                  "StudyElement_15"
+                ],
                 "instanceType": "StudyCell"
               },
               {
@@ -10965,7 +11037,9 @@
                 "extensionAttributes": [],
                 "armId": "StudyArm_7",
                 "epochId": "StudyEpoch_12",
-                "elementIds": "StudyElement_16",
+                "elementIds": [
+                  "StudyElement_16"
+                ],
                 "instanceType": "StudyCell"
               },
               {
@@ -10973,7 +11047,9 @@
                 "extensionAttributes": [],
                 "armId": "StudyArm_7",
                 "epochId": "StudyEpoch_13",
-                "elementIds": "StudyElement_16",
+                "elementIds": [
+                  "StudyElement_16"
+                ],
                 "instanceType": "StudyCell"
               },
               {
@@ -10981,7 +11057,9 @@
                 "extensionAttributes": [],
                 "armId": "StudyArm_7",
                 "epochId": "StudyEpoch_14",
-                "elementIds": "StudyElement_16",
+                "elementIds": [
+                  "StudyElement_16"
+                ],
                 "instanceType": "StudyCell"
               },
               {
@@ -10989,7 +11067,9 @@
                 "extensionAttributes": [],
                 "armId": "StudyArm_7",
                 "epochId": "StudyEpoch_15",
-                "elementIds": "StudyElement_17",
+                "elementIds": [
+                  "StudyElement_17"
+                ],
                 "instanceType": "StudyCell"
               },
               {
@@ -10997,7 +11077,9 @@
                 "extensionAttributes": [],
                 "armId": "StudyArm_8",
                 "epochId": "StudyEpoch_11",
-                "elementIds": "StudyElement_15",
+                "elementIds": [
+                  "StudyElement_15"
+                ],
                 "instanceType": "StudyCell"
               },
               {
@@ -11005,7 +11087,9 @@
                 "extensionAttributes": [],
                 "armId": "StudyArm_8",
                 "epochId": "StudyEpoch_12",
-                "elementIds": "StudyElement_18",
+                "elementIds": [
+                  "StudyElement_18"
+                ],
                 "instanceType": "StudyCell"
               },
               {
@@ -11013,7 +11097,9 @@
                 "extensionAttributes": [],
                 "armId": "StudyArm_8",
                 "epochId": "StudyEpoch_13",
-                "elementIds": "StudyElement_18",
+                "elementIds": [
+                  "StudyElement_18"
+                ],
                 "instanceType": "StudyCell"
               },
               {
@@ -11021,7 +11107,9 @@
                 "extensionAttributes": [],
                 "armId": "StudyArm_8",
                 "epochId": "StudyEpoch_14",
-                "elementIds": "StudyElement_18",
+                "elementIds": [
+                  "StudyElement_18"
+                ],
                 "instanceType": "StudyCell"
               },
               {
@@ -11029,7 +11117,9 @@
                 "extensionAttributes": [],
                 "armId": "StudyArm_8",
                 "epochId": "StudyEpoch_15",
-                "elementIds": "StudyElement_17",
+                "elementIds": [
+                  "StudyElement_17"
+                ],
                 "instanceType": "StudyCell"
               },
               {
@@ -11037,7 +11127,9 @@
                 "extensionAttributes": [],
                 "armId": "StudyArm_9",
                 "epochId": "StudyEpoch_11",
-                "elementIds": "StudyElement_15",
+                "elementIds": [
+                  "StudyElement_15"
+                ],
                 "instanceType": "StudyCell"
               },
               {
@@ -11045,7 +11137,9 @@
                 "extensionAttributes": [],
                 "armId": "StudyArm_9",
                 "epochId": "StudyEpoch_12",
-                "elementIds": "StudyElement_19",
+                "elementIds": [
+                  "StudyElement_19"
+                ],
                 "instanceType": "StudyCell"
               },
               {
@@ -11053,7 +11147,9 @@
                 "extensionAttributes": [],
                 "armId": "StudyArm_9",
                 "epochId": "StudyEpoch_13",
-                "elementIds": "StudyElement_20",
+                "elementIds": [
+                  "StudyElement_20"
+                ],
                 "instanceType": "StudyCell"
               },
               {
@@ -11061,7 +11157,9 @@
                 "extensionAttributes": [],
                 "armId": "StudyArm_9",
                 "epochId": "StudyEpoch_14",
-                "elementIds": "StudyElement_21",
+                "elementIds": [
+                  "StudyElement_21"
+                ],
                 "instanceType": "StudyCell"
               },
               {
@@ -11069,7 +11167,9 @@
                 "extensionAttributes": [],
                 "armId": "StudyArm_9",
                 "epochId": "StudyEpoch_15",
-                "elementIds": "StudyElement_17",
+                "elementIds": [
+                  "StudyElement_17"
+                ],
                 "instanceType": "StudyCell"
               }
             ],
@@ -11343,7 +11443,9 @@
                 "description": "",
                 "populationSummary": "Group mean changes from baseline in the primary efficacy parameters",
                 "analysisPopulationId": "AnalysisPopulation_3",
-                "interventionIds": "StudyIntervention_1",
+                "interventionIds": [
+                  "StudyIntervention_1"
+                ],
                 "variableOfInterestId": "Endpoint_23",
                 "intercurrentEvents": [
                   {
@@ -11407,7 +11509,9 @@
                 "instanceType": "Indication"
               }
             ],
-            "studyInterventionIds": "StudyIntervention_1",
+            "studyInterventionIds": [
+              "StudyIntervention_1"
+            ],
             "objectives": [
               {
                 "id": "Objective_13",
@@ -12625,7 +12729,9 @@
                     "instanceType": "ScheduledActivityInstance",
                     "timelineId": null,
                     "timelineExitId": null,
-                    "activityIds": "Activity_102",
+                    "activityIds": [
+                      "Activity_102"
+                    ],
                     "encounterId": "Encounter_31"
                   },
                   {
@@ -12663,7 +12769,9 @@
                     "instanceType": "ScheduledActivityInstance",
                     "timelineId": null,
                     "timelineExitId": null,
-                    "activityIds": "Activity_102",
+                    "activityIds": [
+                      "Activity_102"
+                    ],
                     "encounterId": "Encounter_32"
                   },
                   {
@@ -12702,7 +12810,9 @@
                     "instanceType": "ScheduledActivityInstance",
                     "timelineId": null,
                     "timelineExitId": null,
-                    "activityIds": "Activity_102",
+                    "activityIds": [
+                      "Activity_102"
+                    ],
                     "encounterId": "Encounter_33"
                   },
                   {
@@ -12739,7 +12849,9 @@
                     "instanceType": "ScheduledActivityInstance",
                     "timelineId": null,
                     "timelineExitId": null,
-                    "activityIds": "Activity_102",
+                    "activityIds": [
+                      "Activity_102"
+                    ],
                     "encounterId": "Encounter_34"
                   },
                   {
@@ -12859,7 +12971,9 @@
                     "instanceType": "ScheduledActivityInstance",
                     "timelineId": null,
                     "timelineExitId": "ScheduleTimelineExit_10",
-                    "activityIds": "Activity_103",
+                    "activityIds": [
+                      "Activity_103"
+                    ],
                     "encounterId": null
                   }
                 ],
@@ -13180,7 +13294,9 @@
                     "instanceType": "ScheduledActivityInstance",
                     "timelineId": null,
                     "timelineExitId": null,
-                    "activityIds": "Activity_105",
+                    "activityIds": [
+                      "Activity_105"
+                    ],
                     "encounterId": null
                   },
                   {
@@ -13194,7 +13310,9 @@
                     "instanceType": "ScheduledActivityInstance",
                     "timelineId": null,
                     "timelineExitId": null,
-                    "activityIds": "Activity_106",
+                    "activityIds": [
+                      "Activity_106"
+                    ],
                     "encounterId": null
                   },
                   {
@@ -13208,7 +13326,9 @@
                     "instanceType": "ScheduledActivityInstance",
                     "timelineId": null,
                     "timelineExitId": null,
-                    "activityIds": "Activity_107",
+                    "activityIds": [
+                      "Activity_107"
+                    ],
                     "encounterId": null
                   },
                   {
@@ -13222,7 +13342,9 @@
                     "instanceType": "ScheduledActivityInstance",
                     "timelineId": null,
                     "timelineExitId": null,
-                    "activityIds": "Activity_108",
+                    "activityIds": [
+                      "Activity_108"
+                    ],
                     "encounterId": null
                   },
                   {
@@ -13236,7 +13358,9 @@
                     "instanceType": "ScheduledActivityInstance",
                     "timelineId": null,
                     "timelineExitId": null,
-                    "activityIds": "Activity_107",
+                    "activityIds": [
+                      "Activity_107"
+                    ],
                     "encounterId": null
                   },
                   {
@@ -13250,7 +13374,9 @@
                     "instanceType": "ScheduledActivityInstance",
                     "timelineId": null,
                     "timelineExitId": "ScheduleTimelineExit_12",
-                    "activityIds": "Activity_108",
+                    "activityIds": [
+                      "Activity_108"
+                    ],
                     "encounterId": null
                   }
                 ],
@@ -13952,7 +14078,9 @@
                 "label": null,
                 "description": null,
                 "text": "Patients with Mild to Moderate Alzheimer’s Disease.",
-                "subsetOfIds": "StudyDesignPopulation_3",
+                "subsetOfIds": [
+                  "StudyDesignPopulation_3"
+                ],
                 "notes": [],
                 "instanceType": "AnalysisPopulation"
               }
@@ -13969,19 +14097,13 @@
               "instanceType": "Code"
             },
             "timePerspective": {
-              "id": "AliasCode_261",
+              "id": "Code_1012",
               "extensionAttributes": [],
-              "standardCode": {
-                "id": "Code_1012",
-                "extensionAttributes": [],
-                "code": "C15273",
-                "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2024-09-27",
-                "decode": "PROSPECTIVE",
-                "instanceType": "Code"
-              },
-              "standardCodeAliases": [],
-              "instanceType": "AliasCode"
+              "code": "C15273",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2024-09-27",
+              "decode": "PROSPECTIVE",
+              "instanceType": "Code"
             }
           }
         ],
@@ -15033,7 +15155,9 @@
               "InterventionalStudyDesign_2"
             ],
             "assignedPersons": [],
-            "organizationIds": "Organization_1",
+            "organizationIds": [
+              "Organization_1"
+            ],
             "masking": {
               "id": "Masking_2",
               "extensionAttributes": [],

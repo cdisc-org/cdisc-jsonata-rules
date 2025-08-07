@@ -18344,19 +18344,13 @@
               "instanceType": "Code"
             },
             "timePerspective": {
-              "id": "AliasCode_277",
+              "id": "Code_1195",
               "extensionAttributes": [],
-              "standardCode": {
-                "id": "Code_1195",
-                "extensionAttributes": [],
-                "code": "C15273",
-                "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2024-09-27",
-                "decode": "PROSPECTIVE",
-                "instanceType": "Code"
-              },
-              "standardCodeAliases": [],
-              "instanceType": "AliasCode"
+              "code": "C15273",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2024-09-27",
+              "decode": "PROSPECTIVE",
+              "instanceType": "Code"
             }
           }
         ],
