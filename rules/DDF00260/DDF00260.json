@@ -1,0 +1,64 @@
+{
+    "rule": {
+        "Authorities": [
+            {
+                "Organization": "CDISC",
+                "Standards": [
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "Id values are expected not to have spaces in their string values."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00260",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "4.0"
+                    }
+                ]
+            }
+        ],
+        "Check": {
+            "all": [
+                {
+                    "operator": "($data.**[id~>/ /])@$i.\n    {\n        \"id\": $i.id,\n        \"name\": $i.name,\n        \"path\": $utils.get_path($data.**[id=$i.id],$data),\n        \"instanceType\": $i.instanceType\n    }"
+                }
+            ]
+        },
+        "Core": {
+            "Id": "",
+            "Status": "Draft",
+            "Version": "1"
+        },
+        "Description": "Id values are expected not to have spaces in their string values.",
+        "Executability": "Partially Executable - Possible Overreporting",
+        "Outcome": {
+            "Message": "The id value contains a space.",
+            "Output_Variables": [
+                "id",
+                "name",
+                "path"
+            ]
+        },
+        "Scope": {
+            "Entities": {
+                "Include": [
+                    "ALL"
+                ]
+            }
+        },
+        "Sensitivity": "Record",
+        "Rule_Type": "JSONata"
+    },
+    "datasets": [],
+    "codelists": []
+}
