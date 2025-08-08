@@ -1,0 +1,86 @@
+{
+    "rule": {
+        "Authorities": [
+            {
+                "Organization": "CDISC",
+                "Standards": [
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "Within a study design, there must be at least one endpoint with level primary."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00041",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "3.0"
+                    },
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "Within a study design, there must be at least one endpoint with level primary."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00041",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "4.0"
+                    }
+                ]
+            }
+        ],
+        "Check": {
+            "all": [
+                {
+                    "operator": "$data.study.versions.studyDesigns.\n{\n    \"id\": id,\n    \"name\": name,\n    \"# Primary endpoints\": $count(objectives.endpoints[level.code=\"C94496\"]),\n    \"instanceType\": instanceType\n}[`# Primary endpoints` = 0]"
+                }
+            ]
+        },
+        "Core": {
+            "Id": "",
+            "Status": "Draft",
+            "Version": "1"
+        },
+        "Description": "Within a study design, there must be at least one endpoint with level primary.",
+        "Executability": "Fully Executable",
+        "Outcome": {
+            "Message": "There is not at least one endpoint with a level of primary within the study design.",
+            "Output_Variables": [
+                "id",
+                "name",
+                "# Primary endpoints"
+            ]
+        },
+        "Scope": {
+            "Entities": {
+                "Include": [
+                    "StudyDesign",
+                    "InterventionalStudyDesign",
+                    "ObservationalStudyDesign"
+                ]
+            }
+        },
+        "Sensitivity": "Record",
+        "Rule_Type": "JSONata"
+    },
+    "datasets": [],
+    "codelists": []
+}
