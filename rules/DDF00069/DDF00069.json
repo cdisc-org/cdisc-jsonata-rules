@@ -11,13 +11,13 @@
                                 "Citations": [
                                     {
                                         "Document": "USDM_CORE_Rules.xlsx",
-                                        "Cited_Guidance": "Within a study design, there must be at least one endpoint with level primary."
+                                        "Cited_Guidance": "Each combination of arm and epoch must occur no more than once within a study design."
                                     }
                                 ],
                                 "Origin": "USDM Conformance Rules",
                                 "Version": "1.0",
                                 "Rule_Identifier": {
-                                    "Id": "DDF00041",
+                                    "Id": "DDF00069",
                                     "Version": "1"
                                 }
                             }
@@ -31,13 +31,13 @@
                                 "Citations": [
                                     {
                                         "Document": "USDM_CORE_Rules.xlsx",
-                                        "Cited_Guidance": "Within a study design, there must be at least one endpoint with level primary."
+                                        "Cited_Guidance": "Each combination of arm and epoch must occur no more than once within a study design."
                                     }
                                 ],
                                 "Origin": "USDM Conformance Rules",
                                 "Version": "1.0",
                                 "Rule_Identifier": {
-                                    "Id": "DDF00041",
+                                    "Id": "DDF00069",
                                     "Version": "1"
                                 }
                             }
@@ -50,7 +50,7 @@
         "Check": {
             "all": [
                 {
-                    "operator": "$data.study.versions.studyDesigns.\n{\n    \"id\": id,\n    \"name\": name,\n    \"# Primary endpoints\": $count(objectives.endpoints[level.code=\"C94496\"]),\n    \"instanceType\": instanceType\n}[`# Primary endpoints` = 0]"
+                    "operator": "$data.study.versions.studyDesigns@$sd.\n$filter($sd.studyCells,function($v,$i,$a){$count($a[armId=$v.armId and epochId=$v.epochId])>1})@$d.\n($sd.arms[id=$d.armId])@$sa.\n($sd.epochs[id=$d.epochId])@$se.\n{\n    \"StudyDesign.id\": $sd.id,\n    \"StudyDesign.name\": $sd.name,\n    \"id\": $d.id,\n    \"armId\": $d.armId,\n    \"StudyArm.name\": $sa.name,\n    \"epochId\": $d.epochId,\n    \"StudyEpoch.name\": $se.name,\n    \"instanceType\": $d.instanceType\n} ~>\n$sort(function($l,$r)\n    {\n        $join([$l.`StudyDesign.id`,$l.armId,$l.epochId],\"/\") > $join([$r.`StudyDesign.id`,$r.armId,$r.epochId],\"/\")\n    }\n)"
                 }
             ]
         },
@@ -59,22 +59,24 @@
             "Status": "Draft",
             "Version": "1"
         },
-        "Description": "Within a study design, there must be at least one endpoint with level primary.",
+        "Description": "Each combination of arm and epoch must occur no more than once within a study design.",
         "Executability": "Fully Executable",
         "Outcome": {
-            "Message": "There is not at least one endpoint with a level of primary within the study design.",
+            "Message": "The combination of arm and epoch occurs more than once within the study design.",
             "Output_Variables": [
+                "StudyDesign.id",
+                "StudyDesign.name",
                 "id",
-                "name",
-                "# Primary endpoints"
+                "armId",
+                "StudyArm.name",
+                "epochId",
+                "StudyEpoch.name"
             ]
         },
         "Scope": {
             "Entities": {
                 "Include": [
-                    "StudyDesign",
-                    "InterventionalStudyDesign",
-                    "ObservationalStudyDesign"
+                    "StudyCell"
                 ]
             }
         },
