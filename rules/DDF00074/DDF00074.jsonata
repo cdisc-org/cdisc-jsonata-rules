@@ -1,6 +1,6 @@
 {
     "check_func" : function($data){$data.(
-                    ($data.study.versions)@$sv.
+                    ($.study.versions)@$sv.
                         ($sv.studyDesigns)@$sd.
                                 {
                                     "id": $sd.id,

@@ -1,0 +1,81 @@
+{
+    "rule": {
+        "Authorities": [
+            {
+                "Organization": "CDISC",
+                "Standards": [
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "When a condition applies to a procedure, activity, biomedical concept, biomedical concept category, or biomedical concept surrogate then an instance must be available in the corresponding class with the specified id."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00091",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "3.0"
+                    },
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "When a condition applies to a procedure, activity, biomedical concept, biomedical concept category, or biomedical concept surrogate then an instance must be available in the corresponding class with the specified id."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00091",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "4.0"
+                    }
+                ]
+            }
+        ],
+        "Check": "(\n    $idityp:=$.study.versions.**[id]{id:instanceType};\n    $.study.versions.**.conditions.appliesToIds.\n        {\n            \"parent_entity\": %.%.instanceType,\n            \"parent_id\": %.%.id,\n            \"id\": %.id,\n            \"name\": %.name,\n            \"appliesTo id\": $,\n            \"appliesTo instanceType\": $ in $keys($idityp) ? $lookup($idityp,$) : \"[Invalid id]\",\n            \"instanceType\": %.instanceType\n        }\n        [\n            $not(`appliesTo instanceType` in\n                [\n                    'Procedure',\n                    'Activity',\n                    'BiomedicalConcept',\n                    'BiomedicalConceptCategory',\n                    'BiomedicalConceptSurrogate'\n                ]\n            )\n        ]\n)",
+        "Core": {
+            "Id": "",
+            "Status": "Draft",
+            "Version": "1"
+        },
+        "Description": "When a condition applies to a procedure, activity, biomedical concept, biomedical concept category, or biomedical concept surrogate then an instance must be available in the corresponding class with the specified id.",
+        "Executability": "Fully Executable",
+        "Outcome": {
+            "Message": "An invalid id value has been specified to indicate what the condition applies to - either the specified id is not an id for anything, or the instance identified by the id is not a procedure, activity, biomedical concept, biomedical concept category, or biomedical concept surrogate.",
+            "Output_Variables": [
+                "parent_entity",
+                "parent_id",
+                "id",
+                "name",
+                "appliesTo id",
+                "appliesTo instanceType"
+            ]
+        },
+        "Scope": {
+            "Entities": {
+                "Include": [
+                    "Condition"
+                ]
+            }
+        },
+        "Sensitivity": "Record",
+        "Rule_Type": "JSONata"
+    },
+    "datasets": [],
+    "codelists": []
+}
