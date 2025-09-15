@@ -27,13 +27,7 @@
                 ]
             }
         ],
-        "Check": {
-            "all": [
-                {
-                    "operator": "($data.**.studyDesigns)@$s.\n    [\n        $s.arms.populationIds[$ != $s.population.id and $not($ in $s.population.cohorts.id)].\n        {\n        \"StudyDesign.id\": $s.id,\n        \"StudyDesign.name\": $s.name,\n        \"StudyDesign.population.id\": $s.population.id,\n        \"StudyDesign.population.cohorts.id\": $s.population.cohorts.id,\n        \"id\": %.id,\n        \"name\": %.name,\n        \"populationId\": $,\n        \"instanceType\": %.instanceType\n        }\n    ]"
-                }
-            ]
-        },
+        "Check": "($.**.studyDesigns)@$s.\n    [\n        $s.arms.populationIds[$ != $s.population.id and $not($ in $s.population.cohorts.id)].\n        {\n        \"StudyDesign.id\": $s.id,\n        \"StudyDesign.name\": $s.name,\n        \"StudyDesign.population.id\": $s.population.id,\n        \"StudyDesign.population.cohorts.id\": $s.population.cohorts.id,\n        \"id\": %.id,\n        \"name\": %.name,\n        \"populationId\": $,\n        \"instanceType\": %.instanceType\n        }\n    ]",
         "Core": {
             "Id": "",
             "Status": "Draft",

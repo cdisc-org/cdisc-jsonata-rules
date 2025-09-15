@@ -1,7 +1,6 @@
 {
-    "check_func": function($data)
-                    {
-                        [$data.study.versions@$sv.
+    "check_func": function($data){$data.(
+                        [$.study.versions@$sv.
                             (
                                 $spIds := $sv.studyIdentifiers[scopeId in $sv.roles[code.code="C70793"].organizationIds].text;
                                 {
@@ -13,5 +12,5 @@
                                 }
                             )][count != 1]
 
-                    }
+                    )}
 }

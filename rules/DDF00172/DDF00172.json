@@ -27,13 +27,7 @@
                 ]
             }
         ],
-        "Check": {
-            "all": [
-                {
-                    "operator": "[\n  $data.study.versions@$sv.\n    (\n        $spIds := $sv.studyIdentifiers[scopeId in $sv.roles[code.code=\"C70793\"].organizationIds].text;\n        {\n            \"id\": $sv.id,\n            \"versionIdentifier\": $sv.versionIdentifier,\n            \"instanceType\": $sv.instanceType,\n            \"Sponsor Identifier(s)\": $spIds,\n            \"count\": $count($spIds)\n        }\n    )\n][count != 1]"
-                }
-            ]
-        },
+        "Check": "[\n  $.study.versions@$sv.\n    (\n        $spIds := $sv.studyIdentifiers[scopeId in $sv.roles[code.code=\"C70793\"].organizationIds].text;\n        {\n            \"id\": $sv.id,\n            \"versionIdentifier\": $sv.versionIdentifier,\n            \"instanceType\": $sv.instanceType,\n            \"Sponsor Identifier(s)\": $spIds,\n            \"count\": $count($spIds)\n        }\n    )\n][count != 1]",
         "Core": {
             "Id": "",
             "Status": "Draft",

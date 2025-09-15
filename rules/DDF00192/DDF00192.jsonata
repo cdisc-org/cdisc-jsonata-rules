@@ -1,7 +1,6 @@
 {
-    "check_func" : function($data)
-                    {
-                        ($data.study.versions)@$sv.($sv.studyDesigns)@$sd[$sd.blindingSchema.standardCode.code = "C15228"].
+    "check_func" : function($data){$data.(
+                        ($.study.versions)@$sv.($sv.studyDesigns)@$sd[$sd.blindingSchema.standardCode.code = "C15228"].
                             [
                                 ( 
                                     $maskedRoles :=$sv.roles@$r [$r.masking.isMasked and
@@ -28,7 +27,7 @@
                                 )                                     
                                     
                             ][count < 2]
-                    },
+                    )},
     "message": "The study design has a double blind blinding schema but there are not at least two applicable study roles that are masked.",
     "variables": [
         "id",

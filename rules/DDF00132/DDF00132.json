@@ -47,13 +47,7 @@
                 ]
             }
         ],
-        "Check": {
-            "all": [
-                {
-                    "operator": "($data.**.studyDesigns)@$sd.\n    $sd.population@$p.\n        $p.\n        [\n            ($NullCohort:=function(){\"null\" in cohorts.$type(plannedCompletionNumber)}; \n            $InCohort:=function(){$boolean(cohorts.plannedCompletionNumber)};      \n            $InPop:=function(){$type(plannedCompletionNumber) != \"null\"};           \n                $ChkX:=function()\n                    {\n                        ($InPop()=true and $InCohort()=true) or ($InPop()=false and $NullCohort()=true and $InCohort()=true) \n                    };\n                    {\n                        \"studyDesigns.id\": $sd.id,\n                        \"studyDesigns.name\": $sd.name,\n                        \"population.id\": $p.id,\n                        \"population.name\": $p.name,\n                        \"population.plannedCompletionNumber.id\": $p.plannedCompletionNumber.id,\n                        \"cohorts.id\":$p.cohorts.id,\n                        \"cohorts.name\": $p.cohorts.name,\n                        \"cohorts.plannedCompletionNumber.id\":$p.cohorts.plannedCompletionNumber.id,\n                        \"instanceType\": $p.instanceType,\n                        \"check\":$ChkX()\n                    }\n            )\n        ]\n        [check=true] "
-                }
-            ]
-        },
+        "Check": "($.**.studyDesigns)@$sd.\n    $sd.population@$p.\n        $p.\n        [\n            ($NullCohort:=function(){\"null\" in cohorts.$type(plannedCompletionNumber)}; \n            $InCohort:=function(){$boolean(cohorts.plannedCompletionNumber)};      \n            $InPop:=function(){$type(plannedCompletionNumber) != \"null\"};           \n                $ChkX:=function()\n                    {\n                        ($InPop()=true and $InCohort()=true) or ($InPop()=false and $NullCohort()=true and $InCohort()=true) \n                    };\n                    {\n                        \"studyDesigns.id\": $sd.id,\n                        \"studyDesigns.name\": $sd.name,\n                        \"population.id\": $p.id,\n                        \"population.name\": $p.name,\n                        \"population.plannedCompletionNumber.id\": $p.plannedCompletionNumber.id,\n                        \"cohorts.id\":$p.cohorts.id,\n                        \"cohorts.name\": $p.cohorts.name,\n                        \"cohorts.plannedCompletionNumber.id\":$p.cohorts.plannedCompletionNumber.id,\n                        \"instanceType\": $p.instanceType,\n                        \"check\":$ChkX()\n                    }\n            )\n        ]\n        [check=true] ",
         "Core": {
             "Id": "",
             "Status": "Draft",

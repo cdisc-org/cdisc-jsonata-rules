@@ -1,9 +1,8 @@
 {
-    "check_func" : function($data)
-                    {
+    "check_func" : function($data){$data.(
                         (
                             $iid:=0;
-                            $iidd := $data ~> |**.*[id]|{"iid": $iid:=$iid+1}|;   
+                            $iidd := $ ~> |**.*[id]|{"iid": $iid:=$iid+1}|;   
                             ($iidd).**.*[id and instanceType and name].$
                                 {
                                     instanceType: {
@@ -13,7 +12,7 @@
                                 ~> |*.*|{"path": "TBD"}|
                                 ~> $each(function($v,$k){{"instanceType":$k,"Duplicate names":$v}})
                         )
-                    },
+                    )},
     "message": "The same name has been used for more than one instance of the class.",
     "variables": [
         "Duplicate names"

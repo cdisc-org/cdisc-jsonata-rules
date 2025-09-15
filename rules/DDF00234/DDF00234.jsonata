@@ -1,7 +1,6 @@
 {
-    "check_func" : function($data)
-         {
-	    ($data.**.studyDesigns)@$sd.
+    "check_func" : function($data){$data.(
+	    ($.**.studyDesigns)@$sd.
     	            $sd.population@$p.
    	                $p.
    	                    [
@@ -36,7 +35,7 @@
    	                    ]
    	                    [output != "No unit"]
 
-           },
+           )},
     "message": "A unit has been specified for a planned enrollment number.",
     "variables": 
         [

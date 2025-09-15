@@ -47,13 +47,7 @@
                 ]
             }
         ],
-        "Check": {
-            "all": [
-                {
-                    "operator": "($data.study.versions)@$sv.\n    ($sv.studyDesigns[studyType.code = \"C98388\"])@$sd.\n            {\n                \"id\": $sd.id,\n                \"name\": $sd.name,\n                \"studyType.code\": $sd.studyType.code,\n                \"studyType.decode\": $sd.studyType.decode,\n                \"Study Interventions\": $count($sd.activities.definedProcedures[studyInterventionId in $sv.studyInterventions.id]),\n                \"instanceType\": $sd.instanceType\n            }[`Study Interventions` < 1]"
-                }
-            ]
-        },
+        "Check": "($.study.versions)@$sv.\n    ($sv.studyDesigns[studyType.code = \"C98388\"])@$sd.\n            {\n                \"id\": $sd.id,\n                \"name\": $sd.name,\n                \"studyType.code\": $sd.studyType.code,\n                \"studyType.decode\": $sd.studyType.decode,\n                \"Study Interventions\": $count($sd.activities.definedProcedures[studyInterventionId in $sv.studyInterventions.id]),\n                \"instanceType\": $sd.instanceType\n            }[`Study Interventions` < 1]",
         "Core": {
             "Id": "",
             "Status": "Draft",

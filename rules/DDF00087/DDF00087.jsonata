@@ -1,7 +1,6 @@
 {
-    "check_func" : function($data)
-                    {
-                        ($data.study.versions)@$sv.
+    "check_func" : function($data){$data.(
+                        ($.study.versions)@$sv.
                             ($sv.studyDesigns)@$sd.
                                 ($sd.scheduleTimelines[mainTimeline = true])@$st.
                                     (
@@ -22,7 +21,7 @@
                                             "instanceType": $sd.instanceType
                                         }[`Encounter order` != `Referenced encounter order`]
                                     )
-                    },
+                    )},
     "message": "The order of the encounters in the study design (as defined by the next attribute) does not match the order of encounters as referenced from scheduled activity instances in the main timeline that are ordered by default condition.",
     "variables": [
         "id",

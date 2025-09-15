@@ -1,7 +1,6 @@
 {
-    "check_func" : function($data)
-                    {
-                        $data.study.versions@$sv.
+    "check_func" : function($data){$data.(
+                        $.study.versions@$sv.
                             [
                                 ($sv.roles)@$r.($sv.studyDesigns)@$sd
                                     [
@@ -24,7 +23,7 @@
                                             "InterventionalStudyDesign.blindingSchema": $sd.blindingSchema.standardCode.decode
                                         }
                             ]
-                    },
+                    )},
     "message": "A masking is defined for the study role, but the role applies to a study design with an open label blinding schema.",
     "variables": [
         "id",

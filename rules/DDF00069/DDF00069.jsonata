@@ -1,7 +1,6 @@
 {
-    "check_func" : function($data)
-                {
-                    $data.study.versions.studyDesigns@$sd.
+    "check_func" : function($data){$data.(
+                    $.study.versions.studyDesigns@$sd.
                     $filter($sd.studyCells,function($v,$i,$a){$count($a[armId=$v.armId and epochId=$v.epochId])>1})@$d.
                     ($sd.arms[id=$d.armId])@$sa.
                     ($sd.epochs[id=$d.epochId])@$se.
@@ -20,7 +19,7 @@
                             $join([$l.`StudyDesign.id`,$l.armId,$l.epochId],"/") > $join([$r.`StudyDesign.id`,$r.armId,$r.epochId],"/")
                         }
                     )
-                },
+                )},
     "message": "The combination of arm and epoch occurs more than once within the study design.",
     "variables": [
             "StudyDesign.id",

@@ -1,9 +1,8 @@
 {
-    "check_func" : function($data)
-                    {
+    "check_func" : function($data){$data.(
                         (
                             $iid:=0;
-                            $iidd := $data ~> |**.*[id]|{"iid": $iid:=$iid+1}|;
+                            $iidd := $ ~> |**.*[id]|{"iid": $iid:=$iid+1}|;
                             $sift(
                                 ($iidd).**.*[id and instanceType].
                                     {
@@ -27,7 +26,7 @@
                                     }
                                 )
                         )
-                    },
+                    )},
     "message": "The id value is not unique.",
     "variables": [
         "id",

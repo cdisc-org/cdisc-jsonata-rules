@@ -1,7 +1,6 @@
 {
-    "check_func" : function($data)
-                    {
-                        ($data.study.versions)@$sv.
+    "check_func" : function($data){$data.(
+                        ($.study.versions)@$sv.
                         ($sv.studyDesigns)@$sd[ $sd.blindingSchema and
                                                 $not($sd.blindingSchema.standardCode.code in ["C49659","C15228"])].
                             [
@@ -26,7 +25,7 @@
                                 })                                     
                                     
                             ][`Count of Masked Roles` < 1]
-                    },
+                    )},
     "message": "The study design has a blinding schema that is not open label or double blind but there is no applicable study role that is masked.",
     "variables": [
         "id",

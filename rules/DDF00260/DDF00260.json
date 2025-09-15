@@ -27,13 +27,7 @@
                 ]
             }
         ],
-        "Check": {
-            "all": [
-                {
-                    "operator": "($data.**[id~>/ /])@$i.\n    {\n        \"id\": $i.id,\n        \"name\": $i.name,\n        \"path\": $utils.get_path($data.**[id=$i.id],$data),\n        \"instanceType\": $i.instanceType\n    }"
-                }
-            ]
-        },
+        "Check": "($.**[id~>/ /])@$i.\n    {\n        \"id\": $i.id,\n        \"name\": $i.name,\n        \"path\": $utils.get_path($.**[id=$i.id],$),\n        \"instanceType\": $i.instanceType\n    }",
         "Core": {
             "Id": "",
             "Status": "Draft",

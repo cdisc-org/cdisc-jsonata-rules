@@ -27,13 +27,7 @@
                 ]
             }
         ],
-        "Check": {
-            "all": [
-                {
-                    "operator": "($data.**.studyDesigns)@$s.\n    [\n        $s.activities.childIds[$not($ in $s.activities.id)].\n        {\n        \"StudyDesign.id\": $s.id,\n        \"StudyDesign.name\": $s.name,\n        \"id\": %.id,\n        \"name\": %.name,\n        \"childId\": $,\n        \"instanceType\": %.instanceType\n        }\n    ]"
-                }
-            ]
-        },
+        "Check": "($.**.studyDesigns)@$s.\n    [\n        $s.activities.childIds[$not($ in $s.activities.id)].\n        {\n        \"StudyDesign.id\": $s.id,\n        \"StudyDesign.name\": $s.name,\n        \"id\": %.id,\n        \"name\": %.name,\n        \"childId\": $,\n        \"instanceType\": %.instanceType\n        }\n    ]",
         "Core": {
             "Id": "",
             "Status": "Draft",

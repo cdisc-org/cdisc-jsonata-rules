@@ -27,13 +27,7 @@
                 ]
             }
         ],
-        "Check": {
-            "all": [
-                {
-                    "operator": "($data.study.versions)@$sv.\n    ($sv.studyDesigns[studyType.code = \"C98388\"])@$sd.\n            {\n                \"id\": $sd.id,\n                \"name\": $sd.name,\n                \"studyType.code\": $sd.studyType.code,\n                \"studyType.decode\": $sd.studyType.decode,\n                \"model.code\": $sd.model.code,\n                \"model.decode\": $sd.model.decode,\n                \"# Referenced Study Interventions\":  $count($distinct($sd.studyInterventionIds[$ in $sv.studyInterventions.id])),\n                \"instanceType\": $sd.instanceType\n            }\n            [\n                (`model.code` = \"C82640\" and `# Referenced Study Interventions` != 1) or\n                (`model.code` != \"C82640\" and `# Referenced Study Interventions` <= 1)\n            ]"
-                }
-            ]
-        },
+        "Check": "($.study.versions)@$sv.\n    ($sv.studyDesigns[studyType.code = \"C98388\"])@$sd.\n            {\n                \"id\": $sd.id,\n                \"name\": $sd.name,\n                \"studyType.code\": $sd.studyType.code,\n                \"studyType.decode\": $sd.studyType.decode,\n                \"model.code\": $sd.model.code,\n                \"model.decode\": $sd.model.decode,\n                \"# Referenced Study Interventions\":  $count($distinct($sd.studyInterventionIds[$ in $sv.studyInterventions.id])),\n                \"instanceType\": $sd.instanceType\n            }\n            [\n                (`model.code` = \"C82640\" and `# Referenced Study Interventions` != 1) or\n                (`model.code` != \"C82640\" and `# Referenced Study Interventions` <= 1)\n            ]",
         "Core": {
             "Id": "",
             "Status": "Draft",

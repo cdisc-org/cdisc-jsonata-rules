@@ -1,7 +1,6 @@
 {
-    "check_func" : function($data)
-                {
-                    ($data.study.versions)@$sv.
+    "check_func" : function($data){$data.(
+                    ($.study.versions)@$sv.
                         ($sv.studyDesigns[studyType.code = "C98388"])@$sd.
                                 {
                                     "id": $sd.id,
@@ -17,7 +16,7 @@
                                     (`model.code` = "C82640" and `# Referenced Study Interventions` != 1) or
                                     (`model.code` != "C82640" and `# Referenced Study Interventions` <= 1)
                                 ]
-                },
+                )},
     "message": "The number of study interventions referenced for the interventional study design is not consistent with intervention model specified for the study design - either the model indicates a single group and there is not reference to only one study intervention, or the model does not indicate a single group and there are not references to multiple study interventions.",
     "variables": [
             "id",

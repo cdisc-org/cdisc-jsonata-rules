@@ -1,7 +1,6 @@
 {
-    "check_func" : function($data)
-                {
-                    ($data.study.documentedBy.versions)@$sddv.$filter(($sddv.contents),function($v)
+    "check_func" : function($data){$data.(
+                    ($.study.documentedBy.versions)@$sddv.$filter(($sddv.contents),function($v)
                                 {
                                     $not(
                                         $type($v.previousId) = "null" or
@@ -32,7 +31,7 @@
                                     "childIds": $c.childIds[$not($ in $sddv.contents.id)],
                                     "instanceType": $c.instanceType
                                 }
-                },
+                )},
     "message": "The narrative content references a previous, next or child id value that does not match the id of any narrative content defined within the same study definition document version.",
     "variables": [
             "StudyDefinitionDocumentVersion.id",

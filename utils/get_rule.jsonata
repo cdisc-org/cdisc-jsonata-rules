@@ -3,7 +3,7 @@
                     {
                         {
                             "message": $def.rule.Outcome.Message,
-                            "check_func": $eval("function($data){" & $def.rule.Check.all.operator & "}"),
+                            "check_func": $exists($def.rule.Check.all.operator) ? $def.rule.Check.all.operator : $def.rule.Check,
                             "variables": $def.rule.Outcome.Output_Variables,
                             "scope": $def.rule.Scope.Entities
                         }

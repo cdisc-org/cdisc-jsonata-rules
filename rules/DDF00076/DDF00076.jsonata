@@ -1,7 +1,6 @@
 {
-    "check_func" : function($data)
-                    {
-                        ($data.study.versions)@$sv.
+    "check_func" : function($data){$data.(
+                        ($.study.versions)@$sv.
                             [
                                 (
                                     $pcats := $utils.parse_refs("childIds","children",$sv.bcCategories);                
@@ -25,7 +24,7 @@
                                             )     
                                 )
                             ]
-                    },
+                    )},
     "message": "The activity references both a biomedical concept category and a biomedical concept, but the biomedical concept is a member of the referenced category or one of its subcategories.",
     "variables": [
         "StudyDesign.id",

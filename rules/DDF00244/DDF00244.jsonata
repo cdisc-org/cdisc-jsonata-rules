@@ -1,7 +1,6 @@
 {
-    "check_func" : function($data)
-                {
-                    ($data.study.versions)@$sv.
+    "check_func" : function($data){$data.(
+                    ($.study.versions)@$sv.
                         ($sv.narrativeContentItems[$contains(text,/usdm:ref/)])@$nci.
                             $match( $nci.text,
                                     /<usdm:ref([^>]*)(\/>|><\/usdm:ref>)/
@@ -29,7 +28,7 @@
                                     {
                                         (
                                             $ref_val := "usdm_ref" in $keys($v.text)
-                                                        ? $utils.get_ref_value($v.text.usdm_ref,$data,"!!NOT FOUND!!")
+                                                        ? $utils.get_ref_value($v.text.usdm_ref,$,"!!NOT FOUND!!")
                                                         : $v.text.value;
                                             $v ~> |$|{"Referenced Value": $ref_val}|
                                         )
@@ -40,7 +39,7 @@
                                         $v.`Referenced Value` = "!!NOT FOUND!!"
                                     }
                                 )
-                },
+                )},
     "message": "The item referenced in the narrative content item text is not available elsewhere in the model.",
     "variables": [
             "StudyVersion.id",

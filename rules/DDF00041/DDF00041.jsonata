@@ -1,14 +1,13 @@
 {
-    "check_func" : function($data)
-                {
-                    $data.study.versions.studyDesigns.
+    "check_func" : function($data){$data.(
+                    $.study.versions.studyDesigns.
                     {
                         "id": id,
                         "name": name,
                         "# Primary endpoints": $count(objectives.endpoints[level.code="C94496"]),
                         "instanceType": instanceType
                     }[`# Primary endpoints` = 0]
-                },
+                )},
     "message": "There is not at least one endpoint with a level of primary within the study design.",
     "variables": [
             "id",

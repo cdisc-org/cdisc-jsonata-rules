@@ -1,7 +1,6 @@
 {
-    "check_func" : function($data)
-                {
-                    ($data.study.documentedBy)@$spd.
+    "check_func" : function($data){$data.(
+                    ($.study.documentedBy)@$spd.
                         ($spd.versions)@$spdv.
                             ($spdv.contents[$contains(text,/usdm:ref/)])@$nc.
                                 $match( $nc.text,
@@ -34,7 +33,7 @@
                                         {
                                             (
                                                 $ref_val := "usdm_ref" in $keys($v.text)
-                                                            ? $utils.get_ref_value($v.text.usdm_ref,$data,"!!NOT FOUND!!")
+                                                            ? $utils.get_ref_value($v.text.usdm_ref,$,"!!NOT FOUND!!")
                                                             : $v.text.value;
                                                 $v ~> |$|{"Referenced Value": $ref_val}|
                                             )
@@ -45,7 +44,7 @@
                                             $v.`Referenced Value` = "!!NOT FOUND!!"
                                         }
                                     )
-                },
+                )},
     "message": "The item referenced in the narrative content text is not available elsewhere in the model.",
     "variables": [
             "StudyProtocolDocument.id",

@@ -1,7 +1,6 @@
 {
-    "check_func" : function($data)
-                {
-                    ($data.**.study.versions)@$sv.
+    "check_func" : function($data){$data.(
+                    ($.**.study.versions)@$sv.
                         ($sv.studyDesigns)@$sd.($sd.**[$contains(text,/usdm:tag/)])@$st.
                             (
                                 $dict := $sd.dictionaries[id=$st.dictionaryId];
@@ -37,7 +36,7 @@
                                         "path": $utils.sift_tree($sv,$st,["id","name"],true)
                                     }
                             )
-                },
+                )},
     "message": "The parameter name referenced in the text is not specified in the data dictionary parameter map - the dictionaryId is missing or invalid, or the parameter name does not match a tag in any of the dictionary's parameter maps.",
     "variables": [
             "id",

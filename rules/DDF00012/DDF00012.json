@@ -47,13 +47,7 @@
                 ]
             }
         ],
-        "Check": {
-            "all": [
-                {
-                    "operator": "$data.study.versions.studyDesigns.\n    {\n        \"id\": id,\n        \"name\": name,\n        \"# Main timelines\": $count(scheduleTimelines[mainTimeline=true]),\n        \"Main timelines\": scheduleTimelines[mainTimeline=true].$sift(function($v,$k){$k in [\"id\",\"name\",\"mainTimeline\"]})[],\n        \"instanceType\": instanceType\n    }[`# Main timelines` != 1]"
-                }
-            ]
-        },
+        "Check": "$.study.versions.studyDesigns.\n    {\n        \"id\": id,\n        \"name\": name,\n        \"# Main timelines\": $count(scheduleTimelines[mainTimeline=true]),\n        \"Main timelines\": scheduleTimelines[mainTimeline=true].$sift(function($v,$k){$k in [\"id\",\"name\",\"mainTimeline\"]})[],\n        \"instanceType\": instanceType\n    }[`# Main timelines` != 1]",
         "Core": {
             "Id": "CORE-000407",
             "Status": "Draft",

@@ -1,7 +1,6 @@
 {
-    "check_func" : function($data)
-                {
-                    $data.study.versions.studyDesigns.
+    "check_func" : function($data){$data.(                
+                    $.study.versions.studyDesigns.
                     {
                         "id": id,
                         "name": name,
@@ -9,7 +8,7 @@
                         "Main timelines": scheduleTimelines[mainTimeline=true].$sift(function($v,$k){$k in ["id","name","mainTimeline"]})[],
                         "instanceType": instanceType
                     }[`# Main timelines` != 1]
-                },
+                )},
     "message": "The study design does not have exactly one main timeline.",
     "variables": [
             "id",

@@ -47,13 +47,7 @@
                 ]
             }
         ],
-        "Check": {
-            "all": [
-                {
-                    "operator": "($data.study.versions)@$sv.\n    ($sv.studyDesigns)@$sd.\n        ($sd.scheduleTimelines[mainTimeline = true])@$st.\n            (\n                $actord := $utils.parse_refs(\"nextId\",\"next\",$sd.encounters)\n                            [previousId = null].$append(id,**.next.id);\n                $reford := $utils.parse_refs(\"defaultConditionId\",\"defaultCondition\",$st.instances)\n                            [id = $st.entryId].**[instanceType=\"ScheduledActivityInstance\" and encounterId in $sd.encounters.id].encounterId\n                            ~> $utils.del_reps;\n                $encounter := function($id){($e:=$sd.encounters[id=$id];$id & \" [\" & $e.name & \"]\")};\n                {\n                    \"id\": $sd.id,\n                    \"name\": $sd.name,\n                    \"ScheduleTimeline.id\": $st.id,\n                    \"ScheduleTimeline.name\": $st.name,\n                    \"ScheduleTimeline.mainTimeline\": $st.mainTimeline,\n                    \"Encounter order\": $actord ~> $map($encounter),\n                    \"Referenced encounter order\": $reford ~> $map($encounter),\n                    \"instanceType\": $sd.instanceType\n                }[`Encounter order` != `Referenced encounter order`]\n            )"
-                }
-            ]
-        },
+        "Check": "($.study.versions)@$sv.\n    ($sv.studyDesigns)@$sd.\n        ($sd.scheduleTimelines[mainTimeline = true])@$st.\n            (\n                $actord := $utils.parse_refs(\"nextId\",\"next\",$sd.encounters)\n                            [previousId = null].$append(id,**.next.id);\n                $reford := $utils.parse_refs(\"defaultConditionId\",\"defaultCondition\",$st.instances)\n                            [id = $st.entryId].**[instanceType=\"ScheduledActivityInstance\" and encounterId in $sd.encounters.id].encounterId\n                            ~> $utils.del_reps;\n                $encounter := function($id){($e:=$sd.encounters[id=$id];$id & \" [\" & $e.name & \"]\")};\n                {\n                    \"id\": $sd.id,\n                    \"name\": $sd.name,\n                    \"ScheduleTimeline.id\": $st.id,\n                    \"ScheduleTimeline.name\": $st.name,\n                    \"ScheduleTimeline.mainTimeline\": $st.mainTimeline,\n                    \"Encounter order\": $actord ~> $map($encounter),\n                    \"Referenced encounter order\": $reford ~> $map($encounter),\n                    \"instanceType\": $sd.instanceType\n                }[`Encounter order` != `Referenced encounter order`]\n            )",
         "Core": {
             "Id": "",
             "Status": "Draft",
