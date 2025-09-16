@@ -14,15 +14,15 @@
                             {
                                 "studyDesigns.id": $sd.id,
                                 "studyDesigns.name": $sd.name,
-                                "activity.id": $p.id,
-                                "activity.name": $p.name,
-                                "activity.label": $p.label,
-                                "activity.childIds": $p.childIds,
-                                "activity.biomedicalConceptIds":$p.biomedicalConceptIds,
-                                "activity.bcCategoryIds":$p.bcCategoryIds,
-                                "activity.bcSurrogateIds":$p.bcSurrogateIds,
-                                "activity.timelineId":$p.timelineId,
-                                "activity.definedProcedures.id":$p.definedProcedures.id,
+                                "Activity.id": $p.id,
+                                "Activity.name": $p.name,
+                                "Activity.label": $p.label,
+                                "Activity.childIds": $p.childIds,
+                                "Activity.biomedicalConceptIds":$p.biomedicalConceptIds,
+                                "Activity.bcCategoryIds":$p.bcCategoryIds,
+                                "Activity.bcSurrogateIds":$p.bcSurrogateIds,
+                                "Activity.timelineId":$p.timelineId,
+                                "Activity.definedProcedures.id":$p.definedProcedures.id,
                                 "check":$ChkX()
                             }
                           )
@@ -34,13 +34,13 @@
         [
             "studyDesigns.id",
             "studyDesigns.name",
-            "activity.id",
-            "activity.name",
-            "activty.label",
-            "activity.biomedicalConceptIds",
-            "activity.bcCategoryIds",
-            "activity.bcSurrogateIds",
-            "activity.timelineId",
-            "activity.definedProcedures.id"
+            "Activity.id",
+            "Activity.name",
+            "Activty.label",
+            "Activity.biomedicalConceptIds",
+            "Activity.bcCategoryIds",
+            "Activity.bcSurrogateIds",
+            "Activity.timelineId",
+            "Activity.definedProcedures.id"
         ]
 }
