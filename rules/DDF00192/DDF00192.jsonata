@@ -17,16 +17,16 @@
                                                                         "appliesToIds": [$r.appliesToIds]
                                                                     };
                                     {
-                                                    "id": $sd.id,
-                                                    "name": $sd.name,
-                                                    "blindingSchema": $sd.blindingSchema.standardCode.decode,
-                                                    "instanceType": $sd.instanceType,
-                                                    "Masked Roles": $maskedRoles,
-                                                    "count": $count($maskedRoles)
+                                        "id": $sd.id,
+                                        "name": $sd.name,
+                                        "blindingSchema": $sd.blindingSchema.standardCode.decode,
+                                        "dataset": $sd.instanceType,
+                                        "Masked Roles": $maskedRoles,
+                                        "Count of Masked Roles": $count($maskedRoles)
                                     }
                                 )                                     
                                     
-                            ][count < 2]
+                            ][`Count of Masked Roles` < 2]
                     )},
     "message": "The study design has a double blind blinding schema but there are not at least two applicable study roles that are masked.",
     "variables": [
@@ -34,6 +34,11 @@
         "name",
         "blindingSchema",
         "Masked Roles",
-        "count"
-    ]
+        "Count of Masked Roles"
+    ],
+    "scope": {
+        "Include": [
+            "InterventionalStudyDesign"
+        ]
+    }
 }

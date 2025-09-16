@@ -1,0 +1,83 @@
+Authorities:
+  - Organization: CDISC
+    Standards:
+      - Name: USDM
+        References:
+          - Citations:
+              - Cited Guidance: 'Within a study design, if a planned completion number is
+                  defined, it must be specified either in the study population
+                  or in all cohorts.'
+                Document: 'USDM_CORE_Rules.xlsx'
+            Origin: 'USDM Conformance Rules'
+            Rule Identifier:
+              Id: 'DDF00132'
+              Version: '1'
+            Version: '1.0'
+        Version: '3.0'
+      - Name: USDM
+        References:
+          - Citations:
+              - Cited Guidance: 'Within a study design, if a planned completion number is
+                  defined, it must be specified either in the study population
+                  or in all cohorts.'
+                Document: 'USDM_CORE_Rules.xlsx'
+            Origin: 'USDM Conformance Rules'
+            Rule Identifier:
+              Id: 'DDF00132'
+              Version: '1'
+            Version: '1.0'
+        Version: '4.0'
+Check: |-
+  ($.**.studyDesigns)@$sd.
+      $sd.population@$p.
+          $p.
+              [
+                  ($NullCohort:=function(){"null" in cohorts.$type(plannedCompletionNumber)}; 
+                  $InCohort:=function(){$boolean(cohorts.plannedCompletionNumber)};      
+                  $InPop:=function(){$type(plannedCompletionNumber) != "null"};           
+                      $ChkX:=function()
+                          {
+                              ($InPop()=true and $InCohort()=true)                            
+                                or ($InPop()=false and $NullCohort()=true and $InCohort()=true) 
+                            };
+                        {
+                                "studyDesigns.id": $sd.id,
+                                "studyDesigns.name": $sd.name,
+                                "population.id": $p.id,
+                                "population.name": $p.name,
+                                "population.plannedCompletionNumber.id": $p.plannedCompletionNumber.id,
+                                "cohorts.id":$p.cohorts.id,
+                                "cohorts.name": $p.cohorts.name,
+                                "cohorts.plannedCompletionNumber.id":$p.cohorts.plannedCompletionNumber.id,
+                                "dataset": $p.instanceType,
+                                "check":$ChkX()
+                            }
+                    )
+              ]
+              [check=true]
+Core:
+  Id: 'DDF00132'
+  Status: Draft
+  Version: '1'
+Description: 'Within a study design, if a planned completion number is defined,
+  it must be specified either in the study population or in all cohorts.'
+Executability: Fully Executable
+Outcome:
+  Message: 'A planned completion number has been specified for both the study
+    population and the cohorts, or it has been specified for only a subset of
+    the cohorts.'
+  Output Variables:
+    - studyDesigns.id
+    - studyDesigns.name
+    - population.id
+    - population.name
+    - population.plannedCompletionNumber.id
+    - cohorts.id
+    - cohorts.name
+    - cohorts.plannedCompletionNumber.id
+Rule Type: JSONata
+Scope:
+  Entities:
+    Include:
+      - 'StudyDesignPopulation'
+Sensitivity: Record

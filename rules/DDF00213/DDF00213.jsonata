@@ -10,7 +10,7 @@
                                     "model.code": $sd.model.code,
                                     "model.decode": $sd.model.decode,
                                     "# Referenced Study Interventions":  $count($distinct($sd.studyInterventionIds[$ in $sv.studyInterventions.id])),
-                                    "instanceType": $sd.instanceType
+                                    "dataset": $sd.instanceType
                                 }
                                 [
                                     (`model.code` = "C82640" and `# Referenced Study Interventions` != 1) or

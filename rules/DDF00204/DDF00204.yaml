@@ -1,0 +1,72 @@
+Authorities:
+  - Organization: CDISC
+    Standards:
+      - Name: USDM
+        References:
+          - Citations:
+              - Cited Guidance: 'Narrative content must only reference narrative content that is
+                  specified within the same study definition document version.'
+                Document: 'USDM_CORE_Rules.xlsx'
+            Origin: 'USDM Conformance Rules'
+            Rule Identifier:
+              Id: 'DDF00204'
+              Version: '1'
+            Version: '1.0'
+        Version: '4.0'
+Check: |-
+  ($.study.documentedBy.versions)@$sddv.$filter(($sddv.contents),function($v)
+              {
+                  $not(
+                      $type($v.previousId) = "null" or
+                      $v.previousId in $sddv.contents.id
+                      ) or
+                  $not(
+                      $type($v.nextId) = "null" or
+                      $v.nextId in $sddv.contents.id
+                      ) or
+                  $v.childIds[$not($ in $sddv.contents.id)]
+              }
+          )@$c.
+              {
+                  "StudyDefinitionDocumentVersion.id": $sddv.id,
+                  "StudyDefinitionDocumentVersion.name": $sddv.name,
+                  "id": $c.id,
+                  "name": $c.name,
+                  "previousId":   $not(
+                                      $type($c.previousId) = "null" or
+                                      $c.previousId in $sddv.contents.id
+                                      )
+                                  ? $c.previousId,
+                  "nextId":   $not(
+                                  $type($c.nextId) = "null" or
+                                  $c.nextId in $sddv.contents.id
+                                  )
+                              ? $c.nextId,
+                  "childIds": $c.childIds[$not($ in $sddv.contents.id)],
+                  "dataset": $c.instanceType
+              }
+Core:
+  Id: 'DDF00204'
+  Status: Draft
+  Version: '1'
+Description: 'Narrative content must only reference narrative content that is
+  specified within the same study definition document version.'
+Executability: Fully Executable
+Outcome:
+  Message: 'The narrative content references a previous, next or child id value
+    that does not match the id of any narrative content defined within the same
+    study definition document version.'
+  Output Variables:
+    - StudyDefinitionDocumentVersion.id
+    - StudyDefinitionDocumentVersion.name
+    - id
+    - name
+    - previousId
+    - nextId
+    - childIds
+Rule Type: JSONata
+Scope:
+  Entities:
+    Include:
+      - 'NarrativeContent'
+Sensitivity: Record

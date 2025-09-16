@@ -27,7 +27,7 @@
                 ]
             }
         ],
-        "Check": "($.study.documentedBy)@$spd.\n    ($spd.versions)@$spdv.\n        ($spdv.contents[$contains(text,/usdm:ref/)])@$nc.\n            $match( $nc.text,\n                    /<usdm:ref([^>]*)(\\/>|><\\/usdm:ref>)/\n            )@$ref.\n            (\n                $g0_or_null := function($m){$m ? $m.groups[0] : null};\n                {\n                    \"StudyProtocolDocument.id\": $spd.id,\n                    \"StudyProtocolDocument.name\": $spd.name,\n                    \"StudyProtocolDocumentVersion.id\": $spdv.id,\n                    \"StudyProtocolDocumentVersion.protocolVersion\": $spdv.protocolVersion,\n                    \"id\": $nc.id,\n                    \"name\": $nc.name,\n                    \"sectionNumber\": $nc.sectionNumber,\n                    \"sectionTitle\": $nc.sectionTitle,\n                    \"text\": {\n                                \"value\": $nc.text,\n                                \"usdm_ref\": {\n                                                \"match\": $ref.match,\n                                                \"klass\": $match($ref.groups[0],/klass=\\\"([a-zA-Z]+)\\\"/) ~> $g0_or_null(),\n                                                \"id\": $match($ref.groups[0],/id=\\\"(\\w+)\\\"/) ~> $g0_or_null(),\n                                                \"attribute\": $match($ref.groups[0],/attribute=\\\"([a-zA-Z]+)\\\"/) ~> $g0_or_null()\n                                            }\n                    },                            \n                    \"instanceType\": $nc.instanceType\n                }\n            )\n            ~>  $map(function($v)\n                    {\n                        (\n                            $ref_val := \"usdm_ref\" in $keys($v.text)\n                                        ? $utils.get_ref_value($v.text.usdm_ref,$,\"!!NOT FOUND!!\")\n                                        : $v.text.value;\n                            $v ~> |$|{\"Referenced Value\": $ref_val}|\n                        )\n                    }\n                )\n            ~>  $filter(function($v)\n                    {\n                        $v.`Referenced Value` = \"!!NOT FOUND!!\"\n                    }\n                )",
+        "Check": "(\n    $d:=$;\n    ($.study.documentedBy)@$spd.\n        ($spd.versions)@$spdv.\n            ($spdv.contents[$contains(text,/usdm:ref/)])@$nc.\n                $match( $nc.text,\n                        /<usdm:ref([^>]*)(\\/>|><\\/usdm:ref>)/\n                )@$ref.\n                (\n                    $g0_or_null := function($m){$m ? $m.groups[0] : null};\n                    {\n                        \"StudyProtocolDocument.id\": $spd.id,\n                        \"StudyProtocolDocument.name\": $spd.name,\n                        \"StudyProtocolDocumentVersion.id\": $spdv.id,\n                        \"StudyProtocolDocumentVersion.protocolVersion\": $spdv.protocolVersion,\n                        \"id\": $nc.id,\n                        \"name\": $nc.name,\n                        \"sectionNumber\": $nc.sectionNumber,\n                        \"sectionTitle\": $nc.sectionTitle,\n                        \"text\": $nc.text,\n                        \"usdm_ref\": {\n                                        \"match\": $ref.match,\n                                        \"klass\": $match($ref.groups[0],/klass=\\\"([a-zA-Z]+)\\\"/) ~> $g0_or_null(),\n                                        \"id\": $match($ref.groups[0],/id=\\\"(\\w+)\\\"/) ~> $g0_or_null(),\n                                        \"attribute\": $match($ref.groups[0],/attribute=\\\"([a-zA-Z]+)\\\"/) ~> $g0_or_null()\n                                    },                            \n                        \"dataset\": $nc.instanceType\n                    }\n                )\n                ~>  $map(function($v)\n                        {\n                            (\n                                $ref_val := \"usdm_ref\" in $keys($v)\n                                            ? $utils.get_ref_value($v.usdm_ref,$d,\"!!NOT FOUND!!\")\n                                            : $v.text;\n                                $v ~> |$|{\"Invalid Reference\": $v.usdm_ref.match, \"Referenced Value\": $ref_val},['usdm_ref']|\n                            )\n                        }\n                    )\n                ~>  $filter(function($v)\n                        {\n                            $v.`Referenced Value` = \"!!NOT FOUND!!\"\n                        }\n                    )\n)",
         "Core": {
             "Id": "",
             "Status": "Draft",
@@ -46,7 +46,8 @@
                 "name",
                 "sectionNumber",
                 "sectionTitle",
-                "text"
+                "text",
+                "Invalid Reference"
             ]
         },
         "Scope": {
@@ -57,7 +58,7 @@
             }
         },
         "Sensitivity": "Record",
-        "Rule_Type": "Record Data"
+        "Rule_Type": "JSONata"
     },
     "datasets": [],
     "codelists": []

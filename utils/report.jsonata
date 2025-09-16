@@ -26,11 +26,11 @@
                                     $class := $.class;
                                     $rule_applies($class,$rule.scope)
                                         ?
-                                            $class in $errors.instanceType 
+                                            $class in $errors.dataset 
                                                 ? 
                                                     {
                                                         "message": $rule.message,
-                                                        "errors" : $map($errors[instanceType = $class],
+                                                        "errors" : $map($errors[dataset = $class],
                                                                         function($obj)
                                                                             {
                                                                                 $merge($map($rule.variables, function($var)
@@ -42,7 +42,7 @@
                                                                                     )
                                                                                 )
                                                                             }
-                                                                    )
+                                                                    )[]
                                                     }
                                                 : {}
                                         :   {

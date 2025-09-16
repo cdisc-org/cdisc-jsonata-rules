@@ -29,7 +29,7 @@
                                                     )
                                                 ? $c.nextId,
                                     "childIds": $c.childIds[$not($ in $sddv.contents.id)],
-                                    "instanceType": $c.instanceType
+                                    "dataset": $c.instanceType
                                 }
                 )},
     "message": "The narrative content references a previous, next or child id value that does not match the id of any narrative content defined within the same study definition document version.",
@@ -41,5 +41,10 @@
             "previousId",
             "nextId",
             "childIds"
+        ],
+    "scope": {
+        "Include": [
+            "NarrativeContent"
         ]
+    }
 }

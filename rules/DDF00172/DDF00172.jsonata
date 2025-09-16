@@ -6,11 +6,23 @@
                                 {
                                     "id": $sv.id,
                                     "versionIdentifier": $sv.versionIdentifier,
-                                    "instanceType": $sv.instanceType,
+                                    "dataset": $sv.instanceType,
                                     "Sponsor Identifier(s)": $spIds,
                                     "count": $count($spIds)
                                 }
                             )][count != 1]
 
-                    )}
+                    )},
+    "message": "The study version does not have exactly one sponsor study identifier.",
+    "variables": [
+        "id",
+        "versionIdentifier",
+        "Sponsor Identifier(s)",
+        "count"
+    ],
+    "scope": {
+        "Include": [
+            "StudyVersion"
+        ]
+    }
 }

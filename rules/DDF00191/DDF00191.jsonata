@@ -16,7 +16,7 @@
                                             "name": $r.name,
                                             "code": $r.code.decode,
                                             "appliesToIds": $r.appliesToIds,
-                                            "instanceType": $r.instanceType,
+                                            "dataset": $r.instanceType,
                                             "Masking.text": $r.masking.text,
                                             "Masking.isMasked": $r.masking.isMasked,
                                             "InterventionalStudyDesign.id": $sd.id,
@@ -34,5 +34,10 @@
         "Masking.isMasked",
         "InterventionalStudyDesign.id",
         "InterventionalStudyDesign.blindingSchema"
-    ]
+    ],
+    "scope": {
+        "Include": [
+            "StudyRole"
+        ]
+    }
 }

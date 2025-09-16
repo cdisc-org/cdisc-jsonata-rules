@@ -32,31 +32,29 @@
                                                                     "parameterMaps": $param_maps}
                                                             : "[The dictionaryId is invalid]"
                                                         : "[The dictionaryId is missing]",
-                                        "instanceType": $st.instanceType,
+                                        "dataset": $st.instanceType,
                                         "path": $utils.sift_tree($sv,$st,["id","name"],true)
                                     }
-                                )
+                            )
                 )},
     "message": "The parameter name referenced in the text is not specified in the data dictionary parameter map - the dictionaryId is missing or invalid, or the parameter name does not match a tag in any of the dictionary's parameter maps.",
     "variables": [
-            "id",
-            "name",
-            "text",
-            "parameter",
-            "dictionaryId",
-            "dictionary",
-            "path"
-        ],
-    "Scope": {
-        "Entities": {
-            "Include": [
-                "EligibilityCriterionItem",
-                "Characteristic",
-                "Condition",
-                "Objective",
-                "Endpoint",
-                "IntercurrentEvent"
-            ]
-        }
+        "id",
+        "name",
+        "text",
+        "parameter",
+        "dictionaryId",
+        "dictionary",
+        "path"
+    ],
+    "scope": {
+        "Include": [
+            "EligibilityCriterionItem",
+            "Characteristic",
+            "Condition",
+            "Objective",
+            "Endpoint",
+            "IntercurrentEvent"
+        ]
     }
 }

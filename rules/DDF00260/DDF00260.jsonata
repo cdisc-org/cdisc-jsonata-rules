@@ -1,13 +1,16 @@
 {
     "check_func" : function($data){$data.(
-                    ($.**[id~>/ /])@$i.
-                        {
-                            "id": $i.id,
-                            "name": $i.name,
-                            "path": $utils.get_path($.**[id=$i.id],$),
-                            "instanceType": $i.instanceType
-                        }
-                )},
+        (
+            $d := $;
+            ($.**[id~>/ /])@$i.
+                {
+                    "id": $i.id,
+                    "name": $i.name,
+                    "path": $utils.get_path($d.**[id=$i.id],$d),
+                    "dataset": $i.instanceType
+                }
+        )
+    )},
     "message": "The id value contains a space.",
     "variables": [
             "id",

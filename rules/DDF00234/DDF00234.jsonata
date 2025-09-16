@@ -1,5 +1,5 @@
 {
-    "check_func" : function($data){$data.(
+    "check_func" : function($data){$data.($utils := $$.$utils;
 	    ($.**.studyDesigns)@$sd.
     	            $sd.population@$p.
    	                $p.

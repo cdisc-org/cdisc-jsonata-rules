@@ -11,7 +11,7 @@
                                 "Citations": [
                                     {
                                         "Document": "USDM_CORE_Rules.xlsx",
-                                        "Cited_Guidance": "An activity must only reference child activities that are specified within the same study design."
+                                        "Cited_Guidance": "Narrative content must only reference narrative content that is specified within the same study definition document version."
                                     }
                                 ],
                                 "Origin": "USDM Conformance Rules",
@@ -27,19 +27,19 @@
                 ]
             }
         ],
-        "Check": "($.study.documentedBy.versions)@$sddv.$filter(($sddv.contents),function($v)\n    {\n        $not(\n            $type($v.previousId) = \"null\" or\n            $v.previousId in $sddv.contents.id\n            ) or\n        $not(\n            $type($v.nextId) = \"null\" or\n            $v.nextId in $sddv.contents.id\n            ) or\n        $v.childIds[$not($ in $sddv.contents.id)]\n    }\n)@$c.\n    {\n        \"parent_id\": $sddv.id,\n        \"parent_entity\": $sddv.instanceType,\n        \"id\": $c.id,\n        \"name\": $c.name,\n        \"previousId\":   $not(\n                            $type($c.previousId) = \"null\" or\n                            $c.previousId in $sddv.contents.id\n                            )\n                        ? $c.previousId,\n        \"nextId\":   $not(\n                        $type($c.nextId) = \"null\" or\n                        $c.nextId in $sddv.contents.id\n                        )\n                    ? $c.nextId,\n        \"childIds\": $c.childIds[$not($ in $sddv.contents.id)],\n        \"instanceType\": $c.instanceType\n    }",
+        "Check": "($.study.documentedBy.versions)@$sddv.$filter(($sddv.contents),function($v)\n            {\n                $not(\n                    $type($v.previousId) = \"null\" or\n                    $v.previousId in $sddv.contents.id\n                    ) or\n                $not(\n                    $type($v.nextId) = \"null\" or\n                    $v.nextId in $sddv.contents.id\n                    ) or\n                $v.childIds[$not($ in $sddv.contents.id)]\n            }\n        )@$c.\n            {\n                \"StudyDefinitionDocumentVersion.id\": $sddv.id,\n                \"StudyDefinitionDocumentVersion.name\": $sddv.name,\n                \"id\": $c.id,\n                \"name\": $c.name,\n                \"previousId\":   $not(\n                                    $type($c.previousId) = \"null\" or\n                                    $c.previousId in $sddv.contents.id\n                                    )\n                                ? $c.previousId,\n                \"nextId\":   $not(\n                                $type($c.nextId) = \"null\" or\n                                $c.nextId in $sddv.contents.id\n                                )\n                            ? $c.nextId,\n                \"childIds\": $c.childIds[$not($ in $sddv.contents.id)],\n                \"dataset\": $c.instanceType\n            }",
         "Core": {
             "Id": "",
             "Status": "Draft",
             "Version": "1"
         },
-        "Description": "An activity must only reference child activities that are specified within the same study design.",
+        "Description": "Narrative content must only reference narrative content that is specified within the same study definition document version.",
         "Executability": "Fully Executable",
         "Outcome": {
             "Message": "The narrative content references a previous, next or child id value that does not match the id of any narrative content defined within the same study definition document version.",
             "Output_Variables": [
-                "parent_id",
-                "parent_entity",
+                "StudyDefinitionDocumentVersion.id",
+                "StudyDefinitionDocumentVersion.name",
                 "id",
                 "name",
                 "previousId",
@@ -50,12 +50,12 @@
         "Scope": {
             "Entities": {
                 "Include": [
-                    "Activity"
+                    "NarrativeContent"
                 ]
             }
         },
         "Sensitivity": "Record",
-        "Rule_Type": "Record Data"
+        "Rule_Type": "JSONata"
     },
     "datasets": [],
     "codelists": []

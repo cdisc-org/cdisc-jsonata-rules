@@ -20293,7 +20293,9 @@
                 "sectionTitle": "Primary Objective(s) and Associated Estimand(s)",
                 "displaySectionNumber": true,
                 "displaySectionTitle": true,
-                "childIds": "NarrativeContent_247",
+                "childIds": [
+                  "NarrativeContent_247"
+                ],
                 "previousId": "NarrativeContent_245",
                 "nextId": "NarrativeContent_247",
                 "contentItemId": "NarrativeContentItem_81",
@@ -20369,7 +20371,9 @@
                 "sectionTitle": "Description of Trial Design",
                 "displaySectionNumber": true,
                 "displaySectionTitle": true,
-                "childIds": "NarrativeContent_252",
+                "childIds": [
+                  "NarrativeContent_252"
+                ],
                 "previousId": "NarrativeContent_250",
                 "nextId": "NarrativeContent_252",
                 "contentItemId": "NarrativeContentItem_83",

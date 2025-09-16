@@ -1,5 +1,7 @@
 {
     "check_func" : function($data){$data.(
+                (
+                    $d:=$;
                     ($.study.documentedBy)@$spd.
                         ($spd.versions)@$spdv.
                             ($spdv.contents[$contains(text,/usdm:ref/)])@$nc.
@@ -17,25 +19,23 @@
                                         "name": $nc.name,
                                         "sectionNumber": $nc.sectionNumber,
                                         "sectionTitle": $nc.sectionTitle,
-                                        "text": {
-                                                    "value": $nc.text,
-                                                    "usdm_ref": {
-                                                                    "match": $ref.match,
-                                                                    "klass": $match($ref.groups[0],/klass=\"([a-zA-Z]+)\"/) ~> $g0_or_null(),
-                                                                    "id": $match($ref.groups[0],/id=\"(\w+)\"/) ~> $g0_or_null(),
-                                                                    "attribute": $match($ref.groups[0],/attribute=\"([a-zA-Z]+)\"/) ~> $g0_or_null()
-                                                                }
-                                        },                            
-                                        "instanceType": $nc.instanceType
+                                        "text": $nc.text,
+                                        "usdm_ref": {
+                                                        "match": $ref.match,
+                                                        "klass": $match($ref.groups[0],/klass=\"([a-zA-Z]+)\"/) ~> $g0_or_null(),
+                                                        "id": $match($ref.groups[0],/id=\"(\w+)\"/) ~> $g0_or_null(),
+                                                        "attribute": $match($ref.groups[0],/attribute=\"([a-zA-Z]+)\"/) ~> $g0_or_null()
+                                                    },                            
+                                        "dataset": $nc.instanceType
                                     }
                                 )
                                 ~>  $map(function($v)
                                         {
                                             (
-                                                $ref_val := "usdm_ref" in $keys($v.text)
-                                                            ? $utils.get_ref_value($v.text.usdm_ref,$,"!!NOT FOUND!!")
-                                                            : $v.text.value;
-                                                $v ~> |$|{"Referenced Value": $ref_val}|
+                                                $ref_val := "usdm_ref" in $keys($v)
+                                                            ? $utils.get_ref_value($v.usdm_ref,$d,"!!NOT FOUND!!")
+                                                            : $v.text;
+                                                $v ~> |$|{"Invalid Reference": $v.usdm_ref.match, "Referenced Value": $ref_val},['usdm_ref']|
                                             )
                                         }
                                     )
@@ -44,7 +44,8 @@
                                             $v.`Referenced Value` = "!!NOT FOUND!!"
                                         }
                                     )
-                )},
+                )
+            )},
     "message": "The item referenced in the narrative content text is not available elsewhere in the model.",
     "variables": [
             "StudyProtocolDocument.id",
@@ -55,13 +56,12 @@
             "name",
             "sectionNumber",
             "sectionTitle",
-            "text"
+            "text",
+            "Invalid Reference"
         ],
-    "Scope": {
-        "Entities": {
-            "Include": [
-                "NarrativeContent"
-            ]
-        }
+    "scope": {
+        "Include": [
+            "NarrativeContent"
+        ]
     }
 }

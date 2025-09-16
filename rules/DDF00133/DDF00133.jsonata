@@ -29,7 +29,7 @@
                                 "cohorts.id":$p.cohorts.id,
                                 "cohorts.name": $p.cohorts.name,
                                 "cohorts.plannedEnrollmentNumber.id":$p.cohorts.plannedEnrollmentNumber.id,
-                                "instanceType": $p.instanceType,
+                                "dataset": $p.instanceType,
                                 "check":$ChkX()
                             }
                           )

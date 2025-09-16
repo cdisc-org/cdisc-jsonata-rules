@@ -27,7 +27,7 @@
                 ]
             }
         ],
-        "Check": "($.**[id~>/ /])@$i.\n    {\n        \"id\": $i.id,\n        \"name\": $i.name,\n        \"path\": $utils.get_path($.**[id=$i.id],$),\n        \"instanceType\": $i.instanceType\n    }",
+        "Check": "(\n    $d := $;\n    ($.**[id~>/ /])@$i.\n        {\n            \"id\": $i.id,\n            \"name\": $i.name,\n            \"path\": $utils.get_path($d.**[id=$i.id],$d),\n            \"dataset\": $i.instanceType\n        }\n)",
         "Core": {
             "Id": "",
             "Status": "Draft",

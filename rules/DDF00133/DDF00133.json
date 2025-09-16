@@ -47,7 +47,7 @@
                 ]
             }
         ],
-        "Check": "($.**.studyDesigns)@$sd.\n    $sd.population@$p.\n        $p.\n          [\n                  (\n                $NullCohort:=function(){\"null\" in cohorts.$type(plannedEnrollmentNumber)}; \n                  $InCohort:=function(){$boolean(cohorts.plannedEnrollmentNumber)};      \n                  $InPop:=function(){$type(plannedEnrollmentNumber) != \"null\"};           \n                    $ChkX:=function()\n                    {\n                        (\n                            $InPop()=true and\n                            $InCohort()=true\n                        ) or \n                        (\n                            $InPop()=false and\n                            $NullCohort()=true and\n                            $InCohort()=true\n                        ) \n                    };\n                    {\n                        \"studyDesigns.id\": $sd.id,\n                        \"studyDesigns.name\": $sd.name,\n                        \"population.id\": $p.id,\n                        \"population.name\": $p.name,\n                        \"population.plannedEnrollmentNumber.id\": $p.plannedEnrollmentNumber.id,\n                        \"cohorts.id\":$p.cohorts.id,\n                        \"cohorts.name\": $p.cohorts.name,\n                        \"cohorts.plannedEnrollmentNumber.id\":$p.cohorts.plannedEnrollmentNumber.id,\n                        \"instanceType\": $p.instanceType,\n                        \"check\":$ChkX()\n                    }\n                  )\n            ]\n            [check=true]",
+        "Check": "($.**.studyDesigns)@$sd.\n  $sd.population@$p.\n      $p.\n        [\n                (\n              $NullCohort:=function(){\"null\" in cohorts.$type(plannedEnrollmentNumber)}; \n                $InCohort:=function(){$boolean(cohorts.plannedEnrollmentNumber)};      \n                $InPop:=function(){$type(plannedEnrollmentNumber) != \"null\"};           \n                  $ChkX:=function()\n                  {\n                      (\n                          $InPop()=true and\n                          $InCohort()=true\n                      ) or \n                      (\n                          $InPop()=false and\n                          $NullCohort()=true and\n                          $InCohort()=true\n                      ) \n                  };\n                  {\n                      \"studyDesigns.id\": $sd.id,\n                      \"studyDesigns.name\": $sd.name,\n                      \"population.id\": $p.id,\n                      \"population.name\": $p.name,\n                      \"population.plannedEnrollmentNumber.id\": $p.plannedEnrollmentNumber.id,\n                      \"cohorts.id\":$p.cohorts.id,\n                      \"cohorts.name\": $p.cohorts.name,\n                      \"cohorts.plannedEnrollmentNumber.id\":$p.cohorts.plannedEnrollmentNumber.id,\n                      \"dataset\": $p.instanceType,\n                      \"check\":$ChkX()\n                  }\n                )\n          ]\n          [check=true]",
         "Core": {
             "Id": "",
             "Status": "Draft",
@@ -76,7 +76,7 @@
             }
         },
         "Sensitivity": "Record",
-        "Rule_Type": "Record Data"
+        "Rule_Type": "JSONata"
     },
     "datasets": [],
     "codelists": []
