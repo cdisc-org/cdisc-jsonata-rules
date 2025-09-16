@@ -1,7 +1,7 @@
 {
     "check_func" : function($data)
          {
-($data.**.studyDesigns)@$sd.
+($.**.studyDesigns)@$sd.
             $sd.activities@$p.
                 $p.
                   [
@@ -12,8 +12,8 @@
                                 ($not(childIds) = false and $ActivityDetails() =true)
                             };
                             {
-                                "studyDesigns.id": $sd.id,
-                                "studyDesigns.name": $sd.name,
+                                "StudyDesigns.id": $sd.id,
+                                "StudyDesigns.name": $sd.name,
                                 "Activity.id": $p.id,
                                 "Activity.name": $p.name,
                                 "Activity.label": $p.label,
@@ -23,13 +23,14 @@
                                 "Activity.bcSurrogateIds":$p.bcSurrogateIds,
                                 "Activity.timelineId":$p.timelineId,
                                 "Activity.definedProcedures.id":$p.definedProcedures.id,
+                                "Activity.instanceType":$p.instanceType,
                                 "check":$ChkX()
                             }
                           )
                     ]
                     [check=true]
            },
-    "message": "An activity with children points to a timeline, procedure, biomedical concept, biomedical concept category or biomedical concept surrogate.",
+    "message": "An activity with children points to a timeline, procedure, biomedical concept, biomedical concept category, or biomedical concept surrogate as well.",
     "variables": 
         [
             "studyDesigns.id",
