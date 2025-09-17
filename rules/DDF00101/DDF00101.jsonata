@@ -1,15 +1,16 @@
 {
     "check_func" : function($data){$data.(
-                    ($.study.versions)@$sv.
-                        ($sv.studyDesigns[studyType.code = "C98388"])@$sd.
+                    ($.study.versions[$not("studyType" in $keys($)) or studyType.code = "C98388"])@$sv.
+                        ($sv.studyDesigns[$not("studyType" in $keys($)) or studyType.code = "C98388"])@$sd.
                                 {
                                     "id": $sd.id,
                                     "name": $sd.name,
-                                    "studyType.code": $sd.studyType.code,
-                                    "studyType.decode": $sd.studyType.decode,
-                                    "Study Interventions": $count($sd.activities.definedProcedures[studyInterventionId in $sv.studyInterventions.id]),
-                                    "instanceType": $sd.instanceType
-                                }[`Study Interventions` < 1]
+                                    "studyType.code": $append($sv.studyType.code,$sd.studyType.code),
+                                    "studyType.decode": $append($sv.studyType.decode,$sd.studyType.decode),
+                                    "Referenced Study Interventions":
+                                        $count($sd.activities.definedProcedures[studyInterventionId in $append($sv.studyInterventions.id,$sd.studyInterventions.id)]),
+                                    "dataset": $sd.instanceType
+                                }[`Referenced Study Interventions` < 1]
                 )},
     "message": "The study type is Interventional but a study intervention is not referenced from any procedure.",
     "variables": [
@@ -17,10 +18,11 @@
             "name",
             "studyType.code",
             "studyType.decode",
-            "Study Interventions"
+            "Referenced Study Interventions"
         ],
     "scope": {
         "Include": [
+            "StudyDesign",
             "InterventionalStudyDesign"
         ]
     }
