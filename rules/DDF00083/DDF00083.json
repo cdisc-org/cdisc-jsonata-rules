@@ -23,11 +23,31 @@
                             }
                         ],
                         "Version": "3.0"
+                    },
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "Within a study version, all id values must be unique."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00083",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "4.0"
                     }
                 ]
             }
         ],
-        "Check": "(\n    $iid:=0;\n    $iidd := $ ~> |**.*[id]|{\"iid\": $iid:=$iid+1}|;\n    $sift(\n        ($iidd).**.*[id and instanceType].\n            {\n                \"id\": id,\n                \"details\":\n                    {\n                        \"id\": id, \n                        \"instanceType\": instanceType,\n                        \"iid\": iid,\n                        \"name\": name\n                    }\n            }.${id: details},\n        function($v){$count($v) > 1}\n    ).*\n    ~>  $map(function($v)\n            {   \n                (\n                    $this := $iidd.**[iid=$v.iid];\n                    $v ~> |$|{\"path\": $utils.sift_tree($iidd.study,$this,[\"id\",\"name\"],true)}|\n                )\n            }\n        )\n)",
+        "Check": "(\n    $iid:=0;\n    $iidd := $ ~> |**.*[id]|{\"iid\": $iid:=$iid+1}|;\n    $sift(\n        ($iidd).**.*[id and instanceType].\n            {\n                \"id\": id,\n                \"details\":\n                    {\n                        \"id\": id, \n                        \"dataset\": instanceType,\n                        \"iid\": iid,\n                        \"name\": name\n                    }\n            }.${id: details},\n        function($v){$count($v) > 1}\n    ).*\n    ~>  $map(function($v)\n            {   \n                (\n                    $this := $iidd.**[iid=$v.iid];\n                    $v ~> |$|{\"path\": $utils.sift_tree($iidd.study,$this,[\"id\",\"name\"],true)}|\n                )\n            }\n        )\n)",
         "Core": {
             "Id": "",
             "Status": "Draft",
@@ -51,7 +71,7 @@
             }
         },
         "Sensitivity": "Record",
-        "Rule_Type": "Record Data"
+        "Rule_Type": "JSONata"
     },
     "datasets": [],
     "codelists": []

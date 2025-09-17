@@ -12469,7 +12469,9 @@
                   "BiomedicalConcept_34"
                 ],
                 "bcCategoryIds": [],
-                "bcSurrogateIds": "BiomedicalConceptSurrogate_2",
+                "bcSurrogateIds": [
+                  "BiomedicalConceptSurrogate_2"
+                ],
                 "timelineId": "",
                 "instanceType": "Activity"
               },
@@ -12777,7 +12779,9 @@
                 "previousId": "Activity_59",
                 "nextId": "Activity_61",
                 "definedProcedures": [],
-                "biomedicalConceptIds": "BiomedicalConcept_45",
+                "biomedicalConceptIds": [
+                  "BiomedicalConcept_45"
+                ],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
                 "timelineId": "",
@@ -12875,7 +12879,9 @@
                 "previousId": "Activity_66",
                 "nextId": "Activity_68",
                 "definedProcedures": [],
-                "biomedicalConceptIds": "BiomedicalConcept_46",
+                "biomedicalConceptIds": [
+                  "BiomedicalConcept_46"
+                ],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
                 "timelineId": "",
@@ -20456,105 +20462,135 @@
                 "id": "StudyCell_16",
                 "armId": "StudyArm_4",
                 "epochId": "StudyEpoch_6",
-                "elementIds": "StudyElement_8",
+                "elementIds": [
+                  "StudyElement_8"
+                ],
                 "instanceType": "StudyCell"
               },
               {
                 "id": "StudyCell_17",
                 "armId": "StudyArm_4",
                 "epochId": "StudyEpoch_7",
-                "elementIds": "StudyElement_9",
+                "elementIds": [
+                  "StudyElement_9"
+                ],
                 "instanceType": "StudyCell"
               },
               {
                 "id": "StudyCell_18",
                 "armId": "StudyArm_4",
                 "epochId": "StudyEpoch_8",
-                "elementIds": "StudyElement_9",
+                "elementIds": [
+                  "StudyElement_9"
+                ],
                 "instanceType": "StudyCell"
               },
               {
                 "id": "StudyCell_19",
                 "armId": "StudyArm_4",
                 "epochId": "StudyEpoch_9",
-                "elementIds": "StudyElement_9",
+                "elementIds": [
+                  "StudyElement_9"
+                ],
                 "instanceType": "StudyCell"
               },
               {
                 "id": "StudyCell_20",
                 "armId": "StudyArm_4",
                 "epochId": "StudyEpoch_10",
-                "elementIds": "StudyElement_10",
+                "elementIds": [
+                  "StudyElement_10"
+                ],
                 "instanceType": "StudyCell"
               },
               {
                 "id": "StudyCell_21",
                 "armId": "StudyArm_5",
                 "epochId": "StudyEpoch_6",
-                "elementIds": "StudyElement_8",
+                "elementIds": [
+                  "StudyElement_8"
+                ],
                 "instanceType": "StudyCell"
               },
               {
                 "id": "StudyCell_22",
                 "armId": "StudyArm_5",
                 "epochId": "StudyEpoch_7",
-                "elementIds": "StudyElement_11",
+                "elementIds": [
+                  "StudyElement_11"
+                ],
                 "instanceType": "StudyCell"
               },
               {
                 "id": "StudyCell_23",
                 "armId": "StudyArm_5",
                 "epochId": "StudyEpoch_8",
-                "elementIds": "StudyElement_11",
+                "elementIds": [
+                  "StudyElement_11"
+                ],
                 "instanceType": "StudyCell"
               },
               {
                 "id": "StudyCell_24",
                 "armId": "StudyArm_5",
                 "epochId": "StudyEpoch_9",
-                "elementIds": "StudyElement_11",
+                "elementIds": [
+                  "StudyElement_11"
+                ],
                 "instanceType": "StudyCell"
               },
               {
                 "id": "StudyCell_25",
                 "armId": "StudyArm_5",
                 "epochId": "StudyEpoch_10",
-                "elementIds": "StudyElement_10",
+                "elementIds": [
+                  "StudyElement_10"
+                ],
                 "instanceType": "StudyCell"
               },
               {
                 "id": "StudyCell_26",
                 "armId": "StudyArm_6",
                 "epochId": "StudyEpoch_6",
-                "elementIds": "StudyElement_8",
+                "elementIds": [
+                  "StudyElement_8"
+                ],
                 "instanceType": "StudyCell"
               },
               {
                 "id": "StudyCell_27",
                 "armId": "StudyArm_6",
                 "epochId": "StudyEpoch_7",
-                "elementIds": "StudyElement_12",
+                "elementIds": [
+                  "StudyElement_12"
+                ],
                 "instanceType": "StudyCell"
               },
               {
                 "id": "StudyCell_28",
                 "armId": "StudyArm_6",
                 "epochId": "StudyEpoch_8",
-                "elementIds": "StudyElement_13",
+                "elementIds": [
+                  "StudyElement_13"
+                ],
                 "instanceType": "StudyCell"
               },
               {
                 "id": "StudyCell_29",
                 "armId": "StudyArm_6",
                 "epochId": "StudyEpoch_9",
-                "elementIds": "StudyElement_14",
+                "elementIds": [
+                  "StudyElement_14"
+                ],
                 "instanceType": "StudyCell"
               },
               {
                 "id": "StudyCell_30",
                 "armId": "StudyArm_6",
                 "epochId": "StudyEpoch_10",
-                "elementIds": "StudyElement_10",
+                "elementIds": [
+                  "StudyElement_10"
+                ],
                 "instanceType": "StudyCell"
               }
             ],
@@ -22597,7 +22633,9 @@
                     "defaultConditionId": "ScheduledActivityInstance_33",
                     "epochId": "StudyEpoch_8",
                     "instanceType": "ScheduledActivityInstance",
-                    "activityIds": "Activity_66",
+                    "activityIds": [
+                      "Activity_66"
+                    ],
                     "encounterId": "Encounter_19"
                   },
                   {
@@ -22633,7 +22671,9 @@
                     "defaultConditionId": "ScheduledActivityInstance_35",
                     "epochId": "StudyEpoch_8",
                     "instanceType": "ScheduledActivityInstance",
-                    "activityIds": "Activity_66",
+                    "activityIds": [
+                      "Activity_66"
+                    ],
                     "encounterId": "Encounter_20"
                   },
                   {
@@ -22670,7 +22710,9 @@
                     "defaultConditionId": "ScheduledActivityInstance_37",
                     "epochId": "StudyEpoch_8",
                     "instanceType": "ScheduledActivityInstance",
-                    "activityIds": "Activity_66",
+                    "activityIds": [
+                      "Activity_66"
+                    ],
                     "encounterId": "Encounter_21"
                   },
                   {
@@ -22705,7 +22747,9 @@
                     "defaultConditionId": "ScheduledActivityInstance_39",
                     "epochId": "StudyEpoch_8",
                     "instanceType": "ScheduledActivityInstance",
-                    "activityIds": "Activity_66",
+                    "activityIds": [
+                      "Activity_66"
+                    ],
                     "encounterId": "Encounter_22"
                   },
                   {
@@ -22816,7 +22860,9 @@
                     "defaultConditionId": null,
                     "epochId": null,
                     "instanceType": "ScheduledActivityInstance",
-                    "activityIds": "Activity_67",
+                    "activityIds": [
+                      "Activity_67"
+                    ],
                     "encounterId": null
                   }
                 ],
@@ -23108,7 +23154,9 @@
                     "defaultConditionId": "ScheduledActivityInstance_44",
                     "epochId": null,
                     "instanceType": "ScheduledActivityInstance",
-                    "activityIds": "Activity_69",
+                    "activityIds": [
+                      "Activity_69"
+                    ],
                     "encounterId": null
                   },
                   {
@@ -23121,7 +23169,9 @@
                     "defaultConditionId": "ScheduledActivityInstance_45",
                     "epochId": null,
                     "instanceType": "ScheduledActivityInstance",
-                    "activityIds": "Activity_70",
+                    "activityIds": [
+                      "Activity_70"
+                    ],
                     "encounterId": null
                   },
                   {
@@ -23134,7 +23184,9 @@
                     "defaultConditionId": "ScheduledActivityInstance_46",
                     "epochId": null,
                     "instanceType": "ScheduledActivityInstance",
-                    "activityIds": "Activity_71",
+                    "activityIds": [
+                      "Activity_71"
+                    ],
                     "encounterId": null
                   },
                   {
@@ -23147,7 +23199,9 @@
                     "defaultConditionId": "ScheduledActivityInstance_47",
                     "epochId": null,
                     "instanceType": "ScheduledActivityInstance",
-                    "activityIds": "Activity_72",
+                    "activityIds": [
+                      "Activity_72"
+                    ],
                     "encounterId": null
                   },
                   {
@@ -23160,7 +23214,9 @@
                     "defaultConditionId": "ScheduledActivityInstance_48",
                     "epochId": null,
                     "instanceType": "ScheduledActivityInstance",
-                    "activityIds": "Activity_71",
+                    "activityIds": [
+                      "Activity_71"
+                    ],
                     "encounterId": null
                   },
                   {
@@ -23173,7 +23229,9 @@
                     "defaultConditionId": null,
                     "epochId": null,
                     "instanceType": "ScheduledActivityInstance",
-                    "activityIds": "Activity_72",
+                    "activityIds": [
+                      "Activity_72"
+                    ],
                     "encounterId": null
                   }
                 ],
@@ -23239,8 +23297,12 @@
                 "description": "Hemoglobin A<sup>1C</sup> and insulin-dependent subjects",
                 "text": "Performed if patient is an insulin-dependent diabetic",
                 "dictionaryId": null,
-                "contextIds": "ScheduledActivityInstance_25",
-                "appliesToIds": "Activity_60",
+                "contextIds": [
+                  "ScheduledActivityInstance_25"
+                ],
+                "appliesToIds": [
+                  "Activity_60"
+                ],
                 "instanceType": "Condition"
               },
               {
@@ -23250,7 +23312,9 @@
                 "description": "Questionnaire practice condition",
                 "text": "Practice only - It is recommended that a sampling of the CIBIC+, ADAS-Cog, DAD, and NPI-X be administered at Visit 1. Data from this sampling would not be considered as study data and would not be collected.",
                 "dictionaryId": null,
-                "contextIds": "ScheduledActivityInstance_25",
+                "contextIds": [
+                  "ScheduledActivityInstance_25"
+                ],
                 "appliesToIds": [
                   "Activity_63",
                   "Activity_64",

@@ -19,7 +19,7 @@
                                                     "name": $a.name,
                                                     "biomedicalConceptId": $this,
                                                     "bcCategoryId(s) containing BC": [$utils.sift_tree($pcats[id in $a.bcCategoryIds],$this,["id","name"])],
-                                                    "instanceType": $a.instanceType
+                                                    "dataset": $a.instanceType
                                                 }
                                             )     
                                 )
@@ -33,5 +33,10 @@
         "name",
         "biomedicalConceptId",
         "bcCategoryId(s) containing BC"
-    ]
+    ],
+    "scope": {
+        "Include": [
+            "Activity"
+        ]
+    }
 }

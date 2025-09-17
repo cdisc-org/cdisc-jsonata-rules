@@ -23,11 +23,31 @@
                             }
                         ],
                         "Version": "3.0"
+                    },
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "If a biomedical concept is referenced from an activity then it is not expected to be referenced as well by a biomedical concept category that is referenced from the same activity."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00076",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "4.0"
                     }
                 ]
             }
         ],
-        "Check": "($.study.versions)@$sv.\n    [\n        (\n            $pcats := $utils.parse_refs(\"childIds\",\"children\",$sv.bcCategories);                \n            ($sv.studyDesigns)@$sd.($sd.activities)@$a.\n                ($a.biomedicalConceptIds)\n                    [\n                        $count($a.bcCategoryIds) > 0 and\n                        $ in [$a.bcCategoryIds.$lookup($pcats{id: **.memberIds},$)]\n                    ].\n                    (\n                        $this := $;\n                        {\n                            \"StudyDesign.id\": $sd.id,\n                            \"StudyDesign.name\": $sd.name,\n                            \"id\": $a.id,\n                            \"name\": $a.name,\n                            \"biomedicalConceptId\": $this,\n                            \"bcCategoryId(s) containing BC\": [$utils.sift_tree($pcats[id in $a.bcCategoryIds],$this,[\"id\",\"name\"])],\n                            \"instanceType\": $a.instanceType\n                        }\n                    )     \n        )\n    ]",
+        "Check": "($.study.versions)@$sv.\n    [\n        (\n            $pcats := $utils.parse_refs(\"childIds\",\"children\",$sv.bcCategories);                \n            ($sv.studyDesigns)@$sd.($sd.activities)@$a.\n                ($a.biomedicalConceptIds)\n                    [\n                        $count($a.bcCategoryIds) > 0 and\n                        $ in [$a.bcCategoryIds.$lookup($pcats{id: **.memberIds},$)]\n                    ].\n                    (\n                        $this := $;\n                        {\n                            \"StudyDesign.id\": $sd.id,\n                            \"StudyDesign.name\": $sd.name,\n                            \"id\": $a.id,\n                            \"name\": $a.name,\n                            \"biomedicalConceptId\": $this,\n                            \"bcCategoryId(s) containing BC\": [$utils.sift_tree($pcats[id in $a.bcCategoryIds],$this,[\"id\",\"name\"])],\n                            \"dataset\": $a.instanceType\n                        }\n                    )     \n        )\n    ]",
         "Core": {
             "Id": "",
             "Status": "Draft",
@@ -54,7 +74,7 @@
             }
         },
         "Sensitivity": "Record",
-        "Rule_Type": "Record Data"
+        "Rule_Type": "JSONata"
     },
     "datasets": [],
     "codelists": []

@@ -12,7 +12,7 @@
                         "StudyArm.name": $sa.name,
                         "epochId": $d.epochId,
                         "StudyEpoch.name": $se.name,
-                        "instanceType": $d.instanceType
+                        "dataset": $d.instanceType
                     } ~>
                     $sort(function($l,$r)
                         {

@@ -8,7 +8,7 @@
                                     "interventionModel.code": $sd.interventionModel.code,
                                     "interventionModel.decode": $sd.interventionModel.decode,
                                     "# Study Interventions":  $count($sd.studyInterventions),
-                                    "instanceType": $sd.instanceType
+                                    "dataset": $sd.instanceType
                                 }
                                 [
                                     (`interventionModel.code` = "C82640" and `# Study Interventions` != 1) or

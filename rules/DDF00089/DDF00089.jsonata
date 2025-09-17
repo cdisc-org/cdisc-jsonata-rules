@@ -32,7 +32,7 @@
                                                                     "parameterMaps": $param_maps}
                                                             : "[The dictionaryId is invalid]"
                                                         : "[The dictionaryId is missing]",
-                                        "instanceType": $st.instanceType,
+                                        "dataset": $st.instanceType,
                                         "path": $utils.sift_tree($sv,$st,["id","name"],true)
                                     }
                             )
@@ -47,15 +47,13 @@
             "dictionary",
             "path"
         ],
-    "Scope": {
-        "Entities": {
-            "Include": [
-                "EligibilityCriterion",
-                "Characteristic",
-                "Condition",
-                "Objective",
-                "Endpoint"
-            ]
-        }
+    "scope": {
+        "Include": [
+            "EligibilityCriterion",
+            "Characteristic",
+            "Condition",
+            "Objective",
+            "Endpoint"
+        ]
     }
 }

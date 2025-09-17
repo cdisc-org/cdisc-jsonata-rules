@@ -27,7 +27,7 @@
                 ]
             }
         ],
-        "Check": "($.study.versions)@$sv.\n    ($sv.studyDesigns)@$sd.\n            {\n                \"id\": $sd.id,\n                \"name\": $sd.name,\n                \"interventionModel.code\": $sd.interventionModel.code,\n                \"interventionModel.decode\": $sd.interventionModel.decode,\n                \"# Study Interventions\":  $count($sd.studyInterventions),\n                \"instanceType\": $sd.instanceType\n            }\n            [\n                (`interventionModel.code` = \"C82640\" and `# Study Interventions` != 1) or\n                (`interventionModel.code` != \"C82640\" and `# Study Interventions` <= 1)\n            ]",
+        "Check": "($.study.versions)@$sv.\n    ($sv.studyDesigns)@$sd.\n            {\n                \"id\": $sd.id,\n                \"name\": $sd.name,\n                \"interventionModel.code\": $sd.interventionModel.code,\n                \"interventionModel.decode\": $sd.interventionModel.decode,\n                \"# Study Interventions\":  $count($sd.studyInterventions),\n                \"dataset\": $sd.instanceType\n            }\n            [\n                (`interventionModel.code` = \"C82640\" and `# Study Interventions` != 1) or\n                (`interventionModel.code` != \"C82640\" and `# Study Interventions` <= 1)\n            ]",
         "Core": {
             "Id": "",
             "Status": "Draft",
@@ -53,7 +53,7 @@
             }
         },
         "Sensitivity": "Record",
-        "Rule_Type": "Record Data"
+        "Rule_Type": "JSONata"
     },
     "datasets": [],
     "codelists": []

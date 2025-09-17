@@ -10,7 +10,7 @@
                                 "name": %.name,
                                 "appliesTo id": $,
                                 "appliesTo instanceType": $ in $keys($idityp) ? $lookup($idityp,$) : "[Invalid id]",
-                                "instanceType": %.instanceType
+                                "dataset": %.instanceType
                             }
                             [
                                 $not(`appliesTo instanceType` in

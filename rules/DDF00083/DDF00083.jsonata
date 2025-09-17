@@ -10,7 +10,7 @@
                                         "details":
                                             {
                                                 "id": id, 
-                                                "instanceType": instanceType,
+                                                "dataset": instanceType,
                                                 "iid": iid,
                                                 "name": name
                                             }

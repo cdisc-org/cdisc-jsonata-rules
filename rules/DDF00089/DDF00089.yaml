@@ -1,0 +1,82 @@
+Authorities:
+  - Organization: CDISC
+    Standards:
+      - Name: USDM
+        References:
+          - Citations:
+              - Cited Guidance: 'Any parameter name referenced in a tag in the text should be
+                  specified in the data dictionary parameter maps.'
+                Document: 'USDM_CORE_Rules.xlsx'
+            Origin: 'USDM Conformance Rules'
+            Rule Identifier:
+              Id: 'DDF00089'
+              Version: '1'
+            Version: '1.0'
+        Version: '3.0'
+Check: |-
+  ($.**.study.versions)@$sv.
+      ($sv.studyDesigns)@$sd.($sd.**[$contains(text,/usdm:tag/)])@$st.
+          (
+              $dict := $sd.dictionaries[id=$st.dictionaryId];
+              $valid_tags := $dict.parameterMaps.tag;
+              $param_maps := $dict.parameterMaps.{"id": id, "tag": tag};
+              $match ($st.text,
+                          /<usdm:tag((?=[^>]* name=\"(\w+)\")[^>]*)(\/>|><\/usdm:tag>)/
+              )   [
+                      $not(
+                          $st.dictionaryId and
+                          $dict and
+                          groups[1] in $valid_tags
+                      )
+                  ].
+                  {
+                      "id": $st.id,
+                      "name": $st.name,
+                      "text": $st.text,
+                      "parameter": {
+                                      "reference": match,
+                                      "name": groups[1]
+                                  },
+                      "dictionaryId": $st.dictionaryId,
+                      "dictionary": $st.dictionaryId 
+                                      ? $dict
+                                          ?   {
+                                                  "id": $st.dictionaryId,
+                                                  "name": $dict.name,
+                                                  "parameterMaps": $param_maps}
+                                          : "[The dictionaryId is invalid]"
+                                      : "[The dictionaryId is missing]",
+                      "dataset": $st.instanceType,
+                      "path": $utils.sift_tree($sv,$st,["id","name"],true)
+                  }
+          )
+Core:
+  Id: 'DDF00089'
+  Status: Draft
+  Version: '1'
+Description: 'Any parameter name referenced in a tag in the text should be
+  specified in the data dictionary parameter maps.'
+Executability: Fully Executable
+Outcome:
+  Message: "The parameter name referenced in the text is not specified in the data
+    dictionary parameter map - the dictionaryId is missing or invalid, or the
+    parameter name does not match a tag in any of the dictionary's parameter
+    maps."
+  Output Variables:
+    - id
+    - name
+    - text
+    - parameter
+    - dictionaryId
+    - dictionary
+    - path
+Rule Type: JSONata
+Scope:
+  Entities:
+    Include:
+      - 'EligibilityCriterion'
+      - 'Characteristic'
+      - 'Condition'
+      - 'Objective'
+      - 'Endpoint'
+Sensitivity: Record

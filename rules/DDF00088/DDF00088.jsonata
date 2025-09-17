@@ -18,7 +18,7 @@
                                             "ScheduleTimeline.mainTimeline": $st.mainTimeline,
                                             "Epoch order": $actord ~> $map($epoch),
                                             "Referenced epoch order": $reford ~> $map($epoch),
-                                            "instanceType": $sd.instanceType
+                                            "dataset": $sd.instanceType
                                         }[`Epoch order` != `Referenced epoch order`]
                                     )
                     )},
