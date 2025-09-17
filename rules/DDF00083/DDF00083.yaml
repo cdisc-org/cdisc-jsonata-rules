@@ -45,7 +45,7 @@ Check: |-
               {   
                   (
                       $this := $iidd.**[iid=$v.iid];
-                      $v ~> |$|{"path": $utils.sift_tree($iidd.study,$this,["id","name"],true)}|
+                      $v ~> |$|{"path": $utils.get_path($this,$iidd.study)}|
                   )
               }
           )
