@@ -1,0 +1,35 @@
+{
+    "check_func" : function($data){$data.(
+                    (
+                        $lkp:=$merge($.**.studyDesigns.epochs.{id:%.id});
+                        ($.**.studyDesigns)@$s.
+                            [
+                                $s.scheduleTimelines.instances[epochId and $not(epochId in $s.epochs.id)].
+                                {
+                                "StudyDesign.id": $s.id,
+                                "StudyDesign.name": $s.name,
+                                "id": id,
+                                "name": name,
+                                "epochId": epochId,
+                                "Referenced epoch's parent StudyDesign.id": epochId in $keys($lkp) ? $lookup($lkp,epochId) : "[Invalid epochId]",
+                                "dataset": instanceType
+                                }
+                            ]
+                    )
+                )},
+    "message": "The scheduled activity/decision instance references an epoch that is not defined within the same study design.",
+    "variables": [
+            "StudyDesign.id",
+            "StudyDesign.name",
+            "id",
+            "name",
+            "epochId",
+            "Referenced epoch's parent StudyDesign.id"
+        ],
+    "scope": {
+        "Include": [
+            "ScheduledActivityInstance",
+            "ScheduledDecisionInstance"
+        ]
+    }
+}

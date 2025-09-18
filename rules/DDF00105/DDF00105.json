@@ -1,0 +1,82 @@
+{
+    "rule": {
+        "Authorities": [
+            {
+                "Organization": "CDISC",
+                "Standards": [
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "A scheduled activity/decision instance must only reference an epoch that is defined within the same study design as the scheduled activity/decision instance."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00105",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "3.0"
+                    },
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "A scheduled activity/decision instance must only reference an epoch that is defined within the same study design as the scheduled activity/decision instance."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00105",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "4.0"
+                    }
+                ]
+            }
+        ],
+        "Check": "(\n    $lkp:=$merge($.**.studyDesigns.epochs.{id:%.id});\n    ($.**.studyDesigns)@$s.\n        [\n            $s.scheduleTimelines.instances[epochId and $not(epochId in $s.epochs.id)].\n            {\n            \"StudyDesign.id\": $s.id,\n            \"StudyDesign.name\": $s.name,\n            \"id\": id,\n            \"name\": name,\n            \"epochId\": epochId,\n            \"Referenced epoch's parent StudyDesign.id\": epochId in $keys($lkp) ? $lookup($lkp,epochId) : \"[Invalid epochId]\",\n            \"dataset\": instanceType\n            }\n        ]\n)",
+        "Core": {
+            "Id": "",
+            "Status": "Draft",
+            "Version": "1"
+        },
+        "Description": "A scheduled activity/decision instance must only reference an epoch that is defined within the same study design as the scheduled activity/decision instance.",
+        "Executability": "Fully Executable",
+        "Outcome": {
+            "Message": "The scheduled activity/decision instance references an epoch that is not defined within the same study design.",
+            "Output_Variables": [
+                "StudyDesign.id",
+                "StudyDesign.name",
+                "id",
+                "name",
+                "epochId",
+                "Referenced epoch's parent StudyDesign.id"
+            ]
+        },
+        "Scope": {
+            "Entities": {
+                "Include": [
+                    "ScheduledActivityInstance",
+                    "ScheduledDecisionInstance"
+                ]
+            }
+        },
+        "Sensitivity": "Record",
+        "Rule_Type": "JSONata"
+    },
+    "datasets": [],
+    "codelists": []
+}
