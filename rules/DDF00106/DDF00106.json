@@ -1,0 +1,81 @@
+{
+    "rule": {
+        "Authorities": [
+            {
+                "Organization": "CDISC",
+                "Standards": [
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "A scheduled activity instance must only reference an encounter that is defined within the same study design as the scheduled activity instance."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00106",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "3.0"
+                    },
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "A scheduled activity instance must only reference an encounter that is defined within the same study design as the scheduled activity instance."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00106",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "4.0"
+                    }
+                ]
+            }
+        ],
+        "Check": "(\n    $lkp:=$merge($.**.studyDesigns.encounters.{id:%.id});\n    ($.**.studyDesigns)@$s.\n        [\n            $s.scheduleTimelines.instances\n                [\n                    instanceType=\"ScheduledActivityInstance\" and\n                    encounterId and\n                    $not(encounterId in $s.encounters.id)\n                ].\n            {\n            \"StudyDesign.id\": $s.id,\n            \"StudyDesign.name\": $s.name,\n            \"id\": id,\n            \"name\": name,\n            \"encounterId\": encounterId,\n            \"Referenced encounter's parent StudyDesign.id\": encounterId in $keys($lkp) ? $lookup($lkp,encounterId) : \"[Invalid encounterId]\",\n            \"dataset\": instanceType\n            }\n        ]\n)",
+        "Core": {
+            "Id": "",
+            "Status": "Draft",
+            "Version": "1"
+        },
+        "Description": "A scheduled activity instance must only reference an encounter that is defined within the same study design as the scheduled activity instance.",
+        "Executability": "Fully Executable",
+        "Outcome": {
+            "Message": "The scheduled activity instance references an encounter that is not defined within the same study design.",
+            "Output_Variables": [
+                "StudyDesign.id",
+                "StudyDesign.name",
+                "id",
+                "name",
+                "encounterId",
+                "Referenced encounter's parent StudyDesign.id"
+            ]
+        },
+        "Scope": {
+            "Entities": {
+                "Include": [
+                    "ScheduledActivityInstance"
+                ]
+            }
+        },
+        "Sensitivity": "Record",
+        "Rule_Type": "JSONata"
+    },
+    "datasets": [],
+    "codelists": []
+}

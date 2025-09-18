@@ -1,0 +1,39 @@
+{
+    "check_func" : function($data){$data.(
+                    (
+                        $lkp:=$merge($.**.studyDesigns.encounters.{id:%.id});
+                        ($.**.studyDesigns)@$s.
+                            [
+                                $s.scheduleTimelines.instances
+                                    [
+                                        instanceType="ScheduledActivityInstance" and
+                                        encounterId and
+                                        $not(encounterId in $s.encounters.id)
+                                    ].
+                                {
+                                "StudyDesign.id": $s.id,
+                                "StudyDesign.name": $s.name,
+                                "id": id,
+                                "name": name,
+                                "encounterId": encounterId,
+                                "Referenced encounter's parent StudyDesign.id": encounterId in $keys($lkp) ? $lookup($lkp,encounterId) : "[Invalid encounterId]",
+                                "dataset": instanceType
+                                }
+                            ]
+                    )
+                )},
+    "message": "The scheduled activity instance references an encounter that is not defined within the same study design.",
+    "variables": [
+            "StudyDesign.id",
+            "StudyDesign.name",
+            "id",
+            "name",
+            "encounterId",
+            "Referenced encounter's parent StudyDesign.id"
+        ],
+    "scope": {
+        "Include": [
+            "ScheduledActivityInstance"
+        ]
+    }
+}
