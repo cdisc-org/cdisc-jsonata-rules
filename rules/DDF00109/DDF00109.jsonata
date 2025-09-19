@@ -1,0 +1,37 @@
+{
+    "check_func" : function($data){$data.(
+                    (
+                        $lkp:=$merge($.**.studyDesigns.studyInterventions.{id:%.id});
+                        ($.**.studyDesigns)@$s.
+                            [
+                                $s.elements.studyInterventionIds
+                                    [
+                                        $not($ in $s.studyDesigns.studyInterventions.id)
+                                    ].
+                                {
+                                "StudyDesign.id": $s.id,
+                                "StudyDesign.name": $s.name,
+                                "id": %.id,
+                                "name": %.name,
+                                "studyInterventionIds value": $,
+                                "Referenced intervention's parent StudyDesign.id": $ in $keys($lkp) ? $lookup($lkp,$) : "[Invalid studyInterventionIds value]",
+                                "dataset": %.instanceType
+                                }
+                            ]
+                    )
+                )},
+    "message": "The study element references a study intervention that is not defined within the same study design.",
+    "variables": [
+            "StudyDesign.id",
+            "StudyDesign.name",
+            "id",
+            "name",
+            "studyInterventionIds value",
+            "Referenced intervention's parent StudyDesign.id"
+        ],
+    "scope": {
+        "Include": [
+            "StudyElement"
+        ]
+    }
+}

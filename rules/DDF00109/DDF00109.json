@@ -1,0 +1,61 @@
+{
+    "rule": {
+        "Authorities": [
+            {
+                "Organization": "CDISC",
+                "Standards": [
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "A study element must only reference study interventions that are defined within the same study design as the study element."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00109",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "3.0"
+                    }
+                ]
+            }
+        ],
+        "Check": "(\n    $lkp:=$merge($.**.studyDesigns.studyInterventions.{id:%.id});\n    ($.**.studyDesigns)@$s.\n        [\n            $s.elements.studyInterventionIds\n                [\n                    $not($ in $s.studyDesigns.studyInterventions.id)\n                ].\n            {\n            \"StudyDesign.id\": $s.id,\n            \"StudyDesign.name\": $s.name,\n            \"id\": %.id,\n            \"name\": %.name,\n            \"studyInterventionIds value\": $,\n            \"Referenced intervention's parent StudyDesign.id\": $ in $keys($lkp) ? $lookup($lkp,$) : \"[Invalid studyInterventionIds value]\",\n            \"dataset\": %.instanceType\n            }\n        ]\n)",
+        "Core": {
+            "Id": "",
+            "Status": "Draft",
+            "Version": "1"
+        },
+        "Description": "A study element must only reference study interventions that are defined within the same study design as the study element.",
+        "Executability": "Fully Executable",
+        "Outcome": {
+            "Message": "The study element references a study intervention that is not defined within the same study design.",
+            "Output_Variables": [
+                "StudyDesign.id",
+                "StudyDesign.name",
+                "id",
+                "name",
+                "studyInterventionIds value",
+                "Referenced intervention's parent StudyDesign.id"
+            ]
+        },
+        "Scope": {
+            "Entities": {
+                "Include": [
+                    "StudyElement"
+                ]
+            }
+        },
+        "Sensitivity": "Record",
+        "Rule_Type": "JSONata"
+    },
+    "datasets": [],
+    "codelists": []
+}
