@@ -23,9 +23,9 @@
                             }
                           )
                     ]
-                    [check=false]
+                    [check=true]
            },
-    "message": "A section number is specified but not indicated to be displayed or vice versa.",
+    "message": "A section number is specified but not indicated to be displayed (displaySectionNumber=false) or vice versa.",
     "variables": 
         [
             "StudyDefinitionDocument.id",
