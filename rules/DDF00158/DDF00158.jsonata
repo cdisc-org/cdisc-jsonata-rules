@@ -1,0 +1,33 @@
+{
+    "check_func" : function($data){$data.(
+                        ($.**.studyDesigns)@$s.
+                            $s.eligibilityCriteria@$ec
+                                [
+                                    $not($ec.id in $append($s.population.criterionIds,$s.population.cohorts.criterionIds))
+                                ].
+                                {
+                                    "StudyDesign.id": $s.id,
+                                    "StudyDesign.name": $s.name,
+                                    "id": $ec.id,
+                                    "name": $ec.name,
+                                    "category": $ec.category.decode,
+                                    "identifier": $ec.identifier,
+                                    "dataset": $ec.instanceType
+                                }
+                )},
+    "message": "The eligibility criterion is not referenced by the study design's population or any of its cohorts.",
+    "variables": 
+        [
+            "StudyDesign.id",
+            "StudyDesign.name",
+            "id",
+            "name",
+            "category",
+            "identifier"
+        ],
+    "scope": {
+        "Include": [
+            "EligibilityCriterion"
+        ]
+    }                     
+}
