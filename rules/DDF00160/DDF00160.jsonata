@@ -23,7 +23,7 @@
                                 "Activity.bcSurrogateIds":$p.bcSurrogateIds,
                                 "Activity.timelineId":$p.timelineId,
                                 "Activity.definedProcedures.id":$p.definedProcedures.id,
-                                "Activity.instanceType":$p.instanceType,
+                                "dataset":$p.instanceType,
                                 "check":$ChkX()
                             }
                           )

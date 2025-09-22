@@ -29,6 +29,7 @@
    	                                      "cohorts.plannedEnrollmentNumber.unit":  $p.cohorts.plannedEnrollmentNumber.unit.standardCode.decode,
    	                                      "cohorts.plannedEnrollmentNumber.minValue.unit": $p.cohorts.{id: plannedEnrollmentNumber.minValue.unit.standardCode.decode},
    	                                      "cohorts.plannedEnrollmentNumber.maxValue.unit": $p.cohorts.{id: plannedEnrollmentNumber.maxValue.unit.standardCode.decode},
+                                          "dataset": $p.instanceType,
    	                                      "output":$ChkX()
    	                                   }
    	            	          )

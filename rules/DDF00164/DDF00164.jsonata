@@ -1,0 +1,40 @@
+{
+    "check_func" : function($data)
+         {
+   ($.**.documentedBy)@$db.
+            $db.versions.contents@$nc.
+                $nc.
+                  [
+                          ($ChkX:=function()
+                            {
+                                ($not(sectionNumber) != displaySectionNumber)
+                            };
+                            {
+                                "StudyDefinitionDocument.id": $db.id,
+                                "StudyDefinitionDocument.name": $db.name,
+                                "StudyDefinitionDocumentVersion.id": $db.versions.id,
+                                "StudyDefinitionDocumentVersion.name": $db.versions.name,
+                                "NarrativeContent.id": $nc.id,
+                                "NarrativeContent.name": $nc.name,
+                                "NarrativeContent.displaySectionNumber": $nc.displaySectionNumber,
+                                "NarrativeContent.sectionNumber": $nc.sectionNumber,
+                                "dataset":$nc.instanceType,
+                                "check":$ChkX()
+                            }
+                          )
+                    ]
+                    [check=true]
+           },
+    "message": "A section number is specified but not indicated to be displayed (displaySectionNumber=false) or vice versa.",
+    "variables": 
+        [
+            "StudyDefinitionDocument.id",
+            "StudyDefinitionDocument.name",
+            "StudyDefinitionDocumentVersion.id",
+            "StudyDefinitionDocumentVersion.name",
+            "NarrativeContent.id",
+            "NarrativeContent.name",
+            "NarrativeContent.displaySectionNumber",
+            "NarrativeContent.sectionNumber"
+        ]
+}
