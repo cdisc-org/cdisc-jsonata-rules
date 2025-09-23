@@ -45,7 +45,7 @@ Outcome:
     - name
     - category
     - identifier
-Rule Type: Record Data
+Rule Type: JSONata
 Scope:
   Entities:
     Include:

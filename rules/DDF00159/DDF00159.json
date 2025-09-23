@@ -1,0 +1,63 @@
+{
+    "rule": {
+        "Authorities": [
+            {
+                "Organization": "CDISC",
+                "Standards": [
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "An eligibility criterion must not be referenced by both a study design population and any of the cohorts of the same study design population."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00159",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "4.0"
+                    }
+                ]
+            }
+        ],
+        "Check": "($.**.studyDesigns)@$s.\n    $s.eligibilityCriteria@$ec\n        [\n            $ec.id in $s.population.criterionIds and\n            $ec.id in $s.population.cohorts.criterionIds\n        ].\n        {\n            \"id\": $s.id,\n            \"name\": $s.name,\n            \"EligibilityCriterion.id\": $ec.id,\n            \"EligibilityCriterion.name\": $ec.name,\n            \"EligibilityCriterion.category\": $ec.category.decode,\n            \"EligibilityCriterion.identifier\": $ec.identifier,\n            \"Used in\": $s.**[$ec.id in $.criterionIds].id,\n            \"dataset\": $s.instanceType\n        }",
+        "Core": {
+            "Id": "",
+            "Status": "Draft",
+            "Version": "1"
+        },
+        "Description": "An eligibility criterion must not be referenced by both a study design population and any of the cohorts of the same study design population.",
+        "Executability": "Fully Executable",
+        "Outcome": {
+            "Message": "The eligibility criterion is referenced by both the study design's population and at least one of its cohorts.",
+            "Output_Variables": [
+                "id",
+                "name",
+                "EligibilityCriterion.id",
+                "EligibilityCriterion.name",
+                "EligibilityCriterion.category",
+                "EligibilityCriterion.identifier",
+                "Used in"
+            ]
+        },
+        "Scope": {
+            "Entities": {
+                "Include": [
+                    "InterventionalStudyDesign",
+                    "ObservationalStudyDesign"
+                ]
+            }
+        },
+        "Sensitivity": "Record",
+        "Rule_Type": "JSONata"
+    },
+    "datasets": [],
+    "codelists": []
+}
