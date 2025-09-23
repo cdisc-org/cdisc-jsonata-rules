@@ -1,0 +1,64 @@
+{
+    "rule": {
+        "Authorities": [
+            {
+                "Organization": "CDISC",
+                "Standards": [
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "Narrative content is expected to point to a child and/or to a content item text."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00163",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "4.0"
+                    }
+                ]
+            }
+        ],
+        "Check": "($.study.documentedBy.versions)@$sddv.$filter(($sddv.contents),function($v)\n            {\n                $not($v.childIds or $v.contentItemId)\n            }\n        )@$c.\n            {\n                \"StudyDefinitionDocumentVersion.id\": $sddv.id,\n                \"StudyDefinitionDocumentVersion.name\": $sddv.name,\n                \"StudyDefinitionDocumentVersion.version\": $sddv.version,\n                \"id\": $c.id,\n                \"name\": $c.name,\n                \"sectionNumber\": $c.sectionNumber,\n                \"sectionTitle\": $c.sectionTitle,\n                \"childIds\": $c.childIds,\n                \"contentItemId\": $c.contentItemId,\n                \"dataset\": $c.instanceType\n            }",
+        "Core": {
+            "Id": "",
+            "Status": "Draft",
+            "Version": "1"
+        },
+        "Description": "Narrative content is expected to point to a child and/or to a content item text.",
+        "Executability": "Fully Executable",
+        "Outcome": {
+            "Message": "The narrative content does not contain either a child or a narrative content item.",
+            "Output_Variables": [
+                "StudyDefinitionDocumentVersion.id",
+                "StudyDefinitionDocumentVersion.name",
+                "StudyDefinitionDocumentVersion.version",
+                "id",
+                "name",
+                "sectionNumber",
+                "sectionTitle",
+                "childIds",
+                "contentItemId"
+            ]
+        },
+        "Scope": {
+            "Entities": {
+                "Include": [
+                    "NarrativeContent"
+                ]
+            }
+        },
+        "Sensitivity": "Record",
+        "Rule_Type": "JSONata"
+    },
+    "datasets": [],
+    "codelists": []
+}

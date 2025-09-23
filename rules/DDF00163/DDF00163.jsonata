@@ -1,0 +1,38 @@
+{
+    "check_func" : function($data){$data.(
+                    ($.study.documentedBy.versions)@$sddv.$filter(($sddv.contents),function($v)
+                                {
+                                    $not($v.childIds or $v.contentItemId)
+                                }
+                            )@$c.
+                                {
+                                    "StudyDefinitionDocumentVersion.id": $sddv.id,
+                                    "StudyDefinitionDocumentVersion.name": $sddv.name,
+                                    "StudyDefinitionDocumentVersion.version": $sddv.version,
+                                    "id": $c.id,
+                                    "name": $c.name,
+                                    "sectionNumber": $c.sectionNumber,
+                                    "sectionTitle": $c.sectionTitle,
+                                    "childIds": $c.childIds,
+                                    "contentItemId": $c.contentItemId,
+                                    "dataset": $c.instanceType
+                                }
+                )},
+    "message": "The narrative content does not contain either a child or a narrative content item.",
+    "variables": [
+            "StudyDefinitionDocumentVersion.id",
+            "StudyDefinitionDocumentVersion.name",
+            "StudyDefinitionDocumentVersion.version",
+            "id",
+            "name",
+            "sectionNumber",
+            "sectionTitle",
+            "childIds",
+            "contentItemId"
+        ],
+    "scope": {
+        "Include": [
+            "NarrativeContent"
+        ]
+    }
+}
