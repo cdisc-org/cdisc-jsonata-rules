@@ -1,0 +1,41 @@
+{
+    "check_func" : function($data){$data.(
+                    study.versions.studyDesigns@$sd.
+                        $sd.activities@$a
+                        [
+                            ($a.childIds and $not($a.nextId in $a.childIds)) or
+                            ($sd.activities[id=$a.previousId].childIds and $not($a.id in $sd.activities[id=$a.previousId].childIds)) or
+                            ($sd.activities[$a.id in childIds] and $not($a.previousId in $sd.activities[$a.id in childIds].[id,childIds]))
+                        ].{
+                            "StudyDesign.id": $sd.id,
+                            "StudyDesign.name": $sd.name,
+                            "id": $a.id,
+                            "name": $a.name,
+                            "previousId": $a.previousId,
+                            "Previous Activity's childIds": $sd.activities[id=$a.previousId].childIds,
+                            "nextId": $a.nextId,
+                            "childIds": $a.childIds,
+                            "Parent Activity's id": $sd.activities[$a.id in childIds].id,
+                            "Parent Activity's childIds": $sd.activities[$a.id in childIds].childIds,
+                            "dataset": $a.instanceType
+                        }
+                )},
+    "message": "The previous/next ordering of the activity with respect to child activities is incorrect - the activity has children but its nextId is not one if its childIds, the activity is a child but its previousId is not its parent or another child, and/or the activity's previousId is not its parent but refers to an activity with children.",
+    "variables": [
+            "StudyDesign.id",
+            "StudyDesign.name",
+            "id",
+            "name",
+            "previousId",
+            "Previous Activity's childIds",
+            "nextId",
+            "childIds",
+            "Parent Activity's id",
+            "Parent Activity's childIds"
+        ],
+    "scope": {
+        "Include": [
+            "Activity"
+        ]
+    }
+}

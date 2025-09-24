@@ -1,0 +1,65 @@
+{
+    "rule": {
+        "Authorities": [
+            {
+                "Organization": "CDISC",
+                "Standards": [
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "The ordering of activities (using the previous and next attributes) must include the parents (e.g. activities referring to children) preceding their children."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00161",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "4.0"
+                    }
+                ]
+            }
+        ],
+        "Check": "study.versions.studyDesigns@$sd.\n    $sd.activities@$a\n    [\n        ($a.childIds and $not($a.nextId in $a.childIds)) or\n        ($sd.activities[id=$a.previousId].childIds and $not($a.id in $sd.activities[id=$a.previousId].childIds)) or\n        ($sd.activities[$a.id in childIds] and $not($a.previousId in $sd.activities[$a.id in childIds].[id,childIds]))\n    ].{\n        \"StudyDesign.id\": $sd.id,\n        \"StudyDesign.name\": $sd.name,\n        \"id\": $a.id,\n        \"name\": $a.name,\n        \"previousId\": $a.previousId,\n        \"Previous Activity's childIds\": $sd.activities[id=$a.previousId].childIds,\n        \"nextId\": $a.nextId,\n        \"childIds\": $a.childIds,\n        \"Parent Activity's id\": $sd.activities[$a.id in childIds].id,\n        \"Parent Activity's childIds\": $sd.activities[$a.id in childIds].childIds,\n        \"dataset\": $a.instanceType\n    }",
+        "Core": {
+            "Id": "",
+            "Status": "Draft",
+            "Version": "1"
+        },
+        "Description": "The ordering of activities (using the previous and next attributes) must include the parents (e.g. activities referring to children) preceding their children.",
+        "Executability": "Fully Executable",
+        "Outcome": {
+            "Message": "The previous/next ordering of the activity with respect to child activities is incorrect - the activity has children but its nextId is not one if its childIds, the activity is a child but its previousId is not its parent or another child, and/or the activity's previousId is not its parent but refers to an activity with children.",
+            "Output_Variables": [
+                "StudyDesign.id",
+                "StudyDesign.name",
+                "id",
+                "name",
+                "previousId",
+                "Previous Activity's childIds",
+                "nextId",
+                "childIds",
+                "Parent Activity's id",
+                "Parent Activity's childIds"
+            ]
+        },
+        "Scope": {
+            "Entities": {
+                "Include": [
+                    "Activity"
+                ]
+            }
+        },
+        "Sensitivity": "Record",
+        "Rule_Type": "JSONata"
+    },
+    "datasets": [],
+    "codelists": []
+}
