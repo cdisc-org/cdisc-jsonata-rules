@@ -27,7 +27,7 @@
                 ]
             }
         ],
-        "Check": "study.versions.{\n        \"id\": id,\n        \"versionIdentifier\": versionIdentifier,\n        \"Duplicated abbreviations\": ($filter(abbreviations,function($v,$i,$a)\n                                        {$count($a[$.abbreviatedText=$v.abbreviatedText])>1})\n                                        ~> $sort(function($l,$r){$l.abbreviatedText>$r.abbreviatedText}))\n                                        .($join([abbreviatedText, expandedText],\": \") &\n                                            \" \" & $join([\"[\",\"]\"],id)),\n        \"dataset\": instanceType\n    }[`Duplicated abbreviations`]",
+        "Check": "study.versions@$sv.\n    (\n        $filter($sv.abbreviations,function($v,$i,$a)\n                {$count($a[$.abbreviatedText=$v.abbreviatedText])>1})\n        ~> $sort(function($l,$r){$l.abbreviatedText>$r.abbreviatedText})\n    ).\n    {\n        \"StudyVersion.id\": $sv.id,\n        \"StudyVersion.versionIdentifier\": $sv.versionIdentifier,\n        \"id\": id,\n        \"abbreviatedText\": abbreviatedText,\n        \"expandedText\": expandedText,\n        \"dataset\": instanceType\n    }",
         "Core": {
             "Id": "",
             "Status": "Draft",
@@ -36,17 +36,19 @@
         "Description": "All abbreviations defined for a study version must be unique.",
         "Executability": "Fully Executable",
         "Outcome": {
-            "Message": "Duplicated abbreviations have been defined for the study version.",
+            "Message": "The abbreviation's abbreviated text is not unique within the study version.",
             "Output_Variables": [
+                "StudyVersion.id",
+                "StudyVersion.versionIdentifier",
                 "id",
-                "versionIdentifier",
-                "Duplicated abbreviations"
+                "abbreviatedText",
+                "expandedText"
             ]
         },
         "Scope": {
             "Entities": {
                 "Include": [
-                    "StudyVersion"
+                    "Abbreviation"
                 ]
             }
         },

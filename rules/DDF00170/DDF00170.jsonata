@@ -1,25 +1,31 @@
 {
     "check_func" : function($data){$data.(
-                    study.versions.{
+                    study.versions@$sv.
+                        (
+                            $filter($sv.abbreviations,function($v,$i,$a)
+                                    {$count($a[$.abbreviatedText=$v.abbreviatedText])>1})
+                            ~> $sort(function($l,$r){$l.abbreviatedText>$r.abbreviatedText})
+                        ).
+                        {
+                            "StudyVersion.id": $sv.id,
+                            "StudyVersion.versionIdentifier": $sv.versionIdentifier,
                             "id": id,
-                            "versionIdentifier": versionIdentifier,
-                            "Duplicated abbreviations": ($filter(abbreviations,function($v,$i,$a)
-                                                            {$count($a[$.abbreviatedText=$v.abbreviatedText])>1})
-                                                            ~> $sort(function($l,$r){$l.abbreviatedText>$r.abbreviatedText}))
-                                                            .($join([abbreviatedText, expandedText],": ") &
-                                                                " " & $join(["[","]"],id)),
+                            "abbreviatedText": abbreviatedText,
+                            "expandedText": expandedText,
                             "dataset": instanceType
-                        }[`Duplicated abbreviations`]
+                        }
                 )},
-    "message": "Duplicated abbreviations have been defined for the study version.",
+    "message": "The abbreviation's abbreviated text is not unique within the study version.",
     "variables": [
+            "StudyVersion.id",
+            "StudyVersion.versionIdentifier",
             "id",
-            "versionIdentifier",
-            "Duplicated abbreviations"
+            "abbreviatedText",
+            "expandedText"
         ],
     "scope": {
         "Include": [
-            "StudyVersion"
+            "Abbreviation"
         ]
     }
 }

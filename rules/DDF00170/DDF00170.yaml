@@ -13,16 +13,20 @@ Authorities:
             Version: '1.0'
         Version: '4.0'
 Check: |-
-  study.versions.{
+  study.versions@$sv.
+      (
+          $filter($sv.abbreviations,function($v,$i,$a)
+                  {$count($a[$.abbreviatedText=$v.abbreviatedText])>1})
+          ~> $sort(function($l,$r){$l.abbreviatedText>$r.abbreviatedText})
+      ).
+      {
+          "StudyVersion.id": $sv.id,
+          "StudyVersion.versionIdentifier": $sv.versionIdentifier,
           "id": id,
-          "versionIdentifier": versionIdentifier,
-          "Duplicated abbreviations": ($filter(abbreviations,function($v,$i,$a)
-                                          {$count($a[$.abbreviatedText=$v.abbreviatedText])>1})
-                                          ~> $sort(function($l,$r){$l.abbreviatedText>$r.abbreviatedText}))
-                                          .($join([abbreviatedText, expandedText],": ") &
-                                              " " & $join(["[","]"],id)),
+          "abbreviatedText": abbreviatedText,
+          "expandedText": expandedText,
           "dataset": instanceType
-      }[`Duplicated abbreviations`]
+      }
 Core:
   Id: 'DDF00170'
   Status: Draft
@@ -30,14 +34,16 @@ Core:
 Description: 'All abbreviations defined for a study version must be unique.'
 Executability: Fully Executable
 Outcome:
-  Message: "Duplicated abbreviations have been defined for the study version."
+  Message: "The abbreviation's abbreviated text is not unique within the study version."
   Output Variables:
+    - StudyVersion.id
+    - StudyVersion.versionIdentifier
     - id
-    - versionIdentifier
-    - "Duplicated abbreviations"
+    - abbreviatedText
+    - expandedText
 Rule Type: JSONata
 Scope:
   Entities:
     Include:
-      - 'StudyVersion'
+      - 'Abbreviation'
 Sensitivity: Record
