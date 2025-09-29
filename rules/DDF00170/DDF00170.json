@@ -1,0 +1,58 @@
+{
+    "rule": {
+        "Authorities": [
+            {
+                "Organization": "CDISC",
+                "Standards": [
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "All abbreviations defined for a study version must be unique."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00170",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "4.0"
+                    }
+                ]
+            }
+        ],
+        "Check": "study.versions.{\n        \"id\": id,\n        \"versionIdentifier\": versionIdentifier,\n        \"Duplicated abbreviations\": ($filter(abbreviations,function($v,$i,$a)\n                                        {$count($a[$.abbreviatedText=$v.abbreviatedText])>1})\n                                        ~> $sort(function($l,$r){$l.abbreviatedText>$r.abbreviatedText}))\n                                        .($join([abbreviatedText, expandedText],\": \") &\n                                            \" \" & $join([\"[\",\"]\"],id)),\n        \"dataset\": instanceType\n    }[`Duplicated abbreviations`]",
+        "Core": {
+            "Id": "",
+            "Status": "Draft",
+            "Version": "1"
+        },
+        "Description": "All abbreviations defined for a study version must be unique.",
+        "Executability": "Fully Executable",
+        "Outcome": {
+            "Message": "Duplicated abbreviations have been defined for the study version.",
+            "Output_Variables": [
+                "id",
+                "versionIdentifier",
+                "Duplicated abbreviations"
+            ]
+        },
+        "Scope": {
+            "Entities": {
+                "Include": [
+                    "StudyVersion"
+                ]
+            }
+        },
+        "Sensitivity": "Record",
+        "Rule_Type": "JSONata"
+    },
+    "datasets": [],
+    "codelists": []
+}

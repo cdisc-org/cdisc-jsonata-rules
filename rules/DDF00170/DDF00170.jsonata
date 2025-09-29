@@ -1,0 +1,25 @@
+{
+    "check_func" : function($data){$data.(
+                    study.versions.{
+                            "id": id,
+                            "versionIdentifier": versionIdentifier,
+                            "Duplicated abbreviations": ($filter(abbreviations,function($v,$i,$a)
+                                                            {$count($a[$.abbreviatedText=$v.abbreviatedText])>1})
+                                                            ~> $sort(function($l,$r){$l.abbreviatedText>$r.abbreviatedText}))
+                                                            .($join([abbreviatedText, expandedText],": ") &
+                                                                " " & $join(["[","]"],id)),
+                            "dataset": instanceType
+                        }[`Duplicated abbreviations`]
+                )},
+    "message": "Duplicated abbreviations have been defined for the study version.",
+    "variables": [
+            "id",
+            "versionIdentifier",
+            "Duplicated abbreviations"
+        ],
+    "scope": {
+        "Include": [
+            "StudyVersion"
+        ]
+    }
+}
