@@ -1,0 +1,60 @@
+{
+    "rule": {
+        "Authorities": [
+            {
+                "Organization": "CDISC",
+                "Standards": [
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "The expanded text for all abbreviations defined for a study version are expected to be unique."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00171",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "4.0"
+                    }
+                ]
+            }
+        ],
+        "Check": "study.versions@$sv.\n    (\n        $filter($sv.abbreviations,function($v,$i,$a)\n                {$count($a[$lowercase($.expandedText)=$lowercase($v.expandedText)])>1})\n        ~> $sort(function($l,$r){$lowercase($l.expandedText)>$lowercase($r.expandedText)})\n    ).\n    {\n        \"StudyVersion.id\": $sv.id,\n        \"StudyVersion.versionIdentifier\": $sv.versionIdentifier,\n        \"id\": id,\n        \"abbreviatedText\": abbreviatedText,\n        \"expandedText\": expandedText,\n        \"dataset\": instanceType\n    }",
+        "Core": {
+            "Id": "",
+            "Status": "Draft",
+            "Version": "1"
+        },
+        "Description": "The expanded text for all abbreviations defined for a study version are expected to be unique.",
+        "Executability": "Partially Executable - Possible Overreporting",
+        "Outcome": {
+            "Message": "The abbreviation's expanded text is not unique within the study version (case insensitive).",
+            "Output_Variables": [
+                "StudyVersion.id",
+                "StudyVersion.versionIdentifier",
+                "id",
+                "abbreviatedText",
+                "expandedText"
+            ]
+        },
+        "Scope": {
+            "Entities": {
+                "Include": [
+                    "Abbreviation"
+                ]
+            }
+        },
+        "Sensitivity": "Record",
+        "Rule_Type": "JSONata"
+    },
+    "datasets": [],
+    "codelists": []
+}
