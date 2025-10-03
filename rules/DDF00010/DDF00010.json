@@ -11,7 +11,7 @@
                                 "Citations": [
                                     {
                                         "Document": "USDM_CORE_Rules.xlsx",
-                                        "Cited_Guidance": "The names of all child instances of the same parent class must be unique."
+                                        "Cited_Guidance": "The names of all instances of the same class must be unique."
                                     }
                                 ],
                                 "Origin": "USDM Conformance Rules",
@@ -31,7 +31,7 @@
                                 "Citations": [
                                     {
                                         "Document": "USDM_CORE_Rules.xlsx",
-                                        "Cited_Guidance": "The names of all child instances of the same parent class must be unique."
+                                        "Cited_Guidance": "The names of all instances of the same class must be unique."
                                     }
                                 ],
                                 "Origin": "USDM Conformance Rules",
@@ -47,21 +47,20 @@
                 ]
             }
         ],
-        "Check": "(\n    $iid:=0;\n    $iidd := $ ~> |**.*[id]|{\"iid\": $iid:=$iid+1}|;   \n    ($iidd).**.*[id and instanceType and *.name].\n        {\n            \"id\": id,\n            \"name\": name,\n            \"path\": \"\",\n            \"iid\": iid,\n            \"Duplicate child names\":\n                $filter([*[name]],function($v,$i,$a){$count($a[$.name=$v.name])>1}){\n                    name: $.{\n                        \"id\": id, \n                        \"name\": name,\n                        \"Relative path\": \"\",\n                        \"instanceType\": instanceType,\n                        \"iid\": iid}}, \n            \"instanceType\": instanceType\n        }[`Duplicate child names`]\n    ~> |$|\n        {\n            \"path\": (\n                $this:=$;\n                $utils.get_path($iidd.**.*[iid=$this.iid],$iidd)\n            ),\n            \"Duplicate child names\": (\n                $parent:=$;\n                `Duplicate child names`\n                ~> |*|\n                    {\n                        \"Relative path\": \n                            (\n                                $this:=$;\n                                \"#.\"&$utils.get_path($iidd.**.*[iid=$this.iid],$iidd.**.*[iid=$parent.iid])\n                            )\n                    },[\"iid\"]|\n            )\n        }|\n)",
+        "Check": "($~>$utils.add_path).**.*[id and instanceType and name].$\n    {\n        instanceType: {\n            name: [$.{\"id\":id, \"name\":name,\"path\": path}]\n        } ~> $sift(function($v,$k){$count($v)>1})\n    }\n    ~> $each(function($v,$k){\n        $v.*.{\n            \"id\": id,\n            \"name\": name,\n            \"path\": path,\n            \"dataset\":$k\n        }})\n    ~> $reduce($append)",
         "Core": {
             "Id": "",
             "Status": "Draft",
             "Version": "1"
         },
-        "Description": "The names of all child instances of the same parent class must be unique.",
+        "Description": "The names of all instances of the same class must be unique.",
         "Executability": "Fully Executable",
         "Outcome": {
-            "Message": "The same name has been used for more than one child instance of the same parent class.",
+            "Message": "The same name has been used for more than one instance of the class.",
             "Output_Variables": [
                 "id",
                 "name",
-                "path",
-                "Duplicate child names"
+                "path"
             ]
         },
         "Scope": {
@@ -72,7 +71,7 @@
             }
         },
         "Sensitivity": "Record",
-        "Rule_Type": "Record Data"
+        "Rule_Type": "JSONata"
     },
     "datasets": [],
     "codelists": []

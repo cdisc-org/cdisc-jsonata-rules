@@ -14,16 +14,13 @@ Authorities:
             Version: '1.0'
         Version: '4.0'
 Check: |-
-  (
-      $d := $;
-      ($.**[id~>/ /])@$i.
-          {
-              "id": $i.id,
-              "name": $i.name,
-              "path": $utils.get_path($d.**[id=$i.id],$d),
-              "dataset": $i.instanceType
-          }
-  )
+  (($~>$utils.add_path).**[$contains($string(id)," ")])@$i.
+      {
+          "id": $join(['"','"'],$i.id),
+          "name": $i.name,
+          "path": $i.path,
+          "dataset": $i.instanceType
+      }
 Core:
   Id: 'DDF00260'
   Status: Draft

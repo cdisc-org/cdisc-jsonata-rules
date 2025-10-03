@@ -27,7 +27,7 @@
                 ]
             }
         ],
-        "Check": "(\n    $d := $;\n    ($.**[id~>/ /])@$i.\n        {\n            \"id\": $i.id,\n            \"name\": $i.name,\n            \"path\": $utils.get_path($d.**[id=$i.id],$d),\n            \"dataset\": $i.instanceType\n        }\n)",
+        "Check": "(($~>$utils.add_path).**[$contains($string(id),\" \")])@$i.\n    {\n        \"id\": $join(['\"','\"'],$i.id),\n        \"name\": $i.name,\n        \"path\": $i.path,\n        \"dataset\": $i.instanceType\n    }",
         "Core": {
             "Id": "",
             "Status": "Draft",

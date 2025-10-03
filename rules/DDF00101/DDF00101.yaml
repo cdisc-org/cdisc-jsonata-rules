@@ -38,7 +38,7 @@ Check: |-
                   "Referenced Study Interventions":
                       $count($sd.activities.definedProcedures[studyInterventionId in $append($sv.studyInterventions.id,$sd.studyInterventions.id)]),
                   "dataset": $sd.instanceType
-              }[`Referenced Study Interventions` < 1]
+              }[`Referenced Study Interventions` < 1][]
 Core:
   Id: 'DDF00101'
   Status: Draft

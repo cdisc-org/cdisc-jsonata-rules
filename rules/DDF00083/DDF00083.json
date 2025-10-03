@@ -47,7 +47,7 @@
                 ]
             }
         ],
-        "Check": "(\n    $iid:=0;\n    $iidd := $ ~> |**.*[id]|{\"iid\": $iid:=$iid+1}|;\n    $sift(\n        ($iidd).**.*[id and instanceType].\n            {\n                \"id\": id,\n                \"details\":\n                    {\n                        \"id\": id, \n                        \"dataset\": instanceType,\n                        \"iid\": iid,\n                        \"name\": name\n                    }\n            }.${id: details},\n        function($v){$count($v) > 1}\n    ).*\n    ~>  $map(function($v)\n            {   \n                (\n                    $this := $iidd.**[iid=$v.iid];\n                    $v ~> |$|{\"path\": $utils.get_path($this,$iidd.study)}|\n                )\n            }\n        )\n)",
+        "Check": "(\n    ($~>$utils.add_path).**.*[id and instanceType].\n            {\n                \"id\": id,\n                \"details\":\n                    {\n                        \"id\": id, \n                        \"dataset\": instanceType,\n                        \"path\": path,\n                        \"name\": name\n                    }\n            }.${id: details}\n    ~> $sift(function($v){$count($v) > 1})\n).*",
         "Core": {
             "Id": "",
             "Status": "Draft",

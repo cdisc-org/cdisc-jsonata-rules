@@ -23,11 +23,31 @@
                             }
                         ],
                         "Version": "3.0"
+                    },
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "A study arm must only reference study populations or cohorts that are defined within the same study design as the study arm."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00050",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "4.0"
                     }
                 ]
             }
         ],
-        "Check": "($.**.studyDesigns)@$s.\n    [\n        $s.arms.populationIds[$ != $s.population.id and $not($ in $s.population.cohorts.id)].\n        {\n        \"StudyDesign.id\": $s.id,\n        \"StudyDesign.name\": $s.name,\n        \"StudyDesign.population.id\": $s.population.id,\n        \"StudyDesign.population.cohorts.id\": $s.population.cohorts.id,\n        \"id\": %.id,\n        \"name\": %.name,\n        \"populationId\": $,\n        \"instanceType\": %.instanceType\n        }\n    ]",
+        "Check": "($.**.studyDesigns)@$s.\n    [\n        $s.arms.populationIds[$ != $s.population.id and $not($ in $s.population.cohorts.id)].\n        {\n        \"StudyDesign.id\": $s.id,\n        \"StudyDesign.name\": $s.name,\n        \"StudyDesign.population.id\": $s.population.id,\n        \"StudyDesign.population.cohorts.id\": $s.population.cohorts.id,\n        \"id\": %.id,\n        \"name\": %.name,\n        \"populationId\": $,\n        \"dataset\": %.instanceType\n        }\n    ]",
         "Core": {
             "Id": "",
             "Status": "Draft",

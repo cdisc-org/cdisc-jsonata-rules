@@ -1,21 +1,25 @@
 {
     "check_func" : function($data){$data.(
-                        (
-                            $iid:=0;
-                            $iidd := $ ~> |**.*[id]|{"iid": $iid:=$iid+1}|;   
-                            ($iidd).**.*[id and instanceType and name].$
+                            ($~>$utils.add_path).**.*[id and instanceType and name].$
                                 {
                                     instanceType: {
-                                        name: [$.{"id":id, "name":name,"iid": iid}]
+                                        name: [$.{"id":id, "name":name,"path": path}]
                                     } ~> $sift(function($v,$k){$count($v)>1})
                                 }
-                                ~> |*.*|{"path": "TBD"}|
-                                ~> $each(function($v,$k){{"instanceType":$k,"Duplicate names":$v}})
-                        )
+                                ~> $each(function($v,$k){
+                                    $v.*.{
+                                        "id": id,
+                                        "name": name,
+                                        "path": path,
+                                        "dataset":$k
+                                    }})
+                                ~> $reduce($append)
                     )},
     "message": "The same name has been used for more than one instance of the class.",
     "variables": [
-        "Duplicate names"
+        "id",
+        "name",
+        "path"
     ],
     "scope": {
         "Include": [

@@ -47,7 +47,7 @@
                 ]
             }
         ],
-        "Check": "$.study.versions.studyDesigns.\n{\n    \"id\": id,\n    \"name\": name,\n    \"# Primary endpoints\": $count(objectives.endpoints[level.code=\"C94496\"]),\n    \"instanceType\": instanceType\n}[`# Primary endpoints` = 0]",
+        "Check": "$.study.versions.studyDesigns.\n{\n    \"id\": id,\n    \"name\": name,\n    \"# Primary endpoints\": $count(objectives.endpoints[level.code=\"C94496\"]),\n    \"dataset\": instanceType\n}[`# Primary endpoints` = 0][]",
         "Core": {
             "Id": "",
             "Status": "Draft",

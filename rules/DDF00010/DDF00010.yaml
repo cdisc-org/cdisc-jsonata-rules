@@ -1,0 +1,58 @@
+Authorities:
+  - Organization: CDISC
+    Standards:
+      - Name: USDM
+        References:
+          - Citations:
+              - Cited Guidance: 'The names of all instances of the same class must be unique.'
+                Document: 'USDM_CORE_Rules.xlsx'
+            Origin: 'USDM Conformance Rules'
+            Rule Identifier:
+              Id: 'DDF00010'
+              Version: '1'
+            Version: '1.0'
+        Version: '3.0'
+      - Name: USDM
+        References:
+          - Citations:
+              - Cited Guidance: 'The names of all instances of the same class must be unique.'
+                Document: 'USDM_CORE_Rules.xlsx'
+            Origin: 'USDM Conformance Rules'
+            Rule Identifier:
+              Id: 'DDF00010'
+              Version: '1'
+            Version: '1.0'
+        Version: '4.0'
+Check: |-
+  ($~>$utils.add_path).**.*[id and instanceType and name].$
+      {
+          instanceType: {
+              name: [$.{"id":id, "name":name,"path": path}]
+          } ~> $sift(function($v,$k){$count($v)>1})
+      }
+      ~> $each(function($v,$k){
+          $v.*.{
+              "id": id,
+              "name": name,
+              "path": path,
+              "dataset":$k
+          }})
+      ~> $reduce($append)
+Core:
+  Id: 'DDF00010'
+  Status: Draft
+  Version: '1'
+Description: 'The names of all instances of the same class must be unique.'
+Executability: Fully Executable
+Outcome:
+  Message: 'The same name has been used for more than one instance of the class.'
+  Output Variables:
+    - id
+    - name
+    - path
+Rule Type: JSONata
+Scope:
+  Entities:
+    Include:
+      - ALL
+Sensitivity: Record

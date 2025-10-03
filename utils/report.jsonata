@@ -2,7 +2,9 @@
     "report": function($rule,$data)
                 {
                     (
-                        $errors := $append(null,$type($rule.check_func) = "string" ? $data.$eval($rule.check_func) : $rule.check_func($data));
+                        $errors := $append(null,$type($rule.check_func) = "string" 
+                                    ? $eval("($data:="&$string($data)&";$data.("&$rule.check_func&"))") 
+                                    : $rule.check_func($data));
                         $rule_applies := function($instyp,$rs)
                                             {
                                                 (
@@ -13,7 +15,7 @@
                                                     $is_inc and $not($is_exc)
                                                 )
                                             };
-                        $data.**.instanceType@$it.($errors)
+                        $distinct($data.**.instanceType)@$it.($errors)
                             {
                                 $it: 
                                     {

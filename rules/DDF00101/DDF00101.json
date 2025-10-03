@@ -47,7 +47,7 @@
                 ]
             }
         ],
-        "Check": "($.study.versions[$not(\"studyType\" in $keys($)) or studyType.code = \"C98388\"])@$sv.\n    ($sv.studyDesigns[$not(\"studyType\" in $keys($)) or studyType.code = \"C98388\"])@$sd.\n            {\n                \"id\": $sd.id,\n                \"name\": $sd.name,\n                \"studyType.code\": $append($sv.studyType.code,$sd.studyType.code),\n                \"studyType.decode\": $append($sv.studyType.decode,$sd.studyType.decode),\n                \"Referenced Study Interventions\":\n                    $count($sd.activities.definedProcedures[studyInterventionId in $append($sv.studyInterventions.id,$sd.studyInterventions.id)]),\n                \"dataset\": $sd.instanceType\n            }[`Referenced Study Interventions` < 1]",
+        "Check": "($.study.versions[$not(\"studyType\" in $keys($)) or studyType.code = \"C98388\"])@$sv.\n    ($sv.studyDesigns[$not(\"studyType\" in $keys($)) or studyType.code = \"C98388\"])@$sd.\n            {\n                \"id\": $sd.id,\n                \"name\": $sd.name,\n                \"studyType.code\": $append($sv.studyType.code,$sd.studyType.code),\n                \"studyType.decode\": $append($sv.studyType.decode,$sd.studyType.decode),\n                \"Referenced Study Interventions\":\n                    $count($sd.activities.definedProcedures[studyInterventionId in $append($sv.studyInterventions.id,$sd.studyInterventions.id)]),\n                \"dataset\": $sd.instanceType\n            }[`Referenced Study Interventions` < 1][]",
         "Core": {
             "Id": "",
             "Status": "Draft",

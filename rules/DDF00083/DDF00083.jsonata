@@ -1,31 +1,19 @@
 {
     "check_func" : function($data){$data.(
                         (
-                            $iid:=0;
-                            $iidd := $ ~> |**.*[id]|{"iid": $iid:=$iid+1}|;
-                            $sift(
-                                ($iidd).**.*[id and instanceType].
+                            ($~>$utils.add_path).**.*[id and instanceType].
                                     {
                                         "id": id,
                                         "details":
                                             {
                                                 "id": id, 
                                                 "dataset": instanceType,
-                                                "iid": iid,
+                                                "path": path,
                                                 "name": name
                                             }
-                                    }.${id: details},
-                                function($v){$count($v) > 1}
-                            ).*
-                            ~>  $map(function($v)
-                                    {   
-                                        (
-                                            $this := $iidd.**[iid=$v.iid];
-                                            $v ~> |$|{"path": $utils.get_path($this,$iidd.study)}|
-                                        )
-                                    }
-                                )
-                        )
+                                    }.${id: details}
+                            ~> $sift(function($v){$count($v) > 1})
+                        ).*
                     )},
     "message": "The id value is not unique.",
     "variables": [
