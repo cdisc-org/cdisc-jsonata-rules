@@ -31,7 +31,7 @@
             "StudyDefinitionDocument.id",
             "StudyDefinitionDocument.name",
             "StudyDefinitionDocumentVersion.id",
-            "StudyDefinitionDocumentVersion.name",
+            "StudyDefinitionDocumentVersion.version",
             "NarrativeContent.id",
             "NarrativeContent.name",
             "NarrativeContent.displaySectionNumber",
