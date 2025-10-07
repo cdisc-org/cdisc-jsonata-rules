@@ -13,7 +13,7 @@
                                 "StudyDefinitionDocument.id": $db.id,
                                 "StudyDefinitionDocument.name": $db.name,
                                 "StudyDefinitionDocumentVersion.id": $db.versions.id,
-                                "StudyDefinitionDocumentVersion.name": $db.versions.name,
+                                "StudyDefinitionDocumentVersion.version": $db.versions.version,
                                 "NarrativeContent.id": $nc.id,
                                 "NarrativeContent.name": $nc.name,
                                 "NarrativeContent.displaySectionNumber": $nc.displaySectionNumber,
