@@ -7,7 +7,7 @@
                                 ($exists(dose) != $exists(route))
                             };
                             {
-                                "StudyIntevention.id": $si.id,
+                                "StudyIntervention.id": $si.id,
                                 "StudyIntervention.name": $si.name,
                                 "Administration.id": $sa.id,
                                 "Administration.name": $sa.name,
@@ -17,6 +17,7 @@
                                 "Administration.dose.maxValue.value": $sa.dose.maxValue.value,
                                 "Administration.route.standardCode.code": $sa.route.standardCode.code,
                                 "Administration.route.standardCode.decode": $sa.route.standardCode.decode,
+								"dataset":$sa.instanceType,
                                 "check":$ChkX()
                             }
                           )
