@@ -15,6 +15,7 @@
                                 "Administration.dose.value": $sa.dose.value,                                
                                 "Administration.dose.minValue.value": $sa.dose.minValue.value,                                                          
                                 "Administration.dose.maxValue.value": $sa.dose.maxValue.value,
+                                "Administration.route.id": $sa.route.id,
                                 "Administration.route.standardCode.code": $sa.route.standardCode.code,
                                 "Administration.route.standardCode.decode": $sa.route.standardCode.decode,
 								"dataset":$sa.instanceType,
@@ -34,8 +35,10 @@
  	    "Administration.dose.value",
 	    "Administration.dose.minValue.value",
 	    "Administration.dose.maxValue.value",
+	    "Administration.route.id",
 	    "Administration.route.standardCode.code",
 	    "Administration.route.standardCode.decode"
 	   
 	            ]                        
 }
+
