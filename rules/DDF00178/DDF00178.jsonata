@@ -4,7 +4,7 @@
                   [
                           ( $ChkX:=function()
                             {
-                                ($exists(dose.id)=true and $exists(frequency.code)=false)
+                                ($exists(dose.id)=true and $exists(frequency.id)=false)
                             };
                             {
                                 "StudyIntevention.id": $si.id,
