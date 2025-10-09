@@ -4,7 +4,7 @@
                   [
                           ( $ChkX:=function()
                             {
-                                ($exists(dose) != $exists(route))
+                                ($exists(dose.id) != $exists(route.code))
                             };
                             {
                                 "StudyIntervention.id": $si.id,
@@ -41,4 +41,5 @@
 	   
 	            ]                        
 }
+
 
