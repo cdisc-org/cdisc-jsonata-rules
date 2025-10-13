@@ -28,7 +28,7 @@
                           )
                     ][check=true]
            },
-    "message": "An administration dose has been specified without a route or vice versa.",
+    "message": "An administration dose has been specified without an administrable product (either as a direct administrable product or as an embedded product via the related medical device) or vice versa.",
     "variables": 
         [
             "StudyIntervention.id",
