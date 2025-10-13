@@ -1,0 +1,47 @@
+{
+    "check_func" : function($data)
+         {($data.**.versions)@$sv.$sv.studyInterventions@$si.$si.administrations@$sa.$sa.
+                  [
+                          (  $AdmProduct:=function(){$exists($sa.administrableProductId) and $sa.administrableProductId != null  };
+                             $EmbProduct:=function(){$exists($sv.medicalDevices[id=$sa.medicalDeviceId].embeddedProductId) and $sv.medicalDevices[id=$sa.medicalDeviceId].embeddedProductId != null};
+                             $ChkX:=function()
+                            {
+                                (($exists($sa.dose.id)=true and $AdmProduct()=false and $EmbProduct()=false)
+                                or ($exists($sa.dose.id)=false and ($AdmProduct()=true or $EmbProduct()=true) ))
+                            };
+                            {
+                                "StudyIntevention.id": $si.id,
+                                "studyIntervention.name": $si.name,
+                                "Administration.id": $sa.id,
+                                "Administration.name": $sa.name,
+                                "Administration.dose.id": $sa.dose.id,
+                                "Administration.dose.value": $sa.dose.value,                                
+                                "Administration.dose.minValue.value": $sa.dose.minValue.value,                                                          
+                                "Administration.dose.maxValue.value": $sa.dose.maxValue.value,
+                                "Administration.administrableProductId": $sa.administrableProductId,
+                                "Administration.medicalDeviceId": $sa.medicalDeviceId,
+                                "MedicalDevice.name": $sv.medicalDevices[id=$sa.medicalDeviceId].name,
+                                "MedicalDevice.embeddedProductId": $sv.medicalDevices[id=$sa.medicalDeviceId].embeddedProductId,
+                                "AdministrableProduct.name": $sv.administrableProducts[id in $append($sa.administrableProductId, $sv.medicalDevices[id=$sa.medicalDeviceId].embeddedProductId)].name,
+                                "dataset": instanceType,
+                                "check":$ChkX()             }
+                          )
+                    ][check=true]
+           },
+    "message": "An administration dose has been specified without a route or vice versa.",
+    "variables": 
+        [
+            "StudyIntervention.id",
+            "StudyIntervention.name",
+            "Administration.id",
+            "Administration.name",
+	    "Administration.dose.id",
+ 	    "Administration.dose.value",
+	    "Administration.dose.minValue.value",
+	    "Administration.dose.maxValue.value",
+            "Administration.administrableProductId",
+            "Administration.medicalDeviceId",
+            "MedicalDevice.name",
+            "MedicalDevice.embeddedProductId",
+            "AdministrableProduct.name" ]                        
+}
