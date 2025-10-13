@@ -10,8 +10,8 @@
                                 or ($exists($sa.dose.id)=false and ($AdmProduct()=true or $EmbProduct()=true) ))
                             };
                             {
-                                "StudyIntevention.id": $si.id,
-                                "studyIntervention.name": $si.name,
+                                "StudyIntervention.id": $si.id,
+                                "StudyIntervention.name": $si.name,
                                 "Administration.id": $sa.id,
                                 "Administration.name": $sa.name,
                                 "Administration.dose.id": $sa.dose.id,
