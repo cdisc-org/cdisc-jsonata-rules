@@ -109,6 +109,14 @@
                     "sectionTitle": "Header 1.5",
                     "appliesToId": "StudyDefinitionDocument_1",
                     "instanceType": "DocumentContentReference"
+                  },
+                  {
+                    "id": "DocumentContentReference_2",
+                    "extensionAttributes": [],
+                    "sectionNumber": "1.5",
+                    "sectionTitle": "Header 1.6",
+                    "appliesToId": "StudyDefinitionDocument_1",
+                    "instanceType": "DocumentContentReference"
                   }
                 ],
                 "instanceType": "StudyChange"
@@ -3550,6 +3558,39 @@
                     "instanceType": "Timing"
                   },
                   {
+                    "id": "Timing_12b",
+                    "extensionAttributes": [],
+                    "name": "TIM12b",
+                    "label": "Week 16 Home decision",
+                    "description": "Decide if Week 16 at home timing",
+                    "type": {
+                      "id": "Code_56",
+                      "extensionAttributes": [],
+                      "code": "C201356",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2025-09-26",
+                      "decode": "After",
+                      "instanceType": "Code"
+                    },
+                    "value": "P0D",
+                    "valueLabel": "0 Days",
+                    "relativeToFrom": {
+                      "id": "Code_57",
+                      "extensionAttributes": [],
+                      "code": "C201355",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2025-09-26",
+                      "decode": "Start to Start",
+                      "instanceType": "Code"
+                    },
+                    "relativeFromScheduledInstanceId": "ScheduledDecisionInstance_1",
+                    "relativeToScheduledInstanceId": "ScheduledActivityInstance_19",
+                    "windowLower": null,
+                    "windowUpper": null,
+                    "windowLabel": "",
+                    "instanceType": "Timing"
+                  },
+                  {
                     "id": "Timing_14",
                     "extensionAttributes": [],
                     "name": "TIM14",
@@ -3822,7 +3863,7 @@
                     "name": "WK16",
                     "label": "Week 16",
                     "description": "-",
-                    "defaultConditionId": "ScheduledActivityInstance_20",
+                    "defaultConditionId": "ScheduledDecisionInstance_1",
                     "epochId": "StudyEpoch_3",
                     "instanceType": "ScheduledActivityInstance",
                     "timelineId": null,
@@ -3840,6 +3881,23 @@
                       "Activity_30"
                     ],
                     "encounterId": "Encounter_9"
+                  },
+                  {
+                    "id": "ScheduledDecisionInstance_1",
+                    "extensionAttributes": [],
+                    "name": "WK16_Dec",
+                    "label": "Decision Week 16 NPI",
+                    "description": "-",
+                    "defaultConditionId": "ScheduledActivityInstance_20",
+                    "epochId": "StudyEpoch_3",
+                    "instanceType": "ScheduledDecisionInstance",
+                    "conditionAssignments": {
+                        "id": "ConditionAssignment_1",
+                        "extensionAttributes": [],
+                        "condition": "not willing to do online questionnaire",
+                        "conditionTargetId": "ScheduledDecisionInstance_1",
+                        "instanceType": "ConditionAssignment"
+                        }
                   },
                   {
                     "id": "ScheduledActivityInstance_20",
@@ -3947,7 +4005,35 @@
                     "encounterId": "Encounter_12"
                   }
                 ],
-                "plannedDuration": null,
+                "plannedDuration": {
+                  "id": "Duration_11",
+                  "extensionAttributes": [],
+                  "text": "",
+                  "quantity": {
+                    "id": "Quantity_p2",
+                    "extensionAttributes": [],
+                    "value": 36.0,
+                    "unit": {
+                      "id": "AliasCode_p11",
+                      "extensionAttributes": [],
+                      "standardCode": {
+                        "id": "Code_p05",
+                        "extensionAttributes": [],
+                        "code": "C29844",
+                        "codeSystem": "http://www.cdisc.org",
+                        "codeSystemVersion": "2025-09-26",
+                        "decode": "Week",
+                        "instanceType": "Code"
+                      },
+                      "standardCodeAliases": [],
+                      "instanceType": "AliasCode"
+                    },
+                    "instanceType": "Quantity"
+                  },
+                  "durationWillVary": true,
+                  "reasonDurationWillVary": "A good reason",
+                  "instanceType": "Duration"
+                },
                 "instanceType": "ScheduleTimeline"
               },
               {
@@ -6524,7 +6610,7 @@
                     "extensionAttributes": [],
                     "value": 24.0,
                     "unit": {
-                      "id": "AliasCode_242",
+                      "id": "AliasCode_246",
                       "extensionAttributes": [],
                       "standardCode": {
                         "id": "Code_606",
@@ -6560,7 +6646,15 @@
                       "decode": "Milligram",
                       "instanceType": "Code"
                     },
-                    "standardCodeAliases": [],
+                    "standardCodeAliases": [{
+                      "id": "Code_607",
+                      "extensionAttributes": [],
+                      "code": "C28253",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2024-09-27",
+                      "decode": "Milligram",
+                      "instanceType": "Code"
+                    }],
                     "instanceType": "AliasCode"
                   },
                   "instanceType": "Quantity"
@@ -6574,27 +6668,13 @@
                     "code": "C38288",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
-                    "decode": "ORAL",
+                    "decode": "ORALxx",
                     "instanceType": "Code"
                   },
                   "standardCodeAliases": [],
                   "instanceType": "AliasCode"
                 },
-                "frequency": {
-                  "id": "AliasCode_245",
-                  "extensionAttributes": [],
-                  "standardCode": {
-                    "id": "Code_609",
-                    "extensionAttributes": [],
-                    "code": "C25473",
-                    "codeSystem": "http://www.cdisc.org",
-                    "codeSystemVersion": "2024-09-27",
-                    "decode": "QD",
-                    "instanceType": "Code"
-                  },
-                  "standardCodeAliases": [],
-                  "instanceType": "AliasCode"
-                },
+                "frequency": null,
                 "administrableProductId": "AdmProd_1",
                 "medicalDeviceId": null,
                 "notes": [],
@@ -6632,7 +6712,7 @@
                     "instanceType": "Quantity"
                   },
                   "durationWillVary": false,
-                  "reasonDurationWillVary": "Need reason",
+                  "reasonDurationWillVary": "",
                   "instanceType": "Duration"
                 },
                 "dose": {
@@ -6656,28 +6736,14 @@
                   },
                   "instanceType": "Quantity"
                 },
-                "route": {
-                  "id": "AliasCode_249",
-                  "extensionAttributes": [],
-                  "standardCode": {
-                    "id": "Code_616",
-                    "extensionAttributes": [],
-                    "code": "C38288",
-                    "codeSystem": "http://www.cdisc.org",
-                    "codeSystemVersion": "2024-09-27",
-                    "decode": "ORAL",
-                    "instanceType": "Code"
-                  },
-                  "standardCodeAliases": [],
-                  "instanceType": "AliasCode"
-                },
+                "route": null,
                 "frequency": {
                   "id": "AliasCode_250",
                   "extensionAttributes": [],
                   "standardCode": {
                     "id": "Code_617",
                     "extensionAttributes": [],
-                    "code": "C25473",
+                    "code": "C25473x",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
                     "decode": "QD",
@@ -6724,7 +6790,7 @@
               "code": "C215659",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2025-09-26",
-              "decode": "Centrally Sourced",
+              "decode": "Centrally Sourced by sponsor",
               "instanceType": "Code"
             },
             "productDesignation": {
@@ -6736,7 +6802,24 @@
               "decode": "IMP",
               "instanceType": "Code"
             },
-            "pharmacologClass": null,
+            "pharmacologClass": null,			
+			"properties": [{
+                "id": "AdmProdProp_1",
+                "extensionAttributes": [],
+                "name": "AdmProdProp1",
+                "type": {
+                    "id": "Code_p04",
+                    "extensionAttributes": [],
+                    "code": "C215479",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2025-09-26",
+                    "decode": "pHx",
+                    "instanceType": "Code"
+                },
+                "text": "7.0",
+			    "quantity": null,
+                "instanceType": "AdministrableProductProperty"
+            }],
             "notes": [],
             "instanceType": "AdministrableProduct"
           }],
@@ -6788,8 +6871,8 @@
                       "extensionAttributes": [],
                       "code": "C16576",
                       "codeSystem": "http://www.cdisc.org",
-                      "codeSystemVersion": "2024-09-27",
-                      "decode": "Female",
+                      "codeSystemVersion": "2024-09-20",
+                      "decode": "Male",
                       "instanceType": "Code"
                     },
                     "instanceType": "ResponseCode"
@@ -6865,7 +6948,7 @@
             "name": "Race",
             "label": "Race",
             "synonyms": [
-              "Racial Group"
+              "Race"
             ],
             "reference": "/mdr/bc/packages/2025-04-01/biomedicalconcepts/C17049",
             "properties": [
@@ -6902,7 +6985,7 @@
                 "name": "Collection Date Time",
                 "label": "Collection Date Time",
                 "isRequired": true,
-                "isEnabled": true,
+                "isEnabled": false,
                 "datatype": "datetime",
                 "responseCodes": [],
                 "code": {
@@ -16891,7 +16974,7 @@
 			"label": "Biochemistry Category",
             "code": null,
 			"children": [],
-			"members": ["BiomedicalConcept_7","BiomedicalConcept_9","BiomedicalConcept_10"],
+			"members": [],
             "instanceType": "BiomedicalConceptCategory",
 			"notes": []
           },
@@ -17033,7 +17116,7 @@
               "ScheduledActivityInstance_9"
             ],
             "appliesToIds": [
-              "Activity_24"
+              "Activity_24xxx"
             ]
           },
           {
@@ -17047,7 +17130,7 @@
             "notes": [],
             "instanceType": "Condition",
             "contextIds": [
-              "ScheduledActivityInstance_9"
+              "ScheduledActivityInstance_9xxx"
             ],
             "appliesToIds": [
               "Activity_27",
@@ -18434,7 +18517,7 @@
                 "displaySectionNumber": true,
                 "displaySectionTitle": true,
                 "childIds": [
-                  "NarrativeContent_80",
+                  "NarrativeContent_79",
                   "NarrativeContent_81"
                 ],
                 "previousId": "NarrativeContent_78",
@@ -18593,7 +18676,7 @@
                 "id": "NarrativeContent_90",
                 "extensionAttributes": [],
                 "name": "NC_113",
-                "sectionNumber": "3",
+                "sectionNumber": "3.1",
                 "sectionTitle": "TRIAL OBJECTIVES AND ESTIMANDS",
                 "displaySectionNumber": true,
                 "displaySectionTitle": true,
