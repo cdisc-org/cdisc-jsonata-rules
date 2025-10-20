@@ -4466,7 +4466,7 @@
                 },
                 "identifier": "01",
                 "criterionItemId": "EligibilityCriterionItem_1",
-                "nextId": null,
+                "nextId": "EligibilityCriterion_2",
                 "previousId": null,
                 "notes": [],
                 "instanceType": "EligibilityCriterion"
@@ -4488,8 +4488,8 @@
                 },
                 "identifier": "02",
                 "criterionItemId": "EligibilityCriterionItem_2",
-                "nextId": null,
-                "previousId": null,
+                "nextId": "EligibilityCriterion_3",
+                "previousId": "EligibilityCriterion_1",
                 "notes": [],
                 "instanceType": "EligibilityCriterion"
               },
@@ -4510,8 +4510,8 @@
                 },
                 "identifier": "03",
                 "criterionItemId": "EligibilityCriterionItem_3",
-                "nextId": null,
-                "previousId": null,
+                "nextId": "EligibilityCriterion_4",
+                "previousId": "EligibilityCriterion_2",
                 "notes": [],
                 "instanceType": "EligibilityCriterion"
               },
@@ -4532,8 +4532,8 @@
                 },
                 "identifier": "04",
                 "criterionItemId": "EligibilityCriterionItem_4",
-                "nextId": null,
-                "previousId": null,
+                "nextId": "EligibilityCriterion_5",
+                "previousId": "EligibilityCriterion_3",
                 "notes": [],
                 "instanceType": "EligibilityCriterion"
               },
@@ -4554,8 +4554,8 @@
                 },
                 "identifier": "05",
                 "criterionItemId": "EligibilityCriterionItem_5",
-                "nextId": null,
-                "previousId": null,
+                "nextId": "EligibilityCriterion_6",
+                "previousId": "EligibilityCriterion_4",
                 "notes": [],
                 "instanceType": "EligibilityCriterion"
               },
@@ -4576,8 +4576,8 @@
                 },
                 "identifier": "06",
                 "criterionItemId": "EligibilityCriterionItem_6",
-                "nextId": null,
-                "previousId": null,
+                "nextId": "EligibilityCriterion_7",
+                "previousId": "EligibilityCriterion_5",
                 "notes": [],
                 "instanceType": "EligibilityCriterion"
               },
@@ -4598,8 +4598,8 @@
                 },
                 "identifier": "07",
                 "criterionItemId": "EligibilityCriterionItem_7",
-                "nextId": null,
-                "previousId": null,
+                "nextId": "EligibilityCriterion_8",
+                "previousId": "EligibilityCriterion_6",
                 "notes": [],
                 "instanceType": "EligibilityCriterion"
               },
@@ -4620,8 +4620,8 @@
                 },
                 "identifier": "08",
                 "criterionItemId": "EligibilityCriterionItem_8",
-                "nextId": null,
-                "previousId": null,
+                "nextId": "EligibilityCriterion_9",
+                "previousId": "EligibilityCriterion_7",
                 "notes": [],
                 "instanceType": "EligibilityCriterion"
               },
@@ -4642,8 +4642,8 @@
                 },
                 "identifier": "09",
                 "criterionItemId": "EligibilityCriterionItem_9",
-                "nextId": null,
-                "previousId": null,
+                "nextId": "EligibilityCriterion_10",
+                "previousId": "EligibilityCriterion_8",
                 "notes": [],
                 "instanceType": "EligibilityCriterion"
               },
@@ -4664,8 +4664,8 @@
                 },
                 "identifier": "10",
                 "criterionItemId": "EligibilityCriterionItem_10",
-                "nextId": null,
-                "previousId": null,
+                "nextId": "EligibilityCriterion_11",
+                "previousId": "EligibilityCriterion_9",
                 "notes": [],
                 "instanceType": "EligibilityCriterion"
               },
@@ -4686,8 +4686,8 @@
                 },
                 "identifier": "11",
                 "criterionItemId": "EligibilityCriterionItem_11",
-                "nextId": null,
-                "previousId": null,
+                "nextId": "EligibilityCriterion_12",
+                "previousId": "EligibilityCriterion_10",
                 "notes": [],
                 "instanceType": "EligibilityCriterion"
               },
@@ -4708,8 +4708,8 @@
                 },
                 "identifier": "12",
                 "criterionItemId": "EligibilityCriterionItem_12",
-                "nextId": null,
-                "previousId": null,
+                "nextId": "EligibilityCriterion_13",
+                "previousId": "EligibilityCriterion_11",
                 "notes": [],
                 "instanceType": "EligibilityCriterion"
               },
@@ -4730,8 +4730,8 @@
                 },
                 "identifier": "13",
                 "criterionItemId": "EligibilityCriterionItem_13",
-                "nextId": null,
-                "previousId": null,
+                "nextId": "EligibilityCriterion_14",
+                "previousId": "EligibilityCriterion_12",
                 "notes": [],
                 "instanceType": "EligibilityCriterion"
               },
@@ -4752,8 +4752,8 @@
                 },
                 "identifier": "14",
                 "criterionItemId": "EligibilityCriterionItem_14",
-                "nextId": null,
-                "previousId": null,
+                "nextId": "EligibilityCriterion_15",
+                "previousId": "EligibilityCriterion_13",
                 "notes": [],
                 "instanceType": "EligibilityCriterion"
               },
@@ -4774,8 +4774,8 @@
                 },
                 "identifier": "15",
                 "criterionItemId": "EligibilityCriterionItem_15",
-                "nextId": null,
-                "previousId": null,
+                "nextId": "EligibilityCriterion_16",
+                "previousId": "EligibilityCriterion_14",
                 "notes": [],
                 "instanceType": "EligibilityCriterion"
               },
@@ -4796,8 +4796,8 @@
                 },
                 "identifier": "16b",
                 "criterionItemId": "EligibilityCriterionItem_16",
-                "nextId": null,
-                "previousId": null,
+                "nextId": "EligibilityCriterion_17",
+                "previousId": "EligibilityCriterion_15",
                 "notes": [],
                 "instanceType": "EligibilityCriterion"
               },
@@ -4818,8 +4818,8 @@
                 },
                 "identifier": "17",
                 "criterionItemId": "EligibilityCriterionItem_17",
-                "nextId": null,
-                "previousId": null,
+                "nextId": "EligibilityCriterion_18",
+                "previousId": "EligibilityCriterion_16",
                 "notes": [],
                 "instanceType": "EligibilityCriterion"
               },
@@ -4840,8 +4840,8 @@
                 },
                 "identifier": "18",
                 "criterionItemId": "EligibilityCriterionItem_18",
-                "nextId": null,
-                "previousId": null,
+                "nextId": "EligibilityCriterion_19",
+                "previousId": "EligibilityCriterion_17",
                 "notes": [],
                 "instanceType": "EligibilityCriterion"
               },
@@ -4862,8 +4862,8 @@
                 },
                 "identifier": "19",
                 "criterionItemId": "EligibilityCriterionItem_19",
-                "nextId": null,
-                "previousId": null,
+                "nextId": "EligibilityCriterion_20",
+                "previousId": "EligibilityCriterion_18",
                 "notes": [],
                 "instanceType": "EligibilityCriterion"
               },
@@ -4884,8 +4884,8 @@
                 },
                 "identifier": "20",
                 "criterionItemId": "EligibilityCriterionItem_20",
-                "nextId": null,
-                "previousId": null,
+                "nextId": "EligibilityCriterion_21",
+                "previousId": "EligibilityCriterion_19",
                 "notes": [],
                 "instanceType": "EligibilityCriterion"
               },
@@ -4906,8 +4906,8 @@
                 },
                 "identifier": "21",
                 "criterionItemId": "EligibilityCriterionItem_21",
-                "nextId": null,
-                "previousId": null,
+                "nextId": "EligibilityCriterion_22",
+                "previousId": "EligibilityCriterion_20",
                 "notes": [],
                 "instanceType": "EligibilityCriterion"
               },
@@ -4928,8 +4928,8 @@
                 },
                 "identifier": "22",
                 "criterionItemId": "EligibilityCriterionItem_22",
-                "nextId": null,
-                "previousId": null,
+                "nextId": "EligibilityCriterion_23",
+                "previousId": "EligibilityCriterion_21",
                 "notes": [],
                 "instanceType": "EligibilityCriterion"
               },
@@ -4950,8 +4950,8 @@
                 },
                 "identifier": "23",
                 "criterionItemId": "EligibilityCriterionItem_23",
-                "nextId": null,
-                "previousId": null,
+                "nextId": "EligibilityCriterion_24",
+                "previousId": "EligibilityCriterion_22",
                 "notes": [],
                 "instanceType": "EligibilityCriterion"
               },
@@ -4972,8 +4972,8 @@
                 },
                 "identifier": "24",
                 "criterionItemId": "EligibilityCriterionItem_24",
-                "nextId": null,
-                "previousId": null,
+                "nextId": "EligibilityCriterion_25",
+                "previousId": "EligibilityCriterion_23",
                 "notes": [],
                 "instanceType": "EligibilityCriterion"
               },
@@ -4994,8 +4994,8 @@
                 },
                 "identifier": "25",
                 "criterionItemId": "EligibilityCriterionItem_25",
-                "nextId": null,
-                "previousId": null,
+                "nextId": "EligibilityCriterion_26",
+                "previousId": "EligibilityCriterion_24",
                 "notes": [],
                 "instanceType": "EligibilityCriterion"
               },
@@ -5016,8 +5016,8 @@
                 },
                 "identifier": "26",
                 "criterionItemId": "EligibilityCriterionItem_26",
-                "nextId": null,
-                "previousId": null,
+                "nextId": "EligibilityCriterion_27",
+                "previousId": "EligibilityCriterion_25",
                 "notes": [],
                 "instanceType": "EligibilityCriterion"
               },
@@ -5038,8 +5038,8 @@
                 },
                 "identifier": "27b",
                 "criterionItemId": "EligibilityCriterionItem_27",
-                "nextId": null,
-                "previousId": null,
+                "nextId": "EligibilityCriterion_28",
+                "previousId": "EligibilityCriterion_26",
                 "notes": [],
                 "instanceType": "EligibilityCriterion"
               },
@@ -5060,8 +5060,8 @@
                 },
                 "identifier": "28b",
                 "criterionItemId": "EligibilityCriterionItem_28",
-                "nextId": null,
-                "previousId": null,
+                "nextId": "EligibilityCriterion_29",
+                "previousId": "EligibilityCriterion_27",
                 "notes": [],
                 "instanceType": "EligibilityCriterion"
               },
@@ -5082,8 +5082,8 @@
                 },
                 "identifier": "29b",
                 "criterionItemId": "EligibilityCriterionItem_29",
-                "nextId": null,
-                "previousId": null,
+                "nextId": "EligibilityCriterion_30",
+                "previousId": "EligibilityCriterion_28",
                 "notes": [],
                 "instanceType": "EligibilityCriterion"
               },
@@ -5104,8 +5104,8 @@
                 },
                 "identifier": "30b",
                 "criterionItemId": "EligibilityCriterionItem_30",
-                "nextId": null,
-                "previousId": null,
+                "nextId": "EligibilityCriterion_31",
+                "previousId": "EligibilityCriterion_29",
                 "notes": [],
                 "instanceType": "EligibilityCriterion"
               },
@@ -5127,7 +5127,7 @@
                 "identifier": "31b",
                 "criterionItemId": "EligibilityCriterionItem_31",
                 "nextId": null,
-                "previousId": null,
+                "previousId": "EligibilityCriterion_30",
                 "notes": [],
                 "instanceType": "EligibilityCriterion"
               }
@@ -6625,7 +6625,7 @@
                   "standardCodeAliases": [],
                   "instanceType": "AliasCode"
                 },
-                "administrableProductId": null,
+                "administrableProductId": "AdmProd_1",
                 "medicalDeviceId": null,
                 "notes": [],
                 "instanceType": "Administration"
@@ -6726,7 +6726,50 @@
             "instanceType": "StudyIntervention"
           }
         ],
-        "administrableProducts": [],
+        "administrableProducts": [
+          {
+            "id": "AdmProd_1",
+            "extensionAttributes": [],
+            "name": "AdmProd1",
+            "label": "Xanomeline",
+            "description": null,
+            "administrableDoseForm": {
+                  "id": "AliasCode_p01",
+                  "extensionAttributes": [],
+                  "standardCode": {
+                    "id": "Code_p01",
+                    "extensionAttributes": [],
+                    "code": "C66726",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2024-09-27",
+                    "decode": "PATCH",
+                    "instanceType": "Code"
+                  },
+                  "standardCodeAliases": [],
+                  "instanceType": "AliasCode"
+                },
+            "sourcing": {
+              "id": "Code_p02",
+              "extensionAttributes": [],
+              "code": "C215659",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "decode": "Centrally Sourced",
+              "instanceType": "Code"
+            },
+            "productDesignation": {
+              "id": "Code_p03",
+              "extensionAttributes": [],
+              "code": "C202579",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2024-09-27",
+              "decode": "IMP",
+              "instanceType": "Code"
+            },
+            "pharmacologClass": null,
+            "notes": [],
+            "instanceType": "AdministrableProduct"
+          }],
         "medicalDevices": [],
         "productOrganizationRoles": [],
         "biomedicalConcepts": [
