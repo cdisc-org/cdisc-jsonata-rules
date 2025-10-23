@@ -339,7 +339,7 @@
                 "extensionAttributes": [],
                 "code": "26929004",
                 "codeSystem": "SNOMED",
-                "codeSystemVersion": "January 31, 2018",
+                "codeSystemVersion": "'2025-02-01'",
                 "decode": "Alzheimer's disease",
                 "instanceType": "Code"
               }
@@ -1049,7 +1049,7 @@
                       "extensionAttributes": [],
                       "code": "61871000000107",
                       "codeSystem": "SNOMED",
-                      "codeSystemVersion": "January 31, 2018",
+                      "codeSystemVersion": "2025-02-01",
                       "decode": "Eligibility for treatment",
                       "instanceType": "Code"
                     },
@@ -1086,7 +1086,7 @@
                       "extensionAttributes": [],
                       "code": "4561000175109",
                       "codeSystem": "SNOMED",
-                      "codeSystemVersion": "January 31, 2018",
+                      "codeSystemVersion": "2025-02-01",
                       "decode": "Assigned",
                       "instanceType": "Code"
                     },
@@ -1198,7 +1198,7 @@
                       "extensionAttributes": [],
                       "code": "5880005",
                       "codeSystem": "SNOMED",
-                      "codeSystemVersion": "January 31, 2018",
+                      "codeSystemVersion": "2025-02-01",
                       "decode": "Physical examination",
                       "instanceType": "Code"
                     },
@@ -1493,7 +1493,7 @@
                       "extensionAttributes": [],
                       "code": "383371000119108",
                       "codeSystem": "SNOMED",
-                      "codeSystemVersion": "January 31, 2018",
+                      "codeSystemVersion": "2025-02-01",
                       "decode": "CT of head without contrast",
                       "instanceType": "Code"
                     },
@@ -1836,7 +1836,7 @@
                 "label": "Check adverse events",
                 "description": "",
                 "previousId": "Activity_31",
-                "nextId": "Activity_33",
+                "nextId": "Activity_32b",
                 "childIds": [],
                 "definedProcedures": [
 					{
@@ -1886,7 +1886,7 @@
               {
                 "id": "Activity_33",
                 "extensionAttributes": [],
-                "name": "ACT_Row35",
+                "name": "ACT_Row36",
                 "label": "Subject supine",
                 "description": "",
                 "previousId": "Activity_32b",
@@ -1924,7 +1924,7 @@
               {
                 "id": "Activity_34",
                 "extensionAttributes": [],
-                "name": "ACT_Row36",
+                "name": "ACT_Row37",
                 "label": "Vital signs while supine",
                 "description": "",
                 "previousId": "Activity_33",
@@ -1945,7 +1945,7 @@
               {
                 "id": "Activity_35",
                 "extensionAttributes": [],
-                "name": "ACT_Row37",
+                "name": "ACT_Row38",
                 "label": "Subject Standing",
                 "description": "",
                 "previousId": "Activity_34",
@@ -1983,7 +1983,7 @@
               {
                 "id": "Activity_36",
                 "extensionAttributes": [],
-                "name": "ACT_Row38",
+                "name": "ACT_Row39",
                 "label": "Vital signs while standing",
                 "description": "",
                 "previousId": "Activity_35",
@@ -2569,7 +2569,7 @@
                     "extensionAttributes": [],
                     "code": "26929004",
                     "codeSystem": "SNOMED",
-                    "codeSystemVersion": "January 31, 2018",
+                    "codeSystemVersion": "2025-02-01",
                     "decode": "Alzheimer's disease",
                     "instanceType": "Code"
                   }
@@ -3911,13 +3911,13 @@
                     "defaultConditionId": "ScheduledActivityInstance_20",
                     "epochId": "StudyEpoch_3",
                     "instanceType": "ScheduledDecisionInstance",
-                    "conditionAssignments": {
+                    "conditionAssignments": [{
                         "id": "ConditionAssignment_1",
                         "extensionAttributes": [],
                         "condition": "not willing to do online questionnaire",
                         "conditionTargetId": "ScheduledActivityInstance_21",
                         "instanceType": "ConditionAssignment"
-                        }
+                        }]
                   },
                   {
                     "id": "ScheduledActivityInstance_20",
@@ -16304,7 +16304,7 @@
                 "extensionAttributes": [],
                 "code": "C83119",
                 "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2025-09-23",
+                "codeSystemVersion": "2025-09-26",
                 "decode": "Physical Examination Finding",
                 "instanceType": "Code"
               },
@@ -16328,9 +16328,9 @@
               "standardCode": {
                 "id": "CodeX_006",
                 "extensionAttributes": [],
-                "code": "C200145",
+                "code": "C83119",
                 "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2025-09-23",
+                "codeSystemVersion": "2025-09-26",
                 "decode": "Physical Examination Finding",
                 "instanceType": "Code"
               },
@@ -16356,7 +16356,7 @@
                 "extensionAttributes": [],
                 "code": "C81229",
                 "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2025-09-23",
+                "codeSystemVersion": "2025-09-26",
                 "decode": "Alcohol Use History",
                 "instanceType": "Code"
               },
@@ -16382,7 +16382,7 @@
                 "extensionAttributes": [],
                 "code": "C201990",
                 "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2025-09-23",
+                "codeSystemVersion": "2025-09-26",
                 "decode": "Caffeine Use History",
                 "instanceType": "Code"
               },
@@ -16409,7 +16409,7 @@
                 "extensionAttributes": [],
                 "code": "C62085",
                 "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2025-09-23",
+                "codeSystemVersion": "2025-09-26",
                 "decode": "ECG Measurement",
                 "instanceType": "Code"
               },
@@ -16436,7 +16436,7 @@
                 "extensionAttributes": [],
                 "code": "C83056",
                 "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2025-09-23",
+                "codeSystemVersion": "2025-09-26",
                 "decode": "Concomitant Therapy",
                 "instanceType": "Code"
               },
@@ -16463,7 +16463,7 @@
                 "extensionAttributes": [],
                 "code": "C100247",
                 "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2025-09-23",
+                "codeSystemVersion": "2025-09-26",
                 "decode": "CDISC ADAS-Cog - Word Recognition Summary Score",
                 "instanceType": "Code"
               },
@@ -16500,7 +16500,7 @@
                     "extensionAttributes": [],
                     "code": "C82571",
                     "codeSystem": "http://www.cdisc.org",
-                    "codeSystemVersion": "2025-09-23",
+                    "codeSystemVersion": "2025-09-26",
                     "decode": "Reported Event Term",
                     "instanceType": "Code"
                   },
@@ -16519,7 +16519,7 @@
                 "extensionAttributes": [],
                 "code": "C16735",
                 "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": "2025-09-23",
+                "codeSystemVersion": "2025-09-26",
                 "decode": "Informed Consent",
                 "instanceType": "Code"
               },
@@ -16980,8 +16980,8 @@
 			"description": "Vital signs including SBP/DBP, Temp, Weight",
 			"label": "Vital Signs Category",
             "code": null,
-			"children": [],
-			"members": ["BiomedicalConcept_2","BiomedicalConcept_3","BiomedicalConcept_4","BiomedicalConcept_5"],
+			"childIds": [],
+			"memberIds": ["BiomedicalConcept_2","BiomedicalConcept_3","BiomedicalConcept_4","BiomedicalConcept_5"],
             "instanceType": "BiomedicalConceptCategory",
 			"notes": []
           }, {
@@ -16991,8 +16991,8 @@
 			"description": "Vital signs including SBP/DBP, HR",
 			"label": "Vital Signs Category",
             "code": null,
-			"children": [],
-			"members": ["BiomedicalConcept_2","BiomedicalConcept_3","BiomedicalConcept_16"],
+			"childIds": [],
+			"memberIds": ["BiomedicalConcept_2","BiomedicalConcept_3","BiomedicalConcept_16"],
             "instanceType": "BiomedicalConceptCategory",
 			"notes": []
           },
@@ -17003,8 +17003,8 @@
 			"description": "Biochemistry including ALAT, Alk.Phos, ASAT",
 			"label": "Biochemistry Category",
             "code": null,
-			"children": [],
-			"members": ["BiomedicalConcept_7","BiomedicalConcept_9","BiomedicalConcept_10"],
+			"childIds": [],
+			"memberIds": ["BiomedicalConcept_7","BiomedicalConcept_9","BiomedicalConcept_10"],
             "instanceType": "BiomedicalConceptCategory",
 			"notes": []
           },
@@ -17015,8 +17015,8 @@
 			"description": "Urinalysis including Albumin, Creatinin, Potassium and Sodium",
 			"label": "Biochemistry Category",
             "code": null,
-			"children": [],
-			"members": ["BiomedicalConcept_8","BiomedicalConcept_11","BiomedicalConcept_12","BiomedicalConcept_13"],
+			"childIds": [],
+			"memberIds": ["BiomedicalConcept_8","BiomedicalConcept_11","BiomedicalConcept_12","BiomedicalConcept_13"],
             "instanceType": "BiomedicalConceptCategory",
 			"notes": []
           }],
