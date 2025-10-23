@@ -46,7 +46,36 @@
                 },
                 "code": null,
                 "instanceType": "GeographicScope"
-              }
+              },
+                  {
+                    "id": "GeographicScope_20",
+                    "extensionAttributes": [],
+                    "type": {
+                      "id": "Code_17_001",
+                      "extensionAttributes": [],
+                      "code": "C41129",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2024-09-27",
+                      "decode": "Region",
+                      "instanceType": "Code"
+                    },
+                    "code": {
+                      "id": "AliasCode_1_001",
+                      "extensionAttributes": [],
+                      "standardCode": {
+                        "id": "Code_16_001",
+                        "extensionAttributes": [],
+                        "code": "150",
+                        "codeSystem": "ISO 3166 1 alpha3",
+                        "codeSystemVersion": "2020-08",
+                        "decode": "Europe",
+                        "instanceType": "Code"
+                      },
+                      "standardCodeAliases": [],
+                      "instanceType": "AliasCode"
+                    },
+                    "instanceType": "GeographicScope"
+                  }
             ],
             "instanceType": "GovernanceDate"
           }
@@ -230,13 +259,25 @@
                     "type": {
                       "id": "Code_19",
                       "extensionAttributes": [],
-                      "code": "C68846",
+                      "code": "C68846_x",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2024-09-27",
-                      "decode": "Global",
+                      "decode": "Global_x",
                       "instanceType": "Code"
                     },
-                    "code": null,
+                    "code": {
+                    "id": "AliasCode_22",
+                    "extensionAttributes": [],
+                    "standardCode": {
+                      "id": "Code_90",
+                      "extensionAttributes": [],
+                      "code": "150",
+                      "codeSystem": "ISO 3166 1 alpha3",
+                      "codeSystemVersion": "2020-08",
+                      "decode": "Europe",
+                      "instanceType": "Code"
+                      }
+					},
                     "instanceType": "GeographicScope"
                   }
                 ],
@@ -263,7 +304,7 @@
           {
             "id": "StudyIdentifier_1",
             "extensionAttributes": [],
-            "text": "H2Q-MC-LZZT",
+            "text": "H2Q-MC-LZZT_dirty",
             "scopeId": "Organization_1",
             "instanceType": "StudyIdentifier"
           },
@@ -442,7 +483,7 @@
                   "instanceType": "Code"
                 },
                 "previousId": "Encounter_1",
-                "nextId": "Encounter_3",
+                "nextId": "Encounter_354",
                 "scheduledAtId": "Timing_2",
                 "environmentalSettings": [
                   {
@@ -557,7 +598,7 @@
                 },
                 "previousId": "Encounter_3",
                 "nextId": "Encounter_5",
-                "scheduledAtId": "Timing_4",
+                "scheduledAtId": "Timing_445",
                 "environmentalSettings": [
                   {
                     "id": "Code_108",
@@ -594,7 +635,7 @@
                 "type": {
                   "id": "Code_110",
                   "extensionAttributes": [],
-                  "code": "C25716",
+                  "code": "C25716xx",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
                   "decode": "Visit",
@@ -652,7 +693,7 @@
                   {
                     "id": "Code_114",
                     "extensionAttributes": [],
-                    "code": "C51282",
+                    "code": "C51282555",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
                     "decode": "CLINIC",
@@ -750,6 +791,15 @@
                 "environmentalSettings": [
                   {
                     "id": "Code_121",
+                    "extensionAttributes": [],
+                    "code": "C51282",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2024-09-27",
+                    "decode": "CLINIC",
+                    "instanceType": "Code"
+                  }, 
+                  {
+                    "id": "Code_121_01",
                     "extensionAttributes": [],
                     "code": "C51282",
                     "codeSystem": "http://www.cdisc.org",
@@ -879,10 +929,10 @@
                   {
                     "id": "Code_131",
                     "extensionAttributes": [],
-                    "code": "C171537",
+                    "code": "C175574",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
-                    "decode": "TELEPHONE CALL",
+                    "decode": "IN PERSON",
                     "instanceType": "Code"
                   }
                 ],
@@ -927,7 +977,7 @@
                     "code": "C175574",
                     "codeSystem": "http://www.cdisc.org",
                     "codeSystemVersion": "2024-09-27",
-                    "decode": "IN PERSON",
+                    "decode": "IN PERSON xxx",
                     "instanceType": "Code"
                   }
                 ],
@@ -2531,6 +2581,15 @@
                     "codeSystemVersion": "1",
                     "decode": "Alzheimer's disease; unspecified",
                     "instanceType": "Code"
+                  }, 
+                  {
+                    "id": "Code_604_001",
+                    "extensionAttributes": [],
+                    "code": "G30.9",
+                    "codeSystem": "ICD-10-CM",
+                    "codeSystemVersion": "1",
+                    "decode": "Alzheimer's disease; unspecified",
+                    "instanceType": "Code"
                   }
                 ],
                 "isRareDisease": false,
@@ -2569,7 +2628,7 @@
                 "name": "OBJ1",
                 "label": "",
                 "description": "Main objective",
-                "text": "To determine if there is a statistically significant relationship (overall Type 1 erroralpha=0.05) between the change in both the ADAS-Cog (11) and CIBIC+ scores, and drug dose (0, 50 cm2 [54 mg], and 75 cm2 [81 mg]).",
+                "text": "<p>To determine if there is a statistically significant relationship (overall Type 1 erroralpha=0.05) between the change in both the ADAS-Cog (11) and CIBIC+ scores, and drug dose (0, 50 cm2 [54 mg], and 75 cm2 [81 mg]).</p>",
                 "dictionaryId": null,
                 "notes": [],
                 "instanceType": "Objective",
@@ -2578,7 +2637,7 @@
                   "extensionAttributes": [],
                   "code": "C85826",
                   "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2024-09-27",
+                  "codeSystemVersion": "2025-09-26",
                   "decode": "Primary Objective",
                   "instanceType": "Code"
                 },
@@ -2589,7 +2648,7 @@
                     "name": "END1",
                     "label": "",
                     "description": "",
-                    "text": "Alzheimer's Disease Assessment Scale - Cognitive Subscale, total of 11 items [ADAS-Cog (11)] at Week 24",
+                    "text": "<p>Alzheimer's Disease Assessment Scale - Cognitive Subscale, total of 11 items [ADAS-Cog (11)] at Week 24</p>",
                     "dictionaryId": null,
                     "notes": [],
                     "instanceType": "Endpoint",
@@ -2599,7 +2658,7 @@
                       "extensionAttributes": [],
                       "code": "C94496",
                       "codeSystem": "http://www.cdisc.org",
-                      "codeSystemVersion": "2024-09-27",
+                      "codeSystemVersion": "2025-09-26",
                       "decode": "Primary Endpoint",
                       "instanceType": "Code"
                     }
@@ -2610,7 +2669,7 @@
                     "name": "END2",
                     "label": "",
                     "description": "",
-                    "text": "Video-referenced Clinician\u2019s Interview-based Impression of Change (CIBIC+) at Week 24",
+                    "text": "<p>Video-referenced Clinician\u2019s Interview-based Impression of Change (CIBIC+) at Week 24</p>",
                     "dictionaryId": null,
                     "notes": [],
                     "instanceType": "Endpoint",
@@ -2620,7 +2679,7 @@
                       "extensionAttributes": [],
                       "code": "C94496",
                       "codeSystem": "http://www.cdisc.org",
-                      "codeSystemVersion": "2024-09-27",
+                      "codeSystemVersion": "2025-09-26",
                       "decode": "Primary Endpoint",
                       "instanceType": "Code"
                     }
@@ -2633,7 +2692,7 @@
                 "name": "OBJ2",
                 "label": "",
                 "description": "Safety",
-                "text": "To document the safety profile of the xanomeline TTS.",
+                "text": "<p>To document the safety profile of the xanomeline TTS.</p>",
                 "dictionaryId": null,
                 "notes": [],
                 "instanceType": "Objective",
@@ -2642,7 +2701,7 @@
                   "extensionAttributes": [],
                   "code": "C85826",
                   "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2024-09-27",
+                  "codeSystemVersion": "2025-09-26",
                   "decode": "Primary Objective",
                   "instanceType": "Code"
                 },
@@ -2653,7 +2712,7 @@
                     "name": "END3",
                     "label": "",
                     "description": "",
-                    "text": "Adverse events",
+                    "text": "<p>Adverse events</p>",
                     "dictionaryId": null,
                     "notes": [],
                     "instanceType": "Endpoint",
@@ -2663,7 +2722,7 @@
                       "extensionAttributes": [],
                       "code": "C94496",
                       "codeSystem": "http://www.cdisc.org",
-                      "codeSystemVersion": "2024-09-27",
+                      "codeSystemVersion": "2025-09-26",
                       "decode": "Primary Endpoint",
                       "instanceType": "Code"
                     }
@@ -2674,7 +2733,7 @@
                     "name": "END4",
                     "label": "",
                     "description": "",
-                    "text": "Vital signs (weight, standing and supine blood pressure, heart rate)",
+                    "text": "<p>Vital signs (weight, standing and supine blood pressure, heart rate)</p>",
                     "dictionaryId": null,
                     "notes": [],
                     "instanceType": "Endpoint",
@@ -2684,7 +2743,7 @@
                       "extensionAttributes": [],
                       "code": "C94496",
                       "codeSystem": "http://www.cdisc.org",
-                      "codeSystemVersion": "2024-09-27",
+                      "codeSystemVersion": "2025-09-26",
                       "decode": "Primary Endpoint",
                       "instanceType": "Code"
                     }
@@ -2695,7 +2754,7 @@
                     "name": "END5",
                     "label": "",
                     "description": "The change from baseline laboratory value will be  calculated as the difference between the baseline lab value and the endpoint value (i.e., the value at the specified visit) or the end of treatment observation",
-                    "text": "Laboratory evaluations (Change from Baseline)",
+                    "text": "<p>Laboratory evaluations (Change from Baseline)</p>",
                     "dictionaryId": null,
                     "notes": [],
                     "instanceType": "Endpoint",
@@ -2705,7 +2764,7 @@
                       "extensionAttributes": [],
                       "code": "C94496",
                       "codeSystem": "http://www.cdisc.org",
-                      "codeSystemVersion": "2024-09-27",
+                      "codeSystemVersion": "2025-09-26",
                       "decode": "Primary Endpoint",
                       "instanceType": "Code"
                     }
@@ -2718,7 +2777,7 @@
                 "name": "OBJ3",
                 "label": "",
                 "description": "Behaviour",
-                "text": "To assess the dose-dependent improvement in behavior. Improved scores on the Revised Neuropsychiatric Inventory (NPI-X) will indicate improvement in these\nareas.",
+                "text": "<p>To assess the dose-dependent improvement in behavior. Improved scores on the Revised Neuropsychiatric Inventory (NPI-X) will indicate improvement in these areas.</p>",
                 "dictionaryId": null,
                 "notes": [],
                 "instanceType": "Objective",
@@ -2727,7 +2786,7 @@
                   "extensionAttributes": [],
                   "code": "C85827",
                   "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2024-09-27",
+                  "codeSystemVersion": "2025-09-26",
                   "decode": "Secondary Objective",
                   "instanceType": "Code"
                 },
@@ -2738,18 +2797,18 @@
                     "name": "END6",
                     "label": "",
                     "description": "",
-                    "text": "Alzheimer's Disease Assessment Scale - Cognitive Subscale, total of 11 items [ADAS-Cog (11)] at Weeks 8 and 16",
+                    "text": "<p>Alzheimer's Disease Assessment Scale - Cognitive Subscale, total of 11 items [ADAS-Cog (11)] at Weeks 8 and 16</p>",
                     "dictionaryId": null,
                     "notes": [],
                     "instanceType": "Endpoint",
                     "purpose": "",
                     "level": {
-                      "id": "Code_628",
+                      "id": "Code_624",
                       "extensionAttributes": [],
-                      "code": "C139173",
+                      "code": "C94496",
                       "codeSystem": "http://www.cdisc.org",
-                      "codeSystemVersion": "2024-09-27",
-                      "decode": "Secondary Endpoint",
+                      "codeSystemVersion": "2025-09-26",
+                      "decode": "Primary Endpoint",
                       "instanceType": "Code"
                     }
                   },
@@ -2759,7 +2818,7 @@
                     "name": "END7",
                     "label": "",
                     "description": "",
-                    "text": "Video-referenced Clinician\u2019s Interview-based Impression of Change (CIBIC+) at Weeks 8 and 16",
+                    "text": "<p>Video-referenced Clinician\u2019s Interview-based Impression of Change (CIBIC+) at Weeks 8 and 16</p>",
                     "dictionaryId": null,
                     "notes": [],
                     "instanceType": "Endpoint",
@@ -2769,7 +2828,7 @@
                       "extensionAttributes": [],
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
-                      "codeSystemVersion": "2024-09-27",
+                      "codeSystemVersion": "2025-09-26",
                       "decode": "Secondary Endpoint",
                       "instanceType": "Code"
                     }
@@ -2780,7 +2839,7 @@
                     "name": "END8",
                     "label": "",
                     "description": "",
-                    "text": "Mean Revised Neuropsychiatric Inventory (NPI-X) from Week 4 to Week 24",
+                    "text": "<p>Mean Revised Neuropsychiatric Inventory (NPI-X) from Week 4 to Week 24</p>",
                     "dictionaryId": null,
                     "notes": [],
                     "instanceType": "Endpoint",
@@ -2788,10 +2847,10 @@
                     "level": {
                       "id": "Code_631",
                       "extensionAttributes": [],
-                      "code": "C139173",
+                      "code": "C139173_55",
                       "codeSystem": "http://www.cdisc.org",
-                      "codeSystemVersion": "2024-09-27",
-                      "decode": "Secondary Endpoint",
+                      "codeSystemVersion": "2025-09-26",
+                      "decode": "Secondary Endpoint XXX",
                       "instanceType": "Code"
                     }
                   }
@@ -2803,7 +2862,7 @@
                 "name": "OBJ4",
                 "label": "",
                 "description": "",
-                "text": "To assess the dose-dependent improvements in activities of daily living. Improved scores on the Disability Assessment for Dementia (DAD) will indicate improvement in these areas (see Attachment LZZT.5).",
+                "text": "<p>To assess the dose-dependent improvements in activities of daily living. Improved scores on the Disability Assessment for Dementia (DAD) will indicate improvement in these areas (see Attachment LZZT.5).</p>",
                 "dictionaryId": null,
                 "notes": [],
                 "instanceType": "Objective",
@@ -2812,7 +2871,7 @@
                   "extensionAttributes": [],
                   "code": "C85827",
                   "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2024-09-27",
+                  "codeSystemVersion": "2025-09-26",
                   "decode": "Secondary Objective",
                   "instanceType": "Code"
                 },
@@ -2823,7 +2882,7 @@
                     "name": "END9",
                     "label": "",
                     "description": "",
-                    "text": "*** To be determined from protocol ***",
+                    "text": "<p>*** To be determined from protocol ***</p>",
                     "dictionaryId": null,
                     "notes": [],
                     "instanceType": "Endpoint",
@@ -2833,7 +2892,7 @@
                       "extensionAttributes": [],
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
-                      "codeSystemVersion": "2024-09-27",
+                      "codeSystemVersion": "2025-09-26",
                       "decode": "Secondary Endpoint",
                       "instanceType": "Code"
                     }
@@ -2846,7 +2905,7 @@
                 "name": "OBJ5",
                 "label": "",
                 "description": "",
-                "text": "To assess the dose-dependent improvements in an extended assessment of cognition that integrates attention/concentration tasks. The Alzheimer's Disease Assessment Scale-14 item Cognitive Subscale, hereafter referred to as ADAS-Cog (14), will be used for this assessment (see Attachment LZZT.2).",
+                "text": "<p>To assess the dose-dependent improvements in an extended assessment of cognition that integrates attention/concentration tasks. The Alzheimer's Disease Assessment Scale-14 item Cognitive Subscale, hereafter referred to as ADAS-Cog (14), will be used for this assessment (see Attachment LZZT.2).</p>",
                 "dictionaryId": null,
                 "notes": [],
                 "instanceType": "Objective",
@@ -2855,7 +2914,7 @@
                   "extensionAttributes": [],
                   "code": "C85827",
                   "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2024-09-27",
+                  "codeSystemVersion": "2025-09-26",
                   "decode": "Secondary Objective",
                   "instanceType": "Code"
                 },
@@ -2866,7 +2925,7 @@
                     "name": "END10",
                     "label": "",
                     "description": "",
-                    "text": "*** To be determined from protocol ***",
+                    "text": "<p>*** To be determined from protocol ***</p>",
                     "dictionaryId": null,
                     "notes": [],
                     "instanceType": "Endpoint",
@@ -2876,7 +2935,7 @@
                       "extensionAttributes": [],
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
-                      "codeSystemVersion": "2024-09-27",
+                      "codeSystemVersion": "2025-09-26",
                       "decode": "Secondary Endpoint",
                       "instanceType": "Code"
                     }
@@ -2889,7 +2948,7 @@
                 "name": "OBJ6",
                 "label": "",
                 "description": "",
-                "text": "To assess the treatment response as a function of Apo E genotype.",
+                "text": "<p>To assess the treatment response as a function of Apo E genotype.</p>",
                 "dictionaryId": null,
                 "notes": [],
                 "instanceType": "Objective",
@@ -2898,7 +2957,7 @@
                   "extensionAttributes": [],
                   "code": "C85827",
                   "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2024-09-27",
+                  "codeSystemVersion": "2025-09-26",
                   "decode": "Secondary Objective",
                   "instanceType": "Code"
                 },
@@ -2909,7 +2968,7 @@
                     "name": "END11",
                     "label": "",
                     "description": "",
-                    "text": "*** To be determined from protocol ***",
+                    "text": "<p>*** To be determined from protocol ***</p>",
                     "dictionaryId": null,
                     "notes": [],
                     "instanceType": "Endpoint",
@@ -2919,7 +2978,7 @@
                       "extensionAttributes": [],
                       "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
-                      "codeSystemVersion": "2024-09-27",
+                      "codeSystemVersion": "2025-09-26",
                       "decode": "Secondary Endpoint",
                       "instanceType": "Code"
                     }
@@ -3678,7 +3737,7 @@
                       "Activity_13",
                       "Activity_14"
                     ],
-                    "encounterId": "Encounter_2"
+                    "encounterId": "Encounter_3"
                   },
                   {
                     "id": "ScheduledActivityInstance_11",
@@ -3703,7 +3762,7 @@
                       "Activity_29",
                       "Activity_30"
                     ],
-                    "encounterId": "Encounter_3"
+                    "encounterId": "Encounter_2"
                   },
                   {
                     "id": "ScheduledActivityInstance_12",
@@ -4685,7 +4744,7 @@
                   "instanceType": "Code"
                 },
                 "identifier": "08",
-                "criterionItemId": "EligibilityCriterionItem_8",
+                "criterionItemId": "EligibilityCriterionItem_9",
                 "nextId": "EligibilityCriterion_9",
                 "previousId": "EligibilityCriterion_7",
                 "notes": [],
@@ -4700,7 +4759,7 @@
                 "category": {
                   "id": "Code_646",
                   "extensionAttributes": [],
-                  "code": "C25370",
+                  "code": "C25370x",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
                   "decode": "EXCLUSION",
@@ -5350,7 +5409,7 @@
             "name": "IN01",
             "label": null,
             "description": null,
-            "text": "<p>Males and postmenopausal females at least <usdm:tag name=\"min_age\"/> years of age.</p>",
+            "text": "<p>Males and postmenopausal females at least <usdm:tag name=\"minxt_age\"/> years of age.</p>",
             "dictionaryId": "SyntaxTemplateDictionary_1",
             "notes": [],
             "instanceType": "EligibilityCriterionItem"
@@ -5405,7 +5464,7 @@
             "name": "IN06",
             "label": null,
             "description": null,
-            "text": "<p>Investigator has obtained informed consent signed by the patient (and/or legal representative) and by the caregiver.</p>",
+            "text": "Investigator has obtained informed consent signed by the patient (and/or legal representative) and by the caregiver.",
             "dictionaryId": null,
             "notes": [],
             "instanceType": "EligibilityCriterionItem"
@@ -17107,7 +17166,7 @@
             "extensionAttributes": [],
             "name": "COND1",
             "label": "HA1C",
-            "description": "Hemoglobin A<sup>1C</sup> and insulin-dependent subjects",
+            "description": "<p>Hemoglobin A<sup>1C</sup> and insulin-dependent subjects</p>",
             "text": "Performed if patient is an insulin-dependent diabetic",
             "dictionaryId": null,
             "notes": [],
@@ -17125,7 +17184,7 @@
             "name": "COND2",
             "label": "Practice",
             "description": "Questionnaire practice condition",
-            "text": "Practice only - It is recommended that a sampling of the CIBIC+, ADAS-Cog, DAD, and NPI-X be administered at Visit 1. Data from this sampling would not be considered as study data and would not be collected.",
+            "text": "<p>Practice only - It is recommended that a sampling of the CIBIC+, ADAS-Cog, DAD, and NPI-X be administered at Visit 1. Data from this sampling would not be considered as study data and would not be collected.</p>",
             "dictionaryId": null,
             "notes": [],
             "instanceType": "Condition",
