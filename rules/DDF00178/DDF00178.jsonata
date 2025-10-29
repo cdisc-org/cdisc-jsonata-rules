@@ -9,16 +9,17 @@
                             {
                                 "StudyIntevention.id": $si.id,
                                 "studyIntervention.name": $si.name,
-                                "Administration.id": $sa.id,
-                                "Administration.name": $sa.name,
-                                "Administration.dose.id": $sa.dose.id,
-                                "Administration.dose.value": $sa.dose.value,                                
-                                "Administration.dose.minValue.value": $sa.dose.minValue.value,                                                          
-                                "Administration.dose.maxValue.value": $sa.dose.maxValue.value,
-                                "Administration.frequency.id": $sa.frequency.id,
-                                "Administration.frequency.standardCode.code": $sa.frequency.standardCode.code,
-                                "Administration.frequency.standardCode.decode": $sa.frequency.standardCode.decode,
-                                "check":$ChkX()
+                                "id": $sa.id,
+                                "name": $sa.name,
+                                "dose.id": $sa.dose.id,
+                                "dose.value": $sa.dose.value,                                
+                                "dose.minValue.value": $sa.dose.minValue.value,                                                          
+                                "dose.maxValue.value": $sa.dose.maxValue.value,
+                                "frequency.id": $sa.frequency.id,
+                                "frequency.standardCode.code": $sa.frequency.standardCode.code,
+                                "frequency.standardCode.decode": $sa.frequency.standardCode.decode,
+                                "dataset": $sa.instanceType,
+                                "check": $ChkX()
                             }
                           )
                     ][check=true]           },
@@ -27,14 +28,13 @@
         [
             "StudyIntervention.id",
             "StudyIntervention.name",
-            "Administration.id",
-            "Administration.name",
-	    "Administration.dose.id",
- 	    "Administration.dose.value",
-	    "Administration.dose.minValue.value",
-	    "Administration.dose.maxValue.value",
-	    "Administration.route.standardCode.code",
-	    "Administration.route.standardCode.decode"
-	   
+            "id",
+            "name",
+	        "dose.id",
+ 	        "dose.value",
+	        "dose.minValue.value",
+	        "dose.maxValue.value",
+	        "route.standardCode.code",
+	        "route.standardCode.decode"
 	            ]                        
 }
