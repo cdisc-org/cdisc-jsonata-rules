@@ -9,15 +9,15 @@
                             {
                                 "StudyIntervention.id": $si.id,
                                 "StudyIntervention.name": $si.name,
-                                "Administration.id": $sa.id,
-                                "Administration.name": $sa.name,
-                                "Administration.dose.id": $sa.dose.id,
-                                "Administration.dose.value": $sa.dose.value,                                
-                                "Administration.dose.minValue.value": $sa.dose.minValue.value,                                                          
-                                "Administration.dose.maxValue.value": $sa.dose.maxValue.value,
-                                "Administration.route.id": $sa.route.id,
-                                "Administration.route.standardCode.code": $sa.route.standardCode.code,
-                                "Administration.route.standardCode.decode": $sa.route.standardCode.decode,
+                                "id": $sa.id,
+                                "name": $sa.name,
+                                "dose.id": $sa.dose.id,
+                                "dose.value": $sa.dose.value,                                
+                                "dose.minValue.value": $sa.dose.minValue.value,                                                          
+                                "dose.maxValue.value": $sa.dose.maxValue.value,
+                                "route.id": $sa.route.id,
+                                "route.standardCode.code": $sa.route.standardCode.code,
+                                "route.standardCode.decode": $sa.route.standardCode.decode,
 								"dataset":$sa.instanceType,
                                 "check":$ChkX()
                             }
@@ -29,18 +29,19 @@
         [
             "StudyIntervention.id",
             "StudyIntervention.name",
-            "Administration.id",
-            "Administration.name",
-	    "Administration.dose.id",
- 	    "Administration.dose.value",
-	    "Administration.dose.minValue.value",
-	    "Administration.dose.maxValue.value",
-	    "Administration.route.id",
-	    "Administration.route.standardCode.code",
-	    "Administration.route.standardCode.decode"
+            "id",
+            "name",
+	        "dose.id",
+ 	        "dose.value",
+	        "dose.minValue.value",
+	        "dose.maxValue.value",
+	        "route.id",
+	        "route.standardCode.code",
+	        "route.standardCode.decode"
 	   
 	            ]                        
 }
+
 
 
 
