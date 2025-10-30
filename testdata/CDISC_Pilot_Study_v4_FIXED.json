@@ -2580,7 +2580,9 @@
               }
             ],
             "studyInterventionIds": [
-              "StudyIntervention_1"
+              "StudyIntervention_1",
+              "StudyIntervention_2",
+              "StudyIntervention_3"
             ],
             "objectives": [
               {
@@ -6830,7 +6832,6 @@
             "notes": [],
             "instanceType": "StudyIntervention"
           },
-		  
           {
             "id": "StudyIntervention_2",
             "extensionAttributes": [],
@@ -18875,6 +18876,20 @@
                   "NarrativeContent_81"
                 ],
                 "previousId": "NarrativeContent_78",
+                "nextId": "NarrativeContent_80",
+                "contentItemId": null,
+                "instanceType": "NarrativeContent"
+              },
+              {
+                "id": "NarrativeContent_80",
+                "extensionAttributes": [],
+                "name": "NC_103",
+                "sectionNumber": "1.1.1",
+                "sectionTitle": "Primary and Secondary Objectives and Estimands",
+                "displaySectionNumber": true,
+                "displaySectionTitle": true,
+                "childIds": [],
+                "previousId": "NarrativeContent_79",
                 "nextId": "NarrativeContent_81",
                 "contentItemId": null,
                 "instanceType": "NarrativeContent"
