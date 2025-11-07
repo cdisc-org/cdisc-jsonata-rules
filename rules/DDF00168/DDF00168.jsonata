@@ -1,19 +1,21 @@
 {
     "check_func" : function($data)
          {
-   (($.**.study)@$s.
-            $s.documentedBy.versions.contents@$nc.
+         (($.**.study.documentedBy)@$sd.
+            $sd.versions@$sv.
+            $sv.contents@$nc.
             $nc.
-                [$nc.contentItemId[$not($ in $s.versions.narrativeContentItems.id)].
+                [$nc.contentItemId[$not(study.versions.narrativeContentItems.id)].
                             {
-                            "StudyDefinitionDocument.id": $s.documentedBy.id,
-                            "StudyDefinitionDocument.name": $s.documentedBy.name,
-                            "StudyDefinitionDocumentVersion.id": $s.documentedBy.versions.id,
-                            "StudyDefinitionDocumentVersion.version": $s.documentedBy.versions.version,
-                            "NarrativeContent.id": $nc.id,
-                            "NarrativeContent.name": $nc.name,
-                            "NarrativeContent.contentItemId": $nc.contentItemId,
-                            "NarrativeContent.instanceType": $nc.instanceType
+                            "StudyDefinitionDocument.id": $sd.id,
+                            "StudyDefinitionDocument.name": $sd.name,
+                            "StudyDefinitionDocumentVersion.id": $sv.id,
+                            "StudyDefinitionDocumentVersion.version": $sv.version,
+                            "id": $nc.id,
+                            "name": $nc.name,
+                            "contentItemId": $nc.contentItemId,
+                            "instanceType": $nc.instanceType,
+                            "path": $nc._path
                             }
                         ])},
     "message": "The reference to the narrative content item is not targetting a narrative content item that has been defined within the study.",
@@ -22,8 +24,9 @@
             "StudyDefinitionDocument.id",
             "StudyDefinitionDocument.name",
             "StudyDefinitionDocumentVersion.id",
-            "NarrativeContent.id",
-            "NarrativeContent.name",
-            "NarrativeContent.contentItemId"
+            "StudyDefinitionDocumentVersion.version",
+            "id",
+            "name",
+            "contentItemId"
         ]
 }
