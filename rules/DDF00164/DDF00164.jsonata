@@ -2,9 +2,10 @@
     "check_func" : function($data)
          {
    ($.**.documentedBy)@$db.
-            $db.versions.contents@$nc.
-                $nc.
-                  [
+            $db.versions@$sv.
+                $sv.contents@$nc.
+                   $nc.
+                        [
                           ($ChkX:=function()
                             {
                                 ($not(sectionNumber) != displaySectionNumber)
@@ -12,18 +13,19 @@
                             {
                                 "StudyDefinitionDocument.id": $db.id,
                                 "StudyDefinitionDocument.name": $db.name,
-                                "StudyDefinitionDocumentVersion.id": $db.versions.id,
-                                "StudyDefinitionDocumentVersion.version": $db.versions.version,
-                                "NarrativeContent.id": $nc.id,
-                                "NarrativeContent.name": $nc.name,
-                                "NarrativeContent.displaySectionNumber": $nc.displaySectionNumber,
-                                "NarrativeContent.sectionNumber": $nc.sectionNumber,
-                                "dataset":$nc.instanceType,
+                                "StudyDefinitionDocumentVersion.id": $sv.id,
+                                "StudyDefinitionDocumentVersion.version": $sv.version,
+                                "id": $nc.id,
+                                "name": $nc.name,
+                                "displaySectionNumber": $nc.displaySectionNumber,
+                                "sectionNumber": $nc.sectionNumber,
+                                "instanceType":$nc.instanceType,
+                                "path": $nc._path,
                                 "check":$ChkX()
                             }
                           )
-                    ]
-                    [check=true]
+                        ]
+                        [check=true]
            },
     "message": "A section number is specified but not indicated to be displayed (displaySectionNumber=false) or vice versa.",
     "variables": 
@@ -32,9 +34,9 @@
             "StudyDefinitionDocument.name",
             "StudyDefinitionDocumentVersion.id",
             "StudyDefinitionDocumentVersion.version",
-            "NarrativeContent.id",
-            "NarrativeContent.name",
-            "NarrativeContent.displaySectionNumber",
-            "NarrativeContent.sectionNumber"
+            "id",
+            "name",
+            "displaySectionNumber",
+            "sectionNumber"
         ]
 }
