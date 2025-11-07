@@ -1,11 +1,11 @@
 {
     "check_func" : function($data)
          {
-         (($.**.study.documentedBy)@$sd.
+         (($.**.study)@$s.$s.documentedBy@$sd.
             $sd.versions@$sv.
             $sv.contents@$nc.
             $nc.
-                [$nc.contentItemId[$not(study.versions.narrativeContentItems.id)].
+                [contentItemId[$not($ in $s.versions.narrativeContentItems.id)].
                             {
                             "StudyDefinitionDocument.id": $sd.id,
                             "StudyDefinitionDocument.name": $sd.name,
@@ -17,7 +17,7 @@
                             "instanceType": $nc.instanceType,
                             "path": $nc._path
                             }
-                        ])},
+                ])},
     "message": "The reference to the narrative content item is not targetting a narrative content item that has been defined within the study.",
     "variables": 
         [
