@@ -2,8 +2,9 @@
     "check_func" : function($data)
          {
    ($.**.documentedBy)@$db.
-            $db.versions.contents@$nc.
-                $nc.
+            $db.versions@$sv.
+                $sv.contents@$nc.
+                   $nc.
                   [
                           ($ChkX:=function()
                             {
@@ -12,18 +13,19 @@
                             {
                                 "StudyDefinitionDocument.id": $db.id,
                                 "StudyDefinitionDocument.name": $db.name,
-                                "StudyDefinitionDocumentVersion.id": $db.versions.id,
-                                "StudyDefinitionDocumentVersion.version": $db.versions.version,
-                                "NarrativeContent.id": $nc.id,
-                                "NarrativeContent.name": $nc.name,
-                                "NarrativeContent.displaySectionTitle": $nc.displaySectionTitle,
-                                "NarrativeContent.sectionTitle": $nc.sectionTitle,
-                                "dataset":$nc.instanceType,
+                                "StudyDefinitionDocumentVersion.id": $sv.id,
+                                "StudyDefinitionDocumentVersion.version": $sv.version,
+                                "id": $nc.id,
+                                "name": $nc.name,
+                                "displaySectionTitle": $nc.displaySectionTitle,
+                                "sectionTitle": $nc.sectionTitle,
+                                "instanceType": $nc.instanceType,
+                                "path": $nc._path,
                                 "check":$ChkX()
                             }
                           )
                     ]
-                    [check=true]           },
+                    [check=true]},
     "message": ""A section title is specified but not indicated to be displayed (displaySectiontitle=false) or vice versa.",
     "variables": 
         [
@@ -31,9 +33,9 @@
             "StudyDefinitionDocument.name",
             "StudyDefinitionDocumentVersion.id",
             "StudyDefinitionDocumentVersion.version",
-            "NarrativeContent.id",
-            "NarrativeContent.name",
-            "NarrativeContent.displaySectionTitle",
-            "NarrativeContent.sectionTitle"
+            "id",
+            "name",
+            "displaySectionTitle",
+            "sectionTitle"
         ]
 }
