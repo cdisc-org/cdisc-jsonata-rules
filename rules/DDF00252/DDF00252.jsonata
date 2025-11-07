@@ -1,0 +1,29 @@
+{
+    "check_func" : function($data)
+         {
+         (($.**.studyDesigns)@$sd.
+            $sd.elements@$se.
+            $se.
+                [studyInterventionIds[$not($ in $sd.studyInterventionIds)].
+                            {
+                            "StudyDesign.id": $sd.id,
+                            "StudyDesign.name": $sd.name,
+                            "StudyDesign.studyInterventionIds": $sd.studyInterventionIds,
+                            "id": $se.id,
+                            "name": $se.name,
+                            "studyInterventionIds": $se.studyInterventionIds,
+                            "instanceType": $se.instanceType,
+                            "path": $se._path
+                            }
+                ])},
+    "message": "The reference to the intervention is not targetting an intervention that has been referenced by the study design as a study intervention.",
+    "variables": 
+        [
+            "StudyDesign.id",
+            "StudyDesign.name",
+            "StudyDesign.studyInterventionIds",",
+            "id",
+            "name",
+            "studyInterventionIds"
+        ]
+}
