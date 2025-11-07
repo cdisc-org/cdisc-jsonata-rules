@@ -1,0 +1,32 @@
+{
+    "check_func" : function($data)
+         {
+         (($.**.studyDesigns)@$sd.
+            $sd.population@$sp.
+            $sp.cohorts@$sc.
+            $sc.
+                [indicationIds[$not($ in $sd.indications.id)].
+                            {
+                            "StudyDesign.id": $sd.id,
+                            "StudyDesign.name": $sd.name,
+                            "StudyDesignPopulation.id": $sp.id,
+                            "StudyDesignPopulation.name": $sp.name,
+                            "id": $sc.id,
+                            "name": $sc.name,
+                            "indicationIds": $sc.indicationIds,
+                            "instanceType": $sc.instanceType,
+                            "path": $sc._path
+                            }
+                ])},
+    "message": "The reference to the indication is not targetting an indication that has been defined within the study design.",
+    "variables": 
+        [
+            "StudyDesign.id",
+            "StudyDesign.name",
+            "StudyDesignPopulation.id",
+            "StudyDesignPopulation.name",
+            "id",
+            "name",
+            "indicationIds"
+        ]
+}
