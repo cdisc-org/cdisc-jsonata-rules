@@ -3064,7 +3064,136 @@
               },
               "notes": [],
               "instanceType": "StudyDesignPopulation",
-              "cohorts": []
+              "cohorts": [
+                {
+                  "id": "StudyCohort_1",
+                  "extensionAttributes": [],
+                  "name": "COHORT1",
+                  "label": "",
+                  "description": "",
+                  "includesHealthySubjects": true,
+                  "plannedEnrollmentNumber": null,
+                  "plannedCompletionNumber": null,
+                  "plannedSex": [],
+                  "criterionIds": [],
+                  "plannedAge": {
+                    "id": "Range_1",
+                    "extensionAttributes": [],
+                    "minValue": {
+                      "id": "Quantity_14",
+                      "extensionAttributes": [],
+                      "value": 18.0,
+                      "unit": {
+                        "id": "AliasCode_67",
+                        "extensionAttributes": [],
+                        "standardCode": {
+                          "id": "Code_202",
+                          "extensionAttributes": [],
+                          "code": "C29848",
+                          "codeSystem": "http://www.cdisc.org",
+                          "codeSystemVersion": "2024-09-27",
+                          "decode": "Year",
+                          "instanceType": "Code"
+                        },
+                        "standardCodeAliases": [],
+                        "instanceType": "AliasCode"
+                      },
+                      "instanceType": "Quantity"
+                    },
+                    "maxValue": {
+                      "id": "Quantity_15",
+                      "extensionAttributes": [],
+                      "value": 30.0,
+                      "unit": {
+                        "id": "AliasCode_68",
+                        "extensionAttributes": [],
+                        "standardCode": {
+                          "id": "Code_203",
+                          "extensionAttributes": [],
+                          "code": "C29848",
+                          "codeSystem": "http://www.cdisc.org",
+                          "codeSystemVersion": "2024-09-27",
+                          "decode": "Year",
+                          "instanceType": "Code"
+                        },
+                        "standardCodeAliases": [],
+                        "instanceType": "AliasCode"
+                      },
+                      "instanceType": "Quantity"
+                    },
+                    "isApproximate": false,
+                    "instanceType": "Range"
+                  },
+                  "notes": [],
+                  "instanceType": "StudyCohort",
+                  "characteristics": [],
+                  "indicationIds": ["Indication_1"]
+                },
+                {
+                  "id": "StudyCohort_2",
+                  "extensionAttributes": [],
+                  "name": "COHORT2",
+                  "label": "",
+                  "description": "",
+                  "includesHealthySubjects": true,
+                  "plannedEnrollmentNumber": null,
+                  "plannedCompletionNumber": null,
+                  "plannedSex": [],
+                  "criterionIds": [],
+                  "plannedAge": {
+                    "id": "Range_2",
+                    "extensionAttributes": [],
+                    "minValue": {
+                      "id": "Quantity_16",
+                      "extensionAttributes": [],
+                      "value": 31.0,
+                      "unit": {
+                        "id": "AliasCode_69",
+                        "extensionAttributes": [],
+                        "standardCode": {
+                          "id": "Code_204",
+                          "extensionAttributes": [],
+                          "code": "C29848",
+                          "codeSystem": "http://www.cdisc.org",
+                          "codeSystemVersion": "2024-09-27",
+                          "decode": "Year",
+                          "instanceType": "Code"
+                        },
+                        "standardCodeAliases": [],
+                        "instanceType": "AliasCode"
+                      },
+                      "instanceType": "Quantity"
+                    },
+                    "maxValue": {
+                      "id": "Quantity_17",
+                      "extensionAttributes": [],
+                      "value": 70.0,
+                      "unit": {
+                        "id": "AliasCode_70",
+                        "extensionAttributes": [],
+                        "standardCode": {
+                          "id": "Code_205",
+                          "extensionAttributes": [],
+                          "code": "C29848",
+                          "codeSystem": "http://www.cdisc.org",
+                          "codeSystemVersion": "2024-09-27",
+                          "decode": "Year",
+                          "instanceType": "Code"
+                        },
+                        "standardCodeAliases": [],
+                        "instanceType": "AliasCode"
+                      },
+                      "instanceType": "Quantity"
+                    },
+                    "isApproximate": false,
+                    "instanceType": "Range"
+                  },
+                  "notes": [],
+                  "instanceType": "StudyCohort",
+                  "characteristics": [],
+                  "indicationIds": ["Indication_2"]
+                }
+              ]
             },
             "scheduleTimelines": [
               {
@@ -6435,7 +6564,7 @@
               "Organization_1"
             ],
             "masking": {
-              "id": "Masking_1",
+              "id": "Masking_2",
               "extensionAttributes": [],
               "text": "Masked",
               "isMasked": true,
@@ -6618,10 +6747,10 @@
               "extensionAttributes": [],
               "value": 1.0,
               "unit": {
-                "id": "AliasCode_246",
+                "id": "AliasCode_246_x",
                 "extensionAttributes": [],
                 "standardCode": {
-                  "id": "Code_613",
+                  "id": "Code_613_x",
                   "extensionAttributes": [],
                   "code": "C25301",
                   "codeSystem": "http://www.cdisc.org",
@@ -7076,7 +7205,27 @@
                   "reasonDurationWillVary": "",
                   "instanceType": "Duration"
                 },
-                "dose": null,
+                "dose": {
+                  "id": "Quantity_3_b",
+                  "extensionAttributes": [],
+                  "value": 0,
+                  "unit": {
+                    "id": "AliasCode_243_b",
+                    "extensionAttributes": [],
+                    "standardCode": {
+                      "id": "Code_607_b",
+                      "extensionAttributes": [],
+                      "code": "C28253",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2025-09-26",
+                      "decode": "Milligram",
+                      "instanceType": "Code"
+                    },
+                    "standardCodeAliases": [],
+                    "instanceType": "AliasCode"
+                  },
+                  "instanceType": "Quantity"
+                },
                 "route": {
                   "id": "AliasCode_244_c",
                   "extensionAttributes": [],
@@ -18835,8 +18984,8 @@
                 "id": "NarrativeContent_77",
                 "extensionAttributes": [],
                 "name": "NC_100",
-                "sectionNumber": "0",
-                "sectionTitle": "Title Page",
+                "sectionNumber": null,
+                "sectionTitle": null,
                 "displaySectionNumber": false,
                 "displaySectionTitle": false,
                 "childIds": [],
@@ -18891,7 +19040,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_79",
                 "nextId": "NarrativeContent_81",
-                "contentItemId": null,
+                "contentItemId": "NarrativeContentItem_78",
                 "instanceType": "NarrativeContent"
               },
               {

@@ -95,7 +95,7 @@
               "code": {
                 "id": "Code_88",
                 "extensionAttributes": [],
-                "code": "C99904x3",
+                "code": "C207605",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2025-09-26",
                 "decode": "IRB/IEC Feedback",
@@ -383,6 +383,15 @@
                 "codeSystemVersion": "January 31, 2018",
                 "decode": "Alzheimer's disease",
                 "instanceType": "Code"
+              },
+              {
+                "id": "Code_150_b",
+                "extensionAttributes": [],
+                "code": "26929004",
+                "codeSystem": "SNOMED",
+                "codeSystemVersion": "January 31, 2018",
+                "decode": "Alzheimer's disease",
+                "instanceType": "Code"
               }
             ],
             "characteristics": [
@@ -402,6 +411,69 @@
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2025-09-26",
                 "decode": "Adaptive",
+                "instanceType": "Code"
+              },
+              {
+                "id": "Code_158_b",
+                "extensionAttributes": [],
+                "code": "C98704",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2025-09-26",
+                "decode": "Adaptive",
+                "instanceType": "Code"
+              },
+              {
+                "id": "Code_158_c",
+                "extensionAttributes": [],
+                "code": "C217004",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2025-09-26",
+                "decode": "Single-Centre",
+                "instanceType": "Code"
+              },
+              {
+                "id": "Code_158_d",
+                "extensionAttributes": [],
+                "code": "C217005",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2025-09-26",
+                "decode": "Multicentre",
+                "instanceType": "Code"
+              },
+              {
+                "id": "Code_158_e",
+                "extensionAttributes": [],
+                "code": "C217006",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2025-09-26",
+                "decode": "Single Country",
+                "instanceType": "Code"
+              },
+              {
+                "id": "Code_158_f",
+                "extensionAttributes": [],
+                "code": "C217007",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2025-09-26",
+                "decode": "Multiple Country",
+                "instanceType": "Code"
+              },
+              {
+                "id": "Code_158_g",
+                "extensionAttributes": [],
+                "code": "C46079",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2025-09-26",
+                "decode": "Randomized",
+                "instanceType": "Code"
+              },
+              {
+                "id": "Code_158_h",
+                "extensionAttributes": [],
+                "code": "C25689",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2025-09-26",
+                "decode": "Stratification",
                 "instanceType": "Code"
               }
             ],
@@ -3101,7 +3173,136 @@
               },
               "notes": [],
               "instanceType": "StudyDesignPopulation",
-              "cohorts": []
+              "cohorts": [
+                {
+                  "id": "StudyCohort_1",
+                  "extensionAttributes": [],
+                  "name": "COHORT1",
+                  "label": "",
+                  "description": "",
+                  "includesHealthySubjects": true,
+                  "plannedEnrollmentNumber": null,
+                  "plannedCompletionNumber": null,
+                  "plannedSex": [],
+                  "criterionIds": [],
+                  "plannedAge": {
+                    "id": "Range_1",
+                    "extensionAttributes": [],
+                    "minValue": {
+                      "id": "Quantity_14",
+                      "extensionAttributes": [],
+                      "value": 18.0,
+                      "unit": {
+                        "id": "AliasCode_67",
+                        "extensionAttributes": [],
+                        "standardCode": {
+                          "id": "Code_202",
+                          "extensionAttributes": [],
+                          "code": "C29848",
+                          "codeSystem": "http://www.cdisc.org",
+                          "codeSystemVersion": "2024-09-27",
+                          "decode": "Year",
+                          "instanceType": "Code"
+                        },
+                        "standardCodeAliases": [],
+                        "instanceType": "AliasCode"
+                      },
+                      "instanceType": "Quantity"
+                    },
+                    "maxValue": {
+                      "id": "Quantity_15",
+                      "extensionAttributes": [],
+                      "value": 30.0,
+                      "unit": {
+                        "id": "AliasCode_68",
+                        "extensionAttributes": [],
+                        "standardCode": {
+                          "id": "Code_203",
+                          "extensionAttributes": [],
+                          "code": "C29848",
+                          "codeSystem": "http://www.cdisc.org",
+                          "codeSystemVersion": "2024-09-27",
+                          "decode": "Year",
+                          "instanceType": "Code"
+                        },
+                        "standardCodeAliases": [],
+                        "instanceType": "AliasCode"
+                      },
+                      "instanceType": "Quantity"
+                    },
+                    "isApproximate": false,
+                    "instanceType": "Range"
+                  },
+                  "notes": [],
+                  "instanceType": "StudyCohort",
+                  "characteristics": [],
+                  "indicationIds": ["Indication_x"]
+                },
+                {
+                  "id": "StudyCohort_2",
+                  "extensionAttributes": [],
+                  "name": "COHORT2",
+                  "label": "",
+                  "description": "",
+                  "includesHealthySubjects": true,
+                  "plannedEnrollmentNumber": null,
+                  "plannedCompletionNumber": null,
+                  "plannedSex": [],
+                  "criterionIds": [],
+                  "plannedAge": {
+                    "id": "Range_2",
+                    "extensionAttributes": [],
+                    "minValue": {
+                      "id": "Quantity_16",
+                      "extensionAttributes": [],
+                      "value": 31.0,
+                      "unit": {
+                        "id": "AliasCode_69",
+                        "extensionAttributes": [],
+                        "standardCode": {
+                          "id": "Code_204",
+                          "extensionAttributes": [],
+                          "code": "C29848",
+                          "codeSystem": "http://www.cdisc.org",
+                          "codeSystemVersion": "2024-09-27",
+                          "decode": "Year",
+                          "instanceType": "Code"
+                        },
+                        "standardCodeAliases": [],
+                        "instanceType": "AliasCode"
+                      },
+                      "instanceType": "Quantity"
+                    },
+                    "maxValue": {
+                      "id": "Quantity_17",
+                      "extensionAttributes": [],
+                      "value": 70.0,
+                      "unit": {
+                        "id": "AliasCode_70",
+                        "extensionAttributes": [],
+                        "standardCode": {
+                          "id": "Code_205",
+                          "extensionAttributes": [],
+                          "code": "C29848",
+                          "codeSystem": "http://www.cdisc.org",
+                          "codeSystemVersion": "2024-09-27",
+                          "decode": "Year",
+                          "instanceType": "Code"
+                        },
+                        "standardCodeAliases": [],
+                        "instanceType": "AliasCode"
+                      },
+                      "instanceType": "Quantity"
+                    },
+                    "isApproximate": false,
+                    "instanceType": "Range"
+                  },
+                  "notes": [],
+                  "instanceType": "StudyCohort",
+                  "characteristics": [],
+                  "indicationIds": []
+                }
+              ]
             },
             "scheduleTimelines": [
               {
@@ -5278,7 +5479,7 @@
               {
                 "id": "Code_153",
                 "extensionAttributes": [],
-                "code": "C49666",
+                "code": "C49666xx",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2025-09-26",
                 "decode": "Efficacy Study",
@@ -5295,6 +5496,15 @@
               },
               {
                 "id": "Code_155",
+                "extensionAttributes": [],
+                "code": "C49663",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2025-09-26",
+                "decode": "Pharmacokinetic Study",
+                "instanceType": "Code"
+              },
+              {
+                "id": "Code_155_b",
                 "extensionAttributes": [],
                 "code": "C49663",
                 "codeSystem": "http://www.cdisc.org",
@@ -5768,7 +5978,7 @@
             "id": "NarrativeContentItem_1",
             "extensionAttributes": [],
             "name": "NCI_1",
-            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"container\">\n<div class=\"row mt-5\">\n<div class=\"col-md-10 offset-md-1 text-center border\">\n<p><small>The information contained in this clinical study protocol is</small></p><p><small>Copyright \u00a9 2006 Eli Lilly and Company.</small></p>\n</div>\n</div>\n<div class=\"row mt-5\">\n<div class=\"col-md-8 offset-md-2 text-center\">\n<p><strong><usdm:ref attribute=\"text\" id=\"StudyTitle_2\" klass=\"StudyTitle\"></usdm:ref></strong></p>\n</div>\n</div>\n<div class=\"row mt-3\">\n<div class=\"col-md-8 offset-md-2 text-center\">\n<p><strong><usdm:ref attribute=\"text\" id=\"StudyIdentifier_1\" klass=\"StudyIdentifier\"></usdm:ref></strong></p>\n</div>\n</div>\n<div class=\"row mt-3\">\n<div class=\"col-md-8 offset-md-2 text-center\">\n<p><strong><usdm:ref attribute=\"text\" id=\"StudyTitle_3\" klass=\"StudyTitle\"></usdm:ref></strong></p>\n</div>\n</div>\n</div></div>",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"container\">\n<div class=\"row mt-5\">\n<div class=\"col-md-10 offset-md-1 text-center border\">\n<p><small>The information contained in this clinical study protocol is</small></p><p><small>Copyright \u00a9 2006 Eli Lilly and Company.</small></p>\n</div>\n</div>\n<div class=\"row mt-5\">\n<div class=\"col-md-8 offset-md-2 text-center\">\n<p><strong><usdm:ref attributeXX=\"text\" id=\"StudyTitle_2\" klass=\"StudyTitle\"></usdm:ref></strong></p>\n</div>\n</div>\n<div class=\"row mt-3\">\n<div class=\"col-md-8 offset-md-2 text-center\">\n<p><strong><usdm:ref attribute=\"text\" id=\"StudyIdentifier_1\" klass=\"StudyIdentifier\"></usdm:ref></strong></p>\n</div>\n</div>\n<div class=\"row mt-3\">\n<div class=\"col-md-8 offset-md-2 text-center\">\n<p><strong><usdm:ref attribute=\"text\" id=\"StudyTitle_3\" klass=\"StudyTitle\"></usdm:ref></strong></p>\n</div>\n</div>\n</div></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
@@ -6474,7 +6684,7 @@
               "id": "Masking_1",
               "extensionAttributes": [],
               "text": "Masked",
-              "isMasked": true,
+              "isMasked": false,
               "instanceType": "Masking"
             },
             "notes": [],
@@ -6501,7 +6711,7 @@
               "Organization_1"
             ],
             "masking": {
-              "id": "Masking_1",
+              "id": "Masking_2",
               "extensionAttributes": [],
               "text": "Masked",
               "isMasked": true,
@@ -6674,10 +6884,10 @@
               "extensionAttributes": [],
               "value": 1.0,
               "unit": {
-                "id": "AliasCode_246",
+                "id": "AliasCode_246_x",
                 "extensionAttributes": [],
                 "standardCode": {
-                  "id": "Code_613",
+                  "id": "Code_613_x",
                   "extensionAttributes": [],
                   "code": "C25301",
                   "codeSystem": "http://www.cdisc.org",
@@ -6860,6 +7070,290 @@
                   "instanceType": "AliasCode"
                 },
                 "administrableProductId": null,
+                "medicalDeviceId": null,
+                "notes": [],
+                "instanceType": "Administration"
+              }
+            ],
+            "notes": [],
+            "instanceType": "StudyIntervention"
+          },
+          {
+            "id": "StudyIntervention_2",
+            "extensionAttributes": [],
+            "name": "XINONILINE25",
+            "label": "Xinomiline",
+            "description": "Xinomiline",
+            "role": {
+              "id": "Code_611_a",
+              "extensionAttributes": [],
+              "code": "C41161",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "decode": "Experimental Intervention",
+              "instanceType": "Code"
+            },
+            "type": {
+              "id": "Code_612_a",
+              "extensionAttributes": [],
+              "code": "C1909",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "decode": "DRUG",
+              "instanceType": "Code"
+            },
+            "minimumResponseDuration": {
+              "id": "Quantity_4_a",
+              "extensionAttributes": [],
+              "value": 1.0,
+              "unit": {
+                "id": "AliasCode_246",
+                "extensionAttributes": [],
+                "standardCode": {
+                  "id": "Code_613_a",
+                  "extensionAttributes": [],
+                  "code": "C25301",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "decode": "Day",
+                  "instanceType": "Code"
+                },
+                "standardCodeAliases": [],
+                "instanceType": "AliasCode"
+              },
+              "instanceType": "Quantity"
+            },
+            "codes": [
+              {
+                "id": "Code_610_a",
+                "extensionAttributes": [],
+                "code": "XIN",
+                "codeSystem": "SPONSOR",
+                "codeSystemVersion": "12",
+                "decode": "XIN",
+                "instanceType": "Code"
+              }
+            ],
+            "administrations": [
+              {
+                "id": "Administration_3",
+                "extensionAttributes": [],
+                "name": "PATCH_25",
+                "label": "",
+                "description": "25 cm2 Patch",
+                "duration": {
+                  "id": "Duration_3",
+                  "extensionAttributes": [],
+                  "text": "",
+                  "quantity": {
+                    "id": "Quantity_2_b",
+                    "extensionAttributes": [],
+                    "value": 24.0,
+                    "unit": {
+                      "id": "AliasCode_242_b",
+                      "extensionAttributes": [],
+                      "standardCode": {
+                        "id": "Code_606_b",
+                        "extensionAttributes": [],
+                        "code": "C29844",
+                        "codeSystem": "http://www.cdisc.org",
+                        "codeSystemVersion": "2025-09-26",
+                        "decode": "Week",
+                        "instanceType": "Code"
+                      },
+                      "standardCodeAliases": [],
+                      "instanceType": "AliasCode"
+                    },
+                    "instanceType": "Quantity"
+                  },
+                  "durationWillVary": false,
+                  "reasonDurationWillVary": "",
+                  "instanceType": "Duration"
+                },
+                "dose": {
+                  "id": "Quantity_3_b",
+                  "extensionAttributes": [],
+                  "value": 54.0,
+                  "unit": {
+                    "id": "AliasCode_243_b",
+                    "extensionAttributes": [],
+                    "standardCode": {
+                      "id": "Code_607_b",
+                      "extensionAttributes": [],
+                      "code": "C28253",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2025-09-26",
+                      "decode": "Milligram",
+                      "instanceType": "Code"
+                    },
+                    "standardCodeAliases": [],
+                    "instanceType": "AliasCode"
+                  },
+                  "instanceType": "Quantity"
+                },
+                "route": {
+                  "id": "AliasCode_244_b",
+                  "extensionAttributes": [],
+                  "standardCode": {
+                    "id": "Code_608_b",
+                    "extensionAttributes": [],
+                    "code": "C38288",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2025-09-26",
+                    "decode": "ORAL",
+                    "instanceType": "Code"
+                  },
+                  "standardCodeAliases": [],
+                  "instanceType": "AliasCode"
+                },
+                "frequency": {
+                  "id": "AliasCode_245_b",
+                  "extensionAttributes": [],
+                  "standardCode": {
+                    "id": "Code_609_b",
+                    "extensionAttributes": [],
+                    "code": "C25473",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2025-09-26",
+                    "decode": "QD",
+                    "instanceType": "Code"
+                  },
+                  "standardCodeAliases": [],
+                  "instanceType": "AliasCode"
+                },
+                "administrableProductId": "AdmProd_1",
+                "medicalDeviceId": null,
+                "notes": [],
+                "instanceType": "Administration"
+              }
+            ],
+            "notes": [],
+            "instanceType": "StudyIntervention"
+          },
+          {
+            "id": "StudyIntervention_3",
+            "extensionAttributes": [],
+            "name": "PLACEBO",
+            "label": "placebo",
+            "description": null,
+            "role": {
+              "id": "Code_611_c",
+              "extensionAttributes": [],
+              "code": "C41161",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "decode": "Experimental Intervention",
+              "instanceType": "Code"
+            },
+            "type": {
+              "id": "Code_612_c",
+              "extensionAttributes": [],
+              "code": "C1909",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "decode": "DRUG",
+              "instanceType": "Code"
+            },
+            "minimumResponseDuration": {
+              "id": "Quantity_4_c",
+              "extensionAttributes": [],
+              "value": 1.0,
+              "unit": {
+                "id": "AliasCode_246_c",
+                "extensionAttributes": [],
+                "standardCode": {
+                  "id": "Code_613",
+                  "extensionAttributes": [],
+                  "code": "C25301",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "decode": "Day",
+                  "instanceType": "Code"
+                },
+                "standardCodeAliases": [],
+                "instanceType": "AliasCode"
+              },
+              "instanceType": "Quantity"
+            },
+            "codes": [
+              {
+                "id": "Code_610_C",
+                "extensionAttributes": [],
+                "code": "PLAC",
+                "codeSystem": "SPONSOR",
+                "codeSystemVersion": "12",
+                "decode": "Placebo",
+                "instanceType": "Code"
+              }
+            ],
+            "administrations": [
+              {
+                "id": "Administration_6",
+                "extensionAttributes": [],
+                "name": "PATCH_PLAC",
+                "label": "",
+                "description": "Placebo Patch",
+                "duration": {
+                  "id": "Duration_1_c",
+                  "extensionAttributes": [],
+                  "text": "",
+                  "quantity": {
+                    "id": "Quantity_2_c",
+                    "extensionAttributes": [],
+                    "value": 24.0,
+                    "unit": {
+                      "id": "AliasCode_242_c",
+                      "extensionAttributes": [],
+                      "standardCode": {
+                        "id": "Code_606_c",
+                        "extensionAttributes": [],
+                        "code": "C29844",
+                        "codeSystem": "http://www.cdisc.org",
+                        "codeSystemVersion": "2025-09-26",
+                        "decode": "Week",
+                        "instanceType": "Code"
+                      },
+                      "standardCodeAliases": [],
+                      "instanceType": "AliasCode"
+                    },
+                    "instanceType": "Quantity"
+                  },
+                  "durationWillVary": false,
+                  "reasonDurationWillVary": "",
+                  "instanceType": "Duration"
+                },
+                "dose": null,
+                "route": {
+                  "id": "AliasCode_244_c",
+                  "extensionAttributes": [],
+                  "standardCode": {
+                    "id": "Code_608_c",
+                    "extensionAttributes": [],
+                    "code": "C38288",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2025-09-26",
+                    "decode": "ORAL",
+                    "instanceType": "Code"
+                  },
+                  "standardCodeAliases": [],
+                  "instanceType": "AliasCode"
+                },
+                "frequency": {
+                  "id": "AliasCode_245_c",
+                  "extensionAttributes": [],
+                  "standardCode": {
+                    "id": "Code_609_c",
+                    "extensionAttributes": [],
+                    "code": "C25473",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2025-09-26",
+                    "decode": "QD",
+                    "instanceType": "Code"
+                  },
+                  "standardCodeAliases": [],
+                  "instanceType": "AliasCode"
+                },
+                "administrableProductId": "AdmProd_1",
                 "medicalDeviceId": null,
                 "notes": [],
                 "instanceType": "Administration"
@@ -17348,9 +17842,9 @@
                 "extensionAttributes": [],
                 "name": "NC_1",
                 "sectionNumber": "0",
-                "sectionTitle": "Title Page",
+                "sectionTitle": "",
                 "displaySectionNumber": false,
-                "displaySectionTitle": false,
+                "displaySectionTitle": true,
                 "childIds": [],
                 "previousId": null,
                 "nextId": "NarrativeContent_2",
@@ -17467,7 +17961,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_7",
                 "nextId": "NarrativeContent_9",
-                "contentItemId": "NarrativeContentItem_8",
+                "contentItemId": "NarrativeContentItem_8ppp",
                 "instanceType": "NarrativeContent"
               },
               {
@@ -18624,24 +19118,10 @@
                 "displaySectionNumber": true,
                 "displaySectionTitle": true,
                 "childIds": [
-                  "NarrativeContent_79",
+                  "NarrativeContent_80",
                   "NarrativeContent_81"
                 ],
                 "previousId": "NarrativeContent_78",
-                "nextId": "NarrativeContent_80",
-                "contentItemId": null,
-                "instanceType": "NarrativeContent"
-              },
-              {
-                "id": "NarrativeContent_80",
-                "extensionAttributes": [],
-                "name": "NC_103",
-                "sectionNumber": "1.1.1",
-                "sectionTitle": "Primary and Secondary Objectives and Estimands",
-                "displaySectionNumber": true,
-                "displaySectionTitle": true,
-                "childIds": [],
-                "previousId": "NarrativeContent_79",
                 "nextId": "NarrativeContent_81",
                 "contentItemId": null,
                 "instanceType": "NarrativeContent"
@@ -18655,7 +19135,7 @@
                 "displaySectionNumber": true,
                 "displaySectionTitle": true,
                 "childIds": [],
-                "previousId": "NarrativeContent_80",
+                "previousId": "NarrativeContent_79",
                 "nextId": "NarrativeContent_82",
                 "contentItemId": "NarrativeContentItem_78",
                 "instanceType": "NarrativeContent"
