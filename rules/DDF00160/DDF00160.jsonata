@@ -14,16 +14,17 @@
                             {
                                 "StudyDesigns.id": $sd.id,
                                 "StudyDesigns.name": $sd.name,
-                                "Activity.id": $p.id,
-                                "Activity.name": $p.name,
-                                "Activity.label": $p.label,
-                                "Activity.childIds": $p.childIds,
-                                "Activity.biomedicalConceptIds":$p.biomedicalConceptIds,
-                                "Activity.bcCategoryIds":$p.bcCategoryIds,
-                                "Activity.bcSurrogateIds":$p.bcSurrogateIds,
-                                "Activity.timelineId":$p.timelineId,
-                                "Activity.definedProcedures.id":$p.definedProcedures.id,
-                                "dataset":$p.instanceType,
+                                "id": $p.id,
+                                "name": $p.name,
+                                "label": $p.label,
+                                "childIds": $p.childIds,
+                                "biomedicalConceptIds":$p.biomedicalConceptIds,
+                                "bcCategoryIds":$p.bcCategoryIds,
+                                "bcSurrogateIds":$p.bcSurrogateIds,
+                                "timelineId": $not($p.timelineId),
+                                "definedProcedures.id":$p.definedProcedures.id,
+                                "instanceType":$p.instanceType,
+                                "path":$p._path,
                                 "check":$ChkX()
                             }
                           )
@@ -33,15 +34,15 @@
     "message": "An activity with children points to a timeline, procedure, biomedical concept, biomedical concept category, or biomedical concept surrogate as well.",
     "variables": 
         [
-            "studyDesigns.id",
-            "studyDesigns.name",
-            "Activity.id",
-            "Activity.name",
-            "Activty.label",
-            "Activity.biomedicalConceptIds",
-            "Activity.bcCategoryIds",
-            "Activity.bcSurrogateIds",
-            "Activity.timelineId",
-            "Activity.definedProcedures.id"
+            "StudyDesigns.id",
+            "StudyDesigns.name",
+            "id",
+            "name",
+            "label",
+            "biomedicalConceptIds",
+            "bcCategoryIds",
+            "bcSurrogateIds",
+            "timelineId",
+            "definedProcedures.id"
         ]
 }
