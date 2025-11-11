@@ -3015,7 +3015,7 @@
                 "EligibilityCriterion_31"
               ],
               "plannedAge": {
-                "id": "Range_1",
+                "id": "Range_1_u",
                 "extensionAttributes": [],
                 "minValue": {
                   "id": "Quantity_9",
@@ -3076,54 +3076,7 @@
                   "plannedCompletionNumber": null,
                   "plannedSex": [],
                   "criterionIds": [],
-                  "plannedAge": {
-                    "id": "Range_1",
-                    "extensionAttributes": [],
-                    "minValue": {
-                      "id": "Quantity_14",
-                      "extensionAttributes": [],
-                      "value": 18.0,
-                      "unit": {
-                        "id": "AliasCode_67",
-                        "extensionAttributes": [],
-                        "standardCode": {
-                          "id": "Code_202",
-                          "extensionAttributes": [],
-                          "code": "C29848",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2024-09-27",
-                          "decode": "Year",
-                          "instanceType": "Code"
-                        },
-                        "standardCodeAliases": [],
-                        "instanceType": "AliasCode"
-                      },
-                      "instanceType": "Quantity"
-                    },
-                    "maxValue": {
-                      "id": "Quantity_15",
-                      "extensionAttributes": [],
-                      "value": 30.0,
-                      "unit": {
-                        "id": "AliasCode_68",
-                        "extensionAttributes": [],
-                        "standardCode": {
-                          "id": "Code_203",
-                          "extensionAttributes": [],
-                          "code": "C29848",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2024-09-27",
-                          "decode": "Year",
-                          "instanceType": "Code"
-                        },
-                        "standardCodeAliases": [],
-                        "instanceType": "AliasCode"
-                      },
-                      "instanceType": "Quantity"
-                    },
-                    "isApproximate": false,
-                    "instanceType": "Range"
-                  },
+                  "plannedAge": null,
                   "notes": [],
                   "instanceType": "StudyCohort",
                   "characteristics": [],
@@ -3140,54 +3093,7 @@
                   "plannedCompletionNumber": null,
                   "plannedSex": [],
                   "criterionIds": [],
-                  "plannedAge": {
-                    "id": "Range_2",
-                    "extensionAttributes": [],
-                    "minValue": {
-                      "id": "Quantity_16",
-                      "extensionAttributes": [],
-                      "value": 31.0,
-                      "unit": {
-                        "id": "AliasCode_69",
-                        "extensionAttributes": [],
-                        "standardCode": {
-                          "id": "Code_204",
-                          "extensionAttributes": [],
-                          "code": "C29848",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2024-09-27",
-                          "decode": "Year",
-                          "instanceType": "Code"
-                        },
-                        "standardCodeAliases": [],
-                        "instanceType": "AliasCode"
-                      },
-                      "instanceType": "Quantity"
-                    },
-                    "maxValue": {
-                      "id": "Quantity_17",
-                      "extensionAttributes": [],
-                      "value": 70.0,
-                      "unit": {
-                        "id": "AliasCode_70",
-                        "extensionAttributes": [],
-                        "standardCode": {
-                          "id": "Code_205",
-                          "extensionAttributes": [],
-                          "code": "C29848",
-                          "codeSystem": "http://www.cdisc.org",
-                          "codeSystemVersion": "2024-09-27",
-                          "decode": "Year",
-                          "instanceType": "Code"
-                        },
-                        "standardCodeAliases": [],
-                        "instanceType": "AliasCode"
-                      },
-                      "instanceType": "Quantity"
-                    },
-                    "isApproximate": false,
-                    "instanceType": "Range"
-                  },
+                  "plannedAge": null,
                   "notes": [],
                   "instanceType": "StudyCohort",
                   "characteristics": [],
@@ -5534,8 +5440,8 @@
             "name": "IN05",
             "label": null,
             "description": null,
-            "text": "<p>CNS imaging (CT scan or MRI of brain) compatible with AD within past 1 year.</p>\n<p>The following findings are incompatible with AD:</p>\n<ol style=\"list-style-type: lower-alpha;\">\n  <li>\n    <p>Large vessel strokes</p>\n    <ol>\n      <li>\n        <p>Any definite area of encephalomalacia consistent with ischemic necrosis in any cerebral artery territory.</p>\n      </li>\n      <li>\n        <p>Large, confluent areas of encephalomalacia in parieto-occipital or frontal regions consistent with watershed\n          infarcts.</p>\n        <p>The above are exclusionary. Exceptions are made for small areas of cortical asymmetry which may represent a\n          small cortical stroke or a focal area of atrophy provided there is no abnormal signal intensity in the\n          immediately underlying parenchyma. Only one such questionable area allowed per scan, and size is restricted to\n          \u22641cm in frontal/parietal/temporal cortices and \u22642 cm in occipital cortex.</p>\n      </li>\n    </ol>\n  </li>\n  <li>\n    <p>Small vessel ischemia</p>\n    <ol>\n      <li>\n        <p>Lacunar infarct is defined as an area of abnormal intensity seen on CT scan or on both T1 and T2 weighted MRI\n          images in the basal ganglia, thalamus or deep white matter which is \u22641 cm in maximal diameter. A maximum of\n          one\n          lacune is allowed per scan.</p>\n      </li>\n      <li>\n        <p>Leukoariosis or leukoencephalopathy is regarded as an abnormality seen on T2 but not T1 weighted MRIs, or on\n          CT. This is accepted if mild or moderate in extent, meaning involvement of less than 25% of cortical white\n          matter.\n      </li>\n    </ol>\n  </li>\n  <li>\n    <p>Miscellaneous</p>\n    <ol>\n      <li>\n        <p>Benign small extra-axial tumors (ie, meningiomas) are accepted if they do not contact or indent the brain\n          parenchyma.</p>\n      </li>\n      <li>\n        <p>Small extra-axial arachnoid cysts are accepted if they do not indent or deform the brain parenchyma.</p>\n      </li>\n    </ol>\n  </li>\n</ol>",
-            "dictionaryId": null,
+            "text": "<p>CNS imaging (CT scan or MRI of brain) compatible with AD within past 1 year.</p>",
+			"dictionaryId": null,
             "notes": [],
             "instanceType": "EligibilityCriterionItem"
           },
@@ -5820,8 +5726,8 @@
             "name": "EX23",
             "label": null,
             "description": null,
-            "text": "<p>Treatment with the following medications within the specified washout periods prior to enrollment and during the\n  study:</p>\n<ol style=\"list-style-type: lower-alpha;\">\n  <li>\n    <p>Anticonvulsants including but not limited to </p>\n    <table class=\"table\">\n      <tr>\n        <td>Depakote&#174; (valproic acid) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Dilantin&#174; (phenytoin)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Felbatol&#174;\n          (felbamate)</td>\n        <td>1 month</td>\n      </tr>\n      <tr>\n        <td>Klonopin&#174; (clonazepam)</td>\n        <td>2\n          weeks</td>\n      </tr>\n      <tr>\n        <td>Lamictal&#174; (lamotrigine)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Mysoline&#174; (primidone)</td>\n        <td>1 month</td>\n      </tr>\n      <tr>\n        <td>Neurontin&#174;\n          (gabapentin)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Phenobarbitol</td>\n        <td>1 month</td>\n      </tr>\n      <tr>\n        <td>Tegretol&#174; (carbamazepine)</td>\n        <td>2 weeks</td>\n      </tr>\n    </table>\n  </li>\n  <li>\n    <p>Alpha receptor blockers including but not limited to </p>\n    <table class=\"table\">\n      <tr>\n        <td>Aldomet&#174; (methyldopa) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Cardura&#174;\n          (doxazosin) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Catapres&#174; (clonidine)\n        </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Hytrin&#174; (terazosin) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Minipress&#174; (prazosin)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Tenex&#174; (guanfacine)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Wytensin&#174;\n          (guanabenz) </td>\n        <td>2 weeks</td>\n      </tr>\n    </table>\n    <p><b>The use of low doses\n        (2 mg daily) of either Hytrin</b>&#174; <b>or Cardura</b>&#174; <b>for relief of\n        urinary retention for patients with prostatic hypertrophy will be considered\n        on a case-by-case basis provided blood pressure is stable and the medication\n        has not had demonstrable effect on dementia symptoms in the opinion of the treating\n        physician. Contact CRO medical monitor.</b></p>\n  </li>\n  <li>\n    <p>Calcium channel blockers\n      that are CNS active including but not limited to </p>\n    <table class=\"table\">\n      <tr>\n        <td>Calan&#174; , Isoptin&#174; , Verelan&#174; (verapamil) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Cardizem&#174; (diltiazem) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Nimotop&#174;\n          (nimodipine) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Adalat&#174; , Procardia XL&#174;\n          (nifedipine) </td>\n        <td>2 weeks</td>\n      </tr>\n    </table>\n    <p><b>Cardene</b>&#174; <b>(nicardipine),\n        Norvasc</b>&#174; <b>, (amlodipine), and DynaCirc</b>&#174; <b>(isradipine) will\n        be allowed during the study. If a patient is taking an excluded calcium channel\n        blocker and is changed to an equivalent dose of an allowed calcium channel blocker,\n        enrollment may proceed in as little as 24 hours though 1 week is preferred when\n        possible.</b></p>\n  </li>\n  <li>\n    <p>Beta blockers including but not limited to </p>\n    <table class=\"table\">\n      <tr>\n        <td>Betapace&#174; (sotalol) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Inderal&#174; (propranolol) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Lopressor&#174;\n          , Toprol XL&#174; (metoprolol) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Corgard&#174; (nadolol) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Sectral&#174; (acebutolol)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Tenormin&#174; (atenolol) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Visken&#174; (pindolol)</td>\n        <td>2 weeks</td>\n      </tr>\n    </table>\n    <p><b>Beta\n        blocker eye drops for glaucoma will be considered on a case-by-case basis. Call\n        medical monitor.</b></p>\n  </li>\n  <li>\n    <p>Beta sympathomimetics (unless inhaled) including\n      but not limited to </p>\n    <table class=\"table\">\n      <tr>\n        <td>Alupent&#174; tablets\n          (metaproterenol) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Brethine&#174; tablets\n          (terbutaline) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Dopamine </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Proventil Repetabs&#174; , Ventolin&#174; tablets (albuterol tablets)\n        </td>\n        <td>2 weeks</td>\n      </tr>\n    </table>\n  </li>\n  <li>Parasympathomimetics (cholinergics) (unless opthalmic) including but not limited to\n    <table class=\"table\">\n      <tr>\n        <td>Antilirium&#174; (physostigmine) </td>\n        <td>1 month</td>\n      </tr>\n      <tr>\n        <td>Aricept&#174; (donepezil) </td>\n        <td>1 month</td>\n      </tr>\n      <tr>\n        <td>Cognex&#174; (tacrine) </td>\n        <td>1\n          month</td>\n      </tr>\n      <tr>\n        <td>Mestinon&#174; (pyridostigmine) </td>\n        <td>1 week</td>\n      </tr>\n      <tr>\n        <td>Reglan&#174; (metoclopramide)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Urecholine&#174;\n          , Duvoid (bethanechol) </td>\n        <td>2 weeks</td>\n      </tr>\n    </table>\n    <p><b>Cholinergic eye drops for treatment of glaucoma will be allowed during the study on a case-by-case basis.\n        Please contact the CRO medical monitor.</b></p>\n  </li>\n  <li>\n    <p>Muscle relaxants-centrally active including but not limited to </p>\n    <table class=\"table\">\n      <tr>\n        <td>Equanil&#174; (meprobamate) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Flexeril&#174; (cyclobenzaprine)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Lioresal&#174; (baclofen) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Norflex&#174; (orphenadrine) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Parafon Forte&#174; (chlorzoxazone)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Robaxin&#174; (methocarbamol) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Skelaxin&#174; (metaxalone)\n        </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Soma&#174; (carisoprodol) </td>\n        <td>2 weeks</td>\n      </tr>\n    </table>\n  </li>\n  <li>\n    <p>Monamine oxidase inhibitors (MAOI) including but not limited to</p>\n    <table class=\"table\">\n      <tr>\n        <td>Eldepryl&#174; (selegiline)</td>\n        <td>1 month</td>\n      </tr>\n      <tr>\n        <td>Nardil&#174; (phenelzine) </td>\n        <td>1 month</td>\n      </tr>\n      <tr>\n        <td>Parnate&#174; (tranylcypromine) </td>\n        <td>1 month</td>\n      </tr>\n    </table>\n  </li>\n  <li>\n    <p>Parasympatholytics including but not limited to </p>\n    <table class=\"table\">\n      <tr>\n        <td>Antivert&#174; , Bonine&#174; , Dramamine II&#174; (meclizine)</td>\n        <td>3 days </td>\n      </tr>\n      <tr>\n        <td>Artane&#174; (trihexyphenidyl)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Bellergal-S&#174; (alkaloids of belladonna and ergotamine) </td>\n        <td>2 weeks </td>\n      </tr>\n      <tr>\n        <td>Bentyl&#174; (dicyclomine) </td>\n        <td>3 days </td>\n      </tr>\n      <tr>\n        <td>Cogentin&#174; (benztropine) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Cystospaz&#174;, Levsin&#174; , Levsinex&#174; (hyoscyamine)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Ditropan&#174;\n          (oxybutynin) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Donnatal&#174; , Hyosophen&#174;\n          (atropine, scopolamine, hyoscyamine and phenobarbitol) </td>\n        <td>1 month </td>\n      </tr>\n      <tr>\n        <td>Dramamine&#174; (dimenhydrinate)</td>\n        <td>3 days</td>\n      </tr>\n      <tr>\n        <td>Lomotil&#174;, Lonox&#174; (atropine, diphenoxylate) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Pro-Banthine&#174;(propantheline) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Robinul&#174; (glycopyrrolate)</td>\n        <td>3 days </td>\n      </tr>\n      <tr>\n        <td>Tigan&#174; (trimethobenzamide) </td>\n        <td>3 days </td>\n      </tr>\n      <tr>\n        <td>Transderm-Scop&#174; (scopolamine) </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Urispas&#174; (flavoxate)</td>\n        <td>2 weeks</td>\n      </tr>\n    </table>\n  </li>\n  <li>\n    <p>Antidepressants including but not limited to </p>\n    <table class=\"table\">\n      <tr>\n        <td>Anafranil&#174; (clomipramine)</td>\n        <td> 1 month</td>\n      </tr>\n      <tr>\n        <td>Asendin&#174;\n          (amoxapine)</td>\n        <td> 1 month</td>\n      </tr>\n      <tr>\n        <td>Desyrel&#174; (trazodone)</td>\n        <td>\n          1 month</td>\n      </tr>\n      <tr>\n        <td>Effexor&#174; (venlafaxine) </td>\n        <td> 1 month</td>\n      </tr>\n      <tr>\n        <td>Elavil&#174; (amitriptyline)</td>\n        <td> 1 month</td>\n      </tr>\n      <tr>\n        <td>Ludiomil&#174;\n          (maprotiline)</td>\n        <td> 1 month</td>\n      </tr>\n      <tr>\n        <td>Norpramin&#174; (desipramine)</td>\n        <td>\n          1 month</td>\n      </tr>\n      <tr>\n        <td>Pamelor&#174; , Aventyl&#174; (nortriptyline)</td>\n        <td> 1\n          month</td>\n      </tr>\n      <tr>\n        <td>Paxil&#174; (paroxetine)</td>\n        <td> 1 month</td>\n      </tr>\n      <tr>\n        <td>Prozac&#174;\n          (fluoxetine</td>\n        <td> 1 month</td>\n      </tr>\n      <tr>\n        <td>Remeron&#174; (mirtazapine)</td>\n        <td>\n          1 month</td>\n      </tr>\n      <tr>\n        <td>Serzone&#174; (nefazodone) </td>\n        <td> 1 month</td>\n      </tr>\n      <tr>\n        <td>Sinequan&#174;\n          (doxepin)</td>\n        <td> 1 month</td>\n      </tr>\n      <tr>\n        <td>Tofranil&#174; (imipramine)</td>\n        <td>\n          1 month</td>\n      </tr>\n      <tr>\n        <td>Vivactil&#174; (protriptyline)</td>\n        <td> 1 month</td>\n      </tr>\n      <tr>\n        <td>Wellbutrin&#174; (bupropion)</td>\n        <td> 1 month</td>\n      </tr>\n      <tr>\n        <td>Zoloft&#174;\n          (sertraline)</td>\n        <td> 1 month</td>\n      </tr>\n    </table>\n  </li>\n  <li>\n    <p>Systemic corticosteroids including but not limited to </p>\n    <table class=\"table\">\n      <tr>\n        <td>Cortisone</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Decadron&#174; (dexamethasone)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Depo-Medrol&#174; (methylprednisolone)</td>\n        <td>1 month</td>\n        <td>\n      </tr>\n      <tr>\n        <td>Prednisone</td>\n        <td>2 weeks</td>\n      </tr>\n    </table>\n  </li>\n  <li>\n    <p>Xanthine derivatives\n      including but not limited to </p>\n    <table class=\"table\">\n      <tr>\n        <td>Aminophylline</td>\n        <td>2 weeks</td>\n        <td>\n      </tr>\n      <tr>\n        <td>Fioricet&#174; , Esgic&#174; , Phrenilin Forte&#174; (caffeine, butalbital)</td>\n        <td>3 days</td>\n        <td>\n      </tr>\n      <tr>\n        <td>Theo-Dur&#174; (theophylline)</td>\n        <td>2 weeks</td>\n        <td>\n      </tr>\n      <tr>\n        <td>Wigraine&#174; , Cafergot&#174; (caffeine, ergotamine)</td>\n        <td>3 days</td>\n        <td>\n      </tr>\n    </table>\n  </li>\n  <li>\n    <p>Histamine (H2 ) antagonists including but not limited to </p>\n    <table class=\"table\">\n      <tr>\n        <td>Axid&#174; (nizatidine)</td>\n        <td>1 week</td>\n      </tr>\n      <tr>\n        <td>Pepcid&#174; (famotidine)</td>\n        <td>1 week</td>\n      </tr>\n      <tr>\n        <td>Tagamet&#174; (cimetidine)</td>\n        <td>1 week</td>\n      </tr>\n      <tr>\n        <td>Zantac&#174; (ranitidine)</td>\n        <td>1 week</td>\n      </tr>\n    </table>\n    <p><b>If an H 2 antagonist is needed by the patient, Axid</b>&#174; <b>will be</b> <b>allowed on a case-by-case\n        basis. Please consult CRO</b> <b>medical monitor.</b></p>\n  </li>\n  <li>\n    <p>Narcotic Analgesics including but not limited to </p>\n    <table class=\"table\">\n      <tr>\n        <td>Darvocet-N\n          100&#174; , (propoxyphene)</td>\n        <td>1 week </td>\n      </tr>\n      <tr>\n        <td>Demerol&#174; (meperidine)</td>\n        <td>1\n          week </td>\n      </tr>\n      <tr>\n        <td>Dilaudid&#174; (hydromorphone)</td>\n        <td>1 week </td>\n      </tr>\n      <tr>\n        <td>Duragesic&#174; (fentanyl)</td>\n        <td>1 week </td>\n      </tr>\n      <tr>\n        <td>MS\n          Contin&#174; , Roxanol&#174; , Oramorph&#174; (morphine) </td>\n        <td>1 week </td>\n      </tr>\n      <tr>\n        <td>Percocet&#174; , Roxicet&#174; (oxycodone with acetaminophen)</td>\n        <td>3\n          days </td>\n      </tr>\n      <tr>\n        <td>Percodan&#174; , Roxiprin</td>\n        <td>1 week</td>\n      </tr>\n      <tr>\n        <td>Stadol&#174; (butorphanol)</td>\n        <td>1 week </td>\n      </tr>\n      <tr>\n        <td>Talacen&#174;\n          (pentazocine)</td>\n        <td>1 week </td>\n      </tr>\n      <tr>\n        <td>Tylenol #2&#174; , #3&#174;\n          , #4&#174; (codeine and acetaminophen) </td>\n        <td>3 days </td>\n      </tr>\n      <tr>\n        <td>Tylox&#174;\n          , Roxilox&#174; (oxycodone)</td>\n        <td>3 days </td>\n      </tr>\n      <tr>\n        <td>Vicodin&#174;, Lorcet&#174; (hydrocodone)</td>\n        <td>1 week</td>\n      </tr>\n    </table>\n    <p><b>Percocet\n        (oxycodone with acetaminophen) and Tylenol</b>&#174; <b>with codeine #2, #3, #4\n        (acetaminophen + codeine) ARE allowed in the month prior to enrollment, but\n        are not permitted in the 3 days prior to enrollment.</b></p>\n  </li>\n  <li>\n    <p>Neuroleptics\n      (antipsychotics) including but not limited to </p>\n    <table class=\"table\">\n      <tr>\n        <td>Clozaril&#174;\n          (clozapine)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Haldol&#174; (haloperidol)</td>\n        <td>2\n          weeks</td>\n      </tr>\n      <tr>\n        <td>Loxitane&#174; (loxapine)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Mellaril&#174; (thioridazine)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Moban&#174;\n          (molindone)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Navane&#174; (thiothixene)</td>\n        <td>2\n          weeks</td>\n      </tr>\n      <tr>\n        <td>Orap&#174; (pimozide)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Prolixin&#174; (fluphenazine)</td>\n        <td>1 month</td>\n      </tr>\n      <tr>\n        <td>Risperdal&#174;\n          (risperidone)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Stelazine&#174; (trifluoperazine)</td>\n        <td>2\n          weeks</td>\n      </tr>\n      <tr>\n        <td>Thorazine&#174; (chlorpromazine)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Trilafon&#174; (perphenazine)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Serentil&#174;\n          (mesoridazine)</td>\n        <td>2 weeks</td>\n      </tr>\n    </table>\n    <p><b>The use of neuroleptics\n        on a daily basis must be discontinued 2 to 4 weeks prior to enrollment. The\n        use of neuroleptics on an as-needed basis is allowable during the screening\n        period, but the last dose must be at least 7 days prior to enrollment.</b></p>\n  </li>\n  <li>\n    <p>Antianxiety agents including but not limited to </p>\n    <table class=\"table\">\n      <tr>\n        <td>Atarax&#174; (hydroxyzine)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>BuSpar&#174;\n          (buspirone)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Librium&#174; (chlordiazepoxide)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Serax&#174; (oxazepam)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Tranxene&#174; (clorazepate)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Valium&#174; (diazepam)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Vistaril&#174; (hydroxyzine pamoate)</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Xanax&#174; (alprazolam)</td>\n        <td>2 weeks</td>\n      </tr>\n    </table>\n    <p><b>Ativan</b>&#174; <b>(lorazepam) should be discontinued on a daily\n        basis 2 weeks</b></p>\n    <p><b>prior to enrollment. It may be used on an as-needed\n        basis during the screening period, but is not permitted in the 24 hours prior\n        to enrollment.</b></p>\n  </li>\n  <li>\n    <p>Hypnotics/Sedatives including but not limited to</p>\n    <table class=\"table\">\n      <tr>\n        <td>Ambien&#174; (zolpidem)</td>\n        <td> 3 days\n        </td>\n      </tr>\n      <tr>\n        <td>Dalmane&#174; (flurazepam)</td>\n        <td>3 days</td>\n      </tr>\n      <tr>\n        <td>Doral&#174; (quazepam)</td>\n        <td>3 days</td>\n      </tr>\n      <tr>\n        <td>Halcion&#174; (triazolam)</td>\n        <td>3 days</td>\n      </tr>\n      <tr>\n        <td>Nembutal&#174; </td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>ProSom&#174; (estazolam)</td>\n        <td>3 days</td>\n      </tr>\n      <tr>\n        <td>Restoril&#174;\n          (temazepam)</td>\n        <td>3 days</td>\n      </tr>\n      <tr>\n        <td>Seconal&#174;</td>\n        <td>2 weeks</td>\n      </tr>\n    </table>\n    <p><b>Chloral Hydrate is allowed on an as-needed basis during screening, but is not permitted in the 24 hours prior to enrollment.</b></p>\n  </li>\n  <li>\n    <p>Histamine (H1 ) antagonists including but not limited to </p>\n    <table class=\"table\">\n      <tr>\n        <td>Actifed&#174; , Actifed Plus&#174; (triprolidine) Benadryl&#174;\n          , Unisom&#174; , Tylenol P.M.&#174; </td>\n        <td>3 days </td>\n      </tr>\n      <tr>\n        <td>(diphenhydramine)</td>\n        <td>3 days</td>\n      </tr>\n      <tr>\n        <td>Compazine&#174; (prochlorperazine)</td>\n        <td>3 days</td>\n      </tr>\n      <tr>\n        <td>Contac&#174; , Coricidin D&#174; , Sinutab&#174; , Novahistine&#174; , Alka\n          Seltzer Plus&#174; , Naldecon&#174; , Sudafed Plus&#174; , Tylenol Cold&#174; , Tylenol\n          Cold and Flu&#174; (chlorpheniramine)</td>\n        <td>3 days</td>\n      </tr>\n      <tr>\n        <td>Dimetapp&#174;\n          (brompheniramine)</td>\n        <td>3 days</td>\n      </tr>\n      <tr>\n        <td>Drixoral&#174; (dexbrompheniramine)</td>\n        <td>3 days</td>\n      </tr>\n      <tr>\n        <td>Hismanal&#174; (astemizole)</td>\n        <td>1 week</td>\n      </tr>\n      <tr>\n        <td>Phenergan&#174;\n          (promethazine)</td>\n        <td>3 days</td>\n      </tr>\n      <tr>\n        <td>Seldane&#174; (terfenadine)</td>\n        <td>1\n          week</td>\n      </tr>\n      <tr>\n        <td>Tavist&#174; (clemastine fumarate)</td>\n        <td>3 days</td>\n      </tr>\n      <tr>\n        <td>Zyrtec&#174; (cetrizine) </td>\n        <td>1 week</td>\n      </tr>\n    </table>\n    <p><b>Allegra</b>&#174;\n      <b>(fexofenadine hydrochloride) or Claritin</b>&#174; <b>(loratadine) may be taken\n        on as-needed basis during screening but must be discontinued within 24 hours\n        of enrollment.</b>\n    </p>\n  </li>\n  <li>\n    <p>Stimulants including but not limited to </p>\n    <table class=\"table\">\n      <tr>\n        <td>Cylert&#174; (pemoline) </td>\n        <td>1 month</td>\n      </tr>\n      <tr>\n        <td>Ritalin&#174; (methylphenidate)</td>\n        <td>1 month</td>\n      </tr>\n    </table>\n  </li>\n  <li>\n    <p>Antiarrhythmics including but not limited to the following</p>\n    <table class=\"table\">\n      <tr>\n        <td>Adenocard&#174; (adenosine) </td>\n      </tr>\n      <tr>\n        <td>Cordarone&#174;\n          (amiodarone) </td>\n      </tr>\n      <tr>\n        <td>Ethmozine&#174; (moricizine) </td>\n      </tr>\n      <tr>\n        <td>Mexitil&#174; (mexiletine) </td>\n      </tr>\n      <tr>\n        <td>Norpace&#174; (disopyramide)\n        </td>\n      </tr>\n      <tr>\n        <td>Procan&#174; (procainamide) </td>\n      </tr>\n      <tr>\n        <td>Quinaglute&#174;\n          (quinidine) </td>\n      </tr>\n      <tr>\n        <td>Rythmol&#174; (propafenone) </td>\n      </tr>\n      <tr>\n        <td>Tambocor&#174;\n          (flecainide) </td>\n      </tr>\n      <tr>\n        <td>Tonocard&#174; (tocainide)</td>\n      </tr>\n    </table>\n    <p><b>Requirement of these drugs for control of cardiac arrhythmia indicates that\n        the patient should be excluded from the study. If discontinuation of an antiarrhythmic\n        is considered, please discuss case with CRO medical monitor.</b></p>\n  </li>\n  <li>\n    <p>Miscellaneous drugs including but not limited to </p>\n    <table class=\"table\">\n      <tr>\n        <td>Coenzyme\n          Q</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Eskalith&#174; , Lithobid&#174; (lithium)</td>\n        <td>2\n          weeks </td>\n      </tr>\n      <tr>\n        <td>Ginkgo biloba</td>\n        <td>1 week</td>\n      </tr>\n      <tr>\n        <td>Lecithin\n        </td>\n        <td>1 week</td>\n      </tr>\n      <tr>\n        <td>Lecithin </td>\n        <td>1 week </td>\n      </tr>\n      <tr>\n        <td>Lupron</td>\n        <td>2 weeks</td>\n      </tr>\n      <tr>\n        <td>Tamoxifen</td>\n        <td>1 month</td>\n      </tr>\n    </table>\n  </li>\n  <li>\n    <p>Estrogen supplements are permitted during the study, but dosage must be stable for at least 3 months prior to\n      enrollment.</p>\n  </li>\n</ol>",
-            "dictionaryId": null,
+            "text": "<p>Treatment with the following medications within the specified washout periods prior to enrollment and during the\n  study:</p>",
+			"dictionaryId": null,
             "notes": [],
             "instanceType": "EligibilityCriterionItem"
           }
@@ -6013,8 +5919,8 @@
             "id": "NarrativeContentItem_27",
             "extensionAttributes": [],
             "name": "NCI_27",
-            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>The following measures will be performed in the course of the study. At Visits 3, 8, 10, and 12, ADAS-Cog, CIBIC+, and DAD will be administered. NPI-X will be administered at 2-week intervals either at clinic visits or via a telephone interview. Efficacy measures will also be collected at early termination visits, and at the retrieval visit. The neuropsychological assessment should be performed first; other protocol requirements, such as labs and the physical, should follow.</p>\n<ol type=\"a\">\n<li><p><b>Alzheimer's Disease Assessment Scale - Cognitive Subscale (ADAS-Cog):</b> ADAS-Cog is an established measure of cognitive function in Alzheimer's Disease. This scale has been incorporated into this study by permission of Dr. Richard C. Mohs and the American Journal of Psychiatry and was adapted from an article entitled, \u201cThe Alzheimer's Disease Assessment Scale (ADAS),\u201d which was published in the American Journal of Psychiatry, Volume No.141, pages 1356-1364, November, 1984, Copyright 1984.</p>\n<p><b>The ADAS-Cog (11) and the ADAS-Cog (14):</b> The ADAS-Cog (11) is a standard 11-item instrument used to assess word recall, naming objects, commands, constructional praxis, ideational praxis, orientation, word recognition tasks, spoken language ability, comprehension, word finding difficulty, and recall of test instructions. For the purposes of this study, three items (delayed word recall, attention/visual search task, and maze solution) have been added to the ADAS-Cog (11) to assess the patient's attention and concentration. The 14 item instrument will be referred to as the ADAS-Cog (14). At each efficacy visit, all 14 items will be assessed, and in subsequent data analyses, performance on the ADAS-Cog (14) and performance on the subset ADAS-Cog (11) will be considered.</p></li>\n<li><p><b>Video-referenced Clinician's Interview-Based Impression of Change (CIBIC+):</b> The CIBIC+ is an assessment of the global clinical status relative to baseline. The CIBIC+ used in this study is derived from the Clinical Global Impression of Change, an instrument in the public domain, developed by the National Institute on Aging Alzheimer's Disease Study Units Program (1 U01 AG10483; Leon Thal, Principal Investigator). The instrument employs semi-structured interviews with the patient and caregiver, to assess mental/cognitive state, behavior, and function. These domains are not individually scored, but rather are aggregated in the assignment of a global numeric score on a 1 to 7 scale (1 = marked improvement; 4 = no change; and 7 = marked worsening).</p>\n<p>The clinician assessing CIBIC+ will have at least one year of experience with the instrument and will remain blinded to all other efficacy and safety measures.</p></li>\n<li><p><b>Revised Neuropsychiatric Inventory (NPI-X):</b> The NPI-X is an assessment of change in psychopathology in patients with dementia. The NPI-X is administered to the designated caregiver. This instrument has been revised from its original version (Cummings et al. 1994) and incorporated into this study with the permission of Dr. Jeffrey L. Cummings.</p></li>\n<li><p><b>Disability Assessment for Dementia (DAD):</b> The DAD is used to assess functional abilities of activities of daily living (ADL) in individuals with cognitive impairment. This scale has been revised and incorporated into this study by permission of Louise Gauthier, M.Sc., and Dr. Isabelle Gelinas. The DAD is administered to the designated caregiver.</p></li>\n</ol>\n<p>For each instrument, each assessment is to be performed by the same trained health care professional. If circumstances preclude meeting this requirement, the situation is to be documented on the Clinical Report Form (CRF), and the CRO research physician is to be notified.</p>\n<p>In addition to the efficacy measures noted above, a survey form will be used to collect information from the caregiver on TTS acceptability (Attachment LZZT.9).</p></div>",
-            "instanceType": "NarrativeContentItem"
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>The following measures will be performed in the course of the study. At Visits 3, 8, 10, and 12, ADAS-Cog, CIBIC+, and DAD will be administered. NPI-X will be administered at 2-week intervals either at clinic visits or via a telephone interview</p></div>",
+			"instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_28",
@@ -6076,22 +5982,22 @@
             "id": "NarrativeContentItem_36",
             "extensionAttributes": [],
             "name": "NCI_36",
-            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><b>Patients experiencing Rash and/or Eosinophilia</b>\n<p>The administration of placebo and xanomeline TTS is associated with a rash and/or eosinophilia in some patients. The rash is characterized in the following ways:</p>\n<ul>\n<li><p>The rash is confined to sites of application.</p></li>\n<li><p>The rash may be associated with pruritus.</p></li>\n<li><p>In 5% of cases of rash observed in the Interim Analysis, blistering has been observed.</p></li>\n<li><p>The onset of rash may occur at any time during the course of the study.</p></li>\n<li><p>A moderate eosinophilia (0.6-1.5 x 103 /microliter) is associated with rash and has been noted in approximately 10% of patients.</p></li>\n</ul>\n<p>It does not appear that the rash constitutes a significant safety risk; however, it could affect the well-being of the patients. The following monitoring is specified:</p>\n<p><b>Skin Rash Follow-up</b></p>\n<p>For patients who exit the study or its extension with rash at the site(s) of application:</p>\n<ol type=\"a\">\n<li><p>Approximately 2 weeks after the last visit, the study site personnel should contact the patient/caregiver by phone and complete the skin rash questionnaire. (Note: those patients with rash who have previously exited the study or its extension should be contacted at earliest convenience.)</p></li>\n<li><p>If caregiver states unequivocally that skin problems have completely resolved, no further follow-up is needed.</p></li>\n<li><p>If caregiver reports scarring and/or other problems, patient should return to clinic for a follow-up visit. The skin rash questionnaire should again be completed. If in the opinion of the investigator, further follow-up is required, contact the CRO medical monitor. Completed skin rash questionnaires should be faxed to CRO.</p></li>\n</ol>\n<p>Completion of the questionnaires will create a separate data set for solicited adverse events. In completing these forms please note the following:</p>\n<ol>\n<li><p>Solicited events (events discovered as result of completion of follow-up questionnaires) should be reported on questionnaire page only.</p></li>\n<li><p>Spontaneously reported adverse events (events presented by the patient without direct questioning of the event) should be reported as described in 3.9.3.2 .1 (Adverse Event Reporting Requirements).</p></li>\n</ol>\n<p>Serious adverse events should be handled and reported as described in 3.9.3.2.1 without regard to whether the event is solicited or spontaneously reported.</p>\n<p><b>Eosinophilia Follow-up</b></p>\n<ol>\n<li><p>For patients that are currently in the study with eosinophil counts greater than 0. 6x10 3 /microliter:</p>\n<ul><li><p>Repeat hematology at each visit until resolved in the opinion of the investigator.</p></li></ul>\n<li><p>For patients that are currently in the study with eosinophil counts greater than 1.5x10 3 /microliter:</p>\n<ul><li><p>Obtain hematology profile every 2 weeks until resolved or explained by other causes in the opinion of the investigator.</p></li>\n<li><p>Notify CRO medical monitor.</p></li>\n</ul>\n<li><p>For patients with eosinophil counts greater than 0.6x10 3 /microliter at exit \nfrom the study or its extension:</p>\n<ul>\n<li><p>Obtain hematology profile approximately every 2 weeks until resolved or, in the opinion of the investigator, explained by other causes. (Note: patients with eosinophil counts greater than 0.6x10 3 /microliter who have previously exited the study or its extension should return for hematology profile at earliest convenience.)</p></li>\n</ul>\n<ol></ol></li></li></li></ol></div>",
-            "instanceType": "NarrativeContentItem"
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><b>Patients experiencing Rash and/or Eosinophilia</b>\n<p>The administration of placebo and xanomeline TTS is associated with a rash and/or eosinophilia in some patients. The rash is characterized in the following ways:</p></div>",
+			"instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_37",
             "extensionAttributes": [],
             "name": "NCI_37",
-            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Patient should lie supine quietly for at least 5 minutes prior to vital signs measurement. Blood pressure should be measured in the dominant arm with a standardized mercury manometer according to the American Heart Association standard recommendations. Diastolic blood pressure will be measured as the point of disappearance of the Korotkoff sounds (phase V). Heart rate will be measured by auscultation. Patient should then stand up. Blood pressure should again be measured in the dominant arm and heart rate should be measured after approximately 1 and 3 minutes.</p>\n<p>An automated blood pressure cuff may be used in place of a mercury manometer if it is regularly (at least monthly) standardized against a mercury manometer.</p></div>",
-            "instanceType": "NarrativeContentItem"
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Patient should lie</p></div>",
+			"instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_38",
             "extensionAttributes": [],
             "name": "NCI_38",
-            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Cardiovascular status will be assessed during the trial with the following measures:</p>\n<ul>\n<li><p>All patients will be screened by obtaining a 12-lead ECG, and will have repeat ECGs performed at Visits 4, 5, 7, 8, 9, 10, 11, 12, 13, and early termination (ET) (see Schedule of Events, Attachment LZZT.1).</p></li>\n<li><p>All patients will undergo a 24-hour Ambulatory ECG at Visit 2 (prior to the initiation of study medication). Although every effort will be made to obtain the entire 24-hour ambulatory ECG recording, this may not always be feasible because of patient behavior or technical difficulties. The minimal recording period for an ambulatory ECG to be considered interpretable will be 8 hours, of which at least 3 hours must be sleep.</p></li>\n<li><p>The incidence of syncope, defined as an observed loss of consciousness and muscle tone not attributable to transient ischemic attack or to seizure, will be closely monitored. Caregivers will be instructed to report any instance of syncopal episodes to the investigator within 24 hours. The investigator should immediately report such events to the CRO research physician. The CRO research physician will make a clinical assessment of each episode, and with the investigator determine if continuation of \ntherapy is appropriate. These findings will be reported to the Lilly research physician immediately.</p></li>\n<ul></ul></ul></div>",
-            "instanceType": "NarrativeContentItem"
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Cardiovascular status will be assessed during the trial</p></div>",
+			"instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_39",
@@ -6139,15 +6045,14 @@
             "id": "NarrativeContentItem_45",
             "extensionAttributes": [],
             "name": "NCI_45",
-            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Patients who successfully complete the study will be eligible for participation in an openlabel extension phase, where every patient will be treated with active agent. The patients who elect to participate in the open-label extension phase will be titrated to their maximally titrated dose. This open-label extension phase will continue until the time the product becomes marketed and is available to the public or until the project is discontinued by the sponsor. Patients may terminate at any time at their request.</p></div>",
-            "instanceType": "NarrativeContentItem"
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Patients who successfully complete the study...</p></div>",
+			"instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_46",
             "extensionAttributes": [],
             "name": "NCI_46",
-            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Because patients enrolled in this study will be outpatients, the knowledge that patients have taken the medication as prescribed will be assured in the following ways:</p>\n<ol type=\"a\">\n<li><p>Investigators will attempt to select those patients and caregivers who \nhave been judged to be compliant.</p></li>\n<li><p>Study medication including unused, partially used, and empty patch \ncontainers will be returned at each clinical visit so that the remaining \nmedication can be counted by authorized investigator staff (nurse, \npharmacist, or physician). The number of patches remaining will be \nrecorded on the CRF.</p></li>\n<li><p>Following randomization at Visit 3, patients will be instructed to call \nthe site if they have difficulty with application or wearing of patches. If \ndaily doses are reduced, improperly administered, or if a patch becomes \ndetached and requires application of a new patch on three or more days \nin any 30-day period, the CRO research physician will be notified.</p></li>\n</ol>\n<p>If the daily dose is reduced or improperly administered in the 24 hours prior to any scheduled clinic visit, the visit should be rescheduled (except for early termination and retrieval visits).</p></div>",
-            "instanceType": "NarrativeContentItem"
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Because patients enrolled in this study will be outpatients</p></div>","instanceType": "NarrativeContentItem"
           },
           {
             "id": "NarrativeContentItem_47",
@@ -6815,7 +6720,7 @@
                   "extensionAttributes": [],
                   "value": 54.0,
                   "unit": {
-                    "id": "AliasCode_243",
+                    "id": "AliasCode_243_u",
                     "extensionAttributes": [],
                     "standardCode": {
                       "id": "Code_607",
@@ -7061,7 +6966,7 @@
                     "id": "AliasCode_243_b",
                     "extensionAttributes": [],
                     "standardCode": {
-                      "id": "Code_607_b",
+                      "id": "Code_607_bu",
                       "extensionAttributes": [],
                       "code": "C28253",
                       "codeSystem": "http://www.cdisc.org",
@@ -7206,11 +7111,11 @@
                   "instanceType": "Duration"
                 },
                 "dose": {
-                  "id": "Quantity_3_b",
+                  "id": "Quantity_3_bu",
                   "extensionAttributes": [],
                   "value": 0,
                   "unit": {
-                    "id": "AliasCode_243_b",
+                    "id": "AliasCode_243_m",
                     "extensionAttributes": [],
                     "standardCode": {
                       "id": "Code_607_b",
@@ -7306,7 +7211,7 @@
               "decode": "IMP",
               "instanceType": "Code"
             },
-            "pharmacologClass": null,
+            "pharmacologicClass": null,
 			"properties": [{
                 "id": "AdmProdProp_1",
                 "extensionAttributes": [],
@@ -12189,7 +12094,7 @@
                 "datatype": "float",
                 "responseCodes": [],
                 "code": {
-                  "id": "AliasCode_69",
+                  "id": "AliasCode_69_u",
                   "extensionAttributes": [],
                   "standardCode": {
                     "id": "Code_252",

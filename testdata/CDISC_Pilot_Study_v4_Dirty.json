@@ -7667,7 +7667,7 @@
               {
                 "id": "BiomedicalConceptProperty_135",
                 "extensionAttributes": [],
-                "name": "VSORRES",
+                "name": "VSORRES_1",
                 "label": "VSORRES",
                 "isRequired": true,
                 "isEnabled": true,
@@ -7694,7 +7694,7 @@
               {
                 "id": "BiomedicalConceptProperty_136",
                 "extensionAttributes": [],
-                "name": "VSORRESU",
+                "name": "VSORRESU_1",
                 "label": "VSORRESU",
                 "isRequired": true,
                 "isEnabled": true,
@@ -7703,7 +7703,7 @@
                   {
                     "id": "ResponseCode_176",
                     "extensionAttributes": [],
-                    "name": "RC_C42559",
+                    "name": "RC_C42559_1",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -7720,7 +7720,7 @@
                   {
                     "id": "ResponseCode_177",
                     "extensionAttributes": [],
-                    "name": "RC_C44277",
+                    "name": "RC_C44277_1",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -7737,7 +7737,7 @@
                   {
                     "id": "ResponseCode_178",
                     "extensionAttributes": [],
-                    "name": "RC_C42537",
+                    "name": "RC_C42537_1",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -7773,7 +7773,7 @@
               {
                 "id": "BiomedicalConceptProperty_137",
                 "extensionAttributes": [],
-                "name": "VSLOC",
+                "name": "VSLOC_1",
                 "label": "VSLOC",
                 "isRequired": true,
                 "isEnabled": true,
@@ -7782,7 +7782,7 @@
                   {
                     "id": "ResponseCode_179",
                     "extensionAttributes": [],
-                    "name": "RC_C12674",
+                    "name": "RC_C12674_1",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -7799,7 +7799,7 @@
                   {
                     "id": "ResponseCode_180",
                     "extensionAttributes": [],
-                    "name": "RC_C12394",
+                    "name": "RC_C12394_1",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -7816,7 +7816,7 @@
                   {
                     "id": "ResponseCode_181",
                     "extensionAttributes": [],
-                    "name": "RC_C89803",
+                    "name": "RC_C89803_1",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -7833,7 +7833,7 @@
                   {
                     "id": "ResponseCode_182",
                     "extensionAttributes": [],
-                    "name": "RC_C12421",
+                    "name": "RC_C12421_1",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -7850,7 +7850,7 @@
                   {
                     "id": "ResponseCode_183",
                     "extensionAttributes": [],
-                    "name": "RC_C12390",
+                    "name": "RC_C12390_1",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -7886,7 +7886,7 @@
               {
                 "id": "BiomedicalConceptProperty_138",
                 "extensionAttributes": [],
-                "name": "VSDTC",
+                "name": "VSDTC_1",
                 "label": "VSDTC",
                 "isRequired": true,
                 "isEnabled": true,
@@ -7970,7 +7970,7 @@
               {
                 "id": "BiomedicalConceptProperty_140",
                 "extensionAttributes": [],
-                "name": "VSORRES",
+                "name": "VSORRES_2",
                 "label": "VSORRES",
                 "isRequired": true,
                 "isEnabled": true,
@@ -7997,7 +7997,7 @@
               {
                 "id": "BiomedicalConceptProperty_141",
                 "extensionAttributes": [],
-                "name": "VSORRESU",
+                "name": "VSORRESU_2",
                 "label": "VSORRESU",
                 "isRequired": true,
                 "isEnabled": true,
@@ -8006,7 +8006,7 @@
                   {
                     "id": "ResponseCode_184",
                     "extensionAttributes": [],
-                    "name": "RC_C48531",
+                    "name": "RC_C48531_1",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -8023,7 +8023,7 @@
                   {
                     "id": "ResponseCode_185",
                     "extensionAttributes": [],
-                    "name": "RC_C48155",
+                    "name": "RC_C48155_1",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -8040,7 +8040,7 @@
                   {
                     "id": "ResponseCode_186",
                     "extensionAttributes": [],
-                    "name": "RC_C28252",
+                    "name": "RC_C28252_1",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -8076,7 +8076,7 @@
               {
                 "id": "BiomedicalConceptProperty_142",
                 "extensionAttributes": [],
-                "name": "VSDTC",
+                "name": "VSDTC_2",
                 "label": "VSDTC",
                 "isRequired": true,
                 "isEnabled": true,
@@ -8160,7 +8160,7 @@
               {
                 "id": "BiomedicalConceptProperty_144",
                 "extensionAttributes": [],
-                "name": "VSORRES",
+                "name": "VSORRES_3",
                 "label": "VSORRES",
                 "isRequired": true,
                 "isEnabled": true,
@@ -8187,7 +8187,7 @@
               {
                 "id": "BiomedicalConceptProperty_145",
                 "extensionAttributes": [],
-                "name": "VSORRESU",
+                "name": "VSORRESU_3",
                 "label": "VSORRESU",
                 "isRequired": true,
                 "isEnabled": true,
@@ -8196,7 +8196,7 @@
                   {
                     "id": "ResponseCode_187",
                     "extensionAttributes": [],
-                    "name": "RC_C49668",
+                    "name": "RC_C49668_1",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -8213,7 +8213,7 @@
                   {
                     "id": "ResponseCode_188",
                     "extensionAttributes": [],
-                    "name": "RC_C48500",
+                    "name": "RC_C48500_1",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -8230,7 +8230,7 @@
                   {
                     "id": "ResponseCode_189",
                     "extensionAttributes": [],
-                    "name": "RC_C41139",
+                    "name": "RC_C41139_1",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -8266,7 +8266,7 @@
               {
                 "id": "BiomedicalConceptProperty_146",
                 "extensionAttributes": [],
-                "name": "VSDTC",
+                "name": "VSDTC_3",
                 "label": "VSDTC",
                 "isRequired": true,
                 "isEnabled": true,
@@ -8324,7 +8324,7 @@
               {
                 "id": "BiomedicalConceptProperty_147",
                 "extensionAttributes": [],
-                "name": "LBTESTCD",
+                "name": "LBTESTCD_1",
                 "label": "LBTESTCD",
                 "isRequired": true,
                 "isEnabled": true,
@@ -8351,7 +8351,7 @@
               {
                 "id": "BiomedicalConceptProperty_148",
                 "extensionAttributes": [],
-                "name": "LBORRES",
+                "name": "LBORRES_1",
                 "label": "LBORRES",
                 "isRequired": true,
                 "isEnabled": true,
@@ -8378,7 +8378,7 @@
               {
                 "id": "BiomedicalConceptProperty_149",
                 "extensionAttributes": [],
-                "name": "LBORRESU",
+                "name": "LBORRESU_1",
                 "label": "LBORRESU",
                 "isRequired": true,
                 "isEnabled": true,
@@ -8387,7 +8387,7 @@
                   {
                     "id": "ResponseCode_190",
                     "extensionAttributes": [],
-                    "name": "RC_C67456",
+                    "name": "RC_C67456_1",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -8404,7 +8404,7 @@
                   {
                     "id": "ResponseCode_191",
                     "extensionAttributes": [],
-                    "name": "RC_C67397",
+                    "name": "RC_C67397_1",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -8421,7 +8421,7 @@
                   {
                     "id": "ResponseCode_192",
                     "extensionAttributes": [],
-                    "name": "RC_C67376",
+                    "name": "RC_C67376_1",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -8438,7 +8438,7 @@
                   {
                     "id": "ResponseCode_193",
                     "extensionAttributes": [],
-                    "name": "RC_C70510",
+                    "name": "RC_C70510_1",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -8474,7 +8474,7 @@
               {
                 "id": "BiomedicalConceptProperty_150",
                 "extensionAttributes": [],
-                "name": "LBSPEC",
+                "name": "LBSPEC_1",
                 "label": "LBSPEC",
                 "isRequired": true,
                 "isEnabled": true,
@@ -8501,7 +8501,7 @@
               {
                 "id": "BiomedicalConceptProperty_151",
                 "extensionAttributes": [],
-                "name": "LBFAST",
+                "name": "LBFAST_1",
                 "label": "LBFAST",
                 "isRequired": true,
                 "isEnabled": true,
@@ -8510,7 +8510,7 @@
                   {
                     "id": "ResponseCode_194",
                     "extensionAttributes": [],
-                    "name": "RC_C49487",
+                    "name": "RC_C49487_1",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -8527,7 +8527,7 @@
                   {
                     "id": "ResponseCode_195",
                     "extensionAttributes": [],
-                    "name": "RC_C49488",
+                    "name": "RC_C49488_1",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -8593,7 +8593,7 @@
               {
                 "id": "BiomedicalConceptProperty_152",
                 "extensionAttributes": [],
-                "name": "LBTESTCD",
+                "name": "LBTESTCD_2",
                 "label": "LBTESTCD",
                 "isRequired": true,
                 "isEnabled": true,
@@ -8620,7 +8620,7 @@
               {
                 "id": "BiomedicalConceptProperty_153",
                 "extensionAttributes": [],
-                "name": "LBORRES",
+                "name": "LBORRES_2",
                 "label": "LBORRES",
                 "isRequired": true,
                 "isEnabled": true,
@@ -8647,7 +8647,7 @@
               {
                 "id": "BiomedicalConceptProperty_154",
                 "extensionAttributes": [],
-                "name": "LBSPEC",
+                "name": "LBSPEC_2",
                 "label": "LBSPEC",
                 "isRequired": true,
                 "isEnabled": true,
@@ -8674,7 +8674,7 @@
               {
                 "id": "BiomedicalConceptProperty_155",
                 "extensionAttributes": [],
-                "name": "LBFAST",
+                "name": "LBFAST_2",
                 "label": "LBFAST",
                 "isRequired": true,
                 "isEnabled": true,
@@ -8683,7 +8683,7 @@
                   {
                     "id": "ResponseCode_196",
                     "extensionAttributes": [],
-                    "name": "RC_C49487",
+                    "name": "RC_C49487_2",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -8700,7 +8700,7 @@
                   {
                     "id": "ResponseCode_197",
                     "extensionAttributes": [],
-                    "name": "RC_C49488",
+                    "name": "RC_C49488_2",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -8766,7 +8766,7 @@
               {
                 "id": "BiomedicalConceptProperty_156",
                 "extensionAttributes": [],
-                "name": "LBTESTCD",
+                "name": "LBTESTCD_3",
                 "label": "LBTESTCD",
                 "isRequired": true,
                 "isEnabled": true,
@@ -8793,7 +8793,7 @@
               {
                 "id": "BiomedicalConceptProperty_157",
                 "extensionAttributes": [],
-                "name": "LBORRES",
+                "name": "LBORRES_3",
                 "label": "LBORRES",
                 "isRequired": true,
                 "isEnabled": true,
@@ -8820,7 +8820,7 @@
               {
                 "id": "BiomedicalConceptProperty_158",
                 "extensionAttributes": [],
-                "name": "LBORRESU",
+                "name": "LBORRESU_2",
                 "label": "LBORRESU",
                 "isRequired": true,
                 "isEnabled": true,
@@ -8829,7 +8829,7 @@
                   {
                     "id": "ResponseCode_198",
                     "extensionAttributes": [],
-                    "name": "RC_C67456",
+                    "name": "RC_C67456_2",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -8846,7 +8846,7 @@
                   {
                     "id": "ResponseCode_199",
                     "extensionAttributes": [],
-                    "name": "RC_C67397",
+                    "name": "RC_C67397_2",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -8863,7 +8863,7 @@
                   {
                     "id": "ResponseCode_200",
                     "extensionAttributes": [],
-                    "name": "RC_C67376",
+                    "name": "RC_C67376_2",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -8899,7 +8899,7 @@
               {
                 "id": "BiomedicalConceptProperty_159",
                 "extensionAttributes": [],
-                "name": "LBSPEC",
+                "name": "LBSPEC_3",
                 "label": "LBSPEC",
                 "isRequired": true,
                 "isEnabled": true,
@@ -8926,7 +8926,7 @@
               {
                 "id": "BiomedicalConceptProperty_160",
                 "extensionAttributes": [],
-                "name": "LBFAST",
+                "name": "LBFAST_3",
                 "label": "LBFAST",
                 "isRequired": true,
                 "isEnabled": true,
@@ -8935,7 +8935,7 @@
                   {
                     "id": "ResponseCode_201",
                     "extensionAttributes": [],
-                    "name": "RC_C49487",
+                    "name": "RC_C49487_3",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -8952,7 +8952,7 @@
                   {
                     "id": "ResponseCode_202",
                     "extensionAttributes": [],
-                    "name": "RC_C49488",
+                    "name": "RC_C49488_3",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -9019,7 +9019,7 @@
               {
                 "id": "BiomedicalConceptProperty_161",
                 "extensionAttributes": [],
-                "name": "LBTESTCD",
+                "name": "LBTESTCD_4",
                 "label": "LBTESTCD",
                 "isRequired": true,
                 "isEnabled": true,
@@ -9046,7 +9046,7 @@
               {
                 "id": "BiomedicalConceptProperty_162",
                 "extensionAttributes": [],
-                "name": "LBORRES",
+                "name": "LBORRES_4",
                 "label": "LBORRES",
                 "isRequired": true,
                 "isEnabled": true,
@@ -9073,7 +9073,7 @@
               {
                 "id": "BiomedicalConceptProperty_163",
                 "extensionAttributes": [],
-                "name": "LBORRESU",
+                "name": "LBORRESU_3",
                 "label": "LBORRESU",
                 "isRequired": true,
                 "isEnabled": true,
@@ -9082,7 +9082,7 @@
                   {
                     "id": "ResponseCode_203",
                     "extensionAttributes": [],
-                    "name": "RC_C67456",
+                    "name": "RC_C67456_3",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -9099,7 +9099,7 @@
                   {
                     "id": "ResponseCode_204",
                     "extensionAttributes": [],
-                    "name": "RC_C67397",
+                    "name": "RC_C67397_3",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -9116,7 +9116,7 @@
                   {
                     "id": "ResponseCode_205",
                     "extensionAttributes": [],
-                    "name": "RC_C67376",
+                    "name": "RC_C67376_3",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -9152,7 +9152,7 @@
               {
                 "id": "BiomedicalConceptProperty_164",
                 "extensionAttributes": [],
-                "name": "LBSPEC",
+                "name": "LBSPEC_4",
                 "label": "LBSPEC",
                 "isRequired": true,
                 "isEnabled": true,
@@ -9179,7 +9179,7 @@
               {
                 "id": "BiomedicalConceptProperty_165",
                 "extensionAttributes": [],
-                "name": "LBFAST",
+                "name": "LBFAST_4",
                 "label": "LBFAST",
                 "isRequired": true,
                 "isEnabled": true,
@@ -9188,7 +9188,7 @@
                   {
                     "id": "ResponseCode_206",
                     "extensionAttributes": [],
-                    "name": "RC_C49487",
+                    "name": "RC_C49487_4",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -9205,7 +9205,7 @@
                   {
                     "id": "ResponseCode_207",
                     "extensionAttributes": [],
-                    "name": "RC_C49488",
+                    "name": "RC_C49488_4",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -9271,7 +9271,7 @@
               {
                 "id": "BiomedicalConceptProperty_166",
                 "extensionAttributes": [],
-                "name": "LBTESTCD",
+                "name": "LBTESTCD_5",
                 "label": "LBTESTCD",
                 "isRequired": true,
                 "isEnabled": true,
@@ -9298,7 +9298,7 @@
               {
                 "id": "BiomedicalConceptProperty_167",
                 "extensionAttributes": [],
-                "name": "LBORRES",
+                "name": "LBORRES_5",
                 "label": "LBORRES",
                 "isRequired": true,
                 "isEnabled": true,
@@ -9325,7 +9325,7 @@
               {
                 "id": "BiomedicalConceptProperty_168",
                 "extensionAttributes": [],
-                "name": "LBORRESU",
+                "name": "LBORRESU_4",
                 "label": "LBORRESU",
                 "isRequired": true,
                 "isEnabled": true,
@@ -9334,7 +9334,7 @@
                   {
                     "id": "ResponseCode_208",
                     "extensionAttributes": [],
-                    "name": "RC_C67015",
+                    "name": "RC_C67015_1",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -9351,7 +9351,7 @@
                   {
                     "id": "ResponseCode_209",
                     "extensionAttributes": [],
-                    "name": "RC_C64572",
+                    "name": "RC_C64572_1",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -9368,7 +9368,7 @@
                   {
                     "id": "ResponseCode_210",
                     "extensionAttributes": [],
-                    "name": "RC_C64387",
+                    "name": "RC_C64387_1",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -9385,7 +9385,7 @@
                   {
                     "id": "ResponseCode_211",
                     "extensionAttributes": [],
-                    "name": "RC_C48508",
+                    "name": "RC_C48508_1",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -9421,7 +9421,7 @@
               {
                 "id": "BiomedicalConceptProperty_169",
                 "extensionAttributes": [],
-                "name": "LBSPEC",
+                "name": "LBSPEC_5",
                 "label": "LBSPEC",
                 "isRequired": true,
                 "isEnabled": true,
@@ -9448,7 +9448,7 @@
               {
                 "id": "BiomedicalConceptProperty_170",
                 "extensionAttributes": [],
-                "name": "LBFAST",
+                "name": "LBFAST_5",
                 "label": "LBFAST",
                 "isRequired": true,
                 "isEnabled": true,
@@ -9457,7 +9457,7 @@
                   {
                     "id": "ResponseCode_212",
                     "extensionAttributes": [],
-                    "name": "RC_C49487",
+                    "name": "RC_C49487_5",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -9474,7 +9474,7 @@
                   {
                     "id": "ResponseCode_213",
                     "extensionAttributes": [],
-                    "name": "RC_C49488",
+                    "name": "RC_C49488_5",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -9541,7 +9541,7 @@
               {
                 "id": "BiomedicalConceptProperty_171",
                 "extensionAttributes": [],
-                "name": "LBTESTCD",
+                "name": "LBTESTCD_6",
                 "label": "LBTESTCD",
                 "isRequired": true,
                 "isEnabled": true,
@@ -9568,7 +9568,7 @@
               {
                 "id": "BiomedicalConceptProperty_172",
                 "extensionAttributes": [],
-                "name": "LBORRES",
+                "name": "LBORRES_6",
                 "label": "LBORRES",
                 "isRequired": true,
                 "isEnabled": true,
@@ -9595,7 +9595,7 @@
               {
                 "id": "BiomedicalConceptProperty_173",
                 "extensionAttributes": [],
-                "name": "LBORRESU",
+                "name": "LBORRESU_5",
                 "label": "LBORRESU",
                 "isRequired": true,
                 "isEnabled": true,
@@ -9604,7 +9604,7 @@
                   {
                     "id": "ResponseCode_214",
                     "extensionAttributes": [],
-                    "name": "RC_C67474",
+                    "name": "RC_C67474_1",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -9621,7 +9621,7 @@
                   {
                     "id": "ResponseCode_215",
                     "extensionAttributes": [],
-                    "name": "RC_C67473",
+                    "name": "RC_C67473_1",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -9638,7 +9638,7 @@
                   {
                     "id": "ResponseCode_216",
                     "extensionAttributes": [],
-                    "name": "RC_C64387",
+                    "name": "RC_C64387_2",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -9674,7 +9674,7 @@
               {
                 "id": "BiomedicalConceptProperty_174",
                 "extensionAttributes": [],
-                "name": "LBSPEC",
+                "name": "LBSPEC_6",
                 "label": "LBSPEC",
                 "isRequired": true,
                 "isEnabled": true,
@@ -9701,7 +9701,7 @@
               {
                 "id": "BiomedicalConceptProperty_175",
                 "extensionAttributes": [],
-                "name": "LBFAST",
+                "name": "LBFAST_6",
                 "label": "LBFAST",
                 "isRequired": true,
                 "isEnabled": true,
@@ -9710,7 +9710,7 @@
                   {
                     "id": "ResponseCode_217",
                     "extensionAttributes": [],
-                    "name": "RC_C49487",
+                    "name": "RC_C49487_6",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -9727,7 +9727,7 @@
                   {
                     "id": "ResponseCode_218",
                     "extensionAttributes": [],
-                    "name": "RC_C49488",
+                    "name": "RC_C49488_6",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -9794,7 +9794,7 @@
               {
                 "id": "BiomedicalConceptProperty_176",
                 "extensionAttributes": [],
-                "name": "LBTESTCD",
+                "name": "LBTESTCD_7",
                 "label": "LBTESTCD",
                 "isRequired": true,
                 "isEnabled": true,
@@ -9821,7 +9821,7 @@
               {
                 "id": "BiomedicalConceptProperty_177",
                 "extensionAttributes": [],
-                "name": "LBORRES",
+                "name": "LBORRES_7",
                 "label": "LBORRES",
                 "isRequired": true,
                 "isEnabled": true,
@@ -9848,7 +9848,7 @@
               {
                 "id": "BiomedicalConceptProperty_178",
                 "extensionAttributes": [],
-                "name": "LBORRESU",
+                "name": "LBORRESU_6",
                 "label": "LBORRESU",
                 "isRequired": true,
                 "isEnabled": true,
@@ -9857,7 +9857,7 @@
                   {
                     "id": "ResponseCode_219",
                     "extensionAttributes": [],
-                    "name": "RC_C67474",
+                    "name": "RC_C67474_2",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -9874,7 +9874,7 @@
                   {
                     "id": "ResponseCode_220",
                     "extensionAttributes": [],
-                    "name": "RC_C67473",
+                    "name": "RC_C67473_2",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -9891,7 +9891,7 @@
                   {
                     "id": "ResponseCode_221",
                     "extensionAttributes": [],
-                    "name": "RC_C64387",
+                    "name": "RC_C64387_3",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -9927,7 +9927,7 @@
               {
                 "id": "BiomedicalConceptProperty_179",
                 "extensionAttributes": [],
-                "name": "LBSPEC",
+                "name": "LBSPEC_7",
                 "label": "LBSPEC",
                 "isRequired": true,
                 "isEnabled": true,
@@ -9954,7 +9954,7 @@
               {
                 "id": "BiomedicalConceptProperty_180",
                 "extensionAttributes": [],
-                "name": "LBFAST",
+                "name": "LBFAST_7",
                 "label": "LBFAST",
                 "isRequired": true,
                 "isEnabled": true,
@@ -9963,7 +9963,7 @@
                   {
                     "id": "ResponseCode_222",
                     "extensionAttributes": [],
-                    "name": "RC_C49487",
+                    "name": "RC_C49487_7",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -9980,7 +9980,7 @@
                   {
                     "id": "ResponseCode_223",
                     "extensionAttributes": [],
-                    "name": "RC_C49488",
+                    "name": "RC_C49488_7",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -10048,7 +10048,7 @@
               {
                 "id": "BiomedicalConceptProperty_181",
                 "extensionAttributes": [],
-                "name": "LBTESTCD",
+                "name": "LBTESTCD_8",
                 "label": "LBTESTCD",
                 "isRequired": true,
                 "isEnabled": true,
@@ -10075,7 +10075,7 @@
               {
                 "id": "BiomedicalConceptProperty_182",
                 "extensionAttributes": [],
-                "name": "LBORRES",
+                "name": "LBORRES_8",
                 "label": "LBORRES",
                 "isRequired": true,
                 "isEnabled": true,
@@ -10102,7 +10102,7 @@
               {
                 "id": "BiomedicalConceptProperty_183",
                 "extensionAttributes": [],
-                "name": "LBORRESU",
+                "name": "LBORRESU_7",
                 "label": "LBORRESU",
                 "isRequired": true,
                 "isEnabled": true,
@@ -10147,7 +10147,7 @@
               {
                 "id": "BiomedicalConceptProperty_184",
                 "extensionAttributes": [],
-                "name": "LBSPEC",
+                "name": "LBSPEC_8",
                 "label": "LBSPEC",
                 "isRequired": true,
                 "isEnabled": true,
@@ -10174,7 +10174,7 @@
               {
                 "id": "BiomedicalConceptProperty_185",
                 "extensionAttributes": [],
-                "name": "LBFAST",
+                "name": "LBFAST_8",
                 "label": "LBFAST",
                 "isRequired": true,
                 "isEnabled": true,
@@ -10183,7 +10183,7 @@
                   {
                     "id": "ResponseCode_225",
                     "extensionAttributes": [],
-                    "name": "RC_C49487",
+                    "name": "RC_C49487_8",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -10200,7 +10200,7 @@
                   {
                     "id": "ResponseCode_226",
                     "extensionAttributes": [],
-                    "name": "RC_C49488",
+                    "name": "RC_C49488_8",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -10383,7 +10383,7 @@
                   {
                     "id": "ResponseCode_1",
                     "extensionAttributes": [],
-                    "name": "RC_C49488",
+                    "name": "RC_C49488_9",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -10482,7 +10482,7 @@
                   {
                     "id": "ResponseCode_2",
                     "extensionAttributes": [],
-                    "name": "RC_C49487",
+                    "name": "RC_C49487_9",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -10499,7 +10499,7 @@
                   {
                     "id": "ResponseCode_3",
                     "extensionAttributes": [],
-                    "name": "RC_C49488",
+                    "name": "RC_C49488_10",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -10706,7 +10706,7 @@
                   {
                     "id": "ResponseCode_4",
                     "extensionAttributes": [],
-                    "name": "RC_C49487",
+                    "name": "RC_C49487_10",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -10723,7 +10723,7 @@
                   {
                     "id": "ResponseCode_5",
                     "extensionAttributes": [],
-                    "name": "RC_C49488",
+                    "name": "RC_C49488_11",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -10768,7 +10768,7 @@
                   {
                     "id": "ResponseCode_6",
                     "extensionAttributes": [],
-                    "name": "RC_C49487",
+                    "name": "RC_C49487_11",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -10785,7 +10785,7 @@
                   {
                     "id": "ResponseCode_7",
                     "extensionAttributes": [],
-                    "name": "RC_C49488",
+                    "name": "RC_C49488_12",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -10830,7 +10830,7 @@
                   {
                     "id": "ResponseCode_8",
                     "extensionAttributes": [],
-                    "name": "RC_C49487",
+                    "name": "RC_C49487_12",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -10847,7 +10847,7 @@
                   {
                     "id": "ResponseCode_9",
                     "extensionAttributes": [],
-                    "name": "RC_C49488",
+                    "name": "RC_C49488_13",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -10892,7 +10892,7 @@
                   {
                     "id": "ResponseCode_10",
                     "extensionAttributes": [],
-                    "name": "RC_C49487",
+                    "name": "RC_C49487_13",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -10909,7 +10909,7 @@
                   {
                     "id": "ResponseCode_11",
                     "extensionAttributes": [],
-                    "name": "RC_C49488",
+                    "name": "RC_C49488_14",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -10954,7 +10954,7 @@
                   {
                     "id": "ResponseCode_12",
                     "extensionAttributes": [],
-                    "name": "RC_C49487",
+                    "name": "RC_C49487_14",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -10971,7 +10971,7 @@
                   {
                     "id": "ResponseCode_13",
                     "extensionAttributes": [],
-                    "name": "RC_C49488",
+                    "name": "RC_C49488_15",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -11016,7 +11016,7 @@
                   {
                     "id": "ResponseCode_14",
                     "extensionAttributes": [],
-                    "name": "RC_C49487",
+                    "name": "RC_C49487_15",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -11033,7 +11033,7 @@
                   {
                     "id": "ResponseCode_15",
                     "extensionAttributes": [],
-                    "name": "RC_C49488",
+                    "name": "RC_C49488_16",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -11078,7 +11078,7 @@
                   {
                     "id": "ResponseCode_16",
                     "extensionAttributes": [],
-                    "name": "RC_C49487",
+                    "name": "RC_C49487_16",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -11095,7 +11095,7 @@
                   {
                     "id": "ResponseCode_17",
                     "extensionAttributes": [],
-                    "name": "RC_C49488",
+                    "name": "RC_C49488_17",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -11140,7 +11140,7 @@
                   {
                     "id": "ResponseCode_18",
                     "extensionAttributes": [],
-                    "name": "RC_C49487",
+                    "name": "RC_C49487_17",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -11157,7 +11157,7 @@
                   {
                     "id": "ResponseCode_19",
                     "extensionAttributes": [],
-                    "name": "RC_C49488",
+                    "name": "RC_C49488_18",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -11202,7 +11202,7 @@
                   {
                     "id": "ResponseCode_20",
                     "extensionAttributes": [],
-                    "name": "RC_C49487",
+                    "name": "RC_C49487_18",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -11219,7 +11219,7 @@
                   {
                     "id": "ResponseCode_21",
                     "extensionAttributes": [],
-                    "name": "RC_C49488",
+                    "name": "RC_C49488_19",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -11393,7 +11393,7 @@
               {
                 "id": "BiomedicalConceptProperty_28",
                 "extensionAttributes": [],
-                "name": "VSORRES",
+                "name": "VSORRES_4",
                 "label": "VSORRES",
                 "isRequired": true,
                 "isEnabled": true,
@@ -11420,7 +11420,7 @@
               {
                 "id": "BiomedicalConceptProperty_29",
                 "extensionAttributes": [],
-                "name": "VSORRESU",
+                "name": "VSORRESU_4",
                 "label": "VSORRESU",
                 "isRequired": true,
                 "isEnabled": true,
@@ -11447,7 +11447,7 @@
               {
                 "id": "BiomedicalConceptProperty_30",
                 "extensionAttributes": [],
-                "name": "VSPOS",
+                "name": "VSPOS_1",
                 "label": "VSPOS",
                 "isRequired": true,
                 "isEnabled": true,
@@ -11456,7 +11456,7 @@
                   {
                     "id": "ResponseCode_22",
                     "extensionAttributes": [],
-                    "name": "RC_C62165",
+                    "name": "RC_C62165_1",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -11473,7 +11473,7 @@
                   {
                     "id": "ResponseCode_23",
                     "extensionAttributes": [],
-                    "name": "RC_C111310",
+                    "name": "RC_C111310_1",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -11490,7 +11490,7 @@
                   {
                     "id": "ResponseCode_24",
                     "extensionAttributes": [],
-                    "name": "RC_C62122",
+                    "name": "RC_C62122_1",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -11507,7 +11507,7 @@
                   {
                     "id": "ResponseCode_25",
                     "extensionAttributes": [],
-                    "name": "RC_C62166",
+                    "name": "RC_C62166_1",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -11524,7 +11524,7 @@
                   {
                     "id": "ResponseCode_26",
                     "extensionAttributes": [],
-                    "name": "RC_C62167",
+                    "name": "RC_C62167_1",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -11560,7 +11560,7 @@
               {
                 "id": "BiomedicalConceptProperty_31",
                 "extensionAttributes": [],
-                "name": "VSLOC",
+                "name": "VSLOC_2",
                 "label": "VSLOC",
                 "isRequired": true,
                 "isEnabled": true,
@@ -11569,7 +11569,7 @@
                   {
                     "id": "ResponseCode_27",
                     "extensionAttributes": [],
-                    "name": "RC_C12681",
+                    "name": "RC_C12681_1",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -11586,7 +11586,7 @@
                   {
                     "id": "ResponseCode_28",
                     "extensionAttributes": [],
-                    "name": "RC_C12687",
+                    "name": "RC_C12687_1",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -11603,7 +11603,7 @@
                   {
                     "id": "ResponseCode_29",
                     "extensionAttributes": [],
-                    "name": "RC_C32478",
+                    "name": "RC_C32478_1",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -11620,7 +11620,7 @@
                   {
                     "id": "ResponseCode_30",
                     "extensionAttributes": [],
-                    "name": "RC_C12715",
+                    "name": "RC_C12715_1",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -11637,7 +11637,7 @@
                   {
                     "id": "ResponseCode_31",
                     "extensionAttributes": [],
-                    "name": "RC_C32608",
+                    "name": "RC_C32608_1",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -11654,7 +11654,7 @@
                   {
                     "id": "ResponseCode_32",
                     "extensionAttributes": [],
-                    "name": "RC_C12838",
+                    "name": "RC_C12838_1",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -11690,7 +11690,7 @@
               {
                 "id": "BiomedicalConceptProperty_32",
                 "extensionAttributes": [],
-                "name": "VSLAT",
+                "name": "VSLAT_1",
                 "label": "VSLAT",
                 "isRequired": true,
                 "isEnabled": true,
@@ -11699,7 +11699,7 @@
                   {
                     "id": "ResponseCode_33",
                     "extensionAttributes": [],
-                    "name": "RC_C25229",
+                    "name": "RC_C25229_1",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -11716,7 +11716,7 @@
                   {
                     "id": "ResponseCode_34",
                     "extensionAttributes": [],
-                    "name": "RC_C25228",
+                    "name": "RC_C25228_1",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -11752,7 +11752,7 @@
               {
                 "id": "BiomedicalConceptProperty_33",
                 "extensionAttributes": [],
-                "name": "VSDTC",
+                "name": "VSDTC_4",
                 "label": "VSDTC",
                 "isRequired": true,
                 "isEnabled": true,
@@ -11836,7 +11836,7 @@
               {
                 "id": "BiomedicalConceptProperty_35",
                 "extensionAttributes": [],
-                "name": "VSORRES",
+                "name": "VSORRES_5",
                 "label": "VSORRES",
                 "isRequired": true,
                 "isEnabled": true,
@@ -11863,7 +11863,7 @@
               {
                 "id": "BiomedicalConceptProperty_36",
                 "extensionAttributes": [],
-                "name": "VSORRESU",
+                "name": "VSORRESU_5",
                 "label": "VSORRESU",
                 "isRequired": true,
                 "isEnabled": true,
@@ -11890,7 +11890,7 @@
               {
                 "id": "BiomedicalConceptProperty_37",
                 "extensionAttributes": [],
-                "name": "VSPOS",
+                "name": "VSPOS_2",
                 "label": "VSPOS",
                 "isRequired": true,
                 "isEnabled": true,
@@ -11899,7 +11899,7 @@
                   {
                     "id": "ResponseCode_35",
                     "extensionAttributes": [],
-                    "name": "RC_C62165",
+                    "name": "RC_C62165_2",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -11916,7 +11916,7 @@
                   {
                     "id": "ResponseCode_36",
                     "extensionAttributes": [],
-                    "name": "RC_C111310",
+                    "name": "RC_C111310_2",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -11933,7 +11933,7 @@
                   {
                     "id": "ResponseCode_37",
                     "extensionAttributes": [],
-                    "name": "RC_C62122",
+                    "name": "RC_C62122_2",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -11950,7 +11950,7 @@
                   {
                     "id": "ResponseCode_38",
                     "extensionAttributes": [],
-                    "name": "RC_C62166",
+                    "name": "RC_C62166_2",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -11967,7 +11967,7 @@
                   {
                     "id": "ResponseCode_39",
                     "extensionAttributes": [],
-                    "name": "RC_C62167",
+                    "name": "RC_C62167_2",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -12003,7 +12003,7 @@
               {
                 "id": "BiomedicalConceptProperty_38",
                 "extensionAttributes": [],
-                "name": "VSLOC",
+                "name": "VSLOC_3",
                 "label": "VSLOC",
                 "isRequired": true,
                 "isEnabled": true,
@@ -12012,7 +12012,7 @@
                   {
                     "id": "ResponseCode_40",
                     "extensionAttributes": [],
-                    "name": "RC_C12681",
+                    "name": "RC_C12681_2",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -12029,7 +12029,7 @@
                   {
                     "id": "ResponseCode_41",
                     "extensionAttributes": [],
-                    "name": "RC_C12687",
+                    "name": "RC_C12687_2",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -12046,7 +12046,7 @@
                   {
                     "id": "ResponseCode_42",
                     "extensionAttributes": [],
-                    "name": "RC_C32478",
+                    "name": "RC_C32478_2",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -12063,7 +12063,7 @@
                   {
                     "id": "ResponseCode_43",
                     "extensionAttributes": [],
-                    "name": "RC_C12715",
+                    "name": "RC_C12715_2",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -12080,7 +12080,7 @@
                   {
                     "id": "ResponseCode_44",
                     "extensionAttributes": [],
-                    "name": "RC_C32608",
+                    "name": "RC_C32608_2",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -12097,7 +12097,7 @@
                   {
                     "id": "ResponseCode_45",
                     "extensionAttributes": [],
-                    "name": "RC_C12838",
+                    "name": "RC_C12838_2",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -12133,7 +12133,7 @@
               {
                 "id": "BiomedicalConceptProperty_39",
                 "extensionAttributes": [],
-                "name": "VSLAT",
+                "name": "VSLAT_2",
                 "label": "VSLAT",
                 "isRequired": true,
                 "isEnabled": true,
@@ -12142,7 +12142,7 @@
                   {
                     "id": "ResponseCode_46",
                     "extensionAttributes": [],
-                    "name": "RC_C25229",
+                    "name": "RC_C25229_2",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -12159,7 +12159,7 @@
                   {
                     "id": "ResponseCode_47",
                     "extensionAttributes": [],
-                    "name": "RC_C25228",
+                    "name": "RC_C25228_2",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -12195,7 +12195,7 @@
               {
                 "id": "BiomedicalConceptProperty_40",
                 "extensionAttributes": [],
-                "name": "VSDTC",
+                "name": "VSDTC_5",
                 "label": "VSDTC",
                 "isRequired": true,
                 "isEnabled": true,
@@ -12279,7 +12279,7 @@
               {
                 "id": "BiomedicalConceptProperty_42",
                 "extensionAttributes": [],
-                "name": "VSORRES",
+                "name": "VSORRES_6",
                 "label": "VSORRES",
                 "isRequired": true,
                 "isEnabled": true,
@@ -12306,7 +12306,7 @@
               {
                 "id": "BiomedicalConceptProperty_43",
                 "extensionAttributes": [],
-                "name": "VSORRESU",
+                "name": "VSORRESU_6",
                 "label": "VSORRESU",
                 "isRequired": true,
                 "isEnabled": true,
@@ -12315,7 +12315,7 @@
                   {
                     "id": "ResponseCode_48",
                     "extensionAttributes": [],
-                    "name": "RC_C42559",
+                    "name": "RC_C42559_2",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -12332,7 +12332,7 @@
                   {
                     "id": "ResponseCode_49",
                     "extensionAttributes": [],
-                    "name": "RC_C44277",
+                    "name": "RC_C44277_2",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -12349,7 +12349,7 @@
                   {
                     "id": "ResponseCode_50",
                     "extensionAttributes": [],
-                    "name": "RC_C42537",
+                    "name": "RC_C42537_2",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -12385,7 +12385,7 @@
               {
                 "id": "BiomedicalConceptProperty_44",
                 "extensionAttributes": [],
-                "name": "VSLOC",
+                "name": "VSLOC_4",
                 "label": "VSLOC",
                 "isRequired": true,
                 "isEnabled": true,
@@ -12394,7 +12394,7 @@
                   {
                     "id": "ResponseCode_51",
                     "extensionAttributes": [],
-                    "name": "RC_C12674",
+                    "name": "RC_C12674_2",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -12411,7 +12411,7 @@
                   {
                     "id": "ResponseCode_52",
                     "extensionAttributes": [],
-                    "name": "RC_C12394",
+                    "name": "RC_C12394_2",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -12428,7 +12428,7 @@
                   {
                     "id": "ResponseCode_53",
                     "extensionAttributes": [],
-                    "name": "RC_C89803",
+                    "name": "RC_C89803_2",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -12445,7 +12445,7 @@
                   {
                     "id": "ResponseCode_54",
                     "extensionAttributes": [],
-                    "name": "RC_C12421",
+                    "name": "RC_C12421_2",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -12462,7 +12462,7 @@
                   {
                     "id": "ResponseCode_55",
                     "extensionAttributes": [],
-                    "name": "RC_C12390",
+                    "name": "RC_C12390_2",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -12498,7 +12498,7 @@
               {
                 "id": "BiomedicalConceptProperty_45",
                 "extensionAttributes": [],
-                "name": "VSDTC",
+                "name": "VSDTC_6",
                 "label": "VSDTC",
                 "isRequired": true,
                 "isEnabled": true,
@@ -12582,7 +12582,7 @@
               {
                 "id": "BiomedicalConceptProperty_47",
                 "extensionAttributes": [],
-                "name": "VSORRES",
+                "name": "VSORRES_7",
                 "label": "VSORRES",
                 "isRequired": true,
                 "isEnabled": true,
@@ -12609,7 +12609,7 @@
               {
                 "id": "BiomedicalConceptProperty_48",
                 "extensionAttributes": [],
-                "name": "VSORRESU",
+                "name": "VSORRESU_7",
                 "label": "VSORRESU",
                 "isRequired": true,
                 "isEnabled": true,
@@ -12618,7 +12618,7 @@
                   {
                     "id": "ResponseCode_56",
                     "extensionAttributes": [],
-                    "name": "RC_C48531",
+                    "name": "RC_C48531_2",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -12635,7 +12635,7 @@
                   {
                     "id": "ResponseCode_57",
                     "extensionAttributes": [],
-                    "name": "RC_C48155",
+                    "name": "RC_C48155_2",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -12652,7 +12652,7 @@
                   {
                     "id": "ResponseCode_58",
                     "extensionAttributes": [],
-                    "name": "RC_C28252",
+                    "name": "RC_C28252_2",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -12688,7 +12688,7 @@
               {
                 "id": "BiomedicalConceptProperty_49",
                 "extensionAttributes": [],
-                "name": "VSDTC",
+                "name": "VSDTC_7",
                 "label": "VSDTC",
                 "isRequired": true,
                 "isEnabled": true,
@@ -12772,7 +12772,7 @@
               {
                 "id": "BiomedicalConceptProperty_51",
                 "extensionAttributes": [],
-                "name": "VSORRES",
+                "name": "VSORRES_8",
                 "label": "VSORRES",
                 "isRequired": true,
                 "isEnabled": true,
@@ -12799,7 +12799,7 @@
               {
                 "id": "BiomedicalConceptProperty_52",
                 "extensionAttributes": [],
-                "name": "VSORRESU",
+                "name": "VSORRESU_8",
                 "label": "VSORRESU",
                 "isRequired": true,
                 "isEnabled": true,
@@ -12808,7 +12808,7 @@
                   {
                     "id": "ResponseCode_59",
                     "extensionAttributes": [],
-                    "name": "RC_C49668",
+                    "name": "RC_C49668_2",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -12825,7 +12825,7 @@
                   {
                     "id": "ResponseCode_60",
                     "extensionAttributes": [],
-                    "name": "RC_C48500",
+                    "name": "RC_C48500_2",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -12842,7 +12842,7 @@
                   {
                     "id": "ResponseCode_61",
                     "extensionAttributes": [],
-                    "name": "RC_C41139",
+                    "name": "RC_C41139_2",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -12878,7 +12878,7 @@
               {
                 "id": "BiomedicalConceptProperty_53",
                 "extensionAttributes": [],
-                "name": "VSDTC",
+                "name": "VSDTC_8",
                 "label": "VSDTC",
                 "isRequired": true,
                 "isEnabled": true,
@@ -12936,7 +12936,7 @@
               {
                 "id": "BiomedicalConceptProperty_54",
                 "extensionAttributes": [],
-                "name": "LBTESTCD",
+                "name": "LBTESTCD_9",
                 "label": "LBTESTCD",
                 "isRequired": true,
                 "isEnabled": true,
@@ -12963,7 +12963,7 @@
               {
                 "id": "BiomedicalConceptProperty_55",
                 "extensionAttributes": [],
-                "name": "LBORRES",
+                "name": "LBORRES_9",
                 "label": "LBORRES",
                 "isRequired": true,
                 "isEnabled": true,
@@ -12990,7 +12990,7 @@
               {
                 "id": "BiomedicalConceptProperty_56",
                 "extensionAttributes": [],
-                "name": "LBORRESU",
+                "name": "LBORRESU_8",
                 "label": "LBORRESU",
                 "isRequired": true,
                 "isEnabled": true,
@@ -12999,7 +12999,7 @@
                   {
                     "id": "ResponseCode_62",
                     "extensionAttributes": [],
-                    "name": "RC_C67456",
+                    "name": "RC_C67456_4",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -13016,7 +13016,7 @@
                   {
                     "id": "ResponseCode_63",
                     "extensionAttributes": [],
-                    "name": "RC_C67397",
+                    "name": "RC_C67397_4",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -13033,7 +13033,7 @@
                   {
                     "id": "ResponseCode_64",
                     "extensionAttributes": [],
-                    "name": "RC_C67376",
+                    "name": "RC_C67376_4",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -13050,7 +13050,7 @@
                   {
                     "id": "ResponseCode_65",
                     "extensionAttributes": [],
-                    "name": "RC_C70510",
+                    "name": "RC_C70510_2",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -13086,7 +13086,7 @@
               {
                 "id": "BiomedicalConceptProperty_57",
                 "extensionAttributes": [],
-                "name": "LBSPEC",
+                "name": "LBSPEC_9",
                 "label": "LBSPEC",
                 "isRequired": true,
                 "isEnabled": true,
@@ -13113,7 +13113,7 @@
               {
                 "id": "BiomedicalConceptProperty_58",
                 "extensionAttributes": [],
-                "name": "LBFAST",
+                "name": "LBFAST_9",
                 "label": "LBFAST",
                 "isRequired": true,
                 "isEnabled": true,
@@ -13122,7 +13122,7 @@
                   {
                     "id": "ResponseCode_66",
                     "extensionAttributes": [],
-                    "name": "RC_C49487",
+                    "name": "RC_C49487_19",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -13139,7 +13139,7 @@
                   {
                     "id": "ResponseCode_67",
                     "extensionAttributes": [],
-                    "name": "RC_C49488",
+                    "name": "RC_C49488_20",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -13205,7 +13205,7 @@
               {
                 "id": "BiomedicalConceptProperty_59",
                 "extensionAttributes": [],
-                "name": "LBTESTCD",
+                "name": "LBTESTCD_10",
                 "label": "LBTESTCD",
                 "isRequired": true,
                 "isEnabled": true,
@@ -13232,7 +13232,7 @@
               {
                 "id": "BiomedicalConceptProperty_60",
                 "extensionAttributes": [],
-                "name": "LBORRES",
+                "name": "LBORRES_10",
                 "label": "LBORRES",
                 "isRequired": true,
                 "isEnabled": true,
@@ -13259,7 +13259,7 @@
               {
                 "id": "BiomedicalConceptProperty_61",
                 "extensionAttributes": [],
-                "name": "LBSPEC",
+                "name": "LBSPEC_10",
                 "label": "LBSPEC",
                 "isRequired": true,
                 "isEnabled": true,
@@ -13286,7 +13286,7 @@
               {
                 "id": "BiomedicalConceptProperty_62",
                 "extensionAttributes": [],
-                "name": "LBFAST",
+                "name": "LBFAST_10",
                 "label": "LBFAST",
                 "isRequired": true,
                 "isEnabled": true,
@@ -13295,7 +13295,7 @@
                   {
                     "id": "ResponseCode_68",
                     "extensionAttributes": [],
-                    "name": "RC_C49487",
+                    "name": "RC_C49487_20",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -13312,7 +13312,7 @@
                   {
                     "id": "ResponseCode_69",
                     "extensionAttributes": [],
-                    "name": "RC_C49488",
+                    "name": "RC_C49488_21",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -13378,7 +13378,7 @@
               {
                 "id": "BiomedicalConceptProperty_63",
                 "extensionAttributes": [],
-                "name": "LBTESTCD",
+                "name": "LBTESTCD_11",
                 "label": "LBTESTCD",
                 "isRequired": true,
                 "isEnabled": true,
@@ -13405,7 +13405,7 @@
               {
                 "id": "BiomedicalConceptProperty_64",
                 "extensionAttributes": [],
-                "name": "LBORRES",
+                "name": "LBORRES_11",
                 "label": "LBORRES",
                 "isRequired": true,
                 "isEnabled": true,
@@ -13432,7 +13432,7 @@
               {
                 "id": "BiomedicalConceptProperty_65",
                 "extensionAttributes": [],
-                "name": "LBORRESU",
+                "name": "LBORRESU_9",
                 "label": "LBORRESU",
                 "isRequired": true,
                 "isEnabled": true,
@@ -13441,7 +13441,7 @@
                   {
                     "id": "ResponseCode_70",
                     "extensionAttributes": [],
-                    "name": "RC_C67456",
+                    "name": "RC_C67456_5",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -13458,7 +13458,7 @@
                   {
                     "id": "ResponseCode_71",
                     "extensionAttributes": [],
-                    "name": "RC_C67397",
+                    "name": "RC_C67397_5",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -13475,7 +13475,7 @@
                   {
                     "id": "ResponseCode_72",
                     "extensionAttributes": [],
-                    "name": "RC_C67376",
+                    "name": "RC_C67376_5",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -13511,7 +13511,7 @@
               {
                 "id": "BiomedicalConceptProperty_66",
                 "extensionAttributes": [],
-                "name": "LBSPEC",
+                "name": "LBSPEC_11",
                 "label": "LBSPEC",
                 "isRequired": true,
                 "isEnabled": true,
@@ -13538,7 +13538,7 @@
               {
                 "id": "BiomedicalConceptProperty_67",
                 "extensionAttributes": [],
-                "name": "LBFAST",
+                "name": "LBFAST_11",
                 "label": "LBFAST",
                 "isRequired": true,
                 "isEnabled": true,
@@ -13547,7 +13547,7 @@
                   {
                     "id": "ResponseCode_73",
                     "extensionAttributes": [],
-                    "name": "RC_C49487",
+                    "name": "RC_C49487_21",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -13564,7 +13564,7 @@
                   {
                     "id": "ResponseCode_74",
                     "extensionAttributes": [],
-                    "name": "RC_C49488",
+                    "name": "RC_C49488_22",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -13631,7 +13631,7 @@
               {
                 "id": "BiomedicalConceptProperty_68",
                 "extensionAttributes": [],
-                "name": "LBTESTCD",
+                "name": "LBTESTCD_12",
                 "label": "LBTESTCD",
                 "isRequired": true,
                 "isEnabled": true,
@@ -13658,7 +13658,7 @@
               {
                 "id": "BiomedicalConceptProperty_69",
                 "extensionAttributes": [],
-                "name": "LBORRES",
+                "name": "LBORRES_12",
                 "label": "LBORRES",
                 "isRequired": true,
                 "isEnabled": true,
@@ -13685,7 +13685,7 @@
               {
                 "id": "BiomedicalConceptProperty_70",
                 "extensionAttributes": [],
-                "name": "LBORRESU",
+                "name": "LBORRESU_10",
                 "label": "LBORRESU",
                 "isRequired": true,
                 "isEnabled": true,
@@ -13694,7 +13694,7 @@
                   {
                     "id": "ResponseCode_75",
                     "extensionAttributes": [],
-                    "name": "RC_C67456",
+                    "name": "RC_C67456_6",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -13711,7 +13711,7 @@
                   {
                     "id": "ResponseCode_76",
                     "extensionAttributes": [],
-                    "name": "RC_C67397",
+                    "name": "RC_C67397_6",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -13728,7 +13728,7 @@
                   {
                     "id": "ResponseCode_77",
                     "extensionAttributes": [],
-                    "name": "RC_C67376",
+                    "name": "RC_C67376_6",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -13764,7 +13764,7 @@
               {
                 "id": "BiomedicalConceptProperty_71",
                 "extensionAttributes": [],
-                "name": "LBSPEC",
+                "name": "LBSPEC_12",
                 "label": "LBSPEC",
                 "isRequired": true,
                 "isEnabled": true,
@@ -13791,7 +13791,7 @@
               {
                 "id": "BiomedicalConceptProperty_72",
                 "extensionAttributes": [],
-                "name": "LBFAST",
+                "name": "LBFAST_12",
                 "label": "LBFAST",
                 "isRequired": true,
                 "isEnabled": true,
@@ -13800,7 +13800,7 @@
                   {
                     "id": "ResponseCode_78",
                     "extensionAttributes": [],
-                    "name": "RC_C49487",
+                    "name": "RC_C49487_22",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -13817,7 +13817,7 @@
                   {
                     "id": "ResponseCode_79",
                     "extensionAttributes": [],
-                    "name": "RC_C49488",
+                    "name": "RC_C49488_23",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -13883,7 +13883,7 @@
               {
                 "id": "BiomedicalConceptProperty_73",
                 "extensionAttributes": [],
-                "name": "LBTESTCD",
+                "name": "LBTESTCD_13",
                 "label": "LBTESTCD",
                 "isRequired": true,
                 "isEnabled": true,
@@ -13910,7 +13910,7 @@
               {
                 "id": "BiomedicalConceptProperty_74",
                 "extensionAttributes": [],
-                "name": "LBORRES",
+                "name": "LBORRES_13",
                 "label": "LBORRES",
                 "isRequired": true,
                 "isEnabled": true,
@@ -13937,7 +13937,7 @@
               {
                 "id": "BiomedicalConceptProperty_75",
                 "extensionAttributes": [],
-                "name": "LBORRESU",
+                "name": "LBORRESU_11",
                 "label": "LBORRESU",
                 "isRequired": true,
                 "isEnabled": true,
@@ -13946,7 +13946,7 @@
                   {
                     "id": "ResponseCode_80",
                     "extensionAttributes": [],
-                    "name": "RC_C67015",
+                    "name": "RC_C67015_2",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -13963,7 +13963,7 @@
                   {
                     "id": "ResponseCode_81",
                     "extensionAttributes": [],
-                    "name": "RC_C64572",
+                    "name": "RC_C64572_2",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -13980,7 +13980,7 @@
                   {
                     "id": "ResponseCode_82",
                     "extensionAttributes": [],
-                    "name": "RC_C64387",
+                    "name": "RC_C64387_4",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -13997,7 +13997,7 @@
                   {
                     "id": "ResponseCode_83",
                     "extensionAttributes": [],
-                    "name": "RC_C48508",
+                    "name": "RC_C48508_2",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -14033,7 +14033,7 @@
               {
                 "id": "BiomedicalConceptProperty_76",
                 "extensionAttributes": [],
-                "name": "LBSPEC",
+                "name": "LBSPEC_13",
                 "label": "LBSPEC",
                 "isRequired": true,
                 "isEnabled": true,
@@ -14060,7 +14060,7 @@
               {
                 "id": "BiomedicalConceptProperty_77",
                 "extensionAttributes": [],
-                "name": "LBFAST",
+                "name": "LBFAST_13",
                 "label": "LBFAST",
                 "isRequired": true,
                 "isEnabled": true,
@@ -14069,7 +14069,7 @@
                   {
                     "id": "ResponseCode_84",
                     "extensionAttributes": [],
-                    "name": "RC_C49487",
+                    "name": "RC_C49487_23",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -14086,7 +14086,7 @@
                   {
                     "id": "ResponseCode_85",
                     "extensionAttributes": [],
-                    "name": "RC_C49488",
+                    "name": "RC_C49488_24",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -14153,7 +14153,7 @@
               {
                 "id": "BiomedicalConceptProperty_78",
                 "extensionAttributes": [],
-                "name": "LBTESTCD",
+                "name": "LBTESTCD_14",
                 "label": "LBTESTCD",
                 "isRequired": true,
                 "isEnabled": true,
@@ -14180,7 +14180,7 @@
               {
                 "id": "BiomedicalConceptProperty_79",
                 "extensionAttributes": [],
-                "name": "LBORRES",
+                "name": "LBORRES_14",
                 "label": "LBORRES",
                 "isRequired": true,
                 "isEnabled": true,
@@ -14207,7 +14207,7 @@
               {
                 "id": "BiomedicalConceptProperty_80",
                 "extensionAttributes": [],
-                "name": "LBORRESU",
+                "name": "LBORRESU_12",
                 "label": "LBORRESU",
                 "isRequired": true,
                 "isEnabled": true,
@@ -14216,7 +14216,7 @@
                   {
                     "id": "ResponseCode_86",
                     "extensionAttributes": [],
-                    "name": "RC_C67474",
+                    "name": "RC_C67474_3",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -14233,7 +14233,7 @@
                   {
                     "id": "ResponseCode_87",
                     "extensionAttributes": [],
-                    "name": "RC_C67473",
+                    "name": "RC_C67473_3",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -14250,7 +14250,7 @@
                   {
                     "id": "ResponseCode_88",
                     "extensionAttributes": [],
-                    "name": "RC_C64387",
+                    "name": "RC_C64387_5",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -14286,7 +14286,7 @@
               {
                 "id": "BiomedicalConceptProperty_81",
                 "extensionAttributes": [],
-                "name": "LBSPEC",
+                "name": "LBSPEC_14",
                 "label": "LBSPEC",
                 "isRequired": true,
                 "isEnabled": true,
@@ -14313,7 +14313,7 @@
               {
                 "id": "BiomedicalConceptProperty_82",
                 "extensionAttributes": [],
-                "name": "LBFAST",
+                "name": "LBFAST_14",
                 "label": "LBFAST",
                 "isRequired": true,
                 "isEnabled": true,
@@ -14322,7 +14322,7 @@
                   {
                     "id": "ResponseCode_89",
                     "extensionAttributes": [],
-                    "name": "RC_C49487",
+                    "name": "RC_C49487_24",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -14339,7 +14339,7 @@
                   {
                     "id": "ResponseCode_90",
                     "extensionAttributes": [],
-                    "name": "RC_C49488",
+                    "name": "RC_C49488_25",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -14406,7 +14406,7 @@
               {
                 "id": "BiomedicalConceptProperty_83",
                 "extensionAttributes": [],
-                "name": "LBTESTCD",
+                "name": "LBTESTCD_15",
                 "label": "LBTESTCD",
                 "isRequired": true,
                 "isEnabled": true,
@@ -14433,7 +14433,7 @@
               {
                 "id": "BiomedicalConceptProperty_84",
                 "extensionAttributes": [],
-                "name": "LBORRES",
+                "name": "LBORRES_15",
                 "label": "LBORRES",
                 "isRequired": true,
                 "isEnabled": true,
@@ -14460,7 +14460,7 @@
               {
                 "id": "BiomedicalConceptProperty_85",
                 "extensionAttributes": [],
-                "name": "LBORRESU",
+                "name": "LBORRESU_13",
                 "label": "LBORRESU",
                 "isRequired": true,
                 "isEnabled": true,
@@ -14469,7 +14469,7 @@
                   {
                     "id": "ResponseCode_91",
                     "extensionAttributes": [],
-                    "name": "RC_C67474",
+                    "name": "RC_C67474_4",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -14486,7 +14486,7 @@
                   {
                     "id": "ResponseCode_92",
                     "extensionAttributes": [],
-                    "name": "RC_C67473",
+                    "name": "RC_C67473_4",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -14503,7 +14503,7 @@
                   {
                     "id": "ResponseCode_93",
                     "extensionAttributes": [],
-                    "name": "RC_C64387",
+                    "name": "RC_C64387_6",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -14539,7 +14539,7 @@
               {
                 "id": "BiomedicalConceptProperty_86",
                 "extensionAttributes": [],
-                "name": "LBSPEC",
+                "name": "LBSPEC_15",
                 "label": "LBSPEC",
                 "isRequired": true,
                 "isEnabled": true,
@@ -14566,7 +14566,7 @@
               {
                 "id": "BiomedicalConceptProperty_87",
                 "extensionAttributes": [],
-                "name": "LBFAST",
+                "name": "LBFAST_15",
                 "label": "LBFAST",
                 "isRequired": true,
                 "isEnabled": true,
@@ -14575,7 +14575,7 @@
                   {
                     "id": "ResponseCode_94",
                     "extensionAttributes": [],
-                    "name": "RC_C49487",
+                    "name": "RC_C49487_25",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -14592,7 +14592,7 @@
                   {
                     "id": "ResponseCode_95",
                     "extensionAttributes": [],
-                    "name": "RC_C49488",
+                    "name": "RC_C49488_26",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -14685,7 +14685,7 @@
               {
                 "id": "BiomedicalConceptProperty_89",
                 "extensionAttributes": [],
-                "name": "VSORRES",
+                "name": "VSORRES_9",
                 "label": "VSORRES",
                 "isRequired": true,
                 "isEnabled": true,
@@ -14712,7 +14712,7 @@
               {
                 "id": "BiomedicalConceptProperty_90",
                 "extensionAttributes": [],
-                "name": "VSORRESU",
+                "name": "VSORRESU_9",
                 "label": "VSORRESU",
                 "isRequired": true,
                 "isEnabled": true,
@@ -14739,7 +14739,7 @@
               {
                 "id": "BiomedicalConceptProperty_91",
                 "extensionAttributes": [],
-                "name": "VSPOS",
+                "name": "VSPOS_3",
                 "label": "VSPOS",
                 "isRequired": true,
                 "isEnabled": true,
@@ -14748,7 +14748,7 @@
                   {
                     "id": "ResponseCode_96",
                     "extensionAttributes": [],
-                    "name": "RC_C62165",
+                    "name": "RC_C62165_3",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -14765,7 +14765,7 @@
                   {
                     "id": "ResponseCode_97",
                     "extensionAttributes": [],
-                    "name": "RC_C111310",
+                    "name": "RC_C111310_3",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -14782,7 +14782,7 @@
                   {
                     "id": "ResponseCode_98",
                     "extensionAttributes": [],
-                    "name": "RC_C62122",
+                    "name": "RC_C62122_3",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -14799,7 +14799,7 @@
                   {
                     "id": "ResponseCode_99",
                     "extensionAttributes": [],
-                    "name": "RC_C62166",
+                    "name": "RC_C62166_3",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -14816,7 +14816,7 @@
                   {
                     "id": "ResponseCode_100",
                     "extensionAttributes": [],
-                    "name": "RC_C62167",
+                    "name": "RC_C62167_3",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -14852,7 +14852,7 @@
               {
                 "id": "BiomedicalConceptProperty_92",
                 "extensionAttributes": [],
-                "name": "VSLOC",
+                "name": "VSLOC_5",
                 "label": "VSLOC",
                 "isRequired": true,
                 "isEnabled": true,
@@ -14861,7 +14861,7 @@
                   {
                     "id": "ResponseCode_101",
                     "extensionAttributes": [],
-                    "name": "RC_C12681",
+                    "name": "RC_C12681_3",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -14878,7 +14878,7 @@
                   {
                     "id": "ResponseCode_102",
                     "extensionAttributes": [],
-                    "name": "RC_C12687",
+                    "name": "RC_C12687_3",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -14895,7 +14895,7 @@
                   {
                     "id": "ResponseCode_103",
                     "extensionAttributes": [],
-                    "name": "RC_C32478",
+                    "name": "RC_C32478_3",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -14912,7 +14912,7 @@
                   {
                     "id": "ResponseCode_104",
                     "extensionAttributes": [],
-                    "name": "RC_C12715",
+                    "name": "RC_C12715_3",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -14929,7 +14929,7 @@
                   {
                     "id": "ResponseCode_105",
                     "extensionAttributes": [],
-                    "name": "RC_C32608",
+                    "name": "RC_C32608_3",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -14946,7 +14946,7 @@
                   {
                     "id": "ResponseCode_106",
                     "extensionAttributes": [],
-                    "name": "RC_C12838",
+                    "name": "RC_C12838_3",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -14982,7 +14982,7 @@
               {
                 "id": "BiomedicalConceptProperty_93",
                 "extensionAttributes": [],
-                "name": "VSLAT",
+                "name": "VSLAT_3",
                 "label": "VSLAT",
                 "isRequired": true,
                 "isEnabled": true,
@@ -14991,7 +14991,7 @@
                   {
                     "id": "ResponseCode_107",
                     "extensionAttributes": [],
-                    "name": "RC_C25229",
+                    "name": "RC_C25229_3",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -15008,7 +15008,7 @@
                   {
                     "id": "ResponseCode_108",
                     "extensionAttributes": [],
-                    "name": "RC_C25228",
+                    "name": "RC_C25228_3",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -15044,7 +15044,7 @@
               {
                 "id": "BiomedicalConceptProperty_94",
                 "extensionAttributes": [],
-                "name": "VSDTC",
+                "name": "VSDTC_9",
                 "label": "VSDTC",
                 "isRequired": true,
                 "isEnabled": true,
@@ -15128,7 +15128,7 @@
               {
                 "id": "BiomedicalConceptProperty_96",
                 "extensionAttributes": [],
-                "name": "VSORRES",
+                "name": "VSORRES_10",
                 "label": "VSORRES",
                 "isRequired": true,
                 "isEnabled": true,
@@ -15155,7 +15155,7 @@
               {
                 "id": "BiomedicalConceptProperty_97",
                 "extensionAttributes": [],
-                "name": "VSORRESU",
+                "name": "VSORRESU_10",
                 "label": "VSORRESU",
                 "isRequired": true,
                 "isEnabled": true,
@@ -15182,7 +15182,7 @@
               {
                 "id": "BiomedicalConceptProperty_98",
                 "extensionAttributes": [],
-                "name": "VSPOS",
+                "name": "VSPOS_4",
                 "label": "VSPOS",
                 "isRequired": true,
                 "isEnabled": true,
@@ -15191,7 +15191,7 @@
                   {
                     "id": "ResponseCode_109",
                     "extensionAttributes": [],
-                    "name": "RC_C62165",
+                    "name": "RC_C62165_4",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -15208,7 +15208,7 @@
                   {
                     "id": "ResponseCode_110",
                     "extensionAttributes": [],
-                    "name": "RC_C111310",
+                    "name": "RC_C111310_4",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -15225,7 +15225,7 @@
                   {
                     "id": "ResponseCode_111",
                     "extensionAttributes": [],
-                    "name": "RC_C62122",
+                    "name": "RC_C62122_4",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -15242,7 +15242,7 @@
                   {
                     "id": "ResponseCode_112",
                     "extensionAttributes": [],
-                    "name": "RC_C62166",
+                    "name": "RC_C62166_4",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -15259,7 +15259,7 @@
                   {
                     "id": "ResponseCode_113",
                     "extensionAttributes": [],
-                    "name": "RC_C62167",
+                    "name": "RC_C62167_4",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -15295,7 +15295,7 @@
               {
                 "id": "BiomedicalConceptProperty_99",
                 "extensionAttributes": [],
-                "name": "VSLOC",
+                "name": "VSLOC_6",
                 "label": "VSLOC",
                 "isRequired": true,
                 "isEnabled": true,
@@ -15304,7 +15304,7 @@
                   {
                     "id": "ResponseCode_114",
                     "extensionAttributes": [],
-                    "name": "RC_C12681",
+                    "name": "RC_C12681_4",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -15321,7 +15321,7 @@
                   {
                     "id": "ResponseCode_115",
                     "extensionAttributes": [],
-                    "name": "RC_C12687",
+                    "name": "RC_C12687_4",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -15338,7 +15338,7 @@
                   {
                     "id": "ResponseCode_116",
                     "extensionAttributes": [],
-                    "name": "RC_C32478",
+                    "name": "RC_C32478_4",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -15355,7 +15355,7 @@
                   {
                     "id": "ResponseCode_117",
                     "extensionAttributes": [],
-                    "name": "RC_C12715",
+                    "name": "RC_C12715_4",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -15372,7 +15372,7 @@
                   {
                     "id": "ResponseCode_118",
                     "extensionAttributes": [],
-                    "name": "RC_C32608",
+                    "name": "RC_C32608_4",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -15389,7 +15389,7 @@
                   {
                     "id": "ResponseCode_119",
                     "extensionAttributes": [],
-                    "name": "RC_C12838",
+                    "name": "RC_C12838_4",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -15425,7 +15425,7 @@
               {
                 "id": "BiomedicalConceptProperty_100",
                 "extensionAttributes": [],
-                "name": "VSLAT",
+                "name": "VSLAT_4",
                 "label": "VSLAT",
                 "isRequired": true,
                 "isEnabled": true,
@@ -15434,7 +15434,7 @@
                   {
                     "id": "ResponseCode_120",
                     "extensionAttributes": [],
-                    "name": "RC_C25229",
+                    "name": "RC_C25229_4",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -15451,7 +15451,7 @@
                   {
                     "id": "ResponseCode_121",
                     "extensionAttributes": [],
-                    "name": "RC_C25228",
+                    "name": "RC_C25228_4",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -15487,7 +15487,7 @@
               {
                 "id": "BiomedicalConceptProperty_101",
                 "extensionAttributes": [],
-                "name": "VSDTC",
+                "name": "VSDTC_10",
                 "label": "VSDTC",
                 "isRequired": true,
                 "isEnabled": true,
@@ -15571,7 +15571,7 @@
               {
                 "id": "BiomedicalConceptProperty_103",
                 "extensionAttributes": [],
-                "name": "VSORRES",
+                "name": "VSORRES_11",
                 "label": "VSORRES",
                 "isRequired": true,
                 "isEnabled": true,
@@ -15598,7 +15598,7 @@
               {
                 "id": "BiomedicalConceptProperty_104",
                 "extensionAttributes": [],
-                "name": "VSORRESU",
+                "name": "VSORRESU_11",
                 "label": "VSORRESU",
                 "isRequired": true,
                 "isEnabled": true,
@@ -15625,7 +15625,7 @@
               {
                 "id": "BiomedicalConceptProperty_105",
                 "extensionAttributes": [],
-                "name": "VSPOS",
+                "name": "VSPOS_5",
                 "label": "VSPOS",
                 "isRequired": true,
                 "isEnabled": true,
@@ -15634,7 +15634,7 @@
                   {
                     "id": "ResponseCode_122",
                     "extensionAttributes": [],
-                    "name": "RC_C62165",
+                    "name": "RC_C62165_5",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -15651,7 +15651,7 @@
                   {
                     "id": "ResponseCode_123",
                     "extensionAttributes": [],
-                    "name": "RC_C111310",
+                    "name": "RC_C111310_5",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -15668,7 +15668,7 @@
                   {
                     "id": "ResponseCode_124",
                     "extensionAttributes": [],
-                    "name": "RC_C62122",
+                    "name": "RC_C62122_5",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -15685,7 +15685,7 @@
                   {
                     "id": "ResponseCode_125",
                     "extensionAttributes": [],
-                    "name": "RC_C62166",
+                    "name": "RC_C62166_5",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -15702,7 +15702,7 @@
                   {
                     "id": "ResponseCode_126",
                     "extensionAttributes": [],
-                    "name": "RC_C62167",
+                    "name": "RC_C62167_5",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -15738,7 +15738,7 @@
               {
                 "id": "BiomedicalConceptProperty_106",
                 "extensionAttributes": [],
-                "name": "VSLOC",
+                "name": "VSLOC_7",
                 "label": "VSLOC",
                 "isRequired": true,
                 "isEnabled": true,
@@ -15747,7 +15747,7 @@
                   {
                     "id": "ResponseCode_127",
                     "extensionAttributes": [],
-                    "name": "RC_C12681",
+                    "name": "RC_C12681_5",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -15764,7 +15764,7 @@
                   {
                     "id": "ResponseCode_128",
                     "extensionAttributes": [],
-                    "name": "RC_C12687",
+                    "name": "RC_C12687_5",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -15781,7 +15781,7 @@
                   {
                     "id": "ResponseCode_129",
                     "extensionAttributes": [],
-                    "name": "RC_C12691",
+                    "name": "RC_C12691_1",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -15798,7 +15798,7 @@
                   {
                     "id": "ResponseCode_130",
                     "extensionAttributes": [],
-                    "name": "RC_C32478",
+                    "name": "RC_C32478_5",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -15815,7 +15815,7 @@
                   {
                     "id": "ResponseCode_131",
                     "extensionAttributes": [],
-                    "name": "RC_C12715",
+                    "name": "RC_C12715_5",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -15832,7 +15832,7 @@
                   {
                     "id": "ResponseCode_132",
                     "extensionAttributes": [],
-                    "name": "RC_C12838",
+                    "name": "RC_C12838_5",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -15868,7 +15868,7 @@
               {
                 "id": "BiomedicalConceptProperty_107",
                 "extensionAttributes": [],
-                "name": "VSLAT",
+                "name": "VSLAT_5",
                 "label": "VSLAT",
                 "isRequired": true,
                 "isEnabled": true,
@@ -15877,7 +15877,7 @@
                   {
                     "id": "ResponseCode_133",
                     "extensionAttributes": [],
-                    "name": "RC_C25229",
+                    "name": "RC_C25229_5",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -15894,7 +15894,7 @@
                   {
                     "id": "ResponseCode_134",
                     "extensionAttributes": [],
-                    "name": "RC_C25228",
+                    "name": "RC_C25228_5",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -15930,7 +15930,7 @@
               {
                 "id": "BiomedicalConceptProperty_108",
                 "extensionAttributes": [],
-                "name": "VSDTC",
+                "name": "VSDTC_11",
                 "label": "VSDTC",
                 "isRequired": true,
                 "isEnabled": true,
@@ -16014,7 +16014,7 @@
               {
                 "id": "BiomedicalConceptProperty_110",
                 "extensionAttributes": [],
-                "name": "VSORRES",
+                "name": "VSORRES_12",
                 "label": "VSORRES",
                 "isRequired": true,
                 "isEnabled": true,
@@ -16041,7 +16041,7 @@
               {
                 "id": "BiomedicalConceptProperty_111",
                 "extensionAttributes": [],
-                "name": "VSORRESU",
+                "name": "VSORRESU_12",
                 "label": "VSORRESU",
                 "isRequired": true,
                 "isEnabled": true,
@@ -16068,7 +16068,7 @@
               {
                 "id": "BiomedicalConceptProperty_112",
                 "extensionAttributes": [],
-                "name": "VSPOS",
+                "name": "VSPOS_6",
                 "label": "VSPOS",
                 "isRequired": true,
                 "isEnabled": true,
@@ -16077,7 +16077,7 @@
                   {
                     "id": "ResponseCode_135",
                     "extensionAttributes": [],
-                    "name": "RC_C62165",
+                    "name": "RC_C62165_6",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -16094,7 +16094,7 @@
                   {
                     "id": "ResponseCode_136",
                     "extensionAttributes": [],
-                    "name": "RC_C111310",
+                    "name": "RC_C111310_6",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -16111,7 +16111,7 @@
                   {
                     "id": "ResponseCode_137",
                     "extensionAttributes": [],
-                    "name": "RC_C62122",
+                    "name": "RC_C62122_6",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -16128,7 +16128,7 @@
                   {
                     "id": "ResponseCode_138",
                     "extensionAttributes": [],
-                    "name": "RC_C62166",
+                    "name": "RC_C62166_6",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -16145,7 +16145,7 @@
                   {
                     "id": "ResponseCode_139",
                     "extensionAttributes": [],
-                    "name": "RC_C62167",
+                    "name": "RC_C62167_6",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -16181,7 +16181,7 @@
               {
                 "id": "BiomedicalConceptProperty_113",
                 "extensionAttributes": [],
-                "name": "VSLOC",
+                "name": "VSLOC_8",
                 "label": "VSLOC",
                 "isRequired": true,
                 "isEnabled": true,
@@ -16190,7 +16190,7 @@
                   {
                     "id": "ResponseCode_140",
                     "extensionAttributes": [],
-                    "name": "RC_C12681",
+                    "name": "RC_C12681_6",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -16207,7 +16207,7 @@
                   {
                     "id": "ResponseCode_141",
                     "extensionAttributes": [],
-                    "name": "RC_C12687",
+                    "name": "RC_C12687_6",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -16224,7 +16224,7 @@
                   {
                     "id": "ResponseCode_142",
                     "extensionAttributes": [],
-                    "name": "RC_C32478",
+                    "name": "RC_C32478_6",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -16241,7 +16241,7 @@
                   {
                     "id": "ResponseCode_143",
                     "extensionAttributes": [],
-                    "name": "RC_C12715",
+                    "name": "RC_C12715_6",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -16258,7 +16258,7 @@
                   {
                     "id": "ResponseCode_144",
                     "extensionAttributes": [],
-                    "name": "RC_C32608",
+                    "name": "RC_C32608_5",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -16275,7 +16275,7 @@
                   {
                     "id": "ResponseCode_145",
                     "extensionAttributes": [],
-                    "name": "RC_C12838",
+                    "name": "RC_C12838_6",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -16311,7 +16311,7 @@
               {
                 "id": "BiomedicalConceptProperty_114",
                 "extensionAttributes": [],
-                "name": "VSLAT",
+                "name": "VSLAT_6",
                 "label": "VSLAT",
                 "isRequired": true,
                 "isEnabled": true,
@@ -16320,7 +16320,7 @@
                   {
                     "id": "ResponseCode_146",
                     "extensionAttributes": [],
-                    "name": "RC_C25229",
+                    "name": "RC_C25229_6",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -16337,7 +16337,7 @@
                   {
                     "id": "ResponseCode_147",
                     "extensionAttributes": [],
-                    "name": "RC_C25228",
+                    "name": "RC_C25228_6",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -16373,7 +16373,7 @@
               {
                 "id": "BiomedicalConceptProperty_115",
                 "extensionAttributes": [],
-                "name": "VSDTC",
+                "name": "VSDTC_12",
                 "label": "VSDTC",
                 "isRequired": true,
                 "isEnabled": true,
@@ -16457,7 +16457,7 @@
               {
                 "id": "BiomedicalConceptProperty_117",
                 "extensionAttributes": [],
-                "name": "VSORRES",
+                "name": "VSORRES_13",
                 "label": "VSORRES",
                 "isRequired": true,
                 "isEnabled": true,
@@ -16484,7 +16484,7 @@
               {
                 "id": "BiomedicalConceptProperty_118",
                 "extensionAttributes": [],
-                "name": "VSORRESU",
+                "name": "VSORRESU_13",
                 "label": "VSORRESU",
                 "isRequired": true,
                 "isEnabled": true,
@@ -16511,7 +16511,7 @@
               {
                 "id": "BiomedicalConceptProperty_119",
                 "extensionAttributes": [],
-                "name": "VSPOS",
+                "name": "VSPOS_7",
                 "label": "VSPOS",
                 "isRequired": true,
                 "isEnabled": true,
@@ -16520,7 +16520,7 @@
                   {
                     "id": "ResponseCode_148",
                     "extensionAttributes": [],
-                    "name": "RC_C62165",
+                    "name": "RC_C62165_7",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -16537,7 +16537,7 @@
                   {
                     "id": "ResponseCode_149",
                     "extensionAttributes": [],
-                    "name": "RC_C111310",
+                    "name": "RC_C111310_7",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -16554,7 +16554,7 @@
                   {
                     "id": "ResponseCode_150",
                     "extensionAttributes": [],
-                    "name": "RC_C62122",
+                    "name": "RC_C62122_7",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -16571,7 +16571,7 @@
                   {
                     "id": "ResponseCode_151",
                     "extensionAttributes": [],
-                    "name": "RC_C62166",
+                    "name": "RC_C62166_7",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -16588,7 +16588,7 @@
                   {
                     "id": "ResponseCode_152",
                     "extensionAttributes": [],
-                    "name": "RC_C62167",
+                    "name": "RC_C62167_7",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -16624,7 +16624,7 @@
               {
                 "id": "BiomedicalConceptProperty_120",
                 "extensionAttributes": [],
-                "name": "VSLOC",
+                "name": "VSLOC_9",
                 "label": "VSLOC",
                 "isRequired": true,
                 "isEnabled": true,
@@ -16633,7 +16633,7 @@
                   {
                     "id": "ResponseCode_153",
                     "extensionAttributes": [],
-                    "name": "RC_C12681",
+                    "name": "RC_C12681_7",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -16650,7 +16650,7 @@
                   {
                     "id": "ResponseCode_154",
                     "extensionAttributes": [],
-                    "name": "RC_C12687",
+                    "name": "RC_C12687_7",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -16667,7 +16667,7 @@
                   {
                     "id": "ResponseCode_155",
                     "extensionAttributes": [],
-                    "name": "RC_C32478",
+                    "name": "RC_C32478_7",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -16684,7 +16684,7 @@
                   {
                     "id": "ResponseCode_156",
                     "extensionAttributes": [],
-                    "name": "RC_C12715",
+                    "name": "RC_C12715_7",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -16701,7 +16701,7 @@
                   {
                     "id": "ResponseCode_157",
                     "extensionAttributes": [],
-                    "name": "RC_C32608",
+                    "name": "RC_C32608_6",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -16718,7 +16718,7 @@
                   {
                     "id": "ResponseCode_158",
                     "extensionAttributes": [],
-                    "name": "RC_C12838",
+                    "name": "RC_C12838_7",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -16754,7 +16754,7 @@
               {
                 "id": "BiomedicalConceptProperty_121",
                 "extensionAttributes": [],
-                "name": "VSLAT",
+                "name": "VSLAT_7",
                 "label": "VSLAT",
                 "isRequired": true,
                 "isEnabled": true,
@@ -16763,7 +16763,7 @@
                   {
                     "id": "ResponseCode_159",
                     "extensionAttributes": [],
-                    "name": "RC_C25229",
+                    "name": "RC_C25229_7",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -16780,7 +16780,7 @@
                   {
                     "id": "ResponseCode_160",
                     "extensionAttributes": [],
-                    "name": "RC_C25228",
+                    "name": "RC_C25228_7",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -16816,7 +16816,7 @@
               {
                 "id": "BiomedicalConceptProperty_122",
                 "extensionAttributes": [],
-                "name": "VSDTC",
+                "name": "VSDTC_13",
                 "label": "VSDTC",
                 "isRequired": true,
                 "isEnabled": true,
@@ -16885,7 +16885,7 @@
             "notes": [],
             "instanceType": "BiomedicalConcept"
           },
-		  {
+          {
             "id": "BiomedicalConcept_35",
             "extensionAttributes": [],
             "name": "MH",
@@ -16911,7 +16911,7 @@
             "notes": [],
             "instanceType": "BiomedicalConcept"
           },
-		  {
+          {
             "id": "BiomedicalConcept_36",
             "extensionAttributes": [],
             "name": "Alcohol",
@@ -16937,7 +16937,7 @@
             "notes": [],
             "instanceType": "BiomedicalConcept"
           },
-		  {
+          {
             "id": "BiomedicalConcept_37",
             "extensionAttributes": [],
             "name": "Caffeine",
@@ -16962,9 +16962,8 @@
             },
             "notes": [],
             "instanceType": "BiomedicalConcept"
-          }, 
-		  
-		  {
+          },
+          {
             "id": "BiomedicalConcept_38",
             "extensionAttributes": [],
             "name": "ECG",
@@ -16989,9 +16988,8 @@
             },
             "notes": [],
             "instanceType": "BiomedicalConcept"
-          }, 
-		  
-		  {
+          },
+          {
             "id": "BiomedicalConcept_39",
             "extensionAttributes": [],
             "name": "CM",
@@ -17016,9 +17014,8 @@
             },
             "notes": [],
             "instanceType": "BiomedicalConcept"
-          }, 
-		  
-		  {
+          },
+          {
             "id": "BiomedicalConcept_40",
             "extensionAttributes": [],
             "name": "ADASCOG",
@@ -17044,7 +17041,7 @@
             "notes": [],
             "instanceType": "BiomedicalConcept"
           },
-		  {
+          {
             "id": "BiomedicalConcept_33",
             "extensionAttributes": [],
             "name": "Consent",
@@ -17141,7 +17138,7 @@
               {
                 "id": "BiomedicalConceptProperty_124",
                 "extensionAttributes": [],
-                "name": "VSORRES",
+                "name": "VSORRES_14",
                 "label": "VSORRES",
                 "isRequired": true,
                 "isEnabled": true,
@@ -17168,7 +17165,7 @@
               {
                 "id": "BiomedicalConceptProperty_125",
                 "extensionAttributes": [],
-                "name": "VSORRESU",
+                "name": "VSORRESU_14",
                 "label": "VSORRESU",
                 "isRequired": true,
                 "isEnabled": true,
@@ -17195,7 +17192,7 @@
               {
                 "id": "BiomedicalConceptProperty_126",
                 "extensionAttributes": [],
-                "name": "VSPOS",
+                "name": "VSPOS_8",
                 "label": "VSPOS",
                 "isRequired": true,
                 "isEnabled": true,
@@ -17204,7 +17201,7 @@
                   {
                     "id": "ResponseCode_161",
                     "extensionAttributes": [],
-                    "name": "RC_C62165",
+                    "name": "RC_C62165_8",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -17221,7 +17218,7 @@
                   {
                     "id": "ResponseCode_162",
                     "extensionAttributes": [],
-                    "name": "RC_C111310",
+                    "name": "RC_C111310_8",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -17238,7 +17235,7 @@
                   {
                     "id": "ResponseCode_163",
                     "extensionAttributes": [],
-                    "name": "RC_C62122",
+                    "name": "RC_C62122_8",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -17255,7 +17252,7 @@
                   {
                     "id": "ResponseCode_164",
                     "extensionAttributes": [],
-                    "name": "RC_C62166",
+                    "name": "RC_C62166_8",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -17272,7 +17269,7 @@
                   {
                     "id": "ResponseCode_165",
                     "extensionAttributes": [],
-                    "name": "RC_C62167",
+                    "name": "RC_C62167_8",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -17308,7 +17305,7 @@
               {
                 "id": "BiomedicalConceptProperty_127",
                 "extensionAttributes": [],
-                "name": "VSLOC",
+                "name": "VSLOC_10",
                 "label": "VSLOC",
                 "isRequired": true,
                 "isEnabled": true,
@@ -17317,7 +17314,7 @@
                   {
                     "id": "ResponseCode_166",
                     "extensionAttributes": [],
-                    "name": "RC_C12681",
+                    "name": "RC_C12681_8",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -17334,7 +17331,7 @@
                   {
                     "id": "ResponseCode_167",
                     "extensionAttributes": [],
-                    "name": "RC_C12687",
+                    "name": "RC_C12687_8",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -17351,7 +17348,7 @@
                   {
                     "id": "ResponseCode_168",
                     "extensionAttributes": [],
-                    "name": "RC_C12691",
+                    "name": "RC_C12691_2",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -17368,7 +17365,7 @@
                   {
                     "id": "ResponseCode_169",
                     "extensionAttributes": [],
-                    "name": "RC_C32478",
+                    "name": "RC_C32478_8",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -17385,7 +17382,7 @@
                   {
                     "id": "ResponseCode_170",
                     "extensionAttributes": [],
-                    "name": "RC_C12715",
+                    "name": "RC_C12715_8",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -17402,7 +17399,7 @@
                   {
                     "id": "ResponseCode_171",
                     "extensionAttributes": [],
-                    "name": "RC_C12838",
+                    "name": "RC_C12838_8",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -17438,7 +17435,7 @@
               {
                 "id": "BiomedicalConceptProperty_128",
                 "extensionAttributes": [],
-                "name": "VSLAT",
+                "name": "VSLAT_8",
                 "label": "VSLAT",
                 "isRequired": true,
                 "isEnabled": true,
@@ -17447,7 +17444,7 @@
                   {
                     "id": "ResponseCode_172",
                     "extensionAttributes": [],
-                    "name": "RC_C25229",
+                    "name": "RC_C25229_8",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -17464,7 +17461,7 @@
                   {
                     "id": "ResponseCode_173",
                     "extensionAttributes": [],
-                    "name": "RC_C25228",
+                    "name": "RC_C25228_8",
                     "label": "",
                     "isEnabled": true,
                     "code": {
@@ -17500,7 +17497,7 @@
               {
                 "id": "BiomedicalConceptProperty_129",
                 "extensionAttributes": [],
-                "name": "VSDTC",
+                "name": "VSDTC_14",
                 "label": "VSDTC",
                 "isRequired": true,
                 "isEnabled": true,
