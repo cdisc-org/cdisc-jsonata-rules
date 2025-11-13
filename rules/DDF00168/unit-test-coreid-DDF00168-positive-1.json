@@ -16375,7 +16375,7 @@
                 "childIds": [],
                 "previousId": "NarrativeContent_23",
                 "nextId": "NarrativeContent_25",
-                "contentItemId": "NarrativeContentItem_24",
+                "contentItemId": null,
                 "instanceType": "NarrativeContent"
               },
               {
@@ -17617,4 +17617,5 @@
   "usdmVersion": "4.0.0",
   "systemName": "CDISC USDM E2J",
   "systemVersion": "0.62.0"
+
 }
