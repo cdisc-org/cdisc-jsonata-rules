@@ -5,7 +5,10 @@
             $sd.versions@$sv.
             $sv.contents@$nc.
             $nc.
-                [contentItemId[$not($ in $s.versions.narrativeContentItems.id)].
+                [($ChkX:=function()
+                            {
+                                $not(contentItemId=null) and $exists(contentItemId[$not($ in $s.versions.narrativeContentItems.id)])
+                            };
                             {
                             "StudyDefinitionDocument.id": $sd.id,
                             "StudyDefinitionDocument.name": $sd.name,
@@ -15,9 +18,9 @@
                             "name": $nc.name,
                             "contentItemId": $nc.contentItemId,
                             "instanceType": $nc.instanceType,
-                            "path": $nc._path
-                            }
-                ])},
+                            "path": $nc._path,
+                            "check": $ChkX()
+                            })][check=true])},
     "message": "The reference to the narrative content item is not targetting a narrative content item that has been defined within the study.",
     "variables": 
         [
