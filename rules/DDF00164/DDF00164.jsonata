@@ -6,9 +6,10 @@
                 $sv.contents@$nc.
                    $nc.
                         [
-                          ($ChkX:=function()
+                          ($NoSectNo:=function(){$type($nc.sectionNumber)="null" or sectionNumber=""} ;
+                            $ChkX:=function()
                             {
-                                ($not(sectionNumber=null)=true and displaySectionNumber=true)
+                                ($NoSectNo()=true and displaySectionNumber=true)
                             };
                             {
                                 "StudyDefinitionDocument.id": $db.id,
