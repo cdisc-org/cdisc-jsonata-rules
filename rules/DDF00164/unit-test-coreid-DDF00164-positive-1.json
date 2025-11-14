@@ -16082,7 +16082,7 @@
                 "name": "NC_5",
                 "sectionNumber": "1.3.",
                 "sectionTitle": "Schedule of Activities (SoA)",
-                "displaySectionNumber": true,
+                "displaySectionNumber": false,
                 "displaySectionTitle": true,
                 "childIds": [],
                 "previousId": "NarrativeContent_4",
