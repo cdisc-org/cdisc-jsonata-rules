@@ -5,10 +5,11 @@
             $db.versions@$sv.
                 $sv.contents@$nc.
                    $nc.
-                  [
-                          ($ChkX:=function()
+                        [
+                          ($NoSect:=function(){$type($nc.sectionTitle)="null" or sectionTitle=""} ;
+                            $ChkX:=function()
                             {
-                                ($not(sectionTitle) = displaySectionTitle)
+                                ($NoSect()=true and displaySectionTitle=true)
                             };
                             {
                                 "StudyDefinitionDocument.id": $db.id,
@@ -26,7 +27,7 @@
                           )
                     ]
                     [check=true]},
-    "message": ""A section title is specified but not indicated to be displayed (displaySectiontitle=false) or vice versa.",
+    "message": "A section title is indicated to be displayed (displaySectionTitle=true) but not specified.",
     "variables": 
         [
             "StudyDefinitionDocument.id",
