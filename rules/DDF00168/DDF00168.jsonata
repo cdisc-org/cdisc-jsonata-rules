@@ -27,6 +27,7 @@
             "StudyDefinitionDocumentVersion.id",
             "StudyDefinitionDocumentVersion.version",
             "name",
-            "contentItemId"
+            "contentItemId",
+            "sectionNumber"
         ]
 }
