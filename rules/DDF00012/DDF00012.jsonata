@@ -1,26 +1,28 @@
 {
     "check_func" : function($data){$data.(                
-                    $.study.versions.studyDesigns.
-                    {
-                        "id": id,
-                        "name": name,
-                        "# Main timelines": $count(scheduleTimelines[mainTimeline=true]),
-                        "Main timelines": scheduleTimelines[mainTimeline=true].$sift(function($v,$k){$k in ["id","name","mainTimeline"]})[],
-                        "dataset": instanceType
-                    }[`# Main timelines` != 1][]
+  $.study.versions@$sv.
+    ($sv.studyDesigns[$count(scheduleTimelines[mainTimeline=true]) > 1])@$sd.
+      ($sd.scheduleTimelines[mainTimeline=true])@$stl.
+        {
+          "instanceType": $stl.instanceType,
+          "id": $stl.id,
+          "path": $stl._path,
+          "StudyDesign.id": $sd.id,
+          "StudyDesign.name": $sd.name,
+          "name": $stl.name,
+          "mainTimeline": $stl.mainTimeline
+        }
                 )},
     "message": "The study design does not have exactly one main timeline.",
     "variables": [
-            "id",
+            "StudyDesign.id",
+            "StudyDesign.name",
             "name",
-            "# Main timelines",
-            "Main timelines"
+            "mainTimeline"
         ],
     "scope": {
         "Include": [
-            "StudyDesign",
-            "InterventionalStudyDesign",
-            "ObservationalStudyDesign"
+            "ScheduleTimeline"
         ]
     }
 }
