@@ -1,25 +1,23 @@
 {
     "check_func" : function($data){$data.(
-                            ($~>$utils.add_path).**.*[id and instanceType and name].$
-                                {
-                                    instanceType: {
-                                        name: [$.{"id":id, "name":name,"path": path}]
-                                    } ~> $sift(function($v,$k){$count($v)>1})
-                                }
-                                ~> $each(function($v,$k){
-                                    $v.*.{
-                                        "id": id,
-                                        "name": name,
-                                        "path": path,
-                                        "dataset":$k
-                                    }})
-                                ~> $reduce($append)
+  **.*[id and instanceType and name].$
+      {
+          instanceType: {
+              name: [$.{"id": id, "path": _path, "name": name}]
+          } ~> $sift(function($v,$k){$count($v)>1})
+      }
+      ~> $each(function($v,$k){
+          $v.*.{
+              "instanceType":$k,
+              "id": id,
+              "path": path,
+              "name": name
+          }})
+      ~> $reduce($append)
                     )},
     "message": "The same name has been used for more than one instance of the class.",
     "variables": [
-        "id",
-        "name",
-        "path"
+        "name"
     ],
     "scope": {
         "Include": [

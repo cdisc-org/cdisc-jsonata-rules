@@ -47,7 +47,7 @@
                 ]
             }
         ],
-        "Check": "($~>$utils.add_path).**.*[id and instanceType and name].$\n    {\n        instanceType: {\n            name: [$.{\"id\":id, \"name\":name,\"path\": path}]\n        } ~> $sift(function($v,$k){$count($v)>1})\n    }\n    ~> $each(function($v,$k){\n        $v.*.{\n            \"id\": id,\n            \"name\": name,\n            \"path\": path,\n            \"dataset\":$k\n        }})\n    ~> $reduce($append)",
+        "Check": "**.*[id and instanceType and name].$\n    {\n        instanceType: {\n            name: [$.{\"id\": id, \"path\": _path, \"name\": name}]\n        } ~> $sift(function($v,$k){$count($v)>1})\n    }\n    ~> $each(function($v,$k){\n        $v.*.{\n            \"instanceType\":$k,\n            \"id\": id,\n            \"path\": path,\n            \"name\": name\n        }})\n    ~> $reduce($append)",
         "Core": {
             "Id": "",
             "Status": "Draft",
@@ -58,9 +58,7 @@
         "Outcome": {
             "Message": "The same name has been used for more than one instance of the class.",
             "Output_Variables": [
-                "id",
-                "name",
-                "path"
+                "name"
             ]
         },
         "Scope": {

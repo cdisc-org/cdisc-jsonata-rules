@@ -24,18 +24,18 @@ Authorities:
             Version: '1.0'
         Version: '4.0'
 Check: |-
-  ($~>$utils.add_path).**.*[id and instanceType and name].$
+  **.*[id and instanceType and name].$
       {
           instanceType: {
-              name: [$.{"id":id, "name":name,"path": path}]
+              name: [$.{"id": id, "path": _path, "name": name}]
           } ~> $sift(function($v,$k){$count($v)>1})
       }
       ~> $each(function($v,$k){
           $v.*.{
+              "instanceType":$k,
               "id": id,
-              "name": name,
               "path": path,
-              "dataset":$k
+              "name": name
           }})
       ~> $reduce($append)
 Core:
@@ -47,9 +47,7 @@ Executability: Fully Executable
 Outcome:
   Message: 'The same name has been used for more than one instance of the class.'
   Output Variables:
-    - id
     - name
-    - path
 Rule Type: JSONata
 Scope:
   Entities:
