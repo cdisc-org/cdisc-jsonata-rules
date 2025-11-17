@@ -47,7 +47,7 @@
                 ]
             }
         ],
-        "Check": "$.study.versions@$sv.\n  ($sv.studyDesigns[$count(scheduleTimelines[mainTimeline=true]) > 1])@$sd.\n    ($sd.scheduleTimelines[mainTimeline=true])@$stl.\n      {\n        \"instanceType\": $stl.instanceType,\n        \"id\": $stl.id,\n        \"path\": $stl._path,\n        \"StudyDesign.id\": $sd.id,\n        \"StudyDesign.name\": $sd.name,\n        \"name\": $stl.name,\n        \"mainTimeline\": $stl.mainTimeline\n      }",
+        "Check": "$.study.versions.studyDesigns.\n  {\n      \"instanceType\": instanceType,\n      \"id\": id,\n      \"path\": _path,\n      \"name\": name,\n      \"# Main timelines\": $count(scheduleTimelines[mainTimeline=true]),\n      \"Main timelines\": scheduleTimelines[mainTimeline=true]\n                        ~> $map(function($v){$v.id & ($v.name ? \" [\" & $v.name & \"]\")})\n  }[`# Main timelines` != 1][]",
         "Core": {
             "Id": "CORE-000407",
             "Status": "Draft",
@@ -58,16 +58,17 @@
         "Outcome": {
             "Message": "The study design does not have exactly one main timeline.",
             "Output_Variables": [
-                "StudyDesign.id",
-                "StudyDesign.name",
                 "name",
-                "mainTimeline"
+                "# Main timelines",
+                "Main timelines"
             ]
         },
         "Scope": {
             "Entities": {
                 "Include": [
-                    "ScheduleTimeline"
+                    "StudyDesign",
+                    "InterventionalStudyDesign",
+                    "ObservationalStudyDesign"
                 ]
             }
         },
