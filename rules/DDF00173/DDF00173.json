@@ -1,0 +1,62 @@
+{
+    "rule": {
+        "Authorities": [
+            {
+                "Organization": "CDISC",
+                "Standards": [
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "Every identifier must be unique within the scope of an identified organization."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00173",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "4.0"
+                    }
+                ]
+            }
+        ],
+        "Check": "study.versions@$sv.\n  ($sv.**.*[scopeId and text and instanceType])@$i.\n    ($sv.organizations[id=$i.scopeId])@$o.\n      {\n        \"group\": $join([$i.text,$i.scopeId,$i.instanceType],\"|\"),\n        \"details\": $\n          {\n            \"instanceType\": $i.instanceType,\n            \"id\": $i.id,\n            \"path\": $i._path,\n            \"text\": $i.text,\n            \"scopeId\": $i.scopeId,\n            \"Organization.name\": $o.name,\n            \"type.decode\": $i.type.decode\n          }\n      }{group: $count(details)>1?$.details}\n      ~> $each(function($v){$v}) ~> $reduce($append)",
+        "Core": {
+            "Id": "",
+            "Status": "Draft",
+            "Version": "1"
+        },
+        "Description": "Every identifier must be unique within the scope of an identified organization.",
+        "Executability": "Fully Executable",
+        "Outcome": {
+            "Message": "The identifier text is not unique within the scope of the identified organization.",
+            "Output_Variables": [
+                "text",
+                "scopeId",
+                "Organization.name",
+                "type.decode"
+            ]
+        },
+        "Scope": {
+            "Entities": {
+                "Include": [
+                    "StudyIdentifier",
+                    "ReferenceIdentifier",
+                    "AdministrableProductIdentifier",
+                    "MedicalDeviceIdentifier"
+                ]
+            }
+        },
+        "Sensitivity": "Record",
+        "Rule_Type": "JSONata"
+    },
+    "datasets": [],
+    "codelists": []
+}

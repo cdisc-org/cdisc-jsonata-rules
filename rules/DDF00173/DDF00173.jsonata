@@ -1,0 +1,36 @@
+{
+    "check_func": function($data){$data.(
+                    study.versions@$sv.
+                        ($sv.**.*[scopeId and text and instanceType])@$i.
+                            ($sv.organizations[id=$i.scopeId])@$o.
+                                {
+                                    "group": $join([$i.text,$i.scopeId,$i.instanceType],"|"),
+                                    "details": $
+                                        {
+                                            "instanceType": $i.instanceType,
+                                            "id": $i.id,
+                                            "path": $i._path,
+                                            "text": $i.text,
+                                            "scopeId": $i.scopeId,
+                                            "Organization.name": $o.name,
+                                            "type.decode": $i.type.decode
+                                        }
+                                }{group: $count(details)>1?$.details}
+                                ~> $each(function($v){$v}) ~> $reduce($append)
+                    )},
+    "message": "The identifier text is not unique within the scope of the organization.",
+    "variables": [
+        "text",
+        "scopeId",
+        "Organization.name",
+        "type.decode"
+    ],
+    "scope": {
+        "Include": [
+            "StudyIdentifier",
+            "ReferenceIdentifier",
+            "AdministrableProductIdentifier",
+            "MedicalDeviceIdentifier"
+        ]
+    }
+}
