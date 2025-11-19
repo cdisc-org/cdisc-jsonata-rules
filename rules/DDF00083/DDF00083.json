@@ -47,7 +47,7 @@
                 ]
             }
         ],
-        "Check": "(\n    ($~>$utils.add_path).**.*[id and instanceType].\n            {\n                \"id\": id,\n                \"details\":\n                    {\n                        \"id\": id, \n                        \"dataset\": instanceType,\n                        \"path\": path,\n                        \"name\": name\n                    }\n            }.${id: details}\n    ~> $sift(function($v){$count($v) > 1})\n).*",
+        "Check": "(\n  **.*[id and instanceType].\n    {\n      \"id\": id,\n      \"details\":\n        {\n          \"instanceType\": instanceType,\n          \"id\": id, \n          \"path\": _path,\n          \"name\": name\n        }\n    }.${id: details}\n  ~> $sift(function($v){$count($v) > 1})\n).*",
         "Core": {
             "Id": "",
             "Status": "Draft",
@@ -58,9 +58,7 @@
         "Outcome": {
             "Message": "The id value is not unique.",
             "Output_Variables": [
-                "id",
-                "name",
-                "path"
+                "name"
             ]
         },
         "Scope": {

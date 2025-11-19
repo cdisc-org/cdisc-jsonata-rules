@@ -1,25 +1,23 @@
 {
     "check_func" : function($data){$data.(
-                        (
-                            ($~>$utils.add_path).**.*[id and instanceType].
-                                    {
-                                        "id": id,
-                                        "details":
-                                            {
-                                                "id": id, 
-                                                "dataset": instanceType,
-                                                "path": path,
-                                                "name": name
-                                            }
-                                    }.${id: details}
-                            ~> $sift(function($v){$count($v) > 1})
-                        ).*
+  (
+    **.*[id and instanceType].
+      {
+        "id": id,
+        "details":
+          {
+            "instanceType": instanceType,
+            "id": id, 
+            "path": _path,
+            "name": name
+          }
+      }.${id: details}
+    ~> $sift(function($v){$count($v) > 1})
+  ).*
                     )},
     "message": "The id value is not unique.",
     "variables": [
-        "id",
-        "name",
-        "path"
+        "name"
     ],
     "scope": {
         "Include": [
