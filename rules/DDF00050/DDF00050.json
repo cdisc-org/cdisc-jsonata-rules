@@ -47,7 +47,7 @@
                 ]
             }
         ],
-        "Check": "($.**.studyDesigns)@$s.\n    [\n        $s.arms.populationIds[$ != $s.population.id and $not($ in $s.population.cohorts.id)].\n        {\n        \"StudyDesign.id\": $s.id,\n        \"StudyDesign.name\": $s.name,\n        \"StudyDesign.population.id\": $s.population.id,\n        \"StudyDesign.population.cohorts.id\": $s.population.cohorts.id,\n        \"id\": %.id,\n        \"name\": %.name,\n        \"populationId\": $,\n        \"dataset\": %.instanceType\n        }\n    ]",
+        "Check": "($.**.studyDesigns)@$s.\n  [\n    $s.arms.populationIds[$ != $s.population.id and $not($ in $s.population.cohorts.id)].\n      {\n        \"instanceType\": %.instanceType,\n        \"id\": %.id,\n        \"path\": %._path,\n        \"StudyDesign.id\": $s.id,\n        \"StudyDesign.name\": $s.name,\n        \"StudyDesign.population.id\": $s.population.id,\n        \"StudyDesign.population.cohorts.id\": $s.population.cohorts.id,\n        \"name\": %.name,\n        \"populationId\": $\n      }\n  ]",
         "Core": {
             "Id": "",
             "Status": "Draft",
@@ -62,7 +62,6 @@
                 "StudyDesign.name",
                 "StudyDesign.population.id",
                 "StudyDesign.population.cohorts.id",
-                "id",
                 "name",
                 "populationId"
             ]

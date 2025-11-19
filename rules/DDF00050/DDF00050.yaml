@@ -29,19 +29,20 @@ Authorities:
         Version: '4.0'
 Check: |-
   ($.**.studyDesigns)@$s.
-      [
-          $s.arms.populationIds[$ != $s.population.id and $not($ in $s.population.cohorts.id)].
-          {
+    [
+      $s.arms.populationIds[$ != $s.population.id and $not($ in $s.population.cohorts.id)].
+        {
+          "instanceType": %.instanceType,
+          "id": %.id,
+          "path": %._path,
           "StudyDesign.id": $s.id,
           "StudyDesign.name": $s.name,
           "StudyDesign.population.id": $s.population.id,
           "StudyDesign.population.cohorts.id": $s.population.cohorts.id,
-          "id": %.id,
           "name": %.name,
-          "populationId": $,
-          "dataset": %.instanceType
-          }
-      ]
+          "populationId": $
+        }
+    ]
 Core:
   Id: 'DDF00050'
   Status: Draft
@@ -58,7 +59,6 @@ Outcome:
     - StudyDesign.name
     - StudyDesign.population.id
     - StudyDesign.population.cohorts.id
-    - id
     - name
     - populationId
 Rule Type: JSONata
