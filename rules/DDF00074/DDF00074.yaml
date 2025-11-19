@@ -15,20 +15,20 @@ Authorities:
             Version: '1.0'
         Version: '3.0'
 Check: |-
-  ($.study.versions)@$sv.
-      ($sv.studyDesigns)@$sd.
-              {
-                  "id": $sd.id,
-                  "name": $sd.name,
-                  "interventionModel.code": $sd.interventionModel.code,
-                  "interventionModel.decode": $sd.interventionModel.decode,
-                  "# Study Interventions":  $count($sd.studyInterventions),
-                  "dataset": $sd.instanceType
-              }
-              [
-                  (`interventionModel.code` = "C82640" and `# Study Interventions` != 1) or
-                  (`interventionModel.code` != "C82640" and `# Study Interventions` <= 1)
-              ]
+  ($.study.versions.studyDesigns)@$sd.
+    {
+      "instanceType": $sd.instanceType,
+      "id": $sd.id,
+      "path": $sd._path,
+      "name": $sd.name,
+      "interventionModel.code": $sd.interventionModel.code,
+      "interventionModel.decode": $sd.interventionModel.decode,
+      "# Study Interventions":  $count($sd.studyInterventions)
+    }
+    [
+      (`interventionModel.code` = "C82640" and `# Study Interventions` != 1) or
+      (`interventionModel.code` != "C82640" and `# Study Interventions` <= 1)
+    ]
 Core:
   Id: 'DDF00074'
   Status: Draft

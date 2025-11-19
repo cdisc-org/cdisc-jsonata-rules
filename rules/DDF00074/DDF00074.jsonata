@@ -1,23 +1,22 @@
 {
     "check_func" : function($data){$data.(
-                    ($.study.versions)@$sv.
-                        ($sv.studyDesigns)@$sd.
-                                {
-                                    "id": $sd.id,
-                                    "name": $sd.name,
-                                    "interventionModel.code": $sd.interventionModel.code,
-                                    "interventionModel.decode": $sd.interventionModel.decode,
-                                    "# Study Interventions":  $count($sd.studyInterventions),
-                                    "dataset": $sd.instanceType
-                                }
-                                [
-                                    (`interventionModel.code` = "C82640" and `# Study Interventions` != 1) or
-                                    (`interventionModel.code` != "C82640" and `# Study Interventions` <= 1)
-                                ]
+  ($.study.versions.studyDesigns)@$sd.
+    {
+      "instanceType": $sd.instanceType,
+      "id": $sd.id,
+      "path": $sd._path,
+      "name": $sd.name,
+      "interventionModel.code": $sd.interventionModel.code,
+      "interventionModel.decode": $sd.interventionModel.decode,
+      "# Study Interventions":  $count($sd.studyInterventions)
+    }
+    [
+      (`interventionModel.code` = "C82640" and `# Study Interventions` != 1) or
+      (`interventionModel.code` != "C82640" and `# Study Interventions` <= 1)
+    ]
                 )},
     "message": "The number of study interventions defined for the study design is not consistent with intervention model specified for the study design - either the model indicates a single group and there is not only one study intervention, or the model does not indicate a single group and there are not multiple study interventions.",
     "variables": [
-            "id",
             "name",
             "interventionModel.code",
             "interventionModel.decode",
