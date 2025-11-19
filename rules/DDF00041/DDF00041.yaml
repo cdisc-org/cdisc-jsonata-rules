@@ -27,12 +27,13 @@ Authorities:
         Version: '4.0'
 Check: |-
   $.study.versions.studyDesigns.
-  {
-      "id": id,
-      "name": name,
-      "# Primary endpoints": $count(objectives.endpoints[level.code="C94496"]),
-      "dataset": instanceType
-  }[`# Primary endpoints` = 0][]
+    {
+        "instanceType": instanceType,
+        "id": id,
+        "path": _path,
+        "name": name,
+        "# Primary endpoints": $count(objectives.endpoints[level.code="C94496"])
+    }[`# Primary endpoints` = 0][]
 Core:
   Id: 'DDF00041'
   Status: Draft
@@ -44,7 +45,6 @@ Outcome:
   Message: "There is not at least one endpoint with a level of primary within the
     study design."
   Output Variables:
-    - id
     - name
     - '# Primary endpoints'
 Rule Type: JSONata

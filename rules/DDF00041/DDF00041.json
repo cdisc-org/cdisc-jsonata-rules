@@ -47,7 +47,7 @@
                 ]
             }
         ],
-        "Check": "$.study.versions.studyDesigns.\n{\n    \"id\": id,\n    \"name\": name,\n    \"# Primary endpoints\": $count(objectives.endpoints[level.code=\"C94496\"]),\n    \"dataset\": instanceType\n}[`# Primary endpoints` = 0][]",
+        "Check": "$.study.versions.studyDesigns.\n  {\n      \"instanceType\": instanceType,\n      \"id\": id,\n      \"path\": _path,\n      \"name\": name,\n      \"# Primary endpoints\": $count(objectives.endpoints[level.code=\"C94496\"])\n  }[`# Primary endpoints` = 0][]",
         "Core": {
             "Id": "",
             "Status": "Draft",
@@ -58,7 +58,6 @@
         "Outcome": {
             "Message": "There is not at least one endpoint with a level of primary within the study design.",
             "Output_Variables": [
-                "id",
                 "name",
                 "# Primary endpoints"
             ]
