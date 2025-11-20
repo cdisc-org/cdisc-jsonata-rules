@@ -14,12 +14,15 @@ Authorities:
             Version: '1.0'
         Version: '4.0'
 Check: |-
-  study.versions.{
-          "id": id,
-          "versionIdentifier": versionIdentifier,
-          "Duplicate documentVersionIds": $filter(documentVersionIds,function($v,$i,$a){$count($a[$=$v])>1}) ~> $sort,
-          "dataset": instanceType
-      }[`Duplicate documentVersionIds`]
+  study.versions.
+    {
+      "instanceType": instanceType,
+      "id": id,
+      "path": _path,
+      "versionIdentifier": versionIdentifier,
+      "Duplicate documentVersionIds":
+        $filter(documentVersionIds,function($v,$i,$a){$count($a[$=$v])>1}) ~> $sort
+    }[`Duplicate documentVersionIds`]
 Core:
   Id: 'DDF00167'
   Status: Draft
@@ -31,7 +34,6 @@ Outcome:
   Message: "The study version is documented more than once by the same study
     definition document version."
   Output Variables:
-    - id
     - versionIdentifier
     - "Duplicate documentVersionIds"
 Rule Type: JSONata
