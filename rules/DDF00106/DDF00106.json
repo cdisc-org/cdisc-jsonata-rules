@@ -47,7 +47,7 @@
                 ]
             }
         ],
-        "Check": "(\n    $lkp:=$merge($.**.studyDesigns.encounters.{id:%.id});\n    ($.**.studyDesigns)@$s.\n        [\n            $s.scheduleTimelines.instances\n                [\n                    instanceType=\"ScheduledActivityInstance\" and\n                    encounterId and\n                    $not(encounterId in $s.encounters.id)\n                ].\n            {\n            \"StudyDesign.id\": $s.id,\n            \"StudyDesign.name\": $s.name,\n            \"id\": id,\n            \"name\": name,\n            \"encounterId\": encounterId,\n            \"Referenced encounter's parent StudyDesign.id\": encounterId in $keys($lkp) ? $lookup($lkp,encounterId) : \"[Invalid encounterId]\",\n            \"dataset\": instanceType\n            }\n        ]\n)",
+        "Check": "(\n  $lkp:=$merge($.**.studyDesigns.encounters.{id:%.id});\n  ($.**.studyDesigns)@$s.\n    [\n      $s.scheduleTimelines.instances\n        [\n            encounterId and\n            $not(encounterId in $s.encounters.id)\n        ].\n        {\n          \"instanceType\": instanceType,\n          \"id\": id,\n          \"path\": _path,\n          \"StudyDesign.id\": $s.id,\n          \"StudyDesign.name\": $s.name,\n          \"name\": name,\n          \"encounterId\": encounterId,\n          \"Referenced encounter's parent StudyDesign.id\":\n            encounterId in $keys($lkp) ? $lookup($lkp,encounterId) : \"[Invalid encounterId]\"\n        }\n    ]\n)",
         "Core": {
             "Id": "",
             "Status": "Draft",
@@ -60,7 +60,6 @@
             "Output_Variables": [
                 "StudyDesign.id",
                 "StudyDesign.name",
-                "id",
                 "name",
                 "encounterId",
                 "Referenced encounter's parent StudyDesign.id"

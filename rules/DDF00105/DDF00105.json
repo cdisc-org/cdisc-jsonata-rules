@@ -47,7 +47,7 @@
                 ]
             }
         ],
-        "Check": "(\n    $lkp:=$merge($.**.studyDesigns.epochs.{id:%.id});\n    ($.**.studyDesigns)@$s.\n        [\n            $s.scheduleTimelines.instances[epochId and $not(epochId in $s.epochs.id)].\n            {\n            \"StudyDesign.id\": $s.id,\n            \"StudyDesign.name\": $s.name,\n            \"id\": id,\n            \"name\": name,\n            \"epochId\": epochId,\n            \"Referenced epoch's parent StudyDesign.id\": epochId in $keys($lkp) ? $lookup($lkp,epochId) : \"[Invalid epochId]\",\n            \"dataset\": instanceType\n            }\n        ]\n)",
+        "Check": "(\n  $lkp:=$merge($.**.studyDesigns.epochs.{id:%.id});\n  ($.**.studyDesigns)@$s.\n    [\n      $s.scheduleTimelines.instances[epochId and $not(epochId in $s.epochs.id)].\n        {\n          \"instanceType\": instanceType,\n          \"id\": id,\n          \"path\": _path,\n          \"StudyDesign.id\": $s.id,\n          \"StudyDesign.name\": $s.name,\n          \"name\": name,\n          \"epochId\": epochId,\n          \"Referenced epoch's parent StudyDesign.id\":\n            epochId in $keys($lkp) ? $lookup($lkp,epochId) : \"[Invalid epochId]\"\n        }\n    ]\n)",
         "Core": {
             "Id": "",
             "Status": "Draft",
@@ -60,7 +60,6 @@
             "Output_Variables": [
                 "StudyDesign.id",
                 "StudyDesign.name",
-                "id",
                 "name",
                 "epochId",
                 "Referenced epoch's parent StudyDesign.id"

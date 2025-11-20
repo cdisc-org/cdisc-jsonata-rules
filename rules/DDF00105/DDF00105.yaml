@@ -29,20 +29,22 @@ Authorities:
         Version: '4.0'
 Check: |-
   (
-      $lkp:=$merge($.**.studyDesigns.epochs.{id:%.id});
-      ($.**.studyDesigns)@$s.
-          [
-              $s.scheduleTimelines.instances[epochId and $not(epochId in $s.epochs.id)].
-              {
-              "StudyDesign.id": $s.id,
-              "StudyDesign.name": $s.name,
-              "id": id,
-              "name": name,
-              "epochId": epochId,
-              "Referenced epoch's parent StudyDesign.id": epochId in $keys($lkp) ? $lookup($lkp,epochId) : "[Invalid epochId]",
-              "dataset": instanceType
-              }
-          ]
+    $lkp:=$merge($.**.studyDesigns.epochs.{id:%.id});
+    ($.**.studyDesigns)@$s.
+      [
+        $s.scheduleTimelines.instances[epochId and $not(epochId in $s.epochs.id)].
+          {
+            "instanceType": instanceType,
+            "id": id,
+            "path": _path,
+            "StudyDesign.id": $s.id,
+            "StudyDesign.name": $s.name,
+            "name": name,
+            "epochId": epochId,
+            "Referenced epoch's parent StudyDesign.id":
+              epochId in $keys($lkp) ? $lookup($lkp,epochId) : "[Invalid epochId]"
+          }
+      ]
   )
 Core:
   Id: 'DDF00105'
@@ -58,7 +60,6 @@ Outcome:
   Output Variables:
     - StudyDesign.id
     - StudyDesign.name
-    - id
     - name
     - epochId
     - "Referenced epoch's parent StudyDesign.id"

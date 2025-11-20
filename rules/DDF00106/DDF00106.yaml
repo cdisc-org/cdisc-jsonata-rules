@@ -29,25 +29,26 @@ Authorities:
         Version: '4.0'
 Check: |-
   (
-      $lkp:=$merge($.**.studyDesigns.encounters.{id:%.id});
-      ($.**.studyDesigns)@$s.
+    $lkp:=$merge($.**.studyDesigns.encounters.{id:%.id});
+    ($.**.studyDesigns)@$s.
+      [
+        $s.scheduleTimelines.instances
           [
-              $s.scheduleTimelines.instances
-                  [
-                      instanceType="ScheduledActivityInstance" and
-                      encounterId and
-                      $not(encounterId in $s.encounters.id)
-                  ].
-              {
-              "StudyDesign.id": $s.id,
-              "StudyDesign.name": $s.name,
-              "id": id,
-              "name": name,
-              "encounterId": encounterId,
-              "Referenced encounter's parent StudyDesign.id": encounterId in $keys($lkp) ? $lookup($lkp,encounterId) : "[Invalid encounterId]",
-              "dataset": instanceType
-              }
-          ]
+              encounterId and
+              $not(encounterId in $s.encounters.id)
+          ].
+          {
+            "instanceType": instanceType,
+            "id": id,
+            "path": _path,
+            "StudyDesign.id": $s.id,
+            "StudyDesign.name": $s.name,
+            "name": name,
+            "encounterId": encounterId,
+            "Referenced encounter's parent StudyDesign.id":
+              encounterId in $keys($lkp) ? $lookup($lkp,encounterId) : "[Invalid encounterId]"
+          }
+      ]
   )
 Core:
   Id: 'DDF00106'
@@ -63,7 +64,6 @@ Outcome:
   Output Variables:
     - StudyDesign.id
     - StudyDesign.name
-    - id
     - name
     - encounterId
     - "Referenced encounter's parent StudyDesign.id"
