@@ -27,7 +27,7 @@
                 ]
             }
         ],
-        "Check": "($.study.documentedBy.versions)@$sddv.$filter(($sddv.contents),function($v)\n            {\n                $not($v.childIds or $v.contentItemId)\n            }\n        )@$c.\n            {\n                \"StudyDefinitionDocumentVersion.id\": $sddv.id,\n                \"StudyDefinitionDocumentVersion.name\": $sddv.name,\n                \"StudyDefinitionDocumentVersion.version\": $sddv.version,\n                \"id\": $c.id,\n                \"name\": $c.name,\n                \"sectionNumber\": $c.sectionNumber,\n                \"sectionTitle\": $c.sectionTitle,\n                \"childIds\": $c.childIds,\n                \"contentItemId\": $c.contentItemId,\n                \"dataset\": $c.instanceType\n            }",
+        "Check": "$.study.documentedBy@$sdd.\n  $sdd.versions@$sddv.\n    $filter(($sddv.contents),function($v)\n      {\n        $not($v.childIds or $v.contentItemId)\n      }\n    )@$c.\n      {\n        \"instanceType\": $c.instanceType,\n        \"id\": $c.id,\n        \"path\": $c._path,\n        \"StudyDefinitionDocument.id\": $sdd.id,\n        \"StudyDefinitionDocument.name\": $sdd.name,\n        \"StudyDefinitionDocumentVersion.id\": $sddv.id,\n        \"StudyDefinitionDocumentVersion.version\": $sddv.version,\n        \"name\": $c.name,\n        \"sectionNumber\": $c.sectionNumber,\n        \"sectionTitle\": $c.sectionTitle\n      }",
         "Core": {
             "Id": "",
             "Status": "Draft",
@@ -38,15 +38,13 @@
         "Outcome": {
             "Message": "The narrative content does not contain either a child or a narrative content item.",
             "Output_Variables": [
+                "StudyDefinitionDocument.id",
+                "StudyDefinitionDocument.name",
                 "StudyDefinitionDocumentVersion.id",
-                "StudyDefinitionDocumentVersion.name",
                 "StudyDefinitionDocumentVersion.version",
-                "id",
                 "name",
                 "sectionNumber",
-                "sectionTitle",
-                "childIds",
-                "contentItemId"
+                "sectionTitle"
             ]
         },
         "Scope": {

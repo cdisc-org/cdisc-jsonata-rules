@@ -14,23 +14,25 @@ Authorities:
             Version: '1.0'
         Version: '4.0'
 Check: |-
-  ($.study.documentedBy.versions)@$sddv.$filter(($sddv.contents),function($v)
-              {
-                  $not($v.childIds or $v.contentItemId)
-              }
-          )@$c.
-              {
-                  "StudyDefinitionDocumentVersion.id": $sddv.id,
-                  "StudyDefinitionDocumentVersion.name": $sddv.name,
-                  "StudyDefinitionDocumentVersion.version": $sddv.version,
-                  "id": $c.id,
-                  "name": $c.name,
-                  "sectionNumber": $c.sectionNumber,
-                  "sectionTitle": $c.sectionTitle,
-                  "childIds": $c.childIds,
-                  "contentItemId": $c.contentItemId,
-                  "dataset": $c.instanceType
-              }
+  $.study.documentedBy@$sdd.
+    $sdd.versions@$sddv.
+      $filter(($sddv.contents),function($v)
+        {
+          $not($v.childIds or $v.contentItemId)
+        }
+      )@$c.
+        {
+          "instanceType": $c.instanceType,
+          "id": $c.id,
+          "path": $c._path,
+          "StudyDefinitionDocument.id": $sdd.id,
+          "StudyDefinitionDocument.name": $sdd.name,
+          "StudyDefinitionDocumentVersion.id": $sddv.id,
+          "StudyDefinitionDocumentVersion.version": $sddv.version,
+          "name": $c.name,
+          "sectionNumber": $c.sectionNumber,
+          "sectionTitle": $c.sectionTitle
+        }
 Core:
   Id: 'DDF00163'
   Status: Draft
@@ -42,15 +44,13 @@ Outcome:
   Message: "The narrative content does not contain either a child or a narrative
     content item."
   Output Variables:
+    - StudyDefinitionDocument.id
+    - StudyDefinitionDocument.name
     - StudyDefinitionDocumentVersion.id
-    - StudyDefinitionDocumentVersion.name
     - StudyDefinitionDocumentVersion.version
-    - id
     - name
     - sectionNumber
     - sectionTitle
-    - childIds
-    - contentItemId
 Rule Type: JSONata
 Scope:
   Entities:
