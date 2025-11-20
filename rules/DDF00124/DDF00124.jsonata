@@ -1,57 +1,57 @@
 {
     "check_func" : function($data){$data.(
-        (
-            $d := $;
-            $.study.versions.dictionaries.parameterMaps.
-                {
-                    "SyntaxTemplateDictionary.id": %.id,
-                    "SyntaxTemplateDictionary.name": %.name,
-                    "id": id,
-                    "tag": tag,
-                    "reference": reference,
-                    "dataset": instanceType
-                }
-            ~>  $map(function($v)
-                    {
-                        (
-                            $ref := $match($v.reference,
-                                        /<usdm:ref((?=[^>]* klass=\"([a-zA-Z]+)\")(?=[^>]* id=\"(\w+)\")(?=[^>]* attribute=\"([a-zA-Z]+)\")[^>]*)(\/>|><\/usdm:ref>)/
-                                    )
+  (
+    $d := $;
+    $.study.**.dictionaries.parameterMaps.
+        {
+          "instanceType": instanceType,
+          "id": id,
+          "path": _path,
+          "SyntaxTemplateDictionary.id": %.id,
+          "SyntaxTemplateDictionary.name": %.name,
+          "tag": tag,
+          "reference": reference
+        }
+    ~>  $map(function($v)
+          {
+            (
+              $ref := $match($v.reference,
+                        /<usdm:ref((?=[^>]* klass=\"([a-zA-Z]+)\")(?=[^>]* id=\"(\w+)\")(?=[^>]* attribute=\"([a-zA-Z]+)\")[^>]*)(\/>|><\/usdm:ref>)/
+                      )
+                      {
+                        "value": $v.reference,
+                        "usdm_ref": $contains($v.reference,/usdm:ref/) ? 
                                     {
-                                        "value": $v.reference,
-                                        "usdm_ref": $contains($v.reference,/usdm:ref/) ? 
-                                                    {
-                                                        "klass": groups[1],
-                                                        "id": groups[2],
-                                                        "attribute": groups[3]
-                                                    }
-                                    };
-                            $v ~> |$|{"reference": $ref}|
-                        )
-                    }
-                )
-            ~>  $map(function($v)
-                    {
-                        (
-                            $ref_val := "usdm_ref" in $keys($v.reference)
-                                        ? $utils.get_ref_value($v.reference.usdm_ref,$d,"!!NOT FOUND!!")
-                                        : $v.reference.value;
-                            $v ~> |$|{"reference": $v.reference.value, "Referenced Value": $ref_val}|
-                        )
-                    }
-                )
-            ~>  $filter(function($v)
-                    {
-                        $v.`Referenced Value` = "!!NOT FOUND!!"
-                    }
-                )
+                                      "klass": groups[1],
+                                      "id": groups[2],
+                                      "attribute": groups[3]
+                                    }
+                      };
+              $v ~> |$|{"reference": $ref}|
+            )
+          }
         )
+    ~>  $map(function($v)
+          {
+            (
+              $ref_val := "usdm_ref" in $keys($v.reference)
+                          ? $utils.get_ref_value($v.reference.usdm_ref,$d,"!!NOT FOUND!!")
+                          : $v.reference.value;
+              $v ~> |$|{"reference": $v.reference.value, "Referenced Value": $ref_val}|
+            )
+          }
+        )
+    ~>  $filter(function($v)
+          {
+            $v.`Referenced Value` = "!!NOT FOUND!!"
+          }
+        )
+  )
     )},
     "message": "The item referenced in the parameter map is not available elsewhere in the model.",
     "variables": [
             "SyntaxTemplateDictionary.id",
             "SyntaxTemplateDictionary.name",
-            "id",
             "tag",
             "reference"
         ],

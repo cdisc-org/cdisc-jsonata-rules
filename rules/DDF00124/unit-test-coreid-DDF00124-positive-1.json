@@ -16253,13 +16253,6 @@
                 "tag": "StudyPopulation",
                 "reference": "<usdm:ref klass=\"StudyDesignPopulation\" id=\"StudyDesignPopulation_1\" attribute=\"description\"></usdm:ref>",
                 "instanceType": "ParameterMap"
-              },
-              {
-                "id": "ParameterMap_6",
-                "extensionAttributes": [],
-                "tag": "static_val",
-                "reference": "A static text value",
-                "instanceType": "ParameterMap"
               }
             ],
             "instanceType": "SyntaxTemplateDictionary"
@@ -16275,7 +16268,7 @@
                 "id": "ParameterMap_4",
                 "extensionAttributes": [],
                 "tag": "Activity1",
-                "reference": "<usdm:ref klass=\"Activity\" id=\"Activity_xx\" attribute=\"label\"></usdm:ref>",
+                "reference": "<usdm:ref klass=\"Activity\" id=\"Activity_6\" attribute=\"label\"></usdm:ref>",
                 "instanceType": "ParameterMap"
               },
               {
@@ -16286,10 +16279,10 @@
                 "instanceType": "ParameterMap"
               },
               {
-                "id": "ParameterMap_7",
+                "id": "ParameterMap_6",
                 "extensionAttributes": [],
-                "tag": "partial_ref",
-                "reference": "<usdm:ref attribute=\"label\" id=\"Activity_9\"></usdm:ref>",
+                "tag": "ref_order",
+                "reference": "<usdm:ref attribute=\"label\" klass=\"Activity\" id=\"Activity_9\"></usdm:ref>",
                 "instanceType": "ParameterMap"
               }
             ],
