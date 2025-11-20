@@ -15,19 +15,20 @@ Authorities:
         Version: '4.0'
 Check: |-
   ($.**.studyDesigns)@$s.
-      $s.eligibilityCriteria@$ec
-          [
-              $not($ec.id in $append($s.population.criterionIds,$s.population.cohorts.criterionIds))
-          ].
-          {
-              "StudyDesign.id": $s.id,
-              "StudyDesign.name": $s.name,
-              "id": $ec.id,
-              "name": $ec.name,
-              "category": $ec.category.decode,
-              "identifier": $ec.identifier,
-              "dataset": $ec.instanceType
-          }
+    $s.eligibilityCriteria@$ec
+      [
+        $not($ec.id in $append($s.population.criterionIds,$s.population.cohorts.criterionIds))
+      ].
+      {
+        "instanceType": $ec.instanceType,
+        "id": $ec.id,
+        "path": $ec._path,
+        "StudyDesign.id": $s.id,
+        "StudyDesign.name": $s.name,
+        "name": $ec.name,
+        "category": $ec.category.decode,
+        "identifier": $ec.identifier
+      }
 Core:
   Id: 'DDF00158'
   Status: Draft
@@ -41,7 +42,6 @@ Outcome:
   Output Variables:
     - StudyDesign.id
     - StudyDesign.name
-    - id
     - name
     - category
     - identifier
