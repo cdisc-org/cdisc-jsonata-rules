@@ -27,7 +27,7 @@
                 ]
             }
         ],
-        "Check": "($.**.studyDesigns)@$s.\n    $s.eligibilityCriteria@$ec\n        [\n            $ec.id in $s.population.criterionIds and\n            $ec.id in $s.population.cohorts.criterionIds\n        ].\n        {\n            \"id\": $s.id,\n            \"name\": $s.name,\n            \"EligibilityCriterion.id\": $ec.id,\n            \"EligibilityCriterion.name\": $ec.name,\n            \"EligibilityCriterion.category\": $ec.category.decode,\n            \"EligibilityCriterion.identifier\": $ec.identifier,\n            \"Used in\": $s.**[$ec.id in $.criterionIds].id,\n            \"dataset\": $s.instanceType\n        }",
+        "Check": "($.**.studyDesigns)@$s.\n  $s.eligibilityCriteria@$ec\n    [\n      $ec.id in $s.population.criterionIds and\n      $ec.id in $s.population.cohorts.criterionIds\n    ].\n    {\n      \"instanceType\": $ec.instanceType,\n      \"id\": $ec.id,\n      \"path\": $ec._path,\n      \"StudyDesign.id\": $s.id,\n      \"StudyDesign.name\": $s.name,\n      \"name\": $ec.name,\n      \"category\": $ec.category.decode,\n      \"identifier\": $ec.identifier,\n      \"Used in\": $s.**[$ec.id in $.criterionIds].(id&(name?\"[\"&name&\"]\"))\n    }",
         "Core": {
             "Id": "",
             "Status": "Draft",
@@ -38,20 +38,18 @@
         "Outcome": {
             "Message": "The eligibility criterion is referenced by both the study design's population and at least one of its cohorts.",
             "Output_Variables": [
-                "id",
+                "StudyDesign.id",
+                "StudyDesign.name",
                 "name",
-                "EligibilityCriterion.id",
-                "EligibilityCriterion.name",
-                "EligibilityCriterion.category",
-                "EligibilityCriterion.identifier",
+                "category",
+                "identifier",
                 "Used in"
             ]
         },
         "Scope": {
             "Entities": {
                 "Include": [
-                    "InterventionalStudyDesign",
-                    "ObservationalStudyDesign"
+                    "EligibilityCriterion"
                 ]
             }
         },

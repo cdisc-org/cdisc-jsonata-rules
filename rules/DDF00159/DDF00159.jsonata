@@ -1,37 +1,36 @@
 {
     "check_func" : function($data){$data.(
-                        ($.**.studyDesigns)@$s.
-                            $s.eligibilityCriteria@$ec
-                                [
-                                    $ec.id in $s.population.criterionIds and
-                                    $ec.id in $s.population.cohorts.criterionIds
-                                ].
-                                {
-                                    "id": $s.id,
-                                    "name": $s.name,
-                                    "EligibilityCriterion.id": $ec.id,
-                                    "EligibilityCriterion.name": $ec.name,
-                                    "EligibilityCriterion.category": $ec.category.decode,
-                                    "EligibilityCriterion.identifier": $ec.identifier,
-                                    "Used in": $s.**[$ec.id in $.criterionIds].id,
-                                    "dataset": $s.instanceType
-                                }
+  ($.**.studyDesigns)@$s.
+    $s.eligibilityCriteria@$ec
+      [
+        $ec.id in $s.population.criterionIds and
+        $ec.id in $s.population.cohorts.criterionIds
+      ].
+      {
+        "instanceType": $ec.instanceType,
+        "id": $ec.id,
+        "path": $ec._path,
+        "StudyDesign.id": $s.id,
+        "StudyDesign.name": $s.name,
+        "name": $ec.name,
+        "category": $ec.category.decode,
+        "identifier": $ec.identifier,
+        "Used in": $s.**[$ec.id in $.criterionIds].(id&(name?"["&name&"]"))
+      }
                 )},
     "message": "The eligibility criterion is referenced by both the study design's population and at least one of its cohorts.",
     "variables": 
         [
-            "id",
+            "StudyDesign.id",
+            "StudyDesign.name",
             "name",
-            "EligibilityCriterion.id",
-            "EligibilityCriterion.name",
-            "EligibilityCriterion.category",
-            "EligibilityCriterion.identifier",
+            "category",
+            "identifier",
             "Used in"
         ],
     "scope": {
         "Include": [
-            "InterventionalStudyDesign",
-            "ObservationalStudyDesign"
+            "EligibilityCriterion"
         ]
     }                     
 }
