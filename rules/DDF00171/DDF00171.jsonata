@@ -1,25 +1,26 @@
 {
     "check_func" : function($data){$data.(
-                    study.versions@$sv.
-                        (
-                            $filter($sv.abbreviations,function($v,$i,$a)
-                                    {$count($a[$lowercase($.expandedText)=$lowercase($v.expandedText)])>1})
-                            ~> $sort(function($l,$r){$lowercase($l.expandedText)>$lowercase($r.expandedText)})
-                        ).
-                        {
-                            "StudyVersion.id": $sv.id,
-                            "StudyVersion.versionIdentifier": $sv.versionIdentifier,
-                            "id": id,
-                            "abbreviatedText": abbreviatedText,
-                            "expandedText": expandedText,
-                            "dataset": instanceType
-                        }
+  study.versions@$sv.
+    (
+      $filter($sv.abbreviations,function($v,$i,$a)
+        {$count($a[$lowercase($.expandedText)=$lowercase($v.expandedText)])>1}
+      )
+      ~> $sort(function($l,$r){$lowercase($l.expandedText)>$lowercase($r.expandedText)})
+    ).
+    {
+      "instanceType": instanceType,
+      "id": id,
+      "path": _path,
+      "StudyVersion.id": $sv.id,
+      "StudyVersion.versionIdentifier": $sv.versionIdentifier,
+      "abbreviatedText": abbreviatedText,
+      "expandedText": expandedText
+    }
                 )},
     "message": "The abbreviation's expanded text is not unique within the study version (case insensitive).",
     "variables": [
             "StudyVersion.id",
             "StudyVersion.versionIdentifier",
-            "id",
             "abbreviatedText",
             "expandedText"
         ],

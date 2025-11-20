@@ -15,19 +15,21 @@ Authorities:
         Version: '4.0'
 Check: |-
   study.versions@$sv.
-      (
-          $filter($sv.abbreviations,function($v,$i,$a)
-                  {$count($a[$lowercase($.expandedText)=$lowercase($v.expandedText)])>1})
-          ~> $sort(function($l,$r){$lowercase($l.expandedText)>$lowercase($r.expandedText)})
-      ).
-      {
-          "StudyVersion.id": $sv.id,
-          "StudyVersion.versionIdentifier": $sv.versionIdentifier,
-          "id": id,
-          "abbreviatedText": abbreviatedText,
-          "expandedText": expandedText,
-          "dataset": instanceType
-      }
+    (
+      $filter($sv.abbreviations,function($v,$i,$a)
+        {$count($a[$lowercase($.expandedText)=$lowercase($v.expandedText)])>1}
+      )
+      ~> $sort(function($l,$r){$lowercase($l.expandedText)>$lowercase($r.expandedText)})
+    ).
+    {
+      "instanceType": instanceType,
+      "id": id,
+      "path": _path,
+      "StudyVersion.id": $sv.id,
+      "StudyVersion.versionIdentifier": $sv.versionIdentifier,
+      "abbreviatedText": abbreviatedText,
+      "expandedText": expandedText
+    }
 Core:
   Id: 'DDF00171'
   Status: Draft
@@ -41,7 +43,6 @@ Outcome:
   Output Variables:
     - StudyVersion.id
     - StudyVersion.versionIdentifier
-    - id
     - abbreviatedText
     - expandedText
 Rule Type: JSONata
