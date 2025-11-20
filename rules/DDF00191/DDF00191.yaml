@@ -15,28 +15,29 @@ Authorities:
         Version: '4.0'
 Check: |-
   $.study.versions@$sv.
-      [
-          ($sv.roles)@$r.($sv.studyDesigns)@$sd
-              [
-                  (
-                      $sv.id in $r.appliesToIds or
-                      $sd.id in $r.appliesToIds
-                  ) and
-                  $r.masking.isMasked and
-                  $sd.blindingSchema.standardCode.code = "C49659"
-              ].
-                  {
-                      "id": $r.id,
-                      "name": $r.name,
-                      "code": $r.code.decode,
-                      "appliesToIds": $r.appliesToIds,
-                      "dataset": $r.instanceType,
-                      "Masking.text": $r.masking.text,
-                      "Masking.isMasked": $r.masking.isMasked,
-                      "InterventionalStudyDesign.id": $sd.id,
-                      "InterventionalStudyDesign.blindingSchema": $sd.blindingSchema.standardCode.decode
-                  }
-      ]
+    [
+      ($sv.roles)@$r.($sv.studyDesigns)@$sd
+        [
+          (
+              $sv.id in $r.appliesToIds or
+              $sd.id in $r.appliesToIds
+          ) and
+          $r.masking.isMasked and
+          $sd.blindingSchema.standardCode.code = "C49659"
+        ].{
+            "instanceType": $r.instanceType,
+            "id": $r.id,
+            "path": $r._path,
+            "name": $r.name,
+            "code": $r.code.decode,
+            "masking.text": $r.masking.text,
+            "masking.isMasked": $r.masking.isMasked,
+            "appliesToIds": $r.appliesToIds,
+            "StudyDesign.id": $sd.id,
+            "StudyDesign.name": $sd.name,
+            "StudyDesign.blindingSchema": $sd.blindingSchema.standardCode.decode
+          }
+    ]
 Core:
   Id: 'DDF00191'
   Status: Draft
@@ -48,14 +49,13 @@ Outcome:
   Message: 'A masking is defined for the study role, but the role applies to a
     study design with an open label blinding schema.'
   Output Variables:
-    - id
     - name
     - code
+    - masking.text
+    - masking.isMasked
     - appliesToIds
-    - Masking.text
-    - Masking.isMasked
-    - InterventionalStudyDesign.id
-    - InterventionalStudyDesign.blindingSchema
+    - StudyDesign.id
+    - StudyDesign.blindingSchema
 Rule Type: JSONata
 Scope:
   Entities:

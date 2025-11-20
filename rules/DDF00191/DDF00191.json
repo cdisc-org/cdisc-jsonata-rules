@@ -27,7 +27,7 @@
                 ]
             }
         ],
-        "Check": "$.study.versions@$sv.\n    [\n        ($sv.roles)@$r.($sv.studyDesigns)@$sd\n            [\n                (\n                    $sv.id in $r.appliesToIds or\n                    $sd.id in $r.appliesToIds\n                ) and\n                $r.masking.isMasked and\n                $sd.blindingSchema.standardCode.code = \"C49659\"\n            ].\n                {\n                    \"id\": $r.id,\n                    \"name\": $r.name,\n                    \"code\": $r.code.decode,\n                    \"appliesToIds\": $r.appliesToIds,\n                    \"dataset\": $r.instanceType,\n                    \"Masking.text\": $r.masking.text,\n                    \"Masking.isMasked\": $r.masking.isMasked,\n                    \"InterventionalStudyDesign.id\": $sd.id,\n                    \"InterventionalStudyDesign.blindingSchema\": $sd.blindingSchema.standardCode.decode\n                }\n    ]",
+        "Check": "$.study.versions@$sv.\n  [\n    ($sv.roles)@$r.($sv.studyDesigns)@$sd\n      [\n        (\n            $sv.id in $r.appliesToIds or\n            $sd.id in $r.appliesToIds\n        ) and\n        $r.masking.isMasked and\n        $sd.blindingSchema.standardCode.code = \"C49659\"\n      ].{\n          \"instanceType\": $r.instanceType,\n          \"id\": $r.id,\n          \"path\": $r._path,\n          \"name\": $r.name,\n          \"code\": $r.code.decode,\n          \"masking.text\": $r.masking.text,\n          \"masking.isMasked\": $r.masking.isMasked,\n          \"appliesToIds\": $r.appliesToIds,\n          \"StudyDesign.id\": $sd.id,\n          \"StudyDesign.name\": $sd.name,\n          \"StudyDesign.blindingSchema\": $sd.blindingSchema.standardCode.decode\n        }\n  ]",
         "Core": {
             "Id": "",
             "Status": "Draft",
@@ -38,14 +38,13 @@
         "Outcome": {
             "Message": "A masking is defined for the study role, but the role applies to a study design with an open label blinding schema.",
             "Output_Variables": [
-                "id",
                 "name",
                 "code",
+                "masking.text",
+                "masking.isMasked",
                 "appliesToIds",
-                "Masking.text",
-                "Masking.isMasked",
-                "InterventionalStudyDesign.id",
-                "InterventionalStudyDesign.blindingSchema"
+                "StudyDesign.id",
+                "StudyDesign.blindingSchema"
             ]
         },
         "Scope": {
