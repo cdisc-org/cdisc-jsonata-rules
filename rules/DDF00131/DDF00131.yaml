@@ -15,49 +15,50 @@ Authorities:
         Version: '3.0'
 Check: |-
   (
-      $d:=$;
-      ($.study.documentedBy)@$spd.
-          ($spd.versions)@$spdv.
-              ($spdv.contents[$contains(text,/usdm:ref/)])@$nc.
-                  $match( $nc.text,
-                          /<usdm:ref([^>]*)(\/>|><\/usdm:ref>)/
-                  )@$ref.
+    $d:=$;
+    ($.study.documentedBy)@$spd.
+      ($spd.versions)@$spdv.
+        ($spdv.contents[$contains(text,/usdm:ref/)])@$nc.
+          $match( $nc.text,
+                  /<usdm:ref([^>]*)(\/>|><\/usdm:ref>)/
+          )@$ref.
+          (
+            $g0_or_null := function($m){$m ? $m.groups[0] : null};
+            {
+              "instanceType": $nc.instanceType,
+              "id": $nc.id,
+              "path": $nc._path,
+              "StudyProtocolDocument.id": $spd.id,
+              "StudyProtocolDocument.name": $spd.name,
+              "StudyProtocolDocumentVersion.id": $spdv.id,
+              "StudyProtocolDocumentVersion.protocolVersion": $spdv.protocolVersion,                            
+              "name": $nc.name,
+              "sectionNumber": $nc.sectionNumber,
+              "sectionTitle": $nc.sectionTitle,
+              "text": $nc.text,
+              "usdm_ref": {
+                            "match": $ref.match,
+                            "klass": $match($ref.groups[0],/klass=\"([a-zA-Z]+)\"/) ~> $g0_or_null(),
+                            "id": $match($ref.groups[0],/id=\"(\w+)\"/) ~> $g0_or_null(),
+                            "attribute": $match($ref.groups[0],/attribute=\"([a-zA-Z]+)\"/) ~> $g0_or_null()
+                          }
+            }
+          )
+          ~>  $map(function($v)
+                {
                   (
-                      $g0_or_null := function($m){$m ? $m.groups[0] : null};
-                      {
-                          "StudyProtocolDocument.id": $spd.id,
-                          "StudyProtocolDocument.name": $spd.name,
-                          "StudyProtocolDocumentVersion.id": $spdv.id,
-                          "StudyProtocolDocumentVersion.protocolVersion": $spdv.protocolVersion,
-                          "id": $nc.id,
-                          "name": $nc.name,
-                          "sectionNumber": $nc.sectionNumber,
-                          "sectionTitle": $nc.sectionTitle,
-                          "text": $nc.text,
-                          "usdm_ref": {
-                                          "match": $ref.match,
-                                          "klass": $match($ref.groups[0],/klass=\"([a-zA-Z]+)\"/) ~> $g0_or_null(),
-                                          "id": $match($ref.groups[0],/id=\"(\w+)\"/) ~> $g0_or_null(),
-                                          "attribute": $match($ref.groups[0],/attribute=\"([a-zA-Z]+)\"/) ~> $g0_or_null()
-                                      },                            
-                          "dataset": $nc.instanceType
-                      }
+                    $ref_val := "usdm_ref" in $keys($v)
+                                ? $utils.get_ref_value($v.usdm_ref,$d,"!!NOT FOUND!!")
+                                : $v.text;
+                    $v ~> |$|{"Invalid Reference": $v.usdm_ref.match, "Referenced Value": $ref_val},['usdm_ref']|
                   )
-                  ~>  $map(function($v)
-                          {
-                              (
-                                  $ref_val := "usdm_ref" in $keys($v)
-                                              ? $utils.get_ref_value($v.usdm_ref,$d,"!!NOT FOUND!!")
-                                              : $v.text;
-                                  $v ~> |$|{"Invalid Reference": $v.usdm_ref.match, "Referenced Value": $ref_val},['usdm_ref']|
-                              )
-                          }
-                      )
-                  ~>  $filter(function($v)
-                          {
-                              $v.`Referenced Value` = "!!NOT FOUND!!"
-                          }
-                      )
+                }
+              )
+          ~>  $filter(function($v)
+                {
+                  $v.`Referenced Value` = "!!NOT FOUND!!"
+                }
+              )
   )
 Core:
   Id: 'DDF00131'
@@ -74,11 +75,9 @@ Outcome:
     - StudyProtocolDocument.name
     - StudyProtocolDocumentVersion.id
     - StudyProtocolDocumentVersion.protocolVersion
-    - id
     - name
     - sectionNumber
     - sectionTitle
-    - text
     - 'Invalid Reference'
 Rule Type: JSONata
 Scope:
