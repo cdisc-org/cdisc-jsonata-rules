@@ -27,7 +27,7 @@
                 ]
             }
         ],
-        "Check": "($~>$utils.add_path).**.study.versions@$sv.\n    ($sv.**[$contains(text,/usdm:tag/)])@$st.\n        (\n            $dict := $sv.dictionaries[id=$st.dictionaryId];\n            $valid_tags := $dict.parameterMaps.tag;\n            $param_maps := $dict.parameterMaps.{\"id\": id, \"tag\": tag};\n            $match ($st.text,\n                        /<usdm:tag((?=[^>]* name=\\\"(\\w+)\\\")[^>]*)(\\/>|><\\/usdm:tag>)/\n            )   [\n                    $not(\n                        $st.dictionaryId and\n                        $dict and\n                        groups[1] in $valid_tags\n                    )\n                ].\n                {\n                    \"id\": $st.id,\n                    \"name\": $st.name,\n                    \"text\": $st.text,\n                    \"parameter\": {\n                                    \"reference\": match,\n                                    \"name\": groups[1]\n                                },\n                    \"dictionaryId\": $st.dictionaryId,\n                    \"dictionary\": $st.dictionaryId \n                                    ? $dict\n                                        ?   {\n                                                \"id\": $st.dictionaryId,\n                                                \"name\": $dict.name,\n                                                \"parameterMaps\": $param_maps}\n                                        : \"[The dictionaryId is invalid]\"\n                                    : \"[The dictionaryId is missing]\",\n                    \"dataset\": $st.instanceType,\n                    \"path\": $st.path\n                }\n        )",
+        "Check": "**.study.versions@$sv.\n  ($sv.**[$contains(text,/usdm:tag/)])@$st.\n    (\n      $dict := $sv.dictionaries[id=$st.dictionaryId];\n      $valid_tags := $dict.parameterMaps.tag;\n      $param_maps := $dict.parameterMaps.{\"id\": id, \"tag\": tag} ~>\n                     $map(function($v){$v.tag&\"[\"&$v.id&\"]\"});\n      $match ($st.text,\n                  /<usdm:tag((?=[^>]* name=\\\"(\\w+)\\\")[^>]*)(\\/>|><\\/usdm:tag>)/\n      ) [\n          $not(\n            $st.dictionaryId and\n            $dict and\n            groups[1] in $valid_tags\n          )\n        ].\n        {\n          \"instanceType\": $st.instanceType,\n          \"id\": $st.id,\n          \"path\": $st._path,\n          \"name\": $st.name,\n          \"Parameter reference\": match,\n          \"Parameter name\": groups[1],\n          \"dictionaryId\": $st.dictionaryId,\n          \"SyntaxTemplateDictionary.name\": $dict.name,\n          \"SyntaxTemplateDictionary.parameterMaps.tag[id]\":  $param_maps,\n          \"Issue\": $st.dictionaryId \n                    ? $dict\n                        ? \"Parameter not in dictionary\"\n                        : \"dictionaryId is invalid\"\n                    : \"dictionaryId is missing\"\n        }\n    )",
         "Core": {
             "Id": "",
             "Status": "Draft",
@@ -38,13 +38,14 @@
         "Outcome": {
             "Message": "The parameter name referenced in the text is not specified in the data dictionary parameter map - the dictionaryId is missing or invalid, or the parameter name does not match a tag in any of the dictionary's parameter maps.",
             "Output_Variables": [
-                "id",
                 "name",
                 "text",
-                "parameter",
+                "Parameter reference",
+                "Paremeter name",
                 "dictionaryId",
-                "dictionary",
-                "path"
+                "SyntaxTemplateDictionary.name",
+                "SyntaxTemplateDictionary.parameterMaps.tag[id]",
+                "Issue"
             ]
         },
         "Scope": {

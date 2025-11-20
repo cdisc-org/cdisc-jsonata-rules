@@ -1,51 +1,49 @@
 {
     "check_func" : function($data){$data.(
-                    ($~>$utils.add_path).**.study.versions@$sv.
-                        ($sv.**[$contains(text,/usdm:tag/)])@$st.
-                            (
-                                $dict := $sv.dictionaries[id=$st.dictionaryId];
-                                $valid_tags := $dict.parameterMaps.tag;
-                                $param_maps := $dict.parameterMaps.{"id": id, "tag": tag};
-                                $match ($st.text,
-                                            /<usdm:tag((?=[^>]* name=\"(\w+)\")[^>]*)(\/>|><\/usdm:tag>)/
-                                )   [
-                                        $not(
-                                            $st.dictionaryId and
-                                            $dict and
-                                            groups[1] in $valid_tags
-                                        )
-                                    ].
-                                    {
-                                        "id": $st.id,
-                                        "name": $st.name,
-                                        "text": $st.text,
-                                        "parameter": {
-                                                        "reference": match,
-                                                        "name": groups[1]
-                                                    },
-                                        "dictionaryId": $st.dictionaryId,
-                                        "dictionary": $st.dictionaryId 
-                                                        ? $dict
-                                                            ?   {
-                                                                    "id": $st.dictionaryId,
-                                                                    "name": $dict.name,
-                                                                    "parameterMaps": $param_maps}
-                                                            : "[The dictionaryId is invalid]"
-                                                        : "[The dictionaryId is missing]",
-                                        "dataset": $st.instanceType,
-                                        "path": $st.path
-                                    }
-                            )
+  **.study.versions@$sv.
+    ($sv.**[$contains(text,/usdm:tag/)])@$st.
+      (
+        $dict := $sv.dictionaries[id=$st.dictionaryId];
+        $valid_tags := $dict.parameterMaps.tag;
+        $param_maps := $dict.parameterMaps.{"id": id, "tag": tag} ~>
+                       $map(function($v){$v.tag&"["&$v.id&"]"});
+        $match ($st.text,
+                    /<usdm:tag((?=[^>]* name=\"(\w+)\")[^>]*)(\/>|><\/usdm:tag>)/
+        ) [
+            $not(
+              $st.dictionaryId and
+              $dict and
+              groups[1] in $valid_tags
+            )
+          ].
+          {
+            "instanceType": $st.instanceType,
+            "id": $st.id,
+            "path": $st._path,
+            "name": $st.name,
+            "Parameter reference": match,
+            "Parameter name": groups[1],
+            "dictionaryId": $st.dictionaryId,
+            "SyntaxTemplateDictionary.name": $dict.name,
+            "SyntaxTemplateDictionary.parameterMaps.tag[id]":  $param_maps,
+            "Issue": $st.dictionaryId 
+                      ? $dict
+                          ? "Parameter not in dictionary"
+                          : "dictionaryId is invalid"
+                      : "dictionaryId is missing"
+          }
+      )
                 )},
     "message": "The parameter name referenced in the text is not specified in the data dictionary parameter map - the dictionaryId is missing or invalid, or the parameter name does not match a tag in any of the dictionary's parameter maps.",
     "variables": [
-        "id",
         "name",
         "text",
-        "parameter",
+        "Parameter reference",
+        "Parameter name",
         "dictionaryId",
-        "dictionary",
-        "path"
+        "SyntaxTemplateDictionary.name",
+        "SyntaxTemplateDictionary.parameterMaps.tag[id]",
+        "Issue"
     ],
     "scope": {
         "Include": [
