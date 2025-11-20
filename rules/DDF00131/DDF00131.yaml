@@ -15,7 +15,7 @@ Authorities:
         Version: '3.0'
 Check: |-
   (
-    $d:=$;
+    $lkp:=**[id and instanceType].$each(function($v,$k){{$join([instanceType,id,$k],"|"):$v}})~>$merge;
     ($.study.documentedBy)@$spd.
       ($spd.versions)@$spdv.
         ($spdv.contents[$contains(text,/usdm:ref/)])@$nc.
@@ -23,7 +23,7 @@ Check: |-
                   /<usdm:ref([^>]*)(\/>|><\/usdm:ref>)/
           )@$ref.
           (
-            $g0_or_null := function($m){$m ? $m.groups[0] : null};
+            $g0_or_null := function($m){$m ? $m.groups[0] : ""};
             {
               "instanceType": $nc.instanceType,
               "id": $nc.id,
@@ -48,7 +48,12 @@ Check: |-
                 {
                   (
                     $ref_val := "usdm_ref" in $keys($v)
-                                ? $utils.get_ref_value($v.usdm_ref,$d,"!!NOT FOUND!!")
+                                ? (
+                                    $k := $join([$v.usdm_ref.klass,$v.usdm_ref.id,$v.usdm_ref.attribute],"|");
+                                    $k in $keys($lkp)
+                                    ? $lookup($lkp,$k)
+                                    : "!!NOT FOUND!!"
+                                  )
                                 : $v.text;
                     $v ~> |$|{"Invalid Reference": $v.usdm_ref.match, "Referenced Value": $ref_val},['usdm_ref']|
                   )

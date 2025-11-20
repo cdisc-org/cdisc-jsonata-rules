@@ -15,7 +15,7 @@ Authorities:
         Version: '4.0'
 Check: |-
   (
-    $lkp:=**[id and instanceType].$each(function($v,$k){{$join([instanceType,id,$k],"|"):$v}});
+    $lkp:=**[id and instanceType].$each(function($v,$k){{$join([instanceType,id,$k],"|"):$v}})~>$merge;
     ($.study.versions)@$sv.
       ($sv.narrativeContentItems[$contains(text,/usdm:ref/)])@$nci.
         $match( $nci.text,

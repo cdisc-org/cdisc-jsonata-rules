@@ -1,7 +1,7 @@
 {
     "check_func" : function($data){$data.(
   (
-    $lkp:=**[id and instanceType].$each(function($v,$k){{$join([instanceType,id,$k],"|"):$v}});
+    $lkp:=**[id and instanceType].$each(function($v,$k){{$join([instanceType,id,$k],"|"):$v}})~>$merge;
     ($.study.versions)@$sv.
       ($sv.narrativeContentItems[$contains(text,/usdm:ref/)])@$nci.
         $match( $nci.text,

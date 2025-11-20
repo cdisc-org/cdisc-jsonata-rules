@@ -1,7 +1,7 @@
 {
     "check_func" : function($data){$data.(
   (
-    $d := $;
+    $lkp:=**[id and instanceType].$each(function($v,$k){{$join([instanceType,id,$k],"|"):$v}})~>$merge;
     $.study.**.dictionaries.parameterMaps.
         {
           "instanceType": instanceType,
@@ -35,8 +35,19 @@
           {
             (
               $ref_val := "usdm_ref" in $keys($v.reference)
-                          ? $utils.get_ref_value($v.reference.usdm_ref,$d,"!!NOT FOUND!!")
-                          : $v.reference.value;
+                          ? (
+                              $k := $join(
+                                      [
+                                        $v.reference.usdm_ref.klass,
+                                        $v.reference.usdm_ref.id,
+                                        $v.reference.usdm_ref.attribute
+                                      ],"|"
+                                    );
+                              $k in $keys($lkp)
+                              ? $lookup($lkp,$k)
+                              : "!!NOT FOUND!!"
+                            )
+                          : $v.value;
               $v ~> |$|{"reference": $v.reference.value, "Referenced Value": $ref_val}|
             )
           }
