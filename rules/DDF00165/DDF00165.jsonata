@@ -6,22 +6,22 @@
                 $sv.contents@$nc.
                    $nc.
                         [
-                          ($NoSect:=function(){$type($nc.sectionTitle)="null" or sectionTitle=""} ;
+                          ($NoSect:=function(){$type($nc.sectionTitle)="null" or sectionTitle="" or $exists(sectionTitle)=false} ;
                             $ChkX:=function()
                             {
                                 ($NoSect()=true and displaySectionTitle=true)
                             };
                             {
+                                "instanceType": $nc.instanceType,
+                                "id": $nc.id,
+                                "path": $nc._path,
                                 "StudyDefinitionDocument.id": $db.id,
                                 "StudyDefinitionDocument.name": $db.name,
                                 "StudyDefinitionDocumentVersion.id": $sv.id,
                                 "StudyDefinitionDocumentVersion.version": $sv.version,
-                                "id": $nc.id,
                                 "name": $nc.name,
                                 "displaySectionTitle": $nc.displaySectionTitle,
                                 "sectionTitle": $nc.sectionTitle,
-                                "instanceType": $nc.instanceType,
-                                "path": $nc._path,
                                 "check":$ChkX()
                             }
                           )
@@ -34,7 +34,6 @@
             "StudyDefinitionDocument.name",
             "StudyDefinitionDocumentVersion.id",
             "StudyDefinitionDocumentVersion.version",
-            "id",
             "name",
             "displaySectionTitle",
             "sectionTitle"
