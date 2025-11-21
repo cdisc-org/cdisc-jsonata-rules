@@ -1,7 +1,32 @@
 {
-    "report": function($rule,$data)
+    "report": function($rule,$in_data)
                 {
                     (
+                        $add_path := function($obj) 
+                                        {
+                                            (
+                                                $iter := function($o, $p)
+                                                            {
+                                                                $each($o, function($v1, $k) {
+                                                                        {
+                                                                            $k:
+                                                                            $type($v1) = "object"
+                                                                                ?   $iter($v1, ($p ? $p & "/" : "/") & $k ) 
+                                                                                :   $type($v1) = "array" and $v1
+                                                                                    ?  $map($v1, function($v2, $i) {
+                                                                                                $type($v2) = "object" 
+                                                                                                    ? $iter($v2, ($p ? $p & "/" : "/")  & $k & "/" & $i)
+                                                                                                    : $v2
+                                                                                            }
+                                                                                        )[]
+                                                                                    : $v1
+                                                                        }
+                                                                    }) ~> $append({"_path": $p}) ~> $merge()
+                                                            };
+                                                $iter($obj,"")
+                                            )                   
+                                        };
+                        $data := $add_path($in_data);
                         $errors := $append(null,$type($rule.check_func) = "string" 
                                     ? $eval("($data:="&$string($data)&";$data.("&$rule.check_func&"))") 
                                     : $rule.check_func($data));
@@ -20,36 +45,41 @@
                                 $it: 
                                     {
                                         "executionStatus": "success",
-                                        "class": $it[0]
+                                        "entity": $it[0]
                                     }
                             } 
                             ~> |*|
                                 (
-                                    $class := $.class;
-                                    $rule_applies($class,$rule.scope)
+                                    $entity := $.entity;
+                                    $rule_applies($entity,$rule.scope)
                                         ?
-                                            $class in $errors.instanceType 
+                                            $entity in $errors.instanceType 
                                                 ? 
                                                     {
                                                         "message": $rule.message,
-                                                        "errors" : $map($errors[instanceType = $class],
+                                                        "variables": $rule.variables,
+                                                        "errors" : $map($errors[instanceType = $entity],
                                                                         function($obj)
                                                                             {
-                                                                                $merge($map($rule.variables, function($var)
-                                                                                        {
-                                                                                            {
-                                                                                                $var: $var in $keys($obj) ? $lookup($obj,$var) : "Not in output"
-                                                                                            }
-                                                                                        }
-                                                                                    )
-                                                                                )
+                                                                                {
+                                                                                    "id": $obj.id,
+                                                                                    "path": $obj.path,
+                                                                                    "value": $merge($map($rule.variables, function($var)
+                                                                                                    {
+                                                                                                        {
+                                                                                                            $var: $var in $keys($obj) ? $lookup($obj,$var) : "Not in output"
+                                                                                                        }
+                                                                                                    }
+                                                                                                )
+                                                                                            )
+                                                                                }
                                                                             }
                                                                     )[]
                                                     }
                                                 : {}
                                         :   {
                                                 "executionStatus": "skipped",
-                                                "message": "Rule skipped - doesn't apply to entity for rule id=, dataset=" & $class
+                                                "message": "Rule skipped - doesn't apply to entity for rule id=, dataset=" & $entity
                                             }
                                 )|
                             ~> $spread() ~> $sort(function($l,$r){$keys($l)[0]>$keys($r)[0]}) ~> $merge()

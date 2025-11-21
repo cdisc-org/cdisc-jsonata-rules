@@ -8,20 +8,19 @@
                                                     {
                                                         $k:
                                                         $type($v1) = "object"
-                                                            ?   $iter($v1, ($p ? $p & "." : "") & $k ) 
+                                                            ?   $iter($v1, ($p ? $p & "/" : "/") & $k ) 
                                                             :   $type($v1) = "array" and $v1
                                                                 ?  $map($v1, function($v2, $i) {
                                                                             $type($v2) = "object" 
-                                                                                ? $iter($v2, ($p ? $p & "." : "") & $k & "[" & $i & "]")
+                                                                                ? $iter($v2, ($p ? $p & "/" : "/")  & $k & "/" & $i)
                                                                                 : $v2
                                                                         }
                                                                     )[]
                                                                 : $v1
                                                     }
-                                                }) ~> $append({"path": $p}) ~> $merge()
+                                                }) ~> $append({"_path": $p}) ~> $merge()
                                         };
                             $iter($obj,"")
-                        )
-                        
+                        )                   
                     }
 }
