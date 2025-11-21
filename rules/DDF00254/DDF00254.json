@@ -27,7 +27,7 @@
                 ]
             }
         ],
-        "Check": "($.**.studyDesigns)@$s.\n    [\n        $s.activities.childIds[$not($ in $s.activities.id)].\n        {\n        \"StudyDesign.id\": $s.id,\n        \"StudyDesign.name\": $s.name,\n        \"id\": %.id,\n        \"name\": %.name,\n        \"childId\": $,\n        \"dataset\": %.instanceType\n        }\n    ]",
+        "Check": "$.**.studyDesigns@$s.\n  [\n    $s.activities.childIds[$not($ in $s.activities.id)].\n      {\n        \"instanceType\": %.instanceType,\n        \"id\": %.id,\n        \"path\": %._path,\n        \"StudyDesign.id\": $s.id,\n        \"StudyDesign.name\": $s.name,\n        \"name\": %.name,\n        \"childId\": $\n      }\n  ]",
         "Core": {
             "Id": "",
             "Status": "Draft",
@@ -40,7 +40,6 @@
             "Output_Variables": [
                 "StudyDesign.id",
                 "StudyDesign.name",
-                "id",
                 "name",
                 "childId"
             ]
@@ -53,7 +52,7 @@
             }
         },
         "Sensitivity": "Record",
-        "Rule_Type": "Record Data"
+        "Rule_Type": "JSONata"
     },
     "datasets": [],
     "codelists": []

@@ -1,23 +1,23 @@
 {
     "check_func" : function($data){$data.(
-                    ($.**.studyDesigns)@$s.
-                        [
-                            $s.activities.childIds[$not($ in $s.activities.id)].
-                            {
-                            "StudyDesign.id": $s.id,
-                            "StudyDesign.name": $s.name,
-                            "id": %.id,
-                            "name": %.name,
-                            "childId": $,
-                            "dataset": %.instanceType
-                            }
-                        ]
+  $.**.studyDesigns@$s.
+    [
+      $s.activities.childIds[$not($ in $s.activities.id)].
+        {
+          "instanceType": %.instanceType,
+          "id": %.id,
+          "path": %._path,
+          "StudyDesign.id": $s.id,
+          "StudyDesign.name": $s.name,
+          "name": %.name,
+          "childId": $
+        }
+    ]
                 )},
     "message": "The activity references a childId that does not match the id of any activity defined within the same study design as the activity.",
     "variables": [
             "StudyDesign.id",
             "StudyDesign.name",
-            "id",
             "name",
             "childId"
         ],

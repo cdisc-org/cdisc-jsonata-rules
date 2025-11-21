@@ -14,18 +14,19 @@ Authorities:
             Version: '1.0'
         Version: '4.0'
 Check: |-
-  ($.**.studyDesigns)@$s.
-      [
-          $s.activities.childIds[$not($ in $s.activities.id)].
-          {
+  $.**.studyDesigns@$s.
+    [
+      $s.activities.childIds[$not($ in $s.activities.id)].
+        {
+          "instanceType": %.instanceType,
+          "id": %.id,
+          "path": %._path,
           "StudyDesign.id": $s.id,
           "StudyDesign.name": $s.name,
-          "id": %.id,
           "name": %.name,
-          "childId": $,
-          "dataset": %.instanceType
-          }
-      ]
+          "childId": $
+        }
+    ]
 Core:
   Id: 'DDF00254'
   Status: Draft
@@ -39,10 +40,9 @@ Outcome:
   Output Variables:
     - StudyDesign.id
     - StudyDesign.name
-    - id
     - name
     - childId
-Rule Type: Record Data
+Rule Type: JSONata
 Scope:
   Entities:
     Include:
