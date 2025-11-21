@@ -27,7 +27,7 @@
                 ]
             }
         ],
-        "Check": "(($~>$utils.add_path).**[$contains($string(id),\" \")])@$i.\n    {\n        \"id\": $join(['\"','\"'],$i.id),\n        \"name\": $i.name,\n        \"path\": $i.path,\n        \"dataset\": $i.instanceType\n    }",
+        "Check": "(**[$contains($string(id),\" \")])@$i.\n  {\n    \"instanceType\": $i.instanceType,\n    \"id\": $join(['\"','\"'],$i.id),\n    \"path\": $i._path,\n    \"name\": $i.name\n  }",
         "Core": {
             "Id": "",
             "Status": "Draft",
@@ -38,9 +38,7 @@
         "Outcome": {
             "Message": "The id value contains a space.",
             "Output_Variables": [
-                "id",
-                "name",
-                "path"
+                "name"
             ]
         },
         "Scope": {

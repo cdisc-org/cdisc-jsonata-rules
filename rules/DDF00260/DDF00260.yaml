@@ -14,13 +14,13 @@ Authorities:
             Version: '1.0'
         Version: '4.0'
 Check: |-
-  (($~>$utils.add_path).**[$contains($string(id)," ")])@$i.
-      {
-          "id": $join(['"','"'],$i.id),
-          "name": $i.name,
-          "path": $i.path,
-          "dataset": $i.instanceType
-      }
+  (**[$contains($string(id)," ")])@$i.
+    {
+      "instanceType": $i.instanceType,
+      "id": $join(['"','"'],$i.id),
+      "path": $i._path,
+      "name": $i.name
+    }
 Core:
   Id: 'DDF00260'
   Status: Draft
@@ -30,9 +30,7 @@ Executability: Partially Executable - Possible Overreporting
 Outcome:
   Message: 'The id value contains a space.'
   Output Variables:
-    - id
     - name
-    - path
 Rule Type: JSONata
 Scope:
   Entities:
