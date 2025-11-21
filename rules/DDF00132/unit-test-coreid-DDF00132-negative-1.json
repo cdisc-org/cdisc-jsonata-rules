@@ -12798,9 +12798,9 @@
               "instanceType": "StudyDesignPopulation",
               "cohorts": [
                 {
-                  "id": "StudyCohort_1",
+                  "id": "StudyCohort_3",
                   "extensionAttributes": [],
-                  "name": "COHORT1",
+                  "name": "COHORT3",
                   "label": "Cohort 1 (treatment experienced)",
                   "description": "Treatment experienced",
                   "includesHealthySubjects": false,
@@ -12833,14 +12833,14 @@
                   "indicationIds": []
                 },
                 {
-                  "id": "StudyCohort_2",
+                  "id": "StudyCohort_4",
                   "extensionAttributes": [],
-                  "name": "COHORT2",
+                  "name": "COHORT4",
                   "label": "Cohort 2 (treatment na\u00efve)",
                   "description": "Treatment na\u00efve",
                   "includesHealthySubjects": false,
                   "plannedEnrollmentNumber": null,
-                  "plannedCompletionNumber": null,
+                  "plannedCompletionNumber": [],
                   "plannedSex": [],
                   "criterionIds": [],
                   "plannedAge": null,
