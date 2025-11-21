@@ -4222,7 +4222,7 @@
                   "description": "Treatment na\u00efve",
                   "includesHealthySubjects": false,
                   "plannedEnrollmentNumber": null,
-                  "plannedCompletionNumber": null,
+                  "plannedCompletionNumber": [],
                   "plannedSex": [],
                   "criterionIds": [],
                   "plannedAge": null,
