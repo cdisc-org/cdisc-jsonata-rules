@@ -4,7 +4,7 @@
                     $sd.population@$p.
                        $p.
                            [
-                               ($NullCohort:=("null" in cohorts.$type(plannedCompletionNumber) or ($count(cohorts.plannedCompletionNumer)!=$count(cohorts.id))); 
+                               ($NullCohort:=("null" in cohorts.$type(plannedCompletionNumber) or ($count(cohorts.plannedCompletionNumber)!=$count(cohorts.id))); 
                                 $InCohort:=$boolean(cohorts.plannedCompletionNumber);      
                                 $InPop:=($type(plannedCompletionNumber) != "null" and $exists(plannedCompletionNumber));           
                                     $ChkX:=function()
