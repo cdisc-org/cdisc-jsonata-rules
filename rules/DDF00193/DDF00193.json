@@ -27,7 +27,7 @@
                 ]
             }
         ],
-        "Check": "($.study.versions)@$sv.\n($sv.studyDesigns)@$sd[ $sd.blindingSchema and\n                        $not($sd.blindingSchema.standardCode.code in [\"C49659\",\"C15228\"])].\n    [\n        ( $maskedRoles :=$sv.roles@$r[(\n                                                    $sv.id in $r.appliesToIds or\n                                                    $sd.id in $r.appliesToIds\n                                                )\n                                            ].{\n                                                \"id\": $r.id,\n                                                \"name\": $r.name,\n                                                \"code.decode\": $r.code.decode,\n                                                \"masking.isMasked\": $r.masking.isMasked,\n                                                \"appliesToIds\": [$r.appliesToIds]\n                                            };\n        {\n                        \"id\": $sd.id,\n                        \"name\": $sd.name,\n                        \"blindingSchema\": $sd.blindingSchema.standardCode.decode,\n                        \"dataset\": $sd.instanceType,\n                        \"Applicable Roles\": $maskedRoles,\n                        \"Count of Masked Roles\": $count($maskedRoles[`masking.isMasked` = true])\n        })                                     \n            \n    ][`Count of Masked Roles` < 1]",
+        "Check": "($.study.versions)@$sv.\n  ($sv.studyDesigns)@$sd\n    [ \n      $sd.blindingSchema and\n      $not($sd.blindingSchema.standardCode.code in [\"C49659\",\"C15228\"])\n    ].[\n        ( \n          $maskedRoles := $sv.roles@$r\n                            [\n                              $sv.id in $r.appliesToIds or\n                              $sd.id in $r.appliesToIds\n                            ].{\n                                \"id\": $r.id,\n                                \"code\": $r.code.decode,\n                                \"isMasked\": $r.masking.isMasked\n                              };\n          {\n            \"instanceType\": $sd.instanceType,\n            \"id\": $sd.id,\n            \"path\": $sd._path,\n            \"name\": $sd.name,\n            \"blindingSchema.code\": $sd.blindingSchema.standardCode.code,\n            \"blindingSchema.decode\": $sd.blindingSchema.standardCode.decode,\n            \"# Masked Roles\": $count($maskedRoles[isMasked=true]),\n            \"Applicable Roles\":\n              $maskedRoles\n              ~>  $map(function($v)\n                    {$join([$v.code,'[',$v.id,',',$v.isMasked=true?'Masked':'Not Masked',']'])}\n                  )\n              ~> $join(\"; \")\n          }\n        )  \n      ][`# Masked Roles` < 1]",
         "Core": {
             "Id": "",
             "Status": "Draft",
@@ -36,13 +36,13 @@
         "Description": "A masking is expected to be defined for at least one study role in a study design with a blinding schema that is not open label or double blind.",
         "Executability": "Partially Executable - Possible Overreporting",
         "Outcome": {
-            "Message": "The study design has a blinding schema that is not open label or double blind but there is no applicable study role that is masked.",
+            "Message": "The study design has a blinding schema that is not open label or double blind (code is not C49659 or C15228) but there is no applicable study role that is masked.",
             "Output_Variables": [
-                "id",
                 "name",
-                "blindingSchema",
-                "Applicable Roles",
-                "Count of Masked Roles"
+                "blindingSchema.code",
+                "blindingSchema.decode",
+                "# Masked Roles",
+                "Applicable Roles"
             ]
         },
         "Scope": {

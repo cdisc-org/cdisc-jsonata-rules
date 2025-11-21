@@ -1,38 +1,46 @@
 {
     "check_func" : function($data){$data.(
-                        ($.study.versions)@$sv.
-                        ($sv.studyDesigns)@$sd[ $sd.blindingSchema and
-                                                $not($sd.blindingSchema.standardCode.code in ["C49659","C15228"])].
-                            [
-                                ( $maskedRoles :=$sv.roles@$r[(
-                                                                            $sv.id in $r.appliesToIds or
-                                                                            $sd.id in $r.appliesToIds
-                                                                        )
-                                                                    ].{
-                                                                        "id": $r.id,
-                                                                        "name": $r.name,
-                                                                        "code.decode": $r.code.decode,
-                                                                        "masking.isMasked": $r.masking.isMasked,
-                                                                        "appliesToIds": [$r.appliesToIds]
-                                                                    };
-                                {
-                                                "id": $sd.id,
-                                                "name": $sd.name,
-                                                "blindingSchema": $sd.blindingSchema.standardCode.decode,
-                                                "dataset": $sd.instanceType,
-                                                "Applicable Roles": $maskedRoles,
-                                                "Count of Masked Roles": $count($maskedRoles[`masking.isMasked` = true])
-                                })                                     
-                                    
-                            ][`Count of Masked Roles` < 1]
+  ($.study.versions)@$sv.
+    ($sv.studyDesigns)@$sd
+      [ 
+        $sd.blindingSchema and
+        $not($sd.blindingSchema.standardCode.code in ["C49659","C15228"])
+      ].[
+          ( 
+            $maskedRoles := $sv.roles@$r
+                              [
+                                $sv.id in $r.appliesToIds or
+                                $sd.id in $r.appliesToIds
+                              ].{
+                                  "id": $r.id,
+                                  "code": $r.code.decode,
+                                  "isMasked": $r.masking.isMasked
+                                };
+            {
+              "instanceType": $sd.instanceType,
+              "id": $sd.id,
+              "path": $sd._path,
+              "name": $sd.name,
+              "blindingSchema.code": $sd.blindingSchema.standardCode.code,
+              "blindingSchema.decode": $sd.blindingSchema.standardCode.decode,
+              "# Masked Roles": $count($maskedRoles[isMasked=true]),
+              "Applicable Roles":
+                $maskedRoles
+                ~>  $map(function($v)
+                      {$join([$v.code,'[',$v.id,',',$v.isMasked=true?'Masked':'Not Masked',']'])}
+                    )
+                ~> $join("; ")
+            }
+          )  
+        ][`# Masked Roles` < 1]
                     )},
-    "message": "The study design has a blinding schema that is not open label or double blind but there is no applicable study role that is masked.",
+    "message": "The study design has a blinding schema that is not open label or double blind (code is not C49659 or C15228) but there is no applicable study role that is masked.",
     "variables": [
-        "id",
         "name",
-        "blindingSchema",
-        "Applicable Roles",
-        "Count of Masked Roles"
+        "blindingSchema.code",
+        "blindingSchema.decode",
+        "# Masked Roles",
+        "Applicable Roles"
     ],
     "scope": {
         "Include": [
