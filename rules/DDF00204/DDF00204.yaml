@@ -14,37 +14,43 @@ Authorities:
             Version: '1.0'
         Version: '4.0'
 Check: |-
-  ($.study.documentedBy.versions)@$sddv.$filter(($sddv.contents),function($v)
-              {
-                  $not(
-                      $type($v.previousId) = "null" or
-                      $v.previousId in $sddv.contents.id
-                      ) or
-                  $not(
-                      $type($v.nextId) = "null" or
-                      $v.nextId in $sddv.contents.id
-                      ) or
-                  $v.childIds[$not($ in $sddv.contents.id)]
-              }
-          )@$c.
-              {
-                  "StudyDefinitionDocumentVersion.id": $sddv.id,
-                  "StudyDefinitionDocumentVersion.name": $sddv.name,
-                  "id": $c.id,
-                  "name": $c.name,
-                  "previousId":   $not(
+  $.study.documentedBy@$sdd.
+    $sdd.versions@$sddv.
+      $filter(($sddv.contents),function($v)
+        {
+          $not(
+                $type($v.previousId) = "null" or
+                $v.previousId in $sddv.contents.id
+              ) or
+          $not(
+                $type($v.nextId) = "null" or
+                $v.nextId in $sddv.contents.id
+              ) or
+          $v.childIds[$not($ in $sddv.contents.id)]
+        }
+      )@$c.
+        {
+          "instanceType": $c.instanceType,
+          "id": $c.id,
+          "path": $c._path,
+          "StudyDefinitionDocument.id": $sdd.id,
+          "StudyDefinitionDocument.name": $sdd.name,
+          "StudyDefinitionDocumentVersion.id": $sddv.id,
+          "StudyDefinitionDocumentVersion.version": $sddv.version,
+          "name": $c.name,
+          "sectionNumber": $c.sectionNumber,
+          "Invalid previousId": $not(
                                       $type($c.previousId) = "null" or
                                       $c.previousId in $sddv.contents.id
-                                      )
-                                  ? $c.previousId,
-                  "nextId":   $not(
+                                    )
+                                ? $c.previousId,
+          "Invalid nextId": $not(
                                   $type($c.nextId) = "null" or
                                   $c.nextId in $sddv.contents.id
-                                  )
-                              ? $c.nextId,
-                  "childIds": $c.childIds[$not($ in $sddv.contents.id)],
-                  "dataset": $c.instanceType
-              }
+                                )
+                            ? $c.nextId,
+          "Invalid childIds": $c.childIds[$not($ in $sddv.contents.id)] ~> $join("; ")
+        }
 Core:
   Id: 'DDF00204'
   Status: Draft
@@ -57,13 +63,15 @@ Outcome:
     that does not match the id of any narrative content defined within the same
     study definition document version.'
   Output Variables:
+    - StudyDefinitionDocument.id
+    - StudyDefinitionDocument.name
     - StudyDefinitionDocumentVersion.id
-    - StudyDefinitionDocumentVersion.name
-    - id
+    - StudyDefinitionDocumentVersion.version
     - name
-    - previousId
-    - nextId
-    - childIds
+    - sectionNumber
+    - Invalid previousId
+    - Invalid nextId
+    - Invalid childIds
 Rule Type: JSONata
 Scope:
   Entities:

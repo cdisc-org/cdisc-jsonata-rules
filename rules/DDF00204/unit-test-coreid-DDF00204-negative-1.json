@@ -16427,7 +16427,7 @@
                 "displaySectionTitle": false,
                 "childIds": [],
                 "previousId": null,
-                "nextId": "NarrativeContent_2",
+                "nextId": "NarrativeContent_233",
                 "contentItemId": "NarrativeContentItem_1",
                 "instanceType": "NarrativeContent"
               },
@@ -17569,7 +17569,7 @@
       {
         "id": "StudyDefinitionDocument_2",
         "extensionAttributes": [],
-        "name": "Protocol_Document_CDISC PILOT - LZZT",
+        "name": "Another Protocol Document",
         "label": null,
         "description": null,
         "language": {
@@ -17699,9 +17699,10 @@
                 "displaySectionTitle": true,
                 "childIds": [
                   "NarrativeContent_80",
-                  "NarrativeContent_81"
+                  "NarrativeContent_81",
+                  "NarrativeContent_xx"
                 ],
-                "previousId": "NarrativeContent_78",
+                "previousId": "NarrativeContent_234",
                 "nextId": "NarrativeContent_80",
                 "contentItemId": null,
                 "instanceType": "NarrativeContent"
