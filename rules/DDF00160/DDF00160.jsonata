@@ -3,29 +3,27 @@
          {
 ($.**.studyDesigns)@$sd.
             $sd.activities@$p.
-                $p.
-                  [
-                          ($ActivityDetails:=function(){$not(biomedicalConceptIds) = false or $not(bcCategoryIds) = false or $not(definedProcedures) = false
-                                                    or $not(timelineId) = false or $not(bcSurrogateIds)= false };
-                            $ChkX:=function()
+            $p.
+                [
+                    (
+                        $ActivityDetails:=($not(biomedicalConceptIds) = false or $not(bcCategoryIds) = false or $not(definedProcedures) = false
+                                                    or $not(timelineId) = false or $not(bcSurrogateIds)= false);
+                        $ChkX:=($not(childIds) = false and $ActivityDetails =true);
                             {
-                                ($not(childIds) = false and $ActivityDetails() =true)
-                            };
-                            {
-                                "StudyDesigns.id": $sd.id,
-                                "StudyDesigns.name": $sd.name,
+                                "instanceType": $p.instanceType,
                                 "id": $p.id,
+                                "path": $p._path,
+                                "StudyDesign.id": $sd.id,
+                                "StudyDesign.name": $sd.name,
                                 "name": $p.name,
                                 "label": $p.label,
                                 "childIds": $p.childIds,
                                 "biomedicalConceptIds":$p.biomedicalConceptIds,
                                 "bcCategoryIds":$p.bcCategoryIds,
                                 "bcSurrogateIds":$p.bcSurrogateIds,
-                                "timelineId": $not($p.timelineId),
+                                "timelineId": $p.timelineId,
                                 "definedProcedures.id":$p.definedProcedures.id,
-                                "instanceType":$p.instanceType,
-                                "path":$p._path,
-                                "check":$ChkX()
+                                "check":$ChkX
                             }
                           )
                     ]
@@ -34,9 +32,8 @@
     "message": "An activity with children points to a timeline, procedure, biomedical concept, biomedical concept category, or biomedical concept surrogate as well.",
     "variables": 
         [
-            "StudyDesigns.id",
-            "StudyDesigns.name",
-            "id",
+            "StudyDesign.id",
+            "StudyDesign.name",
             "name",
             "label",
             "biomedicalConceptIds",
