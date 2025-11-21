@@ -4216,7 +4216,6 @@
                   "description": "Treatment na\u00efve",
                   "includesHealthySubjects": false,
                   "plannedEnrollmentNumber": null,
-                  "plannedCompletionNumber": null,
                   "plannedSex": [],
                   "criterionIds": [],
                   "plannedAge": null,
