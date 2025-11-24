@@ -4222,7 +4222,7 @@
                   "description": "Treatment na\u00efve",
                   "includesHealthySubjects": false,
                   "plannedEnrollmentNumber": null,
-                  "plannedCompletionNumber": [],
+                  "plannedCompletionNumber": null,
                   "plannedSex": [],
                   "criterionIds": [],
                   "plannedAge": null,
@@ -12702,17 +12702,17 @@
               }
             ],
             "population": {
-              "id": "StudyDesignPopulation_1",
+              "id": "StudyDesignPopulation_2",
               "extensionAttributes": [],
-              "name": "POP1",
+              "name": "POP2",
               "label": "Patients with Wilson's Disease",
               "description": "Patients with Wilson's Disease",
               "includesHealthySubjects": false,
               "plannedEnrollmentNumber": null,
               "plannedCompletionNumber": {
-                "id": "Quantity_101",
+                "id": "Quantity_1012",
                 "extensionAttributes": [],
-                "value": 10.0,
+                "value": 15.0,
                 "unit": null,
                 "instanceType": "Quantity"
               },
@@ -12820,9 +12820,9 @@
                   "includesHealthySubjects": false,
                   "plannedEnrollmentNumber": null,
                   "plannedCompletionNumber": {
-                    "id": "Quantity_10",
+                    "id": "Quantity_102",
                     "extensionAttributes": [],
-                    "value": 10.0,
+                    "value": 20.0,
                     "unit": null,
                     "instanceType": "Quantity"
                   },
