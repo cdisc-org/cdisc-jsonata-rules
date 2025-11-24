@@ -6,7 +6,7 @@
                            [
                                ($NullCohort:=("null" in cohorts.$type(plannedCompletionNumber) or ($count(cohorts.plannedCompletionNumber)!=$count(cohorts.id))); 
                                 $InCohort:=$boolean(cohorts.plannedCompletionNumber);      
-                                $InPop:=($type(plannedCompletionNumber) != "null" and $exists(plannedCompletionNumber));           
+                                $InPop:=($type(plannedCompletionNumber) != "null" and $exists(plannedCompletionNumber));  
                                     $ChkX:=function()
                                         {
                                             ($InPop=true and $InCohort=true)                            
@@ -19,10 +19,10 @@
                                              "StudyDesign.id": $sd.id,
                                              "StudyDesign.name": $sd.name,
                                              "name": $p.name,
-                                             "plannedCompletionNumber.id": $p.plannedCompletionNumber.id,
+                                             "plannedCompletionNumber.id": $p.{id: plannedCompletionNumber.id},
                                              "cohorts.id":$p.cohorts.id,
-                                             "cohorts.name": $p.cohorts.name,
-                                             "cohorts.plannedCompletionNumber.id":$p.cohorts.plannedCompletionNumber.id,
+                                             "cohorts.name": $p.cohorts.{id: name},
+                                             "cohorts.plannedCompletionNumber.id":$p.cohorts.{id: plannedCompletionNumber.id},
                                              "check":$ChkX()
                                           }
                                  )
