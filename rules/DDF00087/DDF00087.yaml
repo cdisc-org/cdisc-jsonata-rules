@@ -48,8 +48,8 @@ Check: |-
                       "ScheduleTimeline.id": $st.id,
                       "ScheduleTimeline.name": $st.name,
                       "ScheduleTimeline.mainTimeline": $st.mainTimeline,
-                      "Encounter order by previous/next": $actord ~> $map($encounter) ~> $join(" > "),
-                      "Encounter order by timeline refs": $reford ~> $map($encounter) ~> $join(" > ")
+                      "Encounter order by previous/next": "[ "&($actord ~> $map($encounter) ~> $join(" > "))&" ]",
+                      "Encounter order by timeline refs": "[ "&($reford ~> $map($encounter) ~> $join(" > "))&" ]"
                   }[`Encounter order by previous/next` != `Encounter order by timeline refs`]
               )
 Core:

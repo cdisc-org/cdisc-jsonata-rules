@@ -48,8 +48,8 @@ Check: |-
                       "ScheduleTimeline.id": $st.id,
                       "ScheduleTimeline.name": $st.name,
                       "ScheduleTimeline.mainTimeline": $st.mainTimeline,
-                      "Epoch order by previous/next": $actord ~> $map($epoch) ~> $join(" > "),
-                      "Epoch order by timeline refs": $reford ~> $map($epoch) ~> $join(" > ")
+                      "Epoch order by previous/next": "[ "&($actord ~> $map($epoch) ~> $join(" > "))&" ]",
+                      "Epoch order by timeline refs": "[ "&($reford ~> $map($epoch) ~> $join(" > "))&" ]"
                   }[`Epoch order by previous/next` != `Epoch order by timeline refs`]
               )
 Core:

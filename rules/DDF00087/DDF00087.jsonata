@@ -18,14 +18,13 @@
                       "ScheduleTimeline.id": $st.id,
                       "ScheduleTimeline.name": $st.name,
                       "ScheduleTimeline.mainTimeline": $st.mainTimeline,
-                      "Encounter order by previous/next": $actord ~> $map($encounter) ~> $join(" > "),
-                      "Encounter order by timeline refs": $reford ~> $map($encounter) ~> $join(" > ")
+                      "Encounter order by previous/next": "[ "&($actord ~> $map($encounter) ~> $join(" > "))&" ]",
+                      "Encounter order by timeline refs": "[ "&($reford ~> $map($encounter) ~> $join(" > "))&" ]"
                   }[`Encounter order by previous/next` != `Encounter order by timeline refs`]
               )
                     )},
     "message": "The order of the encounters in the study design (as defined by the next attribute) does not match the order of encounters as referenced from scheduled activity instances in the main timeline that are ordered by default condition.",
     "variables": [
-        "id",
         "name",
         "ScheduleTimeline.id",
         "ScheduleTimeline.name",
