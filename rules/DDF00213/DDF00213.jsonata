@@ -1,25 +1,25 @@
 {
     "check_func" : function($data){$data.(
-                    ($.study.versions)@$sv.
-                        ($sv.studyDesigns[studyType.code = "C98388"])@$sd.
-                                {
-                                    "id": $sd.id,
-                                    "name": $sd.name,
-                                    "studyType.code": $sd.studyType.code,
-                                    "studyType.decode": $sd.studyType.decode,
-                                    "model.code": $sd.model.code,
-                                    "model.decode": $sd.model.decode,
-                                    "# Referenced Study Interventions":  $count($distinct($sd.studyInterventionIds[$ in $sv.studyInterventions.id])),
-                                    "dataset": $sd.instanceType
-                                }
-                                [
-                                    (`model.code` = "C82640" and `# Referenced Study Interventions` != 1) or
-                                    (`model.code` != "C82640" and `# Referenced Study Interventions` <= 1)
-                                ]
+  ($.study.versions)@$sv.
+    ($sv.studyDesigns[studyType.code = "C98388"])@$sd.
+      {
+        "instanceType": $sd.instanceType,
+        "id": $sd.id,
+        "path": $sd._path,
+        "name": $sd.name,
+        "studyType.code": $sd.studyType.code,
+        "studyType.decode": $sd.studyType.decode,
+        "model.code": $sd.model.code,
+        "model.decode": $sd.model.decode,
+        "# Referenced Study Interventions":  $count($distinct($sd.studyInterventionIds[$ in $sv.studyInterventions.id]))
+      }
+      [
+        (`model.code` = "C82640" and `# Referenced Study Interventions` != 1) or
+        (`model.code` != "C82640" and `# Referenced Study Interventions` <= 1)
+      ]
                 )},
-    "message": "The number of study interventions referenced for the interventional study design is not consistent with intervention model specified for the study design - either the model indicates a single group and there is not reference to only one study intervention, or the model does not indicate a single group and there are not references to multiple study interventions.",
+    "message": "The number of study interventions referenced for the interventional study design is not consistent with intervention model specified for the study design - either the model indicates a single group (model.code is C82640) and there is not reference to only one study intervention, or the model does not indicate a single group (model.code is not C82640) and there are not references to multiple study interventions.",
     "variables": [
-            "id",
             "name",
             "studyType.code",
             "studyType.decode",
