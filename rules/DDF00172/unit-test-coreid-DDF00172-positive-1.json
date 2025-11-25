@@ -5949,6 +5949,31 @@
             },
             "notes": [],
             "instanceType": "StudyRole"
+          },
+          {
+            "id": "StudyRole_2",
+            "extensionAttributes": [],
+            "name": "ROLE_2",
+            "label": "Laboratory",
+            "description": "Sponsor role",
+            "code": {
+              "id": "Code_679",
+              "extensionAttributes": [],
+              "code": "C37984",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2024-09-27",
+              "decode": "Laboratory",
+              "instanceType": "Code"
+            },
+            "appliesToIds": [
+              "StudyVersion_1"
+            ],
+            "assignedPersons": [],
+            "organizationIds": [
+              "Organization_3"
+            ],
+            "notes": [],
+            "instanceType": "StudyRole"
           }
         ],
         "organizations": [
@@ -6099,7 +6124,7 @@
             "name": "LILLY2",
             "label": "Eli Lilly",
             "type": {
-              "id": "Code_679",
+              "id": "Code_680",
               "extensionAttributes": [],
               "code": "C70793",
               "codeSystem": "http://www.cdisc.org",
@@ -6121,7 +6146,7 @@
               "state": "IN",
               "postalCode": "4628",
               "country": {
-                "id": "Code_680",
+                "id": "Code_681",
                 "extensionAttributes": [],
                 "code": "USA",
                 "codeSystem": "ISO 3166 1 alpha3",

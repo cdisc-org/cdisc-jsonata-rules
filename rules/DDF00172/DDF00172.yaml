@@ -16,16 +16,22 @@ Authorities:
         Version: '4.0'
 Check: |-
   [$.study.versions@$sv.
-      (
-          $spIds := $sv.studyIdentifiers[scopeId in $sv.roles[code.code="C70793"].organizationIds].text;
-          {
-              "id": $sv.id,
-              "versionIdentifier": $sv.versionIdentifier,
-              "dataset": $sv.instanceType,
-              "Sponsor Identifier(s)": $spIds,
-              "count": $count($spIds)
-          }
-      )][count != 1]
+    (
+      $spIds := $sv.studyIdentifiers[scopeId in $sv.roles[code.code="C70793"].organizationIds];
+      {
+        "instanceType": $sv.instanceType,
+        "id": $sv.id,
+        "path": $sv._path,
+        "versionIdentifier": $sv.versionIdentifier,
+        "# Sponsor Identifiers": $count($spIds),
+        "Sponsor Identifiers": $spIds.
+          (
+            $spid:=$;
+            $spid.id & ": " & $spid.text & " (" & $spid.scopeId & 
+              ": " & $sv.organizations[id=$spid.scopeId].name & ")"
+          )
+      }
+    )][`# Sponsor Identifiers` != 1]
 Core:
   Id: 'DDF00172'
   Status: Draft
@@ -37,11 +43,10 @@ Executability: Fully Executable
 Outcome:
   Message: 'The study version does not have exactly one sponsor study identifier.'
   Output Variables:
-    - id
     - versionIdentifier
-    - 'Sponsor Identifier(s)'
-    - count
-Rule Type: Record Data
+    - '# Sponsor Identifiers'
+    - 'Sponsor Identifiers'
+Rule Type: JSONata
 Scope:
   Entities:
     Include:

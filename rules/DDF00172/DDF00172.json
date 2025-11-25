@@ -27,7 +27,7 @@
                 ]
             }
         ],
-        "Check": "[$.study.versions@$sv.\n    (\n        $spIds := $sv.studyIdentifiers[scopeId in $sv.roles[code.code=\"C70793\"].organizationIds].text;\n        {\n            \"id\": $sv.id,\n            \"versionIdentifier\": $sv.versionIdentifier,\n            \"dataset\": $sv.instanceType,\n            \"Sponsor Identifier(s)\": $spIds,\n            \"count\": $count($spIds)\n        }\n    )][count != 1]",
+        "Check": "[$.study.versions@$sv.\n  (\n    $spIds := $sv.studyIdentifiers[scopeId in $sv.roles[code.code=\"C70793\"].organizationIds];\n    {\n      \"instanceType\": $sv.instanceType,\n      \"id\": $sv.id,\n      \"path\": $sv._path,\n      \"versionIdentifier\": $sv.versionIdentifier,\n      \"# Sponsor Identifiers\": $count($spIds),\n      \"Sponsor Identifiers\": $spIds.\n        (\n          $spid:=$;\n          $spid.id & \": \" & $spid.text & \" (\" & $spid.scopeId & \n            \": \" & $sv.organizations[id=$spid.scopeId].name & \")\"\n        )\n    }\n  )][`# Sponsor Identifiers` != 1]",
         "Core": {
             "Id": "",
             "Status": "Draft",
@@ -38,10 +38,9 @@
         "Outcome": {
             "Message": "The study version does not have exactly one sponsor study identifier.",
             "Output_Variables": [
-                "id",
                 "versionIdentifier",
-                "Sponsor Identifier(s)",
-                "count"
+                "# Sponsor Identifiers",
+                "Sponsor Identifiers"
             ]
         },
         "Scope": {
@@ -52,7 +51,7 @@
             }
         },
         "Sensitivity": "Record",
-        "Rule_Type": "Record Data"
+        "Rule_Type": "JSONata"
     },
     "datasets": [],
     "codelists": []

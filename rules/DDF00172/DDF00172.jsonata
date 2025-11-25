@@ -1,24 +1,28 @@
 {
     "check_func": function($data){$data.(
-                        [$.study.versions@$sv.
-                            (
-                                $spIds := $sv.studyIdentifiers[scopeId in $sv.roles[code.code="C70793"].organizationIds].text;
-                                {
-                                    "id": $sv.id,
-                                    "versionIdentifier": $sv.versionIdentifier,
-                                    "dataset": $sv.instanceType,
-                                    "Sponsor Identifier(s)": $spIds,
-                                    "count": $count($spIds)
-                                }
-                            )][count != 1]
-
+  [$.study.versions@$sv.
+    (
+      $spIds := $sv.studyIdentifiers[scopeId in $sv.roles[code.code="C70793"].organizationIds];
+      {
+        "instanceType": $sv.instanceType,
+        "id": $sv.id,
+        "path": $sv._path,
+        "versionIdentifier": $sv.versionIdentifier,
+        "# Sponsor Identifiers": $count($spIds),
+        "Sponsor Identifiers": $spIds.
+          (
+            $spid:=$;
+            $spid.id & ": " & $spid.text & " (" & $spid.scopeId & 
+              ": " & $sv.organizations[id=$spid.scopeId].name & ")"
+          )
+      }
+    )][`# Sponsor Identifiers` != 1]
                     )},
     "message": "The study version does not have exactly one sponsor study identifier.",
     "variables": [
-        "id",
         "versionIdentifier",
-        "Sponsor Identifier(s)",
-        "count"
+        "# Sponsor Identifiers",
+        "Sponsor Identifiers"
     ],
     "scope": {
         "Include": [

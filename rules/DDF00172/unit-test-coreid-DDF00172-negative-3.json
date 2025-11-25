@@ -270,7 +270,7 @@
             "id": "StudyIdentifier_3",
             "extensionAttributes": [],
             "text": "H2Q-MC-LZZT-2",
-            "scopeId": "Organization_4",
+            "scopeId": "Organization_1",
             "instanceType": "StudyIdentifier"
           }
         ],
@@ -5938,8 +5938,7 @@
             "appliesToIds": [],
             "assignedPersons": [],
             "organizationIds": [
-              "Organization_1",
-              "Organization_4"
+              "Organization_1"
             ],
             "masking": {
               "id": "Masking_1",
