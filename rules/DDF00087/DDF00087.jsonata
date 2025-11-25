@@ -1,26 +1,27 @@
 {
     "check_func" : function($data){$data.(
-                        ($.study.versions)@$sv.
-                            ($sv.studyDesigns)@$sd.
-                                ($sd.scheduleTimelines[mainTimeline = true])@$st.
-                                    (
-                                        $actord := $utils.parse_refs("nextId","next",$sd.encounters)
-                                                    [previousId = null].$append(id,**.next.id);
-                                        $reford := $utils.parse_refs("defaultConditionId","defaultCondition",$st.instances)
-                                                    [id = $st.entryId].**[instanceType="ScheduledActivityInstance" and encounterId in $sd.encounters.id].encounterId
-                                                    ~> $utils.del_reps;
-                                        $encounter := function($id){($e:=$sd.encounters[id=$id];$id & " [" & $e.name & "]")};
-                                        {
-                                            "id": $sd.id,
-                                            "name": $sd.name,
-                                            "ScheduleTimeline.id": $st.id,
-                                            "ScheduleTimeline.name": $st.name,
-                                            "ScheduleTimeline.mainTimeline": $st.mainTimeline,
-                                            "Encounter order": $actord ~> $map($encounter),
-                                            "Referenced encounter order": $reford ~> $map($encounter),
-                                            "dataset": $sd.instanceType
-                                        }[`Encounter order` != `Referenced encounter order`]
-                                    )
+  ($.study.versions)@$sv.
+      ($sv.studyDesigns)@$sd.
+          ($sd.scheduleTimelines[mainTimeline = true])@$st.
+              (
+                  $actord := $utils.parse_refs("nextId","next",$sd.encounters)
+                              [previousId = null].$append(id,**.next.id);
+                  $reford := $utils.parse_refs("defaultConditionId","defaultCondition",$st.instances)
+                              [id = $st.entryId].**[instanceType="ScheduledActivityInstance" and encounterId in $sd.encounters.id].encounterId
+                              ~> $filter(function($v,$i,$a){$i = 0 or ($i > 0 and $v != $a[$i-1])});
+                  $encounter := function($id){($e:=$sd.encounters[id=$id];$id & ": " & $e.name)};
+                  {
+                      "instanceType": $sd.instanceType,
+                      "id": $sd.id,
+                      "path": $sd._path,
+                      "name": $sd.name,
+                      "ScheduleTimeline.id": $st.id,
+                      "ScheduleTimeline.name": $st.name,
+                      "ScheduleTimeline.mainTimeline": $st.mainTimeline,
+                      "Encounter order by previous/next": $actord ~> $map($encounter) ~> $join(" > "),
+                      "Encounter order by timeline refs": $reford ~> $map($encounter) ~> $join(" > ")
+                  }[`Encounter order by previous/next` != `Encounter order by timeline refs`]
+              )
                     )},
     "message": "The order of the encounters in the study design (as defined by the next attribute) does not match the order of encounters as referenced from scheduled activity instances in the main timeline that are ordered by default condition.",
     "variables": [
@@ -29,8 +30,8 @@
         "ScheduleTimeline.id",
         "ScheduleTimeline.name",
         "ScheduleTimeline.mainTimeline",
-        "Encounter order",
-        "Referenced encounter order"
+        "Encounter order by previous/next",
+        "Encounter order by timeline refs"
     ],
     "scope": {
         "Include": [

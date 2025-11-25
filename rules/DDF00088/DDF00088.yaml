@@ -38,18 +38,19 @@ Check: |-
                               [previousId = null].$append(id,**.next.id);
                   $reford := $utils.parse_refs("defaultConditionId","defaultCondition",$st.instances)
                               [id = $st.entryId].**[instanceType="ScheduledActivityInstance" and epochId in $sd.epochs.id].epochId
-                              ~> $utils.del_reps;
-                  $epoch := function($id){($e:=$sd.epochs[id=$id];$id & " [" & $e.name & "]")};
+                              ~> $filter(function($v,$i,$a){$i = 0 or ($i > 0 and $v != $a[$i-1])});
+                  $epoch := function($id){($e:=$sd.epochs[id=$id];$id & ": " & $e.name)};
                   {
+                      "instanceType": $sd.instanceType,
                       "id": $sd.id,
+                      "path": $sd._path,
                       "name": $sd.name,
                       "ScheduleTimeline.id": $st.id,
                       "ScheduleTimeline.name": $st.name,
                       "ScheduleTimeline.mainTimeline": $st.mainTimeline,
-                      "Epoch order": $actord ~> $map($epoch),
-                      "Referenced epoch order": $reford ~> $map($epoch),
-                      "dataset": $sd.instanceType
-                  }[`Epoch order` != `Referenced epoch order`]
+                      "Epoch order by previous/next": $actord ~> $map($epoch) ~> $join(" > "),
+                      "Epoch order by timeline refs": $reford ~> $map($epoch) ~> $join(" > ")
+                  }[`Epoch order by previous/next` != `Epoch order by timeline refs`]
               )
 Core:
   Id: 'DDF00088'
@@ -65,13 +66,12 @@ Outcome:
     activity instances in the main timeline that are ordered by default
     condition.'
   Output Variables:
-    - id
     - name
     - ScheduleTimeline.id
     - ScheduleTimeline.name
     - ScheduleTimeline.mainTimeline
-    - Epoch order
-    - Referenced epoch order
+    - Epoch order by previous/next
+    - Epoch order by timeline refs
 Rule Type: JSONata
 Scope:
   Entities:
