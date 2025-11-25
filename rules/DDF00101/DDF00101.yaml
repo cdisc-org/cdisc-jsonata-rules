@@ -29,16 +29,22 @@ Authorities:
         Version: '4.0'
 Check: |-
   ($.study.versions[$not("studyType" in $keys($)) or studyType.code = "C98388"])@$sv.
-      ($sv.studyDesigns[$not("studyType" in $keys($)) or studyType.code = "C98388"])@$sd.
-              {
-                  "id": $sd.id,
-                  "name": $sd.name,
-                  "studyType.code": $append($sv.studyType.code,$sd.studyType.code),
-                  "studyType.decode": $append($sv.studyType.decode,$sd.studyType.decode),
-                  "Referenced Study Interventions":
-                      $count($sd.activities.definedProcedures[studyInterventionId in $append($sv.studyInterventions.id,$sd.studyInterventions.id)]),
-                  "dataset": $sd.instanceType
-              }[`Referenced Study Interventions` < 1][]
+    ($sv.studyDesigns[$not("studyType" in $keys($)) or studyType.code = "C98388"])@$sd.
+      {
+        "instanceType": $sd.instanceType,
+        "id": $sd.id,
+        "path": $sd._path,
+        "name": $sd.name,
+        "studyType.code": $append($sv.studyType.code,$sd.studyType.code),
+        "studyType.decode": $append($sv.studyType.decode,$sd.studyType.decode),
+        "# Referenced Study Interventions":
+            $count($sd.activities.definedProcedures
+              [
+                studyInterventionId in
+                  $append($sd.studyInterventionIds[$ in $sv.studyInterventions.id],$sd.studyInterventions.id)
+              ]
+            )
+      }[`# Referenced Study Interventions` < 1][]
 Core:
   Id: 'DDF00101'
   Status: Draft
@@ -47,14 +53,13 @@ Description: 'Within a study design, if study type is Interventional then at
   least one intervention is expected to be referenced from a procedure.'
 Executability: Partially Executable - Possible Overreporting
 Outcome:
-  Message: 'The study type is Interventional but a study intervention is not
-    referenced from any procedure.'
+  Message: 'The study type is Interventional (code=C98388) but a study
+    intervention is not referenced from any procedure.'
   Output Variables:
-    - id
     - name
     - studyType.code
     - studyType.decode
-    - Study Interventions
+    - '# Referenced Study Interventions'
 Rule Type: JSONata
 Scope:
   Entities:

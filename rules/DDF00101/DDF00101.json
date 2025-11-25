@@ -47,7 +47,7 @@
                 ]
             }
         ],
-        "Check": "($.study.versions[$not(\"studyType\" in $keys($)) or studyType.code = \"C98388\"])@$sv.\n    ($sv.studyDesigns[$not(\"studyType\" in $keys($)) or studyType.code = \"C98388\"])@$sd.\n            {\n                \"id\": $sd.id,\n                \"name\": $sd.name,\n                \"studyType.code\": $append($sv.studyType.code,$sd.studyType.code),\n                \"studyType.decode\": $append($sv.studyType.decode,$sd.studyType.decode),\n                \"Referenced Study Interventions\":\n                    $count($sd.activities.definedProcedures[studyInterventionId in $append($sv.studyInterventions.id,$sd.studyInterventions.id)]),\n                \"dataset\": $sd.instanceType\n            }[`Referenced Study Interventions` < 1][]",
+        "Check": "($.study.versions[$not(\"studyType\" in $keys($)) or studyType.code = \"C98388\"])@$sv.\n  ($sv.studyDesigns[$not(\"studyType\" in $keys($)) or studyType.code = \"C98388\"])@$sd.\n    {\n      \"instanceType\": $sd.instanceType,\n      \"id\": $sd.id,\n      \"path\": $sd._path,\n      \"name\": $sd.name,\n      \"studyType.code\": $append($sv.studyType.code,$sd.studyType.code),\n      \"studyType.decode\": $append($sv.studyType.decode,$sd.studyType.decode),\n      \"# Referenced Study Interventions\":\n          $count($sd.activities.definedProcedures\n            [\n              studyInterventionId in\n                $append($sd.studyInterventionIds[$ in $sv.studyInterventions.id],$sd.studyInterventions.id)\n            ]\n          )\n    }[`# Referenced Study Interventions` < 1][]",
         "Core": {
             "Id": "",
             "Status": "Draft",
@@ -56,13 +56,12 @@
         "Description": "Within a study design, if study type is Interventional then at least one intervention is expected to be referenced from a procedure.",
         "Executability": "Partially Executable - Possible Overreporting",
         "Outcome": {
-            "Message": "The study type is Interventional but a study intervention is not referenced from any procedure.",
+            "Message": "The study type is Interventional (code=C98388) but a study intervention is not referenced from any procedure.",
             "Output_Variables": [
-                "id",
                 "name",
                 "studyType.code",
                 "studyType.decode",
-                "Study Interventions"
+                "# Referenced Study Interventions"
             ]
         },
         "Scope": {

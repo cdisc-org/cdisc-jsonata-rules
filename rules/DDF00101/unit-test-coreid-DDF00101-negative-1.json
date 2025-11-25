@@ -6887,9 +6887,7 @@
                 "instanceType": "Indication"
               }
             ],
-            "studyInterventionIds": [
-              "StudyIntervention_1"
-            ],
+            "studyInterventionIds": [],
             "objectives": [
               {
                 "id": "Objective_7",
