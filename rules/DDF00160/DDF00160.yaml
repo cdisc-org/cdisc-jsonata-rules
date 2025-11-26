@@ -20,9 +20,9 @@ Check: |-
     $p.
       [
         (
-          $ActivityDetails:=($not(biomedicalConceptIds) = false or $not(bcCategoryIds) = false or $not(definedProcedures) = false
-            or $not(timelineId) = false or $not(bcSurrogateIds)= false);
-          $ChkX:=($not(childIds) = false and $ActivityDetails =true);
+          $ActivityDetails:=(biomedicalConceptIds or bcCategoryIds or definedProcedures
+            or timelineId or bcSurrogateIds);
+          $ChkX:=(childIds and $ActivityDetails =true);
             {
               "instanceType": $p.instanceType,
               "id": $p.id,
@@ -30,7 +30,6 @@ Check: |-
               "StudyDesign.id": $sd.id,
               "StudyDesign.name": $sd.name,
               "name": $p.name,
-              "label": $p.label,
               "childIds": $p.childIds,
               "biomedicalConceptIds": $p.biomedicalConceptIds,
               "bcCategoryIds": $p.bcCategoryIds,
@@ -39,11 +38,11 @@ Check: |-
               "definedProcedures.id": $p.definedProcedures.id,
               "check": $ChkX
             }
-        )
-      ]
-      [check=true]
+          )
+        ]
+        [check=true]
 Core:
-  Id: 'DDF00160'
+  Id: ''
   Status: Draft
   Version: '1'
 Description: 'An activity with children must not refer to a timeline, procedure,
@@ -51,12 +50,14 @@ Description: 'An activity with children must not refer to a timeline, procedure,
   surrogate.'
 Executability: Fully Executable
 Outcome:
-  Message: 'An activity with children points to a timeline, procedure, biomedical
-    concept, biomedical concept category or biomedical concept surrogate.'
+  Message: 'The activity has children but also refers to a timeline, procedure,
+    biomedical concept, biomedical concept category, or biomedical concept
+    surrogate as well.'
   Output Variables:
     - StudyDesign.id
     - StudyDesign.name
     - name
+    - childIds
     - biomedicalConceptIds
     - bcCategoryIds
     - bcSurrogateIds
