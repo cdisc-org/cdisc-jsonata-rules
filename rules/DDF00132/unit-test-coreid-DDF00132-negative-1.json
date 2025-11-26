@@ -12840,7 +12840,7 @@
                   "description": "Treatment na\u00efve",
                   "includesHealthySubjects": false,
                   "plannedEnrollmentNumber": null,
-                  "plannedCompletionNumber": [],
+                  "plannedCompletionNumber": null,
                   "plannedSex": [],
                   "criterionIds": [],
                   "plannedAge": null,
