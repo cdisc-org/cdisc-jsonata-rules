@@ -5253,11 +5253,24 @@
               "description": "Patients with Wilson's Disease",
               "includesHealthySubjects": false,
               "plannedEnrollmentNumber": {
-                "id": "Quantity_101",
+                "id": "Range_101",
                 "extensionAttributes": [],
-                "value": 20.0,
-                "unit": null,
-                "instanceType": "Quantity"
+                "minValue": {
+                  "id": "Quantity_1299",
+                  "extensionAttributes": [],
+                  "value": 20.0,
+                  "unit": null,
+                  "instanceType": "Quantity"
+                },
+                "maxValue": {
+                  "id": "Quantity_1399",
+                  "extensionAttributes": [],
+                  "value": 100.0,
+                  "unit": null,
+                  "instanceType": "Quantity"
+                },
+                "isApproximate": true,
+                "instanceType": "Range"
               },
               "plannedCompletionNumber": {
                 "id": "Quantity_10",
@@ -5403,7 +5416,6 @@
                   "label": "Cohort 2 (treatment na\u00efve)",
                   "description": "Treatment na\u00efve",
                   "includesHealthySubjects": false,
-                  "plannedEnrollmentNumber": [],
                   "plannedCompletionNumber": null,
                   "plannedSex": [],
                   "criterionIds": [],
