@@ -1,33 +1,43 @@
 {
     "check_func" : function($data){$data.(
 ($.**.studyDesigns)@$sd.
-                    $sd.population@$p.
-                       $p.
-                           [
-                               ($NullCohort:=("null" in cohorts.$type(plannedEnrollmentNumber) or ($count(cohorts.plannedEnrollmentNumber)!=$count(cohorts.id))); 
-                                $InCohort:=$boolean(cohorts.plannedEnrollmentNumber);      
-                                $InPop:=($type(plannedEnrollmentNumber) != "null" and $exists(plannedEnrollmentNumber));           
-                                    $ChkX:=function()
-                                        {
-                                            ($InPop=true and $InCohort=true)                            
-                                             or ($InPop=false and $NullCohort=true and $InCohort=true) 
-                                         };
-                                     {
-                                             "instanceType": $p.instanceType,
-                                             "id": $p.id,
-                                             "path": $p._path,
-                                             "StudyDesign.id": $sd.id,
-                                             "StudyDesign.name": $sd.name,
-                                             "name": $p.name,
-                                             "plannedEnrollmentNumber.id": $p.plannedEnrollmentNumber.id,
-                                             "cohorts.id":$p.cohorts.id,
-                                             "cohorts.name": $p.cohorts.name,
-                                             "cohorts.plannedEnrollmentNumber.id":$p.cohorts.plannedEnrollmentNumber.id,
-                                             "check":$ChkX()
-                                          }
-                                 )
-                           ]
-                           [check=true]
+    $sd.population@$p.
+    $p.
+        [
+            (
+                $NullCohort:=("null" in cohorts.$type(plannedenrollmentNumber) or ($count(cohorts.plannedEnrollmentNumber)!=$count(cohorts.id))); 
+                $InCohort:=$boolean(cohorts.plannedEnrollmentNumber);      
+                $InPop:=($type(plannedEnrollmentNumber) != "null" and $exists(plannedEnrollmentNumber));  
+                $FValU:=function($n)
+                    {
+                        (
+                            $exists($n)
+                            ?   $type($n)="object"
+                                ?   $exists($n.value)
+                                   ? $n.value&$n.unit.standardCode.decode
+                                   : $n.minValue.value&$n.minValue.unit.standardCode.decode&" to "&
+                                     $n.maxValue.value&$n.maxValue.unit.standardCode.decode
+                                : $string($n)
+                            : "Missing"
+                        )              
+                    };
+                    {
+                        "instanceType": $p.instanceType,
+                        "id": $p.id,
+                        "path": $p._path,
+                        "StudyDesign.id": $sd.id,
+                        "StudyDesign.name": $sd.name,
+                        "name": $p.name,
+                        "plannedEnrollmentNumber.id": $p.plannedEnrollmentNumber.id,
+                        "plannedEnrollmentNumber(value/range)": $FValU($p.plannedEnrollmentNumber),
+                        "cohorts.name": "["& $join($p.cohorts.(id & ": " & name),", ") & "]",
+                        "cohorts.plannedEnrollmentNumber.id": "["& $join($p.cohorts.(id & ": " & plannedEnrollmentNumber.id),", ") & "]",
+                        "cohorts.plannedEnrollmentNumber(value/range)": "["& $join($p.cohorts.(id & ": " & $FValU(plannedEnrollmentNumber)),", ") & "]",
+                        "check": (($InPop=true and $InCohort=true) or ($InPop=false and $NullCohort=true and $InCohort=true))
+                        }
+            )
+        ]
+        [check=true]
            )},
     "message": "A planned enrollment number has been specified for both the study population and the cohorts, or it has been specified for only a subset of the cohorts.",
     "variables": 
@@ -36,9 +46,10 @@
             "studyDesign.name",
             "name",
             "plannedEnrollmentNumber.id",
-            "cohorts.id",
+            "plannedEnrollmentNumber(value/range)",
             "cohorts.name",
-            "cohorts.plannedEnrollmentNumber.id"
+            "cohorts.plannedEnrollmentNumber.id",
+            "cohorts.plannedEnrollmentNumber(value/range)"
         ],
     "scope": {
         "Include": [
