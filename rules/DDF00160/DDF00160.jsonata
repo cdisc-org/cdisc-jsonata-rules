@@ -6,9 +6,9 @@
             $p.
                 [
                     (
-                        $ActivityDetails:=($not(biomedicalConceptIds) = false or $not(bcCategoryIds) = false or $not(definedProcedures) = false
-                                                    or $not(timelineId) = false or $not(bcSurrogateIds)= false);
-                        $ChkX:=($not(childIds) = false and $ActivityDetails =true);
+                        $ActivityDetails:=(biomedicalConceptIds or bcCategoryIds or definedProcedures
+                                                    or timelineId or bcSurrogateIds);
+                        $ChkX:=(childIds and $ActivityDetails =true);
                             {
                                 "instanceType": $p.instanceType,
                                 "id": $p.id,
@@ -16,7 +16,6 @@
                                 "StudyDesign.id": $sd.id,
                                 "StudyDesign.name": $sd.name,
                                 "name": $p.name,
-                                "label": $p.label,
                                 "childIds": $p.childIds,
                                 "biomedicalConceptIds":$p.biomedicalConceptIds,
                                 "bcCategoryIds":$p.bcCategoryIds,
@@ -29,13 +28,13 @@
                     ]
                     [check=true]
            },
-    "message": "An activity with children points to a timeline, procedure, biomedical concept, biomedical concept category, or biomedical concept surrogate as well.",
+    "message": "The activity has children but also refers to a timeline, procedure, biomedical concept, biomedical concept category, or biomedical concept surrogate as well.",
     "variables": 
         [
             "StudyDesign.id",
             "StudyDesign.name",
             "name",
-            "label",
+            "childIds",
             "biomedicalConceptIds",
             "bcCategoryIds",
             "bcSurrogateIds",
