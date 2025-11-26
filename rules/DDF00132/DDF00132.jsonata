@@ -28,14 +28,12 @@
                         "StudyDesign.id": $sd.id,
                         "StudyDesign.name": $sd.name,
                         "name": $p.name,
-                        "plannedCompletionNumber": $FValU($p.plannedCompletionNumber),
+                        "plannedCompletionNumber(value/range)": $FValU($p.plannedCompletionNumber),
                         "cohorts.name": "["& $join($p.cohorts.(id & ": " & name),", ") & "]",
-                        "cohorts.plannedCompletionNumber": "["& $join($p.cohorts.(id & ": " & $FValU(plannedCompletionNumber)),", ") & "]",
+                        "cohorts.plannedCompletionNumber.id": "["& $join($p.cohorts.(id & ": " & plannedCompletionNumber.id),", ") & "]",
+                        "cohorts.plannedCompletionNumber(value/range)": "["& $join($p.cohorts.(id & ": " & $FValU(plannedCompletionNumber)),", ") & "]",
                         "check": (($InPop=true and $InCohort=true) or ($InPop=false and $NullCohort=true and $InCohort=true))
                         }
-            )
-        ]
-        [check=true]
            )},
     "message": "A planned completion number has been specified for both the study population and one or more cohorts, or it has been specified for only a subset of the cohorts.",
     "variables": 
@@ -43,9 +41,10 @@
             "StudyDesign.id",
             "StudyDesign.name",
             "name",
-            "plannedCompletionNumber",
+            "plannedCompletionNumber(value/range)",
             "cohorts.name",
-            "cohorts.plannedCompletionNumber"
+            "cohorts.plannedCompletionNumber.id",
+            "cohorts.plannedCompletionNumber(value/range)"
         ],
     "scope": {
         "Include": [
