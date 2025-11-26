@@ -1,33 +1,41 @@
 {
     "check_func" : function($data){$data.(
         ($.**.studyDesigns)@$sd.
-                    $sd.population@$p.
-                       $p.
-                           [
-                               ($NullCohort:=("null" in cohorts.$type(plannedCompletionNumber) or ($count(cohorts.plannedCompletionNumber)!=$count(cohorts.id))); 
-                                $InCohort:=$boolean(cohorts.plannedCompletionNumber);      
-                                $InPop:=($type(plannedCompletionNumber) != "null" and $exists(plannedCompletionNumber));  
-                                    $ChkX:=function()
-                                        {
-                                            ($InPop=true and $InCohort=true)                            
-                                             or ($InPop=false and $NullCohort=true and $InCohort=true) 
-                                         };
-                                     {
-                                             "instanceType": $p.instanceType,
-                                             "id": $p.id,
-                                             "path": $p._path,
-                                             "StudyDesign.id": $sd.id,
-                                             "StudyDesign.name": $sd.name,
-                                             "name": $p.name,
-                                             "plannedCompletionNumber.id": $p.{id: plannedCompletionNumber.id},
-                                             "cohorts.id":$p.cohorts.id,
-                                             "cohorts.name": $p.cohorts.{id: name},
-                                             "cohorts.plannedCompletionNumber.id":$p.cohorts.{id: plannedCompletionNumber.id},
-                                             "check":$ChkX()
-                                          }
-                                 )
-                           ]
-                           [check=true]
+    $sd.population@$p.
+    $p.
+        [
+            (
+                $NullCohort:=("null" in cohorts.$type(plannedCompletionNumber) or ($count(cohorts.plannedCompletionNumber)!=$count(cohorts.id))); 
+                $InCohort:=$boolean(cohorts.plannedCompletionNumber);      
+                $InPop:=($type(plannedCompletionNumber) != "null" and $exists(plannedCompletionNumber));  
+                $FValU:=function($n)
+                    {
+                        (
+                            $exists($n)
+                            ?   $type($n)="object"
+                                ?   $exists($n.value)
+                                   ? $n.value&$n.unit.standardCode.decode
+                                   : $n.minValue.value&$n.minValue.unit.standardCode.decode&" to "&
+                                     $n.maxValue.value&$n.maxValue.unit.standardCode.decode
+                                : $string($n)
+                            : "Missing"
+                        )              
+                    };
+                    {
+                        "instanceType": $p.instanceType,
+                        "id": $p.id,
+                        "path": $p._path,
+                        "StudyDesign.id": $sd.id,
+                        "StudyDesign.name": $sd.name,
+                        "name": $p.name,
+                        "plannedCompletionNumber": $FValU($p.plannedCompletionNumber),
+                        "cohorts.name": "["& $join($p.cohorts.(id & ": " & name),", ") & "]",
+                        "cohorts.plannedCompletionNumber": "["& $join($p.cohorts.(id & ": " & $FValU(plannedCompletionNumber)),", ") & "]",
+                        "check": (($InPop=true and $InCohort=true) or ($InPop=false and $NullCohort=true and $InCohort=true))
+                        }
+            )
+        ]
+        [check=true]
            )},
     "message": "A planned completion number has been specified for both the study population and one or more cohorts, or it has been specified for only a subset of the cohorts.",
     "variables": 
@@ -35,10 +43,9 @@
             "StudyDesign.id",
             "StudyDesign.name",
             "name",
-            "plannedCompletionNumber.id",
-            "cohorts.id",
+            "plannedCompletionNumber",
             "cohorts.name",
-            "cohorts.plannedCompletionNumber.id"
+            "cohorts.plannedCompletionNumber"
         ],
     "scope": {
         "Include": [
