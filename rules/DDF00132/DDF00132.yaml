@@ -56,6 +56,7 @@ Check: |-
                         "StudyDesign.id": $sd.id,
                         "StudyDesign.name": $sd.name,
                         "name": $p.name,
+                        "plannedCompletionNumber.id": $p.plannedCompletionNumber.id,
                         "plannedCompletionNumber(value/range)": $FValU($p.plannedCompletionNumber),
                         "cohorts.name": "["& $join($p.cohorts.(id & ": " & name),", ") & "]",
                         "cohorts.plannedCompletionNumber.id": "["& $join($p.cohorts.(id & ": " & plannedCompletionNumber.id),", ") & "]",
@@ -80,6 +81,7 @@ Outcome:
     - StudyDesign.id
     - StudyDesign.name
     - name
+    - plannedCompletionNumber.id
     - plannedCompletionNumber(value/range)
     - cohorts.name
     - cohorts.plannedCompletionNumber.id
