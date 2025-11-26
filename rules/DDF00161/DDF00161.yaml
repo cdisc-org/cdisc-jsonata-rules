@@ -16,24 +16,40 @@ Authorities:
         Version: '4.0'
 Check: |-
   study.versions.studyDesigns@$sd.
-      $sd.activities@$a
-      [
-          ($a.childIds and $not($a.nextId in $a.childIds)) or
-          ($sd.activities[id=$a.previousId].childIds and $not($a.id in $sd.activities[id=$a.previousId].childIds)) or
-          ($sd.activities[$a.id in childIds] and $not($a.previousId in $sd.activities[$a.id in childIds].[id,childIds]))
-      ].{
-          "StudyDesign.id": $sd.id,
-          "StudyDesign.name": $sd.name,
-          "id": $a.id,
-          "name": $a.name,
-          "previousId": $a.previousId,
-          "Previous Activity's childIds": $sd.activities[id=$a.previousId].childIds,
-          "nextId": $a.nextId,
-          "childIds": $a.childIds,
-          "Parent Activity's id": $sd.activities[$a.id in childIds].id,
-          "Parent Activity's childIds": $sd.activities[$a.id in childIds].childIds,
-          "dataset": $a.instanceType
-      }
+      $sd.activities@$a.
+        (
+          {
+            "instanceType": $a.instanceType,
+            "id": $a.id,
+            "path": $a._path,
+            "StudyDesign.id": $sd.id,
+            "StudyDesign.name": $sd.name,
+            "name": $a.name,
+            "previousId": $a.previousId,
+            "Previous Activity's childIds": $sd.activities[id=$a.previousId].childIds[],
+            "nextId": $a.nextId,
+            "childIds": $a.childIds[],
+            "Parent Activity's id": $sd.activities[$a.id in childIds].id,
+            "Parent Activity's childIds": $sd.activities[$a.id in childIds].childIds[],
+            "Issue(s)": [
+                          (
+                            $a.childIds and
+                            $not($a.nextId in $a.childIds)
+                          )
+                          ? "The activity's nextId does not reference one of its children.",
+                          (
+                            $sd.activities[$a.id in childIds] and
+                            $not($a.previousId in $sd.activities[$a.id in childIds].[id,childIds])
+                          )
+                          ? "The activity is a child but its previousId does not reference either the id or one of the childIds of its parent activity.",
+                          (
+                            $sd.activities[id=$a.previousId].childIds and
+                            $not($a.id in $sd.activities[id=$a.previousId].childIds)
+                          )
+                          ? "The activity is not one of its previous activity's children."
+                        ]
+          }
+        )[`Issue(s)`]
 Core:
   Id: 'DDF00161'
   Status: Draft
@@ -46,12 +62,11 @@ Outcome:
   Message: "The previous/next ordering of the activity with respect to child
     activities is incorrect - the activity has children but its nextId is not
     one if its childIds, the activity is a child but its previousId is not its
-    parent or another child, and/or the activity's previousId is not its parent
-    but refers to an activity with children."
+    parent or another child, and/or the activity's previousId refers to an
+    activity with children but the activity is not one of those children."
   Output Variables:
     - StudyDesign.id
     - StudyDesign.name
-    - id
     - name
     - previousId
     - "Previous Activity's childIds"
@@ -59,6 +74,7 @@ Outcome:
     - childIds
     - "Parent Activity's id"
     - "Parent Activity's childIds"
+    - "Issue(s)"
 Rule Type: JSONata
 Scope:
   Entities:

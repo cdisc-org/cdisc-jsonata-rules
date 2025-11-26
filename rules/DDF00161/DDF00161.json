@@ -27,7 +27,7 @@
                 ]
             }
         ],
-        "Check": "study.versions.studyDesigns@$sd.\n    $sd.activities@$a\n    [\n        ($a.childIds and $not($a.nextId in $a.childIds)) or\n        ($sd.activities[id=$a.previousId].childIds and $not($a.id in $sd.activities[id=$a.previousId].childIds)) or\n        ($sd.activities[$a.id in childIds] and $not($a.previousId in $sd.activities[$a.id in childIds].[id,childIds]))\n    ].{\n        \"StudyDesign.id\": $sd.id,\n        \"StudyDesign.name\": $sd.name,\n        \"id\": $a.id,\n        \"name\": $a.name,\n        \"previousId\": $a.previousId,\n        \"Previous Activity's childIds\": $sd.activities[id=$a.previousId].childIds,\n        \"nextId\": $a.nextId,\n        \"childIds\": $a.childIds,\n        \"Parent Activity's id\": $sd.activities[$a.id in childIds].id,\n        \"Parent Activity's childIds\": $sd.activities[$a.id in childIds].childIds,\n        \"dataset\": $a.instanceType\n    }",
+        "Check": "study.versions.studyDesigns@$sd.\n    $sd.activities@$a.\n      (\n        {\n          \"instanceType\": $a.instanceType,\n          \"id\": $a.id,\n          \"path\": $a._path,\n          \"StudyDesign.id\": $sd.id,\n          \"StudyDesign.name\": $sd.name,\n          \"name\": $a.name,\n          \"previousId\": $a.previousId,\n          \"Previous Activity's childIds\": $sd.activities[id=$a.previousId].childIds[],\n          \"nextId\": $a.nextId,\n          \"childIds\": $a.childIds[],\n          \"Parent Activity's id\": $sd.activities[$a.id in childIds].id,\n          \"Parent Activity's childIds\": $sd.activities[$a.id in childIds].childIds[],\n          \"Issue(s)\": [\n                        (\n                          $a.childIds and\n                          $not($a.nextId in $a.childIds)\n                        )\n                        ? \"The activity's nextId does not reference one of its children.\",\n                        (\n                          $sd.activities[$a.id in childIds] and\n                          $not($a.previousId in $sd.activities[$a.id in childIds].[id,childIds])\n                        )\n                        ? \"The activity is a child but its previousId does not reference either the id or one of the childIds of its parent activity.\",\n                        (\n                          $sd.activities[id=$a.previousId].childIds and\n                          $not($a.id in $sd.activities[id=$a.previousId].childIds)\n                        )\n                        ? \"The activity is not one of its previous activity's children.\"\n                      ]\n        }\n      )[`Issue(s)`]",
         "Core": {
             "Id": "",
             "Status": "Draft",
@@ -36,18 +36,18 @@
         "Description": "The ordering of activities (using the previous and next attributes) must include the parents (e.g. activities referring to children) preceding their children.",
         "Executability": "Fully Executable",
         "Outcome": {
-            "Message": "The previous/next ordering of the activity with respect to child activities is incorrect - the activity has children but its nextId is not one if its childIds, the activity is a child but its previousId is not its parent or another child, and/or the activity's previousId is not its parent but refers to an activity with children.",
+            "Message": "The previous/next ordering of the activity with respect to child activities is incorrect - the activity has children but its nextId is not one if its childIds, the activity is a child but its previousId is not its parent or another child, and/or the activity's previousId refers to an activity with children but the activity is not one of those children.",
             "Output_Variables": [
                 "StudyDesign.id",
                 "StudyDesign.name",
-                "id",
                 "name",
                 "previousId",
                 "Previous Activity's childIds",
                 "nextId",
                 "childIds",
                 "Parent Activity's id",
-                "Parent Activity's childIds"
+                "Parent Activity's childIds",
+                "Issue(s)"
             ]
         },
         "Scope": {

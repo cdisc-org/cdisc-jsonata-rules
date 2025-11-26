@@ -1715,9 +1715,11 @@
                 "name": "LAST",
                 "label": "Last activity",
                 "description": "",
-                "previousId": "Activity_36",
+                "previousId": "Activity_37",
                 "nextId": null,
-                "childIds": [],
+                "childIds": [
+                  "Activity_37"
+                ],
                 "definedProcedures": [],
                 "biomedicalConceptIds": [],
                 "bcCategoryIds": [],
