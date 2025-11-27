@@ -22,8 +22,8 @@
             $MedProduct:=(($exists($sa.administrableProductId) and $sa.administrableProductId!=null) or ($exists($sv.medicalDevices[id=$sa.medicalDeviceId].embeddedProductId ) and $sv.medicalDevices[id=$sa.medicalDeviceId].embeddedProductId !=null));
                 {
                     "instanceType": $sa.instanceType,
-                    "id": $i.id,
-                    "path": $i._path,
+                    "id": $sa.id,
+                    "path": $sa._path,
                     "StudyIntervention.id": $si.id,
                     "StudyIntervention.name": $si.name,
                     "name": $sa.name,
