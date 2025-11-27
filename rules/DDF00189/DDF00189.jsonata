@@ -1,0 +1,39 @@
+{
+    "check_func" : function($data){$data.(
+  study.versions@$sv.
+    ($sv.roles
+      [
+        $not(
+            appliesToIds and
+              (
+                  ($count(appliesToIds)=1 and appliesToIds[0]=$sv.id) or
+                  $count(appliesToIds)=$count(appliesToIds[$ in $sv.studyDesigns.id])
+              )
+        )
+      ]
+    )@$r.
+      {
+        "instanceType": $r.instanceType,
+        "id": $r.id,
+        "path": $r._path,
+        "name": $r.name,
+        "code": $r.code.decode,
+        "appliesToIds": $r.appliesToIds[],
+        "StudyVersion.id": $sv.id,
+        "StudyVersion.studyDesigns.id": $sv.studyDesigns.id
+      }
+                    )},
+    "message": "The study role does not only apply to the study version or at least one study design - it does not apply to anything, it applies to both the study version and at least one study design, or it applies to something that is not a study version or a study design.",
+    "variables": [
+        "name",
+        "code",
+        "appliesToIds",
+        "StudyVersion.id",
+        "StudyVersion.studyDesigns.id"
+    ],
+    "scope": {
+        "Include": [
+            "StudyRole"
+        ]
+    }
+}

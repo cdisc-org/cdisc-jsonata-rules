@@ -1,0 +1,60 @@
+{
+    "rule": {
+        "Authorities": [
+            {
+                "Organization": "CDISC",
+                "Standards": [
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "Every study role must apply to either a study version or at least one study design, but not both."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00189",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "4.0"
+                    }
+                ]
+            }
+        ],
+        "Check": "study.versions@$sv.\n  ($sv.roles\n    [\n      $not(\n          appliesToIds and\n            (\n                ($count(appliesToIds)=1 and appliesToIds[0]=$sv.id) or\n                $count(appliesToIds)=$count(appliesToIds[$ in $sv.studyDesigns.id])\n            )\n      )\n    ]\n  )@$r.\n    {\n      \"instanceType\": $r.instanceType,\n      \"id\": $r.id,\n      \"path\": $r._path,\n      \"name\": $r.name,\n      \"code\": $r.code.decode,\n      \"appliesToIds\": $r.appliesToIds[],\n      \"StudyVersion.id\": $sv.id,\n      \"StudyVersion.studyDesigns.id\": $sv.studyDesigns.id\n    }",
+        "Core": {
+            "Id": "",
+            "Status": "Draft",
+            "Version": "1"
+        },
+        "Description": "Every study role must apply to either a study version or at least one study design, but not both.",
+        "Executability": "Fully Executable",
+        "Outcome": {
+            "Message": "The study role does not only apply to the study version or at least one study design - it does not apply to anything, it applies to both the study version and at least one study design, or it applies to something that is not a study version or a study design.",
+            "Output_Variables": [
+                "name",
+                "code",
+                "appliesToIds",
+                "StudyVersion.id",
+                "StudyVersion.studyDesigns.id"
+            ]
+        },
+        "Scope": {
+            "Entities": {
+                "Include": [
+                    "StudyRole"
+                ]
+            }
+        },
+        "Sensitivity": "Record",
+        "Rule_Type": "JSONata"
+    },
+    "datasets": [],
+    "codelists": []
+}
