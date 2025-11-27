@@ -47,7 +47,7 @@
 	        "dose.id",
  	        "dose(value/range)",
 	        "administrableProductId",
-            "medicalDevice.id",
+            "medicalDeviceId",
             "MedicalDevice.name",
             "MedicalDevice.embeddedProductId",
             "AdministrableProduct.name" ]                        
