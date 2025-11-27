@@ -1,0 +1,60 @@
+{
+    "rule": {
+        "Authorities": [
+            {
+                "Organization": "CDISC",
+                "Standards": [
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "A study role must not reference both assigned persons and organizations."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00190",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "4.0"
+                    }
+                ]
+            }
+        ],
+        "Check": "study.versions@$sv.\n  ($sv.roles[assignedPersons and organizationIds])@$r.\n    {\n      \"instanceType\": $r.instanceType,\n      \"id\": $r.id,\n      \"path\": $r._path,\n      \"name\": $r.name,\n      \"code\": $r.code.decode,\n      \"assignedPersons.id: name(jobTitle)\": \"[\"&$join($r.assignedPersons.(id&\": \"&name&\"(\"&jobTitle&\")\"),\"; \")&\"]\",\n      \"organizationIds\": $r.organizationIds[],\n      \"Organization.id: name\": \n        \"[\"&$join($r.organizationIds.($oid:=$;$oid&\": \"&($o:=$sv.organizations[id=$oid];$o?$o.name:\"Invalid organizationId\")),\"; \")&\"]\"\n    }",
+        "Core": {
+            "Id": "",
+            "Status": "Draft",
+            "Version": "1"
+        },
+        "Description": "A study role must not reference both assigned persons and organizations.",
+        "Executability": "Fully Executable",
+        "Outcome": {
+            "Message": "The study role references both at least one assigned person and at least one organization.",
+            "Output_Variables": [
+                "name",
+                "code",
+                "assignedPersons.id: name(jobTitle)",
+                "organizationIds",
+                "Organization.id: name"
+            ]
+        },
+        "Scope": {
+            "Entities": {
+                "Include": [
+                    "StudyRole"
+                ]
+            }
+        },
+        "Sensitivity": "Record",
+        "Rule_Type": "JSONata"
+    },
+    "datasets": [],
+    "codelists": []
+}
