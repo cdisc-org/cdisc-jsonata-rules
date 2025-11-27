@@ -1,0 +1,28 @@
+{
+    "check_func" : function($data){$data.(
+  study.versions@$sv.
+    ($sv.roles[code.code = "C70793" and $not($sv.id in appliesToIds)])@$r.
+      {
+        "instanceType": $r.instanceType,
+        "id": $r.id,
+        "path": $r._path,
+        "name": $r.name,
+        "code.code": $r.code.code,
+        "code.decode": $r.code.decode,
+        "appliesToIds": $r.appliesToIds[],
+        "StudyVersion.id": $sv.id
+      }
+                    )},
+    "message": "The study role is a sponsor role (code.code is C70793) but it is not applicable to the study version (appliesToIds does not contain the id of the study version).",
+    "variables": [
+        "name",
+        "code",
+        "appliesToIds",
+        "StudyVersion.id"
+    ],
+    "scope": {
+        "Include": [
+            "StudyRole"
+        ]
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "rule": {
+        "Authorities": [
+            {
+                "Organization": "CDISC",
+                "Standards": [
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "The sponsor study role must be applicable to a study version."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00203",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "4.0"
+                    }
+                ]
+            }
+        ],
+        "Check": "study.versions@$sv.\n  ($sv.roles[code.code = \"C70793\" and $not($sv.id in appliesToIds)])@$r.\n    {\n      \"instanceType\": $r.instanceType,\n      \"id\": $r.id,\n      \"path\": $r._path,\n      \"name\": $r.name,\n      \"code.code\": $r.code.code,\n      \"code.decode\": $r.code.decode,\n      \"appliesToIds\": $r.appliesToIds[],\n      \"StudyVersion.id\": $sv.id\n    }",
+        "Core": {
+            "Id": "",
+            "Status": "Draft",
+            "Version": "1"
+        },
+        "Description": "The sponsor study role must be applicable to a study version.",
+        "Executability": "Fully Executable",
+        "Outcome": {
+            "Message": "The study role is a sponsor role (code.code is C70793) but it is not applicable to the study version (appliesToIds does not contain the id of the study version).",
+            "Output_Variables": [
+                "name",
+                "code.code",
+                "code.decode",
+                "appliesToIds",
+                "StudyVersion.id"
+            ]
+        },
+        "Scope": {
+            "Entities": {
+                "Include": [
+                    "StudyRole"
+                ]
+            }
+        },
+        "Sensitivity": "Record",
+        "Rule_Type": "JSONata"
+    },
+    "datasets": [],
+    "codelists": []
+}
