@@ -1,40 +1,46 @@
 {
     "check_func" : function($data)
-         {($data.**.versions.studyInterventions)@$si.$si.administrations@$sa.$sa.
-                  [
-                          ( $ChkX:=function()
-                            {
-                                ($exists(dose.id)=true and $exists(frequency.id)=false)
-                            };
-                            {
-                                "StudyIntevention.id": $si.id,
-                                "studyIntervention.name": $si.name,
-                                "id": $sa.id,
-                                "name": $sa.name,
-                                "dose.id": $sa.dose.id,
-                                "dose.value": $sa.dose.value,                                
-                                "dose.minValue.value": $sa.dose.minValue.value,                                                          
-                                "dose.maxValue.value": $sa.dose.maxValue.value,
-                                "frequency.id": $sa.frequency.id,
-                                "frequency.standardCode.code": $sa.frequency.standardCode.code,
-                                "frequency.standardCode.decode": $sa.frequency.standardCode.decode,
-                                "dataset": $sa.instanceType,
-                                "check": $ChkX()
-                            }
-                          )
-                    ][check=true]           },
-    "message": "An administration dose has been specified without a frequency.",
+         {(study.versions.studyInterventions)@$si.
+    $si.administrations@$sa.
+        [(
+            $ValU:=function($v){$v.value&($v.unit? " " & $v.unit.standardCode.decode & " ("&$v.unit.standardCode.code&")")};
+            $FValU:=function($n)
+                {
+                    (
+                        $exists($n)
+                            ?   $type($n)="object"
+                                ?   $exists($n.value)
+                                    ? $ValU($n)
+                                    : $exists($n.minValue) or $exists($n.maxValue)
+                                        ? $ValU($n.minValue)&" to "&$ValU($n.maxValue)
+                                        : "Missing"
+                                : $string($n)
+                            : "Missing"
+                    )              
+                };
+                {
+                    "instanceType": $sa.instanceType,
+                    "id": $i.id,
+                    "path": $i._path,
+                    "StudyIntervention.id": $si.id,
+                    "StudyIntervention.name": $si.name,
+                    "name": $sa.name,
+                    "dose.id": $sa.dose.id,
+                    "dose(value/range)": $FValU($sa.dose),
+                    "frequency.id": $sa.frequency.id,
+                    "frequency": ($sa.frequency ? $sa.frequency.standardCode.decode & " (" & $sa.frequency.standardCode.code & ")"),
+					"check": ($exists($sa.dose.id) and $exists($sa.frequency.id)=false)
+                }
+        )][check=true] },
+    "message": "The administration dose has been specified without a frequency.",
     "variables": 
         [
             "StudyIntervention.id",
             "StudyIntervention.name",
-            "id",
             "name",
 	        "dose.id",
- 	        "dose.value",
-	        "dose.minValue.value",
-	        "dose.maxValue.value",
-	        "route.standardCode.code",
-	        "route.standardCode.decode"
+ 	        "dose(value/range)",
+			"frequency.id",
+ 			"frequency"
 	            ]                        
 }
