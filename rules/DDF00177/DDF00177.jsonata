@@ -1,46 +1,51 @@
 {
     "check_func" : function($data)
-         {($data.**.versions.studyInterventions)@$si.$si.administrations@$sa.$sa.
-                  [
-                          ( $ChkX:=function()
-                            {
-                                ($exists(dose.id) != $exists(route.id))
-                            };
-                            {
-                                "StudyIntervention.id": $si.id,
-                                "StudyIntervention.name": $si.name,
-                                "id": $sa.id,
-                                "name": $sa.name,
-                                "dose.id": $sa.dose.id,
-                                "dose.value": $sa.dose.value,                                
-                                "dose.minValue.value": $sa.dose.minValue.value,                                                          
-                                "dose.maxValue.value": $sa.dose.maxValue.value,
-                                "route.id": $sa.route.id,
-                                "route.standardCode.code": $sa.route.standardCode.code,
-                                "route.standardCode.decode": $sa.route.standardCode.decode,
-								"dataset":$sa.instanceType,
-                                "check":$ChkX()
-                            }
-                          )
-                    ][check=true]
+         {(study.versions.studyInterventions)@$si.
+    $si.administrations@$sa.
+        [(
+            $ValU:=function($v){$v.value&($v.unit? " " & $v.unit.standardCode.decode & " ("&$v.unit.standardCode.code&")")};
+            $FValU:=function($n)
+                {
+                    (
+                        $exists($n)
+                            ?   $type($n)="object"
+                                ?   $exists($n.value)
+                                    ? $ValU($n)
+                                    : $exists($n.minValue) or $exists($n.maxValue)
+                                        ? $ValU($n.minValue)&" to "&$ValU($n.maxValue)
+                                        : "Missing"
+                                : $string($n)
+                            : "Missing"
+                    )              
+                };
+                {
+                    "instanceType": $sa.instanceType,
+                    "id": $i.id,
+                    "path": $i._path,
+                    "StudyIntervention.id": $si.id,
+                    "StudyIntervention.name": $si.name,
+                    "name": $sa.name,
+                    "dose.id": $sa.dose.id,
+                    "dose(value/range)": $FValU($sa.dose),
+                    "route.id": $sa.route.id,
+                    "route": ($sa.route? $sa.route.standardCode.decode & " (" & $sa.route.standardCode.code & ")"),
+					"check":$exists($sa.dose.id) != $exists($sa.route.id)
+                }
+        )][check=true]
            },
-    "message": "An administration dose has been specified without a route or vice versa.",
+    "message": "The administration dose has been specified without a route or vice versa.",
     "variables": 
         [
             "StudyIntervention.id",
             "StudyIntervention.name",
-            "id",
             "name",
 	        "dose.id",
- 	        "dose.value",
-	        "dose.minValue.value",
-	        "dose.maxValue.value",
+ 	        "dose(value/range)",
 	        "route.id",
-	        "route.standardCode.code",
-	        "route.standardCode.decode"
-	   
+	        "route"
 	            ]                        
 }
+
 
 
 
