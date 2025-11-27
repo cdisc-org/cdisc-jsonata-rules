@@ -1,32 +1,28 @@
 {
     "check_func" : function($data)
          {
-($data.**.versions)@$sv.$sv.
-                (
-                    $filter($sv.studyIdentifiers,function($v,$i,$a)
-                                    {$count($a[$.scopeId=$v.scopeId])>1})
-                            ~> $sort(function($l,$r){$l.scopeId>$r.scopeId})
-                        )@$si.
-                        {
-                            "StudyVersion.id": $sv.id,
-                            "StudyVersion.versionIdentifier": $sv.versionIdentifier,
-                            "StudyIdentifier.id": $si.id,
-                            "StudyIdentifier.text": $si.text,
-                            "Organization.id": $si.scopeId,
-                            "Organization.name": $sv.organizations[id=$si.scopeId].name,
-                            "dataset": instanceType
-                        }
-                
-
+          study.versions@$sv.
+                        ($sv.studyIdentifiers)@$i.
+                            ($sv.organizations[id=$i.scopeId])@$o.
+                                {
+                                    "group": $join([$i.scopeId,$i.instanceType],"|"),
+                                    "details": $
+                                        {
+                                            "instanceType": $i.instanceType,
+                                            "id": $i.id,
+                                            "path": $i._path,
+                                            "text": $i.text,
+                                            "scopeId": $i.scopeId,
+                                            "Organization.name": $o.name
+                                        }
+                                }{group: $count(details)>1?$.details}
+                                ~> $each(function($v){$v}) ~> $reduce($append)
            },
-    "message": "More than 1 identifier is specified for the same organization.",
+    "message": "More than 1 study identifier is specified for the same organization.",
     "variables": 
         [
-            "studyversion.id",
-            "studyVersion.versionIdentifier",
-            "StudyIdentifier.id",
-            "StudyIdentifier.text",
-            "Organization.id",
+            "text",
+            "scopeId",
             "Organization.name"
         ]
 }
