@@ -1,0 +1,33 @@
+{
+    "check_func" : function($data){$data.(
+  study.versions@$sv.
+    ($sv.roles[code.code = "C70793"])@$r.
+      {
+        "instanceType": $r.instanceType,
+        "id": $r.id,
+        "path": $r._path,
+        "name": $r.name,
+        "code.code": $r.code.code,
+        "code.decode": $r.code.decode,
+        "# organizationIds": $count($r.organizationIds),
+        "organizationIds": $r.organizationIds[],
+        "Organization.id: name": 
+          $r.organizationIds
+          ? "["&$join($r.organizationIds.($oid:=$;$oid&": "&($o:=$sv.organizations[id=$oid];$o?$o.name:"Invalid organizationId")),"; ")&"]"
+      }[`# organizationIds` != 1]
+                    )},
+    "message": "The study role is a sponsor role (code.code is C70793) but it does not point to exactly one organization.",
+    "variables": [
+        "name",
+        "code.code",
+        "code.decode",
+        "# organizationIds",
+        "organizationIds",
+        "Organization.id: name"
+    ],
+    "scope": {
+        "Include": [
+            "StudyRole"
+        ]
+    }
+}

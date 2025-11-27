@@ -1,0 +1,61 @@
+{
+    "rule": {
+        "Authorities": [
+            {
+                "Organization": "CDISC",
+                "Standards": [
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "The sponsor study role must point to exactly one organization."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00202",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "4.0"
+                    }
+                ]
+            }
+        ],
+        "Check": "study.versions@$sv.\n  ($sv.roles[code.code = \"C70793\"])@$r.\n    {\n      \"instanceType\": $r.instanceType,\n      \"id\": $r.id,\n      \"path\": $r._path,\n      \"name\": $r.name,\n      \"code.code\": $r.code.code,\n      \"code.decode\": $r.code.decode,\n      \"# organizationIds\": $count($r.organizationIds),\n      \"organizationIds\": $r.organizationIds[],\n      \"Organization.id: name\": \n        $r.organizationIds\n        ? \"[\"&$join($r.organizationIds.($oid:=$;$oid&\": \"&($o:=$sv.organizations[id=$oid];$o?$o.name:\"Invalid organizationId\")),\"; \")&\"]\"\n    }[`# organizationIds` != 1]",
+        "Core": {
+            "Id": "",
+            "Status": "Draft",
+            "Version": "1"
+        },
+        "Description": "The sponsor study role must point to exactly one organization.",
+        "Executability": "Fully Executable",
+        "Outcome": {
+            "Message": "The study role is a sponsor role (code.code is C70793) but it does not point to exactly one organization.",
+            "Output_Variables": [
+                "name",
+                "code.code",
+                "code.decode",
+                "# organizationIds",
+                "organizationIds",
+                "Organization.id: name"
+            ]
+        },
+        "Scope": {
+            "Entities": {
+                "Include": [
+                    "StudyRole"
+                ]
+            }
+        },
+        "Sensitivity": "Record",
+        "Rule_Type": "JSONata"
+    },
+    "datasets": [],
+    "codelists": []
+}
