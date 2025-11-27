@@ -27,7 +27,7 @@
                 ]
             }
         ],
-        "Check": "study.versions@$sv.\n  ($sv.roles[code.code = \"C70793\"])@$r.\n    {\n      \"instanceType\": $r.instanceType,\n      \"id\": $r.id,\n      \"path\": $r._path,\n      \"name\": $r.name,\n      \"code.code\": $r.code.code,\n      \"code.decode\": $r.code.decode,\n      \"# organizationIds\": $count($r.organizationIds),\n      \"organizationIds\": $r.organizationIds[],\n      \"Organization.id: name\": \n        $r.organizationIds\n        ? \"[\"&$join($r.organizationIds.($oid:=$;$oid&\": \"&($o:=$sv.organizations[id=$oid];$o?$o.name:\"Invalid organizationId\")),\"; \")&\"]\"\n    }[`# organizationIds` != 1]",
+        "Check": "study.versions@$sv.\n  ($sv.roles[code.code = \"C70793\"])@$r.\n    {\n      \"instanceType\": $r.instanceType,\n      \"id\": $r.id,\n      \"path\": $r._path,\n      \"name\": $r.name,\n      \"code.code\": $r.code.code,\n      \"code.decode\": $r.code.decode,\n      \"organizationIds\": $r.organizationIds[],\n      \"# Organizations\": $count($sv.organizations[id in $r.organizationIds]),\n      \"Organization.id: name\": \n        $r.organizationIds\n        ? \"[\"&$join($r.organizationIds.($oid:=$;$oid&\": \"&($o:=$sv.organizations[id=$oid];$o?$o.name:\"Invalid organizationId\")),\"; \")&\"]\"\n    }[$not($count(organizationIds) = 1 and `# Organizations` = 1)]",
         "Core": {
             "Id": "",
             "Status": "Draft",
@@ -36,13 +36,13 @@
         "Description": "The sponsor study role must point to exactly one organization.",
         "Executability": "Fully Executable",
         "Outcome": {
-            "Message": "The study role is a sponsor role (code.code is C70793) but it does not point to exactly one organization.",
+            "Message": "The study role is a sponsor role (code.code is C70793) but it does not point to exactly one organization - it does not have exactly one value for organizationIds that is a valid id value for an organization.",
             "Output_Variables": [
                 "name",
                 "code.code",
                 "code.decode",
-                "# organizationIds",
                 "organizationIds",
+                "# Organizations",
                 "Organization.id: name"
             ]
         },
