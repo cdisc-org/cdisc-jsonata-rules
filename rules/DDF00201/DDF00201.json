@@ -1,0 +1,58 @@
+{
+    "rule": {
+        "Authorities": [
+            {
+                "Organization": "CDISC",
+                "Standards": [
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "There must be exactly one study role with a code of sponsor."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00201",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "4.0"
+                    }
+                ]
+            }
+        ],
+        "Check": "study.versions@$sv.\n  (\n    $sproles:=$sv.roles[code.code=\"C70793\"];\n    {\n      \"instanceType\": $sv.instanceType,\n      \"id\": $sv.id,\n      \"path\": $sv._path,\n      \"versionIdentifier\": $sv.versionIdentifier,\n      \"# Sponsor Roles\": $count($sproles),\n      \"Sponsor Roles\": $sproles?\"[\"&$join($sproles.(id&\": \"&code.decode&\"(\"&code.code&\")\"),\"; \")&\"]\"\n    }\n  )[`# Sponsor Roles` != 1]",
+        "Core": {
+            "Id": "",
+            "Status": "Draft",
+            "Version": "1"
+        },
+        "Description": "There must be exactly one study role with a code of sponsor.",
+        "Executability": "Fully Executable",
+        "Outcome": {
+            "Message": "There is not exactly one study role with a code of sponsor (where code.code is C70793).",
+            "Output_Variables": [
+                "versionIdentifier",
+                "# Sponsor Roles",
+                "Sponsor Roles"
+            ]
+        },
+        "Scope": {
+            "Entities": {
+                "Include": [
+                    "StudyVersion"
+                ]
+            }
+        },
+        "Sensitivity": "Record",
+        "Rule_Type": "JSONata"
+    },
+    "datasets": [],
+    "codelists": []
+}

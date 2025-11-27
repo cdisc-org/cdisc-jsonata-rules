@@ -1,0 +1,27 @@
+{
+    "check_func" : function($data){$data.(
+  study.versions@$sv.
+    (
+      $sproles:=$sv.roles[code.code="C70793"];
+      {
+        "instanceType": $sv.instanceType,
+        "id": $sv.id,
+        "path": $sv._path,
+        "versionIdentifier": $sv.versionIdentifier,
+        "# Sponsor Roles": $count($sproles),
+        "Sponsor Roles": $sproles?"["&$join($sproles.(id&": "&code.decode&"("&code.code&")"),"; ")&"]"
+      }
+    )[`# Sponsor Roles` != 1]
+                    )},
+    "message": "There is not exactly one study role with a code of sponsor (where code.code is C70793).",
+    "variables": [
+        "versionIdentifier",
+        "# Sponsor Roles",
+        "Sponsor Roles"
+    ],
+    "scope": {
+        "Include": [
+            "StudyRole"
+        ]
+    }
+}
