@@ -6089,8 +6089,8 @@
           {
             "id": "Organization_4",
             "extensionAttributes": [],
-            "name": "TESTORG2",
-            "label": "Test Organization 2",
+            "name": "TESTORG1",
+            "label": "Test Organization 1",
             "type": {
               "id": "Code_679",
               "extensionAttributes": [],
@@ -6105,9 +6105,7 @@
             "legalAddress": {
               "id": "Address_4",
               "extensionAttributes": [],
-              "lines": [
-                "line"
-              ],
+              "text": "line, city, district, state, postal_code, United Kingdom of Great Britain and Northern Ireland",
               "instanceType": "Address"
             },
             "managedSites": [],
@@ -6116,8 +6114,8 @@
           {
             "id": "Organization_5",
             "extensionAttributes": [],
-            "name": "TESTORG3",
-            "label": "Test Organization 3",
+            "name": "TESTORG2",
+            "label": "Test Organization 2",
             "type": {
               "id": "Code_680",
               "extensionAttributes": [],
@@ -6132,7 +6130,9 @@
             "legalAddress": {
               "id": "Address_5",
               "extensionAttributes": [],
-              "district": "district",
+              "lines": [
+                "line"
+              ],
               "instanceType": "Address"
             },
             "managedSites": [],
@@ -6141,8 +6141,8 @@
           {
             "id": "Organization_6",
             "extensionAttributes": [],
-            "name": "TESTORG4",
-            "label": "Test Organization 4",
+            "name": "TESTORG3",
+            "label": "Test Organization 3",
             "type": {
               "id": "Code_681",
               "extensionAttributes": [],
@@ -6157,7 +6157,7 @@
             "legalAddress": {
               "id": "Address_6",
               "extensionAttributes": [],
-              "city": "city",
+              "district": "district",
               "instanceType": "Address"
             },
             "managedSites": [],
@@ -6166,8 +6166,8 @@
           {
             "id": "Organization_7",
             "extensionAttributes": [],
-            "name": "TESTORG5",
-            "label": "Test Organization 5",
+            "name": "TESTORG4",
+            "label": "Test Organization 4",
             "type": {
               "id": "Code_682",
               "extensionAttributes": [],
@@ -6182,7 +6182,7 @@
             "legalAddress": {
               "id": "Address_7",
               "extensionAttributes": [],
-              "postalCode": "postal_code",
+              "city": "city",
               "instanceType": "Address"
             },
             "managedSites": [],
@@ -6191,8 +6191,8 @@
           {
             "id": "Organization_8",
             "extensionAttributes": [],
-            "name": "TESTORG6",
-            "label": "Test Organization 6",
+            "name": "TESTORG5",
+            "label": "Test Organization 5",
             "type": {
               "id": "Code_683",
               "extensionAttributes": [],
@@ -6207,7 +6207,7 @@
             "legalAddress": {
               "id": "Address_8",
               "extensionAttributes": [],
-              "state": "state",
+              "postalCode": "postal_code",
               "instanceType": "Address"
             },
             "managedSites": [],
@@ -6216,8 +6216,8 @@
           {
             "id": "Organization_9",
             "extensionAttributes": [],
-            "name": "TESTORG7",
-            "label": "Test Organization 7",
+            "name": "TESTORG6",
+            "label": "Test Organization 6",
             "type": {
               "id": "Code_684",
               "extensionAttributes": [],
@@ -6232,8 +6232,33 @@
             "legalAddress": {
               "id": "Address_9",
               "extensionAttributes": [],
+              "state": "state",
+              "instanceType": "Address"
+            },
+            "managedSites": [],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_10",
+            "extensionAttributes": [],
+            "name": "TESTORG7",
+            "label": "Test Organization 7",
+            "type": {
+              "id": "Code_685",
+              "extensionAttributes": [],
+              "code": "C21541",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2024-09-27",
+              "decode": "Healthcare Facility",
+              "instanceType": "Code"
+            },
+            "identifierScheme": "DUNS",
+            "identifier": "123456789",
+            "legalAddress": {
+              "id": "Address_10",
+              "extensionAttributes": [],
               "country": {
-                "id": "Code_685",
+                "id": "Code_686",
                 "extensionAttributes": [],
                 "code": "GBR",
                 "codeSystem": "ISO 3166 1 alpha3",
@@ -6247,41 +6272,10 @@
             "instanceType": "Organization"
           },
           {
-            "id": "Organization_10",
+            "id": "Organization_11",
             "extensionAttributes": [],
             "name": "TESTORG8",
             "label": "Test Organization 8",
-            "type": {
-              "id": "Code_686",
-              "extensionAttributes": [],
-              "code": "C21541",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Healthcare Facility",
-              "instanceType": "Code"
-            },
-            "identifierScheme": "DUNS",
-            "identifier": "123456789",
-            "legalAddress": {
-              "id": "Address_10",
-              "extensionAttributes": [],
-              "text": "line, city, district, state, postal_code, United Kingdom of Great Britain and Northern Ireland",
-              "lines": [],
-              "city": null,
-              "district": null,
-              "state": null,
-              "postalCode": null,
-              "country": null,
-              "instanceType": "Address"
-            },
-            "managedSites": [],
-            "instanceType": "Organization"
-          },
-          {
-            "id": "Organization_11",
-            "extensionAttributes": [],
-            "name": "TESTORG9",
-            "label": "Test Organization 9",
             "type": {
               "id": "Code_687",
               "extensionAttributes": [],
@@ -6296,10 +6290,8 @@
             "legalAddress": {
               "id": "Address_11",
               "extensionAttributes": [],
-              "text": null,
-              "lines": [
-                "line"
-              ],
+              "text": "line, city, district, state, postal_code, United Kingdom of Great Britain and Northern Ireland",
+              "lines": [],
               "city": null,
               "district": null,
               "state": null,
@@ -6313,8 +6305,8 @@
           {
             "id": "Organization_12",
             "extensionAttributes": [],
-            "name": "TESTORG10",
-            "label": "Test Organization 10",
+            "name": "TESTORG9",
+            "label": "Test Organization 9",
             "type": {
               "id": "Code_688",
               "extensionAttributes": [],
@@ -6330,9 +6322,11 @@
               "id": "Address_12",
               "extensionAttributes": [],
               "text": null,
-              "lines": [],
+              "lines": [
+                "line"
+              ],
               "city": null,
-              "district": "district",
+              "district": null,
               "state": null,
               "postalCode": null,
               "country": null,
@@ -6344,8 +6338,8 @@
           {
             "id": "Organization_13",
             "extensionAttributes": [],
-            "name": "TESTORG11",
-            "label": "Test Organization 11",
+            "name": "TESTORG10",
+            "label": "Test Organization 10",
             "type": {
               "id": "Code_689",
               "extensionAttributes": [],
@@ -6362,8 +6356,8 @@
               "extensionAttributes": [],
               "text": null,
               "lines": [],
-              "city": "city",
-              "district": null,
+              "city": null,
+              "district": "district",
               "state": null,
               "postalCode": null,
               "country": null,
@@ -6375,8 +6369,8 @@
           {
             "id": "Organization_14",
             "extensionAttributes": [],
-            "name": "TESTORG12",
-            "label": "Test Organization 12",
+            "name": "TESTORG11",
+            "label": "Test Organization 11",
             "type": {
               "id": "Code_690",
               "extensionAttributes": [],
@@ -6393,10 +6387,10 @@
               "extensionAttributes": [],
               "text": null,
               "lines": [],
-              "city": null,
+              "city": "city",
               "district": null,
               "state": null,
-              "postalCode": "postal_code",
+              "postalCode": null,
               "country": null,
               "instanceType": "Address"
             },
@@ -6406,8 +6400,8 @@
           {
             "id": "Organization_15",
             "extensionAttributes": [],
-            "name": "TESTORG13",
-            "label": "Test Organization 13",
+            "name": "TESTORG12",
+            "label": "Test Organization 12",
             "type": {
               "id": "Code_691",
               "extensionAttributes": [],
@@ -6426,8 +6420,8 @@
               "lines": [],
               "city": null,
               "district": null,
-              "state": "state",
-              "postalCode": null,
+              "state": null,
+              "postalCode": "postal_code",
               "country": null,
               "instanceType": "Address"
             },
@@ -6437,8 +6431,8 @@
           {
             "id": "Organization_16",
             "extensionAttributes": [],
-            "name": "TESTORG14",
-            "label": "Test Organization 14",
+            "name": "TESTORG13",
+            "label": "Test Organization 13",
             "type": {
               "id": "Code_692",
               "extensionAttributes": [],
@@ -6457,10 +6451,41 @@
               "lines": [],
               "city": null,
               "district": null,
+              "state": "state",
+              "postalCode": null,
+              "country": null,
+              "instanceType": "Address"
+            },
+            "managedSites": [],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_17",
+            "extensionAttributes": [],
+            "name": "TESTORG14",
+            "label": "Test Organization 14",
+            "type": {
+              "id": "Code_693",
+              "extensionAttributes": [],
+              "code": "C21541",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2024-09-27",
+              "decode": "Healthcare Facility",
+              "instanceType": "Code"
+            },
+            "identifierScheme": "DUNS",
+            "identifier": "123456789",
+            "legalAddress": {
+              "id": "Address_17",
+              "extensionAttributes": [],
+              "text": null,
+              "lines": [],
+              "city": null,
+              "district": null,
               "state": null,
               "postalCode": null,
               "country": {
-                "id": "Code_693",
+                "id": "Code_694",
                 "extensionAttributes": [],
                 "code": "GBR",
                 "codeSystem": "ISO 3166 1 alpha3",
