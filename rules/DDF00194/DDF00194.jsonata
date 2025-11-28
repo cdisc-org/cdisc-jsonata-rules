@@ -1,0 +1,40 @@
+{
+    "check_func": function($data){$data.(
+  study.versions.organizations@$o.
+    $o.legalAddress[$not(text or lines or city or district or state or postalCode or country)].
+        (
+            $rep := function($v){$exists($v)?$string($v):"Missing"};
+            {
+                "instanceType": instanceType,
+                "id": id,
+                "path": _path,
+                "Organization.id": $o.id,
+                "Organization.name": $o.name,
+                "text": $rep(text), 
+                "lines": $rep(lines), 
+                "city": $rep(city), 
+                "district": $rep(district), 
+                "state": $rep(state), 
+                "postalCode": $rep(postalCode), 
+                "country": $rep(country)
+            }
+        )
+                    )},
+    "message": "All attributes of the address are blank.",
+    "variables": [
+        "Organization.id",
+        "Organization.name",
+        "text",
+        "lines",
+        "district",
+        "city",
+        "postalCode",
+        "state",
+        "country"
+    ],
+    "scope": {
+        "Include": [
+            "Address"
+        ]
+    }
+}

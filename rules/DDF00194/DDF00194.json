@@ -1,0 +1,64 @@
+{
+    "rule": {
+        "Authorities": [
+            {
+                "Organization": "CDISC",
+                "Standards": [
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "At least one attribute must be specified for an address."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00194",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "4.0"
+                    }
+                ]
+            }
+        ],
+        "Check": "study.versions.organizations@$o.\n  $o.legalAddress[$not(text or lines or city or district or state or postalCode or country)].\n      (\n          $rep := function($v){$exists($v)?$string($v):\"Missing\"};\n          {\n              \"instanceType\": instanceType,\n              \"id\": id,\n              \"path\": _path,\n              \"Organization.id\": $o.id,\n              \"Organization.name\": $o.name,\n              \"text\": $rep(text), \n              \"lines\": $rep(lines), \n              \"city\": $rep(city), \n              \"district\": $rep(district), \n              \"state\": $rep(state), \n              \"postalCode\": $rep(postalCode), \n              \"country\": $rep(country)\n          }\n      )",
+        "Core": {
+            "Id": "",
+            "Status": "Draft",
+            "Version": "1"
+        },
+        "Description": "At least one attribute must be specified for an address.",
+        "Executability": "Fully Executable",
+        "Outcome": {
+            "Message": "All attributes of the address are blank.",
+            "Output_Variables": [
+                "Organization.id",
+                "Organization.name",
+                "text",
+                "lines",
+                "district",
+                "city",
+                "postalCode",
+                "state",
+                "country"
+            ]
+        },
+        "Scope": {
+            "Entities": {
+                "Include": [
+                    "Address"
+                ]
+            }
+        },
+        "Sensitivity": "Record",
+        "Rule_Type": "JSONata"
+    },
+    "datasets": [],
+    "codelists": []
+}
