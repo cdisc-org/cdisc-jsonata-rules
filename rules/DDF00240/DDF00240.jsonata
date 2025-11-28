@@ -1,24 +1,25 @@
 {
     "check_func" : function($data)
          {
-         (($.**.studyDesigns)@$sd.
-            $sd.activities@$sa.
-            $sa.definedProcedures@$sp.
-            $sp.
-                [studyInterventionId[$not($ in $sd.studyInterventionIds)].
-                            {
-                            "StudyDesign.id": $sd.id,
-                            "StudyDesign.name": $sd.name,
-                            "StudyDesign.studyInterventionIds": $sd.studyInterventionIds,
-                            "Activity.id": $sa.id,
-                            "Activity.name": $sa.name,
-                            "id": $sp.id,
-                            "name": $sp.name,
-                            "studyInterventionId": $sp.studyInterventionId,
-                            "instanceType": $sp.instanceType,
-                            "path": $sp._path,
-                            "IdNotNull" : $boolean($sp.studyInterventionId) 
-                            }][IdNotNull=true])},
+         ((study.versions)@$sv.
+    $sv.studyDesigns@$sd.
+    $sd.activities@$sa.
+    $sa.definedProcedures@$sp.
+    $sp.
+        [studyInterventionId[$ and $not($ in $sd.studyInterventionIds)].
+            {
+                "instanceType": $sp.instanceType,
+                "id": $sp.id,
+                "path": $sp._path,
+                "StudyDesign.id": $sd.id,
+                "StudyDesign.name": $sd.name,
+                "StudyDesign.studyInterventionIds": $sd.studyInterventionIds,
+                "Activity.id": $sa.id,
+                "Activity.name": $sa.name,
+                "name": $sp.name,
+                "studyInterventionId": $sp.studyInterventionId,
+                "StudyIntervention.name": $sv.studyInterventions[id=$sp.studyInterventionId].name 
+                            }])},
     "message": "The reference to the intervention is not targetting an intervention that has been referenced by the study design as a study intervention.",
     "variables": 
         [
@@ -29,6 +30,7 @@
             "Activity.name",
             "id",
             "name",
-            "studyInterventionId"
+            "studyInterventionId",
+            "StudyIntervention.name"
         ]
 }
