@@ -1,0 +1,60 @@
+{
+    "rule": {
+        "Authorities": [
+            {
+                "Organization": "CDISC",
+                "Standards": [
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "Within a study design, if more therapeutic areas are defined, they must be distinct."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00221",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "4.0"
+                    }
+                ]
+            }
+        ],
+        "Check": "study.versions.studyDesigns@$sd.(\n  $sd.therapeuticAreas.\n    {\n      \"group\": $join([codeSystem,codeSystemVersion,code],\"\\n\"),\n      \"details\": $\n    } {\n        group:  $count(details)>1\n                ? {\n                    \"codeSystem\":$distinct(details.codeSystem),\n                    \"codeSystemVersion\":$distinct(details.codeSystemVersion),\n                    \"therapeuticAreas\":\"[\"&$join($.(details.id&\": \"&details.decode&\" (\"&details.code&\")\"),\"; \")&\"]\"\n                  }\n      }\n  ~>$each(function($v)\n      {\n        {\n          \"instanceType\": $sd.instanceType,\n          \"id\": $sd.id,\n          \"path\": $sd._path,\n          \"name\": $sd.name,\n          \"therapeuticAreas.codeSystem\": $v.codeSystem,\n          \"therapeuticAreas.codeSystemVersion\": $v.codeSystemVersion,\n          \"therapeuticAreas\": $v.therapeuticAreas\n        }\n      }\n    )\n  )",
+        "Core": {
+            "Id": "",
+            "Status": "Draft",
+            "Version": "1"
+        },
+        "Description": "Within a study design, if more therapeutic areas are defined, they must be distinct.",
+        "Executability": "Fully Executable",
+        "Outcome": {
+            "Message": "The therapeutic areas of the study design are not unique - the same code is used more than once within the same codeSystem and codeSystemVersion.",
+            "Output_Variables": [
+                "name",
+                "therapeuticAreas.codeSystem",
+                "therapeuticAreas.codeSystemVersion",
+                "therapeuticAreas"
+            ]
+        },
+        "Scope": {
+            "Entities": {
+                "Include": [
+                    "InterventionalStudyDesign",
+                    "ObservationalStudyDesign"
+                ]
+            }
+        },
+        "Sensitivity": "Record",
+        "Rule_Type": "JSONata"
+    },
+    "datasets": [],
+    "codelists": []
+}

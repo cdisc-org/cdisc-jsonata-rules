@@ -1,0 +1,44 @@
+{
+    "check_func" : function($data){$data.(
+  study.versions.studyDesigns@$sd.(
+    $sd.therapeuticAreas.
+      {
+        "group": $join([codeSystem,codeSystemVersion,code],"\n"),
+        "details": $
+      } {
+          group:  $count(details)>1
+                  ? {
+                      "codeSystem":$distinct(details.codeSystem),
+                      "codeSystemVersion":$distinct(details.codeSystemVersion),
+                      "therapeuticAreas":"["&$join($.(details.id&": "&details.decode&" ("&details.code&")"),"; ")&"]"
+                    }
+        }
+    ~>$each(function($v)
+        {
+          {
+            "instanceType": $sd.instanceType,
+            "id": $sd.id,
+            "path": $sd._path,
+            "name": $sd.name,
+            "therapeuticAreas.codeSystem": $v.codeSystem,
+            "therapeuticAreas.codeSystemVersion": $v.codeSystemVersion,
+            "therapeuticAreas": $v.therapeuticAreas
+          }
+        }
+      )
+    )
+                    )},
+    "message": "The therapeutic areas of the study design are not unique - the same code is used more than once within the same codeSystem and codeSystemVersion.",
+    "variables": [
+        "name",
+        "therapeuticAreas.codeSystem",
+        "therapeuticAreas.codeSystemVersion",
+        "therapeuticAreas"
+    ],
+    "scope": {
+        "Include": [
+            "InterventionalStudyDesign",
+            "ObservationalStudyDesign"
+        ]
+    }
+}
