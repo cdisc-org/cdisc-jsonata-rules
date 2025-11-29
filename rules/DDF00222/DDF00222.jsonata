@@ -1,0 +1,32 @@
+{
+    "check_func" : function($data){$data.(
+  study.versions.studyDesigns.
+    (
+      intentTypes
+        {
+            code: $count(id)>1?"["&$join($.(id&": "&decode&" ("&code&")"),"; ")&"]"
+        } ~>
+      $each(
+        function($v){
+          {
+            "instanceType": instanceType,
+            "id": id,
+            "path": _path,
+            "name": name,
+            "intentTypes": $v
+          }
+        }
+      )
+    ) 
+                    )},
+    "message": "The same intent types code is used more than once within the study design.",
+    "variables": [
+        "name",
+        "intentTypes"
+    ],
+    "scope": {
+        "Include": [
+            "InterventionalStudyDesign"
+        ]
+    }
+}
