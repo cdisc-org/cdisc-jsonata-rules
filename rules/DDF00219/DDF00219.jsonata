@@ -1,0 +1,33 @@
+{
+    "check_func" : function($data){$data.(
+  study.versions.studyDesigns.
+    (
+      characteristics
+        {
+            code: $count(id)>1?"["&$join($.(id&": "&decode&" ("&code&")"),"; ")&"]"
+        } ~>
+      $each(
+        function($v){
+          {
+            "instanceType": instanceType,
+            "id": id,
+            "path": _path,
+            "name": name,
+            "characteristics": $v
+          }
+        }
+      )
+    ) 
+                    )},
+    "message": "The same characteristics code is used more than once within the study design.",
+    "variables": [
+        "name",
+        "characteristics"
+    ],
+    "scope": {
+        "Include": [
+            "InterventionalStudyDesign",
+            "ObservationalStudyDesign"
+        ]
+    }
+}

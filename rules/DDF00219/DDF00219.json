@@ -1,0 +1,58 @@
+{
+    "rule": {
+        "Authorities": [
+            {
+                "Organization": "CDISC",
+                "Standards": [
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "Within a study design, if more characteristics are defined, they must be distinct."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00219",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "4.0"
+                    }
+                ]
+            }
+        ],
+        "Check": "study.versions.studyDesigns.\n  (\n    characteristics\n      {\n          code: $count(id)>1?\"[\"&$join($.(id&\": \"&decode&\" (\"&code&\")\"),\"; \")&\"]\"\n      } ~>\n    $each(\n      function($v){\n        {\n          \"instanceType\": instanceType,\n          \"id\": id,\n          \"path\": _path,\n          \"name\": name,\n          \"characteristics\": $v\n        }\n      }\n    )\n  )  ",
+        "Core": {
+            "Id": "",
+            "Status": "Draft",
+            "Version": "1"
+        },
+        "Description": "Within a study design, if more characteristics are defined, they must be distinct.",
+        "Executability": "Fully Executable",
+        "Outcome": {
+            "Message": "The same characteristics code is used more than once within the study design.",
+            "Output_Variables": [
+                "name",
+                "characteristics"
+            ]
+        },
+        "Scope": {
+            "Entities": {
+                "Include": [
+                    "InterventionalStudyDesign",
+                    "ObservationalStudyDesign"
+                ]
+            }
+        },
+        "Sensitivity": "Record",
+        "Rule_Type": "JSONata"
+    },
+    "datasets": [],
+    "codelists": []
+}
