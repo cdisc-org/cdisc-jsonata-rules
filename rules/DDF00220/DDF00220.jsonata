@@ -1,0 +1,33 @@
+{
+    "check_func" : function($data){$data.(
+  study.versions.studyDesigns.
+    (
+      subTypes
+        {
+            code: $count(id)>1?"["&$join($.(id&": "&decode&" ("&code&")"),"; ")&"]"
+        } ~>
+      $each(
+        function($v){
+          {
+            "instanceType": instanceType,
+            "id": id,
+            "path": _path,
+            "name": name,
+            "subTypes": $v
+          }
+        }
+      )
+    )  
+                    )},
+    "message": "The same sub types code is used more than once within the study design.",
+    "variables": [
+        "name",
+        "subTypes"
+    ],
+    "scope": {
+        "Include": [
+            "InterventionalStudyDesign",
+            "ObservationalStudyDesign"
+        ]
+    }
+}
