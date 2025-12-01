@@ -1,0 +1,62 @@
+{
+    "rule": {
+        "Authorities": [
+            {
+                "Organization": "CDISC",
+                "Standards": [
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "Within a document version, the specified displayed section numbers for narrative content must be unique.'"
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00245",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "4.0"
+                    }
+                ]
+            }
+        ],
+        "Check": "$.study.documentedBy@$sdd.\n  $sdd.versions@$sddv.\n    (\n      $sddv.contents[displaySectionNumber=true].\n        {\n          \"group\": $join([$sdd.id,$sddv.id,sectionNumber],\"\\n\"),\n          \"details\":\n            {\n              \"instanceType\": instanceType,\n              \"id\": id,\n              \"path\": _path,\n              \"StudyDefinitionDocument.id\": $sdd.id,\n              \"StudyDefinitionDocument.name\": $sdd.name,\n              \"StudyDefinitionDocumentVersion.id\": $sddv.id,\n              \"StudyDefinitionDocumentVersion.version\": $sddv.version,\n              \"name\": name,\n              \"sectionNumber\": sectionNumber,\n              \"displaySectionNumber\": displaySectionNumber\n            }\n        } {group: $count(details)>1?details}\n      ).*",
+        "Core": {
+            "Id": "",
+            "Status": "Draft",
+            "Version": "1"
+        },
+        "Description": "Within a document version, the specified displayed section numbers for narrative content must be unique.",
+        "Executability": "Partially Executable - Possible Overreporting",
+        "Outcome": {
+            "Message": "The displayed section number is not unique within the study definition document version.",
+            "Output_Variables": [
+                "StudyDefinitionDocument.id",
+                "StudyDefinitionDocument.name",
+                "StudyDefinitionDocumentVersion.id",
+                "StudyDefinitionDocumentVersion.version",
+                "name",
+                "sectionNumber",
+                "displaySectionNumber"
+            ]
+        },
+        "Scope": {
+            "Entities": {
+                "Include": [
+                    "NarrativeContent"
+                ]
+            }
+        },
+        "Sensitivity": "Record",
+        "Rule_Type": "JSONata"
+    },
+    "datasets": [],
+    "codelists": []
+}

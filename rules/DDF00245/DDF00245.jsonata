@@ -1,0 +1,40 @@
+{
+    "check_func" : function($data){$data.(
+  $.study.documentedBy@$sdd.
+    $sdd.versions@$sddv.
+      (
+        $sddv.contents[displaySectionNumber=true].
+          {
+            "group": $join([$sdd.id,$sddv.id,sectionNumber],"\n"),
+            "details":
+              {
+                "instanceType": instanceType,
+                "id": id,
+                "path": _path,
+                "StudyDefinitionDocument.id": $sdd.id,
+                "StudyDefinitionDocument.name": $sdd.name,
+                "StudyDefinitionDocumentVersion.id": $sddv.id,
+                "StudyDefinitionDocumentVersion.version": $sddv.version,
+                "name": name,
+                "sectionNumber": sectionNumber,
+                "displaySectionNumber": displaySectionNumber
+              }
+          } {group: $count(details)>1?details}
+        ).*
+                )},
+    "message": "The displayed section number is not unique within the study definition document version.",
+    "variables": [
+        "StudyDefinitionDocument.id",
+        "StudyDefinitionDocument.name",
+        "StudyDefinitionDocumentVersion.id",
+        "StudyDefinitionDocumentVersion.version",
+        "name",
+        "sectionNumber",
+        "displaySectionNumber"
+        ],
+    "scope": {
+        "Include": [
+            "NarrativeContent"
+        ]
+    }
+}
