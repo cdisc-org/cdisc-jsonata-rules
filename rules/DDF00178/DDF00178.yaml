@@ -34,16 +34,16 @@ Check: |-
                 };
                 {
                     "instanceType": $sa.instanceType,
-                    "id": $i.id,
-                    "path": $i._path,
+                    "id": $sa.id,
+                    "path": $sa._path,
                     "StudyIntervention.id": $si.id,
                     "StudyIntervention.name": $si.name,
                     "name": $sa.name,
                     "dose.id": $sa.dose.id,
                     "dose(value/range)": $FValU($sa.dose),
                     "frequency.id": $sa.frequency.id,
-                    "frequency": ($sa.frequency ? $sa.frequency.standardCode.decode & " (" & $sa.frequency.standardCode.code & ")"),
-                    "check": ($exists($sa.dose.id) and $exists($sa.frequency.id)=false)
+                   "frequency": ($sa.frequency ? ($sa.frequency.standardCode.decode & " (" & $sa.frequency.standardCode.code & ")")),
+                   "check": ($exists($sa.dose.id) and $exists($sa.frequency.id)=false)
                 }
         )][check=true]    
 Core:
@@ -53,7 +53,7 @@ Core:
 Description: 'If a dose is specified then a corresponding frequency must also be specified.'
 Executability: Fully Executable
 Outcome:
-  Message: 'An administration dose has been specified without a frequency.'
+  Message: 'The administration dose has been specified without a frequency.'
   Output Variables:
     - StudyIntervention.id
     - StudyIntervention.name
