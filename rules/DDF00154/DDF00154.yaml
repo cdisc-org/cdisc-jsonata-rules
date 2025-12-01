@@ -35,7 +35,7 @@ Outcome:
   Output Variables:
     - name
     - characteristics
-Rule Type: Record Data
+Rule Type: JSONata
 Scope:
   Entities:
     Include:
