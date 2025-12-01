@@ -1,0 +1,58 @@
+{
+    "rule": {
+        "Authorities": [
+            {
+                "Organization": "CDISC",
+                "Standards": [
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "Each study definition document version is expected to be referenced by either a study version or a study design."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00198",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "4.0"
+                    }
+                ]
+            }
+        ],
+        "Check": "study@$s.\n  $s.documentedBy@$sdd.\n    $sdd.versions[$not(id in $append($s.versions.documentVersionIds,$s.versions.studyDesigns.documentVersionIds))].\n    {\n      \"instanceType\": instanceType,\n      \"id\": id,\n      \"path\": _path,\n      \"StudyDefinitionDocument.id\": $sdd.id,\n      \"StudyDefinitionDocument.name\": $sdd.name,\n      \"version\": version\n    }",
+        "Core": {
+            "Id": "",
+            "Status": "Draft",
+            "Version": "1"
+        },
+        "Description": "Each study definition document version is expected to be referenced by either a study version or a study design.",
+        "Executability": "Partially Executable - Possible Overreporting",
+        "Outcome": {
+            "Message": "The study definition document version is not referenced by either a study version or a study design.",
+            "Output_Variables": [
+                "StudyDefinitionDocument.id",
+                "StudyDefinitionDocument.name",
+                "version"
+            ]
+        },
+        "Scope": {
+            "Entities": {
+                "Include": [
+                    "StudyDefinitionDocumentVersion"
+                ]
+            }
+        },
+        "Sensitivity": "Record",
+        "Rule_Type": "JSONata"
+    },
+    "datasets": [],
+    "codelists": []
+}

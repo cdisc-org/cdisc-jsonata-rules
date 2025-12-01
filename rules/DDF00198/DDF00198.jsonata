@@ -1,0 +1,26 @@
+{
+    "check_func" : function($data){$data.(
+  study@$s.
+    $s.documentedBy@$sdd.
+      $sdd.versions[$not(id in $append($s.versions.documentVersionIds,$s.versions.studyDesigns.documentVersionIds))].
+      {
+        "instanceType": instanceType,
+        "id": id,
+        "path": _path,
+        "StudyDefinitionDocument.id": $sdd.id,
+        "StudyDefinitionDocument.name": $sdd.name,
+        "version": version
+      }
+                )},
+    "message": "The study definition document version is not referenced by either a study version or a study design.",
+    "variables": [
+        "StudyDefinitionDocument.id",
+        "StudyDefinitionDocument.name",
+        "version"
+        ],
+    "scope": {
+        "Include": [
+            "StudyDefinitionDocumentVersion"
+        ]
+    }
+}
