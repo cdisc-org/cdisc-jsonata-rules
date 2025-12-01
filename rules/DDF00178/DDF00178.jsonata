@@ -18,10 +18,10 @@
                             : "Missing"
                     )              
                 };
-                {
+                 {
                     "instanceType": $sa.instanceType,
-                    "id": $i.id,
-                    "path": $i._path,
+                    "id": $sa.id,
+                    "path": $sa._path,
                     "StudyIntervention.id": $si.id,
                     "StudyIntervention.name": $si.name,
                     "name": $sa.name,
