@@ -28,7 +28,7 @@
                     "dose.id": $sa.dose.id,
                     "dose(value/range)": $FValU($sa.dose),
                     "frequency.id": $sa.frequency.id,
-                    "frequency": ($sa.frequency ? $sa.frequency.standardCode.decode & " (" & $sa.frequency.standardCode.code & ")"),
+                    "frequency": ($sa.frequency ? ($sa.frequency.standardCode.decode & " (" & $sa.frequency.standardCode.code & ")")),
 					"check": ($exists($sa.dose.id) and $exists($sa.frequency.id)=false)
                 }
         )][check=true] },
