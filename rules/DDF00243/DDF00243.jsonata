@@ -1,0 +1,31 @@
+{
+    "check_func" : function($data){$data.(
+  study.versions.studyDesigns@$sd.
+    $sd.arms@$sa.{
+    $sa.id:
+        {
+        "instanceType": $sa.instanceType,
+        "id": $sa.id,
+        "path": $sa._path,
+        "StudyDesign.id": $sd.id,
+        "StudyDesign.name": $sd.name,
+        "name": $sa.name,
+        "StudyDesign.epochs": "["&$join($sd.epochs.(id&": "&name),"; ")&"]",
+        "Arm's StudyCell Epoch Refs": "["&$join($sd.studyCells[armId=$sa.id].($sc:=$;id&": "&epochId&" ("&($sc.epochId in $sd.epochs.id?$sd.epochs[id=$sc.epochId].name:"Invalid epochId")&")"),"; ")&"]",
+        "Missing Epoch Refs": "["&$join($sd.epochs[$not(id in $sd.studyCells[armId=$sa.id].epochId)].(id&": "&name),"; ")&"]"
+        }
+    }.*[`Missing Epoch Refs`!="[]"]
+                )},
+    "message": "The StudyArm does not have one StudyCell for each StudyEpoch.",
+    "variables": [
+        "name",
+        "StudyDesign.epochs",
+        "Arm's StudyCell Epoch Refs",
+        "Missing Epoch Refs"
+        ],
+    "scope": {
+        "Include": [
+            "StudyArm"
+        ]
+    }
+}

@@ -1,0 +1,61 @@
+{
+    "rule": {
+        "Authorities": [
+            {
+                "Organization": "CDISC",
+                "Standards": [
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "Each StudyArm is expected to have one StudyCell for each StudyEpoch.'"
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00243",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "4.0"
+                    }
+                ]
+            }
+        ],
+        "Check": "study.versions.studyDesigns@$sd.\n  $sd.arms@$sa.{\n  $sa.id:\n      {\n      \"instanceType\": $sa.instanceType,\n      \"id\": $sa.id,\n      \"path\": $sa._path,\n      \"StudyDesign.id\": $sd.id,\n      \"StudyDesign.name\": $sd.name,\n      \"name\": $sa.name,\n      \"StudyDesign.epochs\": \"[\"&$join($sd.epochs.(id&\": \"&name),\"; \")&\"]\",\n      \"Arm's StudyCell Epoch Refs\": \"[\"&$join($sd.studyCells[armId=$sa.id].($sc:=$;id&\": \"&epochId&\" (\"&($sc.epochId in $sd.epochs.id?$sd.epochs[id=$sc.epochId].name:\"Invalid epochId\")&\")\"),\"; \")&\"]\",\n      \"Missing Epoch Refs\": \"[\"&$join($sd.epochs[$not(id in $sd.studyCells[armId=$sa.id].epochId)].(id&\": \"&name),\"; \")&\"]\"\n      }\n  }.*[`Missing Epoch Refs`!=\"[]\"]",
+        "Core": {
+            "Id": "",
+            "Status": "Draft",
+            "Version": "1"
+        },
+        "Description": "Each StudyArm is expected to have one StudyCell for each StudyEpoch.",
+        "Executability": "Partially Executable - Possible Overreporting",
+        "Outcome": {
+            "Message": "The StudyArm does not have one StudyCell for each StudyEpoch.",
+            "Output_Variables": [
+                "StudyDesign.id",
+                "StudyDesign.name",
+                "name",
+                "StudyDesign.epochs",
+                "Arm's StudyCell Epoch Refs",
+                "Missing Epoch Refs"
+            ]
+        },
+        "Scope": {
+            "Entities": {
+                "Include": [
+                    "StudyArm"
+                ]
+            }
+        },
+        "Sensitivity": "Record",
+        "Rule_Type": "JSONata"
+    },
+    "datasets": [],
+    "codelists": []
+}
