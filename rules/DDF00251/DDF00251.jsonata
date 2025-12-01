@@ -5,9 +5,9 @@
             $sd.population@$sp.
             $sp.cohorts[$count(indicationIds[$not($ in $sd.indications.id)])>0].
                             {
-                            "instanceType": $sc.instanceType,
-                            "id": $sc.id,
-                            "path": $sc._path,
+                            "instanceType": instanceType,
+                            "id": id,
+                            "path": _path,
                             "StudyDesign.id": $sd.id,
                             "StudyDesign.name": $sd.name,
                             "StudyDesign.indications.id": $sd.indications.id,
