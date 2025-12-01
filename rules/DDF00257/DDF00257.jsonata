@@ -1,0 +1,23 @@
+{
+    "check_func" : function($data){$data.(
+  study.versions.studyDesigns["C217006" in characteristics.code and "C217007" in characteristics.code].
+    {
+      "instanceType": instanceType,
+      "id": id,
+      "path": _path,
+      "name": name,
+      "characteristics": "["&$join(characteristics[code in ["C217006","C217007"]].$.(id&": "&decode&" ("&code&")"),"; ")&"]"
+    }
+                    )},
+    "message": "The study design is characterized as both \"Single Country\" and \"Multiple Countries\".",
+    "variables": [
+        "name",
+        "characteristics"
+    ],
+    "scope": {
+        "Include": [
+            "InterventionalStudyDesign",
+            "ObservationalStudyDesign"
+        ]
+    }
+}

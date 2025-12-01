@@ -1,0 +1,58 @@
+{
+    "rule": {
+        "Authorities": [
+            {
+                "Organization": "CDISC",
+                "Standards": [
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "A study design must not be characterized as both \"Single Country\" and \"Multiple Countries\"."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00257",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "4.0"
+                    }
+                ]
+            }
+        ],
+        "Check": "study.versions.studyDesigns[\"C217006\" in characteristics.code and \"C217007\" in characteristics.code].\n  {\n    \"instanceType\": instanceType,\n    \"id\": id,\n    \"path\": _path,\n    \"name\": name,\n    \"characteristics\": \"[\"&$join(characteristics[code in [\"C217006\",\"C217007\"]].$.(id&\": \"&decode&\" (\"&code&\")\"),\"; \")&\"]\"\n  }",
+        "Core": {
+            "Id": "",
+            "Status": "Draft",
+            "Version": "1"
+        },
+        "Description": "A study design must not be characterized as both \"Single Country\" and \"Multiple Countries\".",
+        "Executability": "Fully Executable",
+        "Outcome": {
+            "Message": "The study design is characterized as both \"Single Country\" and \"Multiple Countries\".",
+            "Output_Variables": [
+                "name",
+                "characteristics"
+            ]
+        },
+        "Scope": {
+            "Entities": {
+                "Include": [
+                    "InterventionalStudyDesign",
+                    "ObservationalStudyDesign"
+                ]
+            }
+        },
+        "Sensitivity": "Record",
+        "Rule_Type": "JSONata"
+    },
+    "datasets": [],
+    "codelists": []
+}
