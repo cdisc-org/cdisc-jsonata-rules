@@ -1,0 +1,23 @@
+{
+    "check_func" : function($data){$data.(
+  study.versions.studyDesigns[$count(characteristics[code in ["C46079","C25689","C147145"]])>1].
+    {
+      "instanceType": instanceType,
+      "id": id,
+      "path": _path,
+      "name": name,
+      "characteristics": "["&$join(characteristics[code in ["C46079","C25689","C147145"]].$.(id&": "&decode&" ("&code&")"),"; ")&"]"
+    }
+                    )},
+    "message": "The study design has more than one of the following characteristics: \"Randomized\", \"Stratification\", \"Stratified Randomisation\".",
+    "variables": [
+        "name",
+        "characteristics"
+    ],
+    "scope": {
+        "Include": [
+            "InterventionalStudyDesign",
+            "ObservationalStudyDesign"
+        ]
+    }
+}

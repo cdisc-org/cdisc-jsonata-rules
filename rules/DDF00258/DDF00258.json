@@ -1,0 +1,58 @@
+{
+    "rule": {
+        "Authorities": [
+            {
+                "Organization": "CDISC",
+                "Standards": [
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "A study design is not expected to have more than one of the following characteristics: \"Randomized\", \"Stratification\", \"Stratified Randomisation\"."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00258",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "4.0"
+                    }
+                ]
+            }
+        ],
+        "Check": "study.versions.studyDesigns[$count(characteristics[code in [\"C46079\",\"C25689\",\"C147145\"]])>1].\n  {\n    \"instanceType\": instanceType,\n    \"id\": id,\n    \"path\": _path,\n    \"name\": name,\n    \"characteristics\": \"[\"&$join(characteristics[code in [\"C46079\",\"C25689\",\"C147145\"]].$.(id&\": \"&decode&\" (\"&code&\")\"),\"; \")&\"]\"\n  }",
+        "Core": {
+            "Id": "",
+            "Status": "Draft",
+            "Version": "1"
+        },
+        "Description": "A study design is not expected to have more than one of the following characteristics: \"Randomized\", \"Stratification\", \"Stratified Randomisation\".",
+        "Executability": "Partially Executable - Possible Overreporting",
+        "Outcome": {
+            "Message": "The study design has more than one of the following characteristics: \"Randomized\", \"Stratification\", \"Stratified Randomisation\".",
+            "Output_Variables": [
+                "name",
+                "characteristics"
+            ]
+        },
+        "Scope": {
+            "Entities": {
+                "Include": [
+                    "InterventionalStudyDesign",
+                    "ObservationalStudyDesign"
+                ]
+            }
+        },
+        "Sensitivity": "Record",
+        "Rule_Type": "JSONata"
+    },
+    "datasets": [],
+    "codelists": []
+}
