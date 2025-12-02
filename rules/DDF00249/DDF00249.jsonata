@@ -1,0 +1,29 @@
+{
+    "check_func" : function($data){$data.(
+  study.versions@$sv.
+    $sv.eligibilityCriterionItems
+      [
+        $not(id in $sv.studyDesigns.eligibilityCriteria.criterionItemId)
+      ].
+      {
+        "instanceType": instanceType,
+        "id": id,
+        "path": _path,
+        "StudyVersion.id": $sv.id,
+        "StudyVersion.versionIdentifier": $sv.versionIdentifier,
+        "name": name
+      }
+                )},
+    "message": "The eligibility criterion item is not used in at least one study design.",
+    "variables": 
+        [
+          "StudyVersion.id",
+          "StudyVersion.versionIdentifier",
+          "name"
+        ],
+    "scope": {
+        "Include": [
+            "EligibilityCriterionItem"
+        ]
+    }                     
+}
