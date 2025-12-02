@@ -1,0 +1,61 @@
+{
+    "rule": {
+        "Authorities": [
+            {
+                "Organization": "CDISC",
+                "Standards": [
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "Each study enrollment must apply to either a geographic scope, a study site, or a study cohort."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00195",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "4.0"
+                    }
+                ]
+            }
+        ],
+        "Check": "study.versions@$sv.\n  $sv.amendments@$a.\n    $a.enrollments.\n    (\n      $gs:=$exists(forGeographicScope) and forGeographicScope;\n      $ss:=$exists(forStudySiteId) and forStudySiteId;\n      $sc:=$exists(forStudyCohortId) and forStudyCohortId;\n      {\n        \"instanceType\": instanceType,\n        \"id\": id,\n        \"path\": _path,\n        \"StudyAmendment.id\": $a.id,\n        \"StudyAmendment.name\": $a.name,\n        \"name\": name,\n        \"forGeographicScope\": \n          forGeographicScope\n          ? forGeographicScope.(id&\": \"&type.decode),\n        \"forStudySiteId\": \n          forStudySiteId\n          ? (\n              $sid:=forStudySiteId;\n              $sid&\": \"&\n                (\n                  $sid in $sv.organizations.managedSites.id\n                  ? $sv.organizations.managedSites[id=$sid].name\n                  : \"Invalid forStudySiteId\"\n                )\n            ),\n        \"forStudyCohortId\":\n          forStudyCohortId\n          ? (\n              $cid:=forStudyCohortId;\n              $cid&\": \"&\n                (\n                  $cid in $sv.**.cohorts.id\n                  ? $sv.**.cohorts[id=$cid].name\n                  : \"Invalid forStudyCohortId\"\n                )\n            ),\n        \"check\": $sum([$gs?1:0,$ss?1:0,$sc?1:0])!=1 or\n                 ($ss and $not(forStudySiteId in $sv.organizations.managedSites.id)) or\n                 ($sc and $not(forStudyCohortId in $sv.**.cohorts.id))\n      }\n    )[check=true]",
+        "Core": {
+            "Id": "",
+            "Status": "Draft",
+            "Version": "1"
+        },
+        "Description": "Each study enrollment must apply to either a geographic scope, a study site, or a study cohort.",
+        "Executability": "Fully Executable",
+        "Outcome": {
+            "Message": "The study enrollment does not apply to either a geographic scope, a study site, or a study cohort - it does not apply to one and only one of these, or the value for forStudySiteId or forStudyCohortId is invalid.",
+            "Output_Variables": [
+                "StudyAmendment.id",
+                "StudyAmendment.name",
+                "name",
+                "forGeographicScope",
+                "forStudySiteId",
+                "forStudyCohortId"
+            ]
+        },
+        "Scope": {
+            "Entities": {
+                "Include": [
+                    "SubjectEnrollment"
+                ]
+            }
+        },
+        "Sensitivity": "Record",
+        "Rule_Type": "JSONata"
+    },
+    "datasets": [],
+    "codelists": []
+}
