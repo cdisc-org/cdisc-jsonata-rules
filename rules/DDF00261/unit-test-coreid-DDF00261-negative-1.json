@@ -140,10 +140,10 @@
                 "type": {
                   "id": "Code_92",
                   "extensionAttributes": [],
-                  "code": "C68846",
+                  "code": "C25464",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
-                  "decode": "Global",
+                  "decode": "Country",
                   "instanceType": "Code"
                 },
                 "code": null,
