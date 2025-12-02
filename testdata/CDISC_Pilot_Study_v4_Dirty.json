@@ -3113,13 +3113,9 @@
                 "EligibilityCriterion_20",
                 "EligibilityCriterion_21",
                 "EligibilityCriterion_22",
-                "EligibilityCriterion_23",
-                "EligibilityCriterion_24",
-                "EligibilityCriterion_25",
                 "EligibilityCriterion_26",
                 "EligibilityCriterion_27",
                 "EligibilityCriterion_28",
-                "EligibilityCriterion_29",
                 "EligibilityCriterion_30",
                 "EligibilityCriterion_31"
               ],
@@ -3184,7 +3180,9 @@
                   "plannedEnrollmentNumber": null,
                   "plannedCompletionNumber": null,
                   "plannedSex": [],
-                  "criterionIds": [],
+                  "criterionIds": [
+					"EligibilityCriterion_25",
+					"EligibilityCriterion_26"],
                   "plannedAge": {
                     "id": "Range_1",
                     "extensionAttributes": [],
@@ -3248,7 +3246,9 @@
                   "plannedEnrollmentNumber": null,
                   "plannedCompletionNumber": null,
                   "plannedSex": [],
-                  "criterionIds": [],
+                  "criterionIds": [
+					"EligibilityCriterion_23",
+					"EligibilityCriterion_24"],
                   "plannedAge": {
                     "id": "Range_2",
                     "extensionAttributes": [],
@@ -5978,7 +5978,7 @@
             "id": "NarrativeContentItem_1",
             "extensionAttributes": [],
             "name": "NCI_1",
-            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"container\">\n<div class=\"row mt-5\">\n<div class=\"col-md-10 offset-md-1 text-center border\">\n<p><small>The information contained in this clinical study protocol is</small></p><p><small>Copyright \u00a9 2006 Eli Lilly and Company.</small></p>\n</div>\n</div>\n<div class=\"row mt-5\">\n<div class=\"col-md-8 offset-md-2 text-center\">\n<p><strong><usdm:ref attributeXX=\"text\" id=\"StudyTitle_2\" klass=\"StudyTitle\"></usdm:ref></strong></p>\n</div>\n</div>\n<div class=\"row mt-3\">\n<div class=\"col-md-8 offset-md-2 text-center\">\n<p><strong><usdm:ref attribute=\"text\" id=\"StudyIdentifier_1\" klass=\"StudyIdentifier\"></usdm:ref></strong></p>\n</div>\n</div>\n<div class=\"row mt-3\">\n<div class=\"col-md-8 offset-md-2 text-center\">\n<p><strong><usdm:ref attribute=\"text\" id=\"StudyTitle_3\" klass=\"StudyTitle\"></usdm:ref></strong></p>\n</div>\n</div>\n</div></div>",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"container\">\n<div class=\"row mt-5\">\n<div class=\"col-md-10 offset-md-1 text-center border\">\n<p><small>The information contained in this clinical study protocol is</small></p><p><small>Copyright \u00a9 2006 Company.</small></p>\n</div>\n</div>\n<div class=\"row mt-5\">\n<div class=\"col-md-8 offset-md-2 text-center\">\n<p><strong><usdm:ref attributeXX=\"text\" id=\"StudyTitle_2\" klass=\"StudyTitle\"></usdm:ref></strong></p>\n</div>\n</div>\n<div class=\"row mt-3\">\n<div class=\"col-md-8 offset-md-2 text-center\">\n<p><strong><usdm:ref attribute=\"text\" id=\"StudyIdentifier_1\" klass=\"StudyIdentifier\"></usdm:ref></strong></p>\n</div>\n</div>\n<div class=\"row mt-3\">\n<div class=\"col-md-8 offset-md-2 text-center\">\n<p><strong><usdm:ref attribute=\"text\" id=\"StudyTitle_3\" klass=\"StudyTitle\"></usdm:ref></strong></p>\n</div>\n</div>\n</div></div>",
             "instanceType": "NarrativeContentItem"
           },
           {
@@ -5999,7 +5999,7 @@
             "id": "NarrativeContentItem_4",
             "extensionAttributes": [],
             "name": "NCI_4",
-            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>The primary objectives of this study are</p>\n<ul>\n<li><usdm:ref attribute=\"text\" id=\"Objective_1\" klass=\"Objective\"></usdm:ref></li>\n<li><usdm:ref attribute=\"text\" id=\"Objective_2\" klass=\"Objective\"></usdm:ref></li>\n</ul></div>",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>The primary objectives of this study are</p>\n<ul>\n<li><usdm:ref attribute=\"text\" id=\"Objective_1\" klass=\"ObjectiveX\"></usdm:ref></li>\n<li><usdm:ref attribute=\"text\" id=\"Objective_2\" klass=\"Objective\"></usdm:ref></li>\n</ul></div>",
             "instanceType": "NarrativeContentItem"
           },
           {

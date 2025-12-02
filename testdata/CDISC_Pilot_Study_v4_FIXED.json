@@ -6433,7 +6433,7 @@
               "decode": "Sponsor",
               "instanceType": "Code"
             },
-            "appliesToIds": [],
+            "appliesToIds": ["StudyVersion_1"],
             "assignedPersons": [],
             "organizationIds": [
               "Organization_1"
@@ -6463,7 +6463,7 @@
               "decode": "Investigator",
               "instanceType": "Code"
             },
-            "appliesToIds": [],
+            "appliesToIds": ["InterventionalStudyDesign_1"],
             "assignedPersons": [],
             "organizationIds": [
               "Organization_1"
@@ -7229,6 +7229,104 @@
 			    "quantity": null,
                 "instanceType": "AdministrableProductProperty"
             }],
+			"ingredients": [{
+				"id": "Ingredient_1",
+				"role": {
+                    "id": "Code_rol03",
+                    "extensionAttributes": [],
+                    "code": " 100000072072",
+                    "codeSystem": "http://hl7/org/fhir",
+                    "codeSystemVersion": "5.0.0",
+                    "decode": "Active",
+                    "instanceType": "Code"
+                },
+				"substance": {
+					"id": "Subst_01",
+                    "extensionAttributes": [],
+				    "name": "SUBST01",
+					"label": null,
+					"description": null,
+					"codes": [],
+					"strengths":[{
+						"id": "Str_01",
+						"name": "STRENGTH01",
+						"label": null,
+						"description": null,
+						"numerator": {
+							"id": "Range_1_in",
+							"extensionAttributes": [],
+							"minValue": {
+							  "id": "Quantity_9_in",
+							  "extensionAttributes": [],
+							  "value": 50.0,
+							  "unit": {
+								"id": "AliasCode_251_in",
+								"extensionAttributes": [],
+								"standardCode": {
+								  "id": "Code_618_in",
+								  "extensionAttributes": [],
+								  "code": "C28253",
+								  "codeSystem": "http://www.cdisc.org",
+								  "codeSystemVersion": "2025-09-26",
+								  "decode": "Milligram",
+								  "instanceType": "Code"
+								},
+								"standardCodeAliases": [],
+								"instanceType": "AliasCode"
+							  },
+							  "instanceType": "Quantity"
+							},
+							"maxValue": {
+							  "id": "Quantity_10_in",
+							  "extensionAttributes": [],
+							  "value": 100.0,
+							  "unit": {
+								"id": "AliasCode_252_in",
+								"extensionAttributes": [],
+								"standardCode": {
+								  "id": "Code_619_in",
+								  "extensionAttributes": [],
+								  "code": "C28253",
+								  "codeSystem": "http://www.cdisc.org",
+								  "codeSystemVersion": "2025-09-26",
+								  "decode": "Milligram",
+								  "instanceType": "Code"
+								},
+								"standardCodeAliases": [],
+								"instanceType": "AliasCode"
+							  },
+							  "instanceType": "Quantity"
+							},
+							"isApproximate": false,
+							"instanceType": "Range"
+						  },
+						"denominator": {
+							"id": "Quantity_d3",
+							"extensionAttributes": [],
+							"value": 2.0,
+							"unit": {
+								"id": "AliasCode_243_d",
+								"extensionAttributes": [],
+									"standardCode": {
+										"id": "Code_607d",
+										"extensionAttributes": [],
+										"code": "C28254",
+										"codeSystem": "http://www.cdisc.org",
+										"codeSystemVersion": "2025-09-26",
+										"decode": "Milliliter",
+										"instanceType": "Code"
+									},
+								"standardCodeAliases": [],
+								"instanceType": "AliasCode"
+							},
+							"instanceType": "Quantity"
+						},
+						"instanceType": "Strength"
+					}],
+					"instanceType": "Substance"
+				},
+				"instanceType": "Ingredient"
+			}],
             "notes": [],
             "instanceType": "AdministrableProduct"
           }],
