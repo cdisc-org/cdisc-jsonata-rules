@@ -16516,6 +16516,41 @@
                   }
                 ],
                 "instanceType": "GovernanceDate"
+              },
+              {
+                "id": "GovernanceDate_10",
+                "extensionAttributes": [],
+                "name": "P_EFFECT_G2",
+                "label": "Protocol Approval - Global",
+                "description": "Protocol document approval date",
+                "type": {
+                  "id": "Code_694",
+                  "extensionAttributes": [],
+                  "code": "C215663",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Effective Date",
+                  "instanceType": "Code"
+                },
+                "dateValue": "2006-08-03",
+                "geographicScopes": [
+                  {
+                    "id": "GeographicScope_13",
+                    "extensionAttributes": [],
+                    "type": {
+                      "id": "Code_695",
+                      "extensionAttributes": [],
+                      "code": "C68846",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2024-09-27",
+                      "decode": "Global",
+                      "instanceType": "Code"
+                    },
+                    "code": null,
+                    "instanceType": "GeographicScope"
+                  }
+                ],
+                "instanceType": "GovernanceDate"
               }
             ],
             "contents": [
@@ -17756,55 +17791,6 @@
                       "instanceType": "Code"
                     },
                     "code": null,
-                    "instanceType": "GeographicScope"
-                  }
-                ],
-                "instanceType": "GovernanceDate"
-              },
-              {
-                "id": "GovernanceDate_10",
-                "extensionAttributes": [],
-                "name": "P_EFFECT_US",
-                "label": "Protocol Approval - USA",
-                "description": "Protocol document approval date",
-                "type": {
-                  "id": "Code_694",
-                  "extensionAttributes": [],
-                  "code": "C215663",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2024-09-27",
-                  "decode": "Effective Date",
-                  "instanceType": "Code"
-                },
-                "dateValue": "2009-12-10",
-                "geographicScopes": [
-                  {
-                    "id": "GeographicScope_13",
-                    "extensionAttributes": [],
-                    "type": {
-                      "id": "Code_695",
-                      "extensionAttributes": [],
-                      "code": "C25464",
-                      "codeSystem": "http://www.cdisc.org",
-                      "codeSystemVersion": "2024-09-27",
-                      "decode": "Country",
-                      "instanceType": "Code"
-                    },
-                    "code": {
-                      "id": "AliasCode_257",
-                      "extensionAttributes": [],
-                      "standardCode": {
-                        "id": "Code_696",
-                        "extensionAttributes": [],
-                        "code": "USA",
-                        "codeSystem": "ISO 3166 1 alpha3",
-                        "codeSystemVersion": "2020-08",
-                        "decode": "United States of America",
-                        "instanceType": "Code"
-                      },
-                      "standardCodeAliases": [],
-                      "instanceType": "AliasCode"
-                    },
                     "instanceType": "GeographicScope"
                   }
                 ],
@@ -19106,7 +19092,7 @@
                 "label": "Protocol Approval - Global",
                 "description": "Protocol document approval date",
                 "type": {
-                  "id": "Code_697",
+                  "id": "Code_696",
                   "extensionAttributes": [],
                   "code": "C71476",
                   "codeSystem": "http://www.cdisc.org",
@@ -19120,7 +19106,7 @@
                     "id": "GeographicScope_14",
                     "extensionAttributes": [],
                     "type": {
-                      "id": "Code_698",
+                      "id": "Code_697",
                       "extensionAttributes": [],
                       "code": "C68846",
                       "codeSystem": "http://www.cdisc.org",
