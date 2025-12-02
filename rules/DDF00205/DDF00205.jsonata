@@ -1,0 +1,34 @@
+{
+    "check_func" : function($data)
+         {
+(study.versions)@$sv.
+    $sv.studyInterventions@$si.
+    $si.administrations@$sa.
+        [(
+                 {
+                    "instanceType": $sa.instanceType,
+                    "id": $sa.id,
+                    "path": $sa._path,
+                    "StudyIntervention.id": $si.id,
+                    "StudyIntervention.name": $si.name,
+                    "name": $sa.name,
+                    "administrableProductId": $sa.administrableProductId,
+                    "AdministrableProduct.name": $sv.administrableProducts[id=$sa.administrableProductId].name,
+                    "medicalDeviceId": $sa.medicalDeviceId,
+                    "MedicalDevice.name": $sv.medicalDevices[id=$sa.medicalDeviceId].name,
+                    "check": ($exists($sa.medicalDeviceId) and $sv.medicalDevices[id=$sa.medicalDeviceId].embeddedProductId= $sa.administrableProductId)
+                }
+        )][check=true]
+           },
+    "message": "The administrable product is referenced both as the administrable product for an administration and as the embedded product of a medical device that is referenced by the same administration.",
+    "variables": 
+        [
+            "studyIntervention.id",
+            "studyIntervention.name",
+            "name",
+            "administrableProductId",
+            "AdministrableProduct.name",
+            "medicalDeviceId",
+            "MedicalDevice.name"
+        ]
+}
