@@ -21,7 +21,7 @@
                                 "geographicScopes.type": "["&$join(geographicScopes.(id & ": " & type.decode & " (" & type.code & ")"),"; ")&"]"
                               }
               }
-            ).*
+            ).* ~> $distinct
                 )},
     "message": "There is more than one date of this type for the study definition document version, but at least one of the dates has a global geographic scope.",
     "variables": [

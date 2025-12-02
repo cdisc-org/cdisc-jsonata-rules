@@ -36,7 +36,7 @@ Check: |-
                                 "geographicScopes.type": "["&$join(geographicScopes.(id & ": " & type.decode & " (" & type.code & ")"),"; ")&"]"
                               }
               }
-            ).*
+            ).* ~> $distinct
 Core:
   Id: 'DDF00182'
   Status: Draft

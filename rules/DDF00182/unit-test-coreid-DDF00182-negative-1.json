@@ -16516,41 +16516,6 @@
                   }
                 ],
                 "instanceType": "GovernanceDate"
-              },
-              {
-                "id": "GovernanceDate_10",
-                "extensionAttributes": [],
-                "name": "P_EFFECT_G2",
-                "label": "Protocol Approval - Global",
-                "description": "Protocol document approval date",
-                "type": {
-                  "id": "Code_694",
-                  "extensionAttributes": [],
-                  "code": "C215663",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2024-09-27",
-                  "decode": "Effective Date",
-                  "instanceType": "Code"
-                },
-                "dateValue": "2006-08-03",
-                "geographicScopes": [
-                  {
-                    "id": "GeographicScope_13",
-                    "extensionAttributes": [],
-                    "type": {
-                      "id": "Code_695",
-                      "extensionAttributes": [],
-                      "code": "C68846",
-                      "codeSystem": "http://www.cdisc.org",
-                      "codeSystemVersion": "2024-09-27",
-                      "decode": "Global",
-                      "instanceType": "Code"
-                    },
-                    "code": null,
-                    "instanceType": "GeographicScope"
-                  }
-                ],
-                "instanceType": "GovernanceDate"
               }
             ],
             "contents": [
@@ -17783,6 +17748,41 @@
                     "extensionAttributes": [],
                     "type": {
                       "id": "Code_689",
+                      "extensionAttributes": [],
+                      "code": "C68846",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2024-09-27",
+                      "decode": "Global",
+                      "instanceType": "Code"
+                    },
+                    "code": null,
+                    "instanceType": "GeographicScope"
+                  }
+                ],
+                "instanceType": "GovernanceDate"
+              },
+              {
+                "id": "GovernanceDate_10",
+                "extensionAttributes": [],
+                "name": "P_EFFECT_G2",
+                "label": "Protocol Approval - Global",
+                "description": "Protocol document approval date",
+                "type": {
+                  "id": "Code_694",
+                  "extensionAttributes": [],
+                  "code": "C215663",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Effective Date",
+                  "instanceType": "Code"
+                },
+                "dateValue": "2009-12-20",
+                "geographicScopes": [
+                  {
+                    "id": "GeographicScope_13",
+                    "extensionAttributes": [],
+                    "type": {
+                      "id": "Code_695",
                       "extensionAttributes": [],
                       "code": "C68846",
                       "codeSystem": "http://www.cdisc.org",
