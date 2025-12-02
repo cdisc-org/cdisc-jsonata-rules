@@ -1,0 +1,60 @@
+{
+    "rule": {
+        "Authorities": [
+            {
+                "Organization": "CDISC",
+                "Standards": [
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "An eligibility criterion must be referenced by either a study design population or cohorts."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00250",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "4.0"
+                    }
+                ]
+            }
+        ],
+        "Check": "($.**.studyDesigns)@$s.\n  $s.eligibilityCriteria@$ec\n    [\n      $not($ec.id in $s.population.criterionIds) and\n      $not($ec.id in $s.population.cohorts.criterionIds)\n    ].\n    {\n      \"instanceType\": $ec.instanceType,\n      \"id\": $ec.id,\n      \"path\": $ec._path,\n      \"StudyDesign.id\": $s.id,\n      \"StudyDesign.name\": $s.name,\n      \"name\": $ec.name,\n      \"category\": $ec.category.decode,\n      \"identifier\": $ec.identifier\n    }",
+        "Core": {
+            "Id": "",
+            "Status": "Draft",
+            "Version": "1"
+        },
+        "Description": "An eligibility criterion must be referenced by either a study design population or cohorts.",
+        "Executability": "Fully Executable",
+        "Outcome": {
+            "Message": "The eligibility criterion is not referenced referenced by either the study design population or any of its cohorts.",
+            "Output_Variables": [
+                "StudyDesign.id",
+                "StudyDesign.name",
+                "name",
+                "category",
+                "identifier"
+            ]
+        },
+        "Scope": {
+            "Entities": {
+                "Include": [
+                    "EligibilityCriterion"
+                ]
+            }
+        },
+        "Sensitivity": "Record",
+        "Rule_Type": "JSONata"
+    },
+    "datasets": [],
+    "codelists": []
+}
