@@ -1,0 +1,34 @@
+{
+    "check_func" : function($data){$data.(
+  study.versions.studyDesigns@$sd.
+    (
+      $sd.eligibilityCriteria.
+        {
+          "group": $join([$sd.id,criterionItemId],"\n"),
+          "details": 
+          { 
+              "instanceType": instanceType,
+              "id": id,
+              "path": _path,
+              "StudyDesign.id": $sd.id,
+              "StudyDesign.name": $sd.name,
+              "name": name,
+              "criterionItemId": criterionItemId
+          }
+        }{group:$count(details)>1?details}
+    ).*
+                )},
+    "message": "The eligibility criterion item is used more than once within the study design.",
+    "variables": 
+        [
+          "StudyDesign.id",
+          "StudyDesign.name",
+          "name",
+          "criterionItemId"
+        ],
+    "scope": {
+        "Include": [
+            "EligibilityCriterion"
+        ]
+    }                     
+}
