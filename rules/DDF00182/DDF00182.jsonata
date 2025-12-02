@@ -1,0 +1,41 @@
+{
+    "check_func" : function($data){$data.(
+  study@$s.
+    $s.documentedBy@$sdd.
+      $sdd.versions@$sddv.
+        ($sddv.dateValues["C68846" in geographicScopes.type.code])@$gdv.
+          (
+            $sddv.dateValues[type.code in $gdv.type.code]
+              {
+                type.code:$count($)>1
+                          ? $.{
+                                "instanceType": instanceType,
+                                "id": id,
+                                "path": _path,
+                                "StudyDefinitionDocument.id": $sdd.id,
+                                "StudyDefinitionDocument.name": $sdd.name,
+                                "StudyDefinitionDocumentVersion.id": $sddv.id,
+                                "StudyDefinitionDocumentVersion.version": $sddv.version,
+                                "type": type.decode&" ("&type.code&")",
+                                "dateValue": dateValue,
+                                "geographicScopes.type": "["&$join(geographicScopes.(id & ": " & type.decode & " (" & type.code & ")"),"; ")&"]"
+                              }
+              }
+            ).*
+                )},
+    "message": "There is more than one date of this type for the study definition document version, but at least one of the dates has a global geographic scope.",
+    "variables": [
+        "StudyDefinitionDocument.id",
+        "StudyDefinitionDocument.name",
+        "StudyDefinitionDocumentVersion.id",
+        "StudyDefinitionDocumentVersion.version",
+        "type",
+        "dateValue",
+        "geographicScopes.type"
+        ],
+    "scope": {
+        "Include": [
+            "GovernanceDate"
+        ]
+    }
+}

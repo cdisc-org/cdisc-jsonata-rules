@@ -1,0 +1,62 @@
+{
+    "rule": {
+        "Authorities": [
+            {
+                "Organization": "CDISC",
+                "Standards": [
+                    {
+                        "Name": "USDM",
+                        "References": [
+                            {
+                                "Citations": [
+                                    {
+                                        "Document": "USDM_CORE_Rules.xlsx",
+                                        "Cited_Guidance": "Within a study definition document version, if a date of a specific type exists with a global geographic scope then no other dates are expected with the same type."
+                                    }
+                                ],
+                                "Origin": "USDM Conformance Rules",
+                                "Version": "1.0",
+                                "Rule_Identifier": {
+                                    "Id": "DDF00182",
+                                    "Version": "1"
+                                }
+                            }
+                        ],
+                        "Version": "4.0"
+                    }
+                ]
+            }
+        ],
+        "Check": "study@$s.\n  $s.documentedBy@$sdd.\n    $sdd.versions@$sddv.\n      ($sddv.dateValues[\"C68846\" in geographicScopes.type.code])@$gdv.\n        (\n          $sddv.dateValues[type.code in $gdv.type.code]\n            {\n              type.code:$count($)>1\n                        ? $.{\n                              \"instanceType\": instanceType,\n                              \"id\": id,\n                              \"path\": _path,\n                              \"StudyDefinitionDocument.id\": $sdd.id,\n                              \"StudyDefinitionDocument.name\": $sdd.name,\n                              \"StudyDefinitionDocumentVersion.id\": $sddv.id,\n                              \"StudyDefinitionDocumentVersion.version\": $sddv.version,\n                              \"type\": type.decode&\" (\"&type.code&\")\",\n                              \"dateValue\": dateValue,\n                              \"geographicScopes.type\": \"[\"&$join(geographicScopes.(id & \": \" & type.decode & \" (\" & type.code & \")\"),\"; \")&\"]\"\n                            }\n            }\n          ).*",
+        "Core": {
+            "Id": "",
+            "Status": "Draft",
+            "Version": "1"
+        },
+        "Description": "Within a study definition document version, if a date of a specific type exists with a global geographic scope then no other dates are expected with the same type.",
+        "Executability": "Partially Executable - Possible Overreporting",
+        "Outcome": {
+            "Message": "There is more than one date of this type for the study definition document version, but at least one of the dates has a global geographic scope.",
+            "Output_Variables": [
+                "StudyDefinitionDocument.id",
+                "StudyDefinitionDocument.name",
+                "StudyDefinitionDocumentVersion.id",
+                "StudyDefinitionDocumentVersion.version",
+                "type",
+                "dateValue",
+                "geographicScopes.type"
+            ]
+        },
+        "Scope": {
+            "Entities": {
+                "Include": [
+                    "GovernanceDate"
+                ]
+            }
+        },
+        "Sensitivity": "Record",
+        "Rule_Type": "JSONata"
+    },
+    "datasets": [],
+    "codelists": []
+}
