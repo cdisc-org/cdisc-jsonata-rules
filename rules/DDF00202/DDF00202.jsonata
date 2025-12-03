@@ -2,28 +2,24 @@
     "check_func" : function($data){$data.(
   study.versions@$sv.
     ($sv.roles[code.code = "C70793"])@$r.
-      {
-        "instanceType": $r.instanceType,
-        "id": $r.id,
-        "path": $r._path,
-        "name": $r.name,
-        "code.code": $r.code.code,
-        "code.decode": $r.code.decode,
-        "organizationIds": $r.organizationIds[],
-        "# Organizations": $count($sv.organizations[id in $r.organizationIds]),
-        "Organization.id: name": 
-          $r.organizationIds
-          ? "["&$join($r.organizationIds.($oid:=$;$oid&": "&($o:=$sv.organizations[id=$oid];$o?$o.name:"Invalid organizationId")),"; ")&"]"
-      }[$not($count(organizationIds) = 1 and `# Organizations` = 1)]
+      $r[$not($count(organizationIds) = 1 and $count($sv.organizations[id in $r.organizationIds]) = 1)].
+        {
+          "instanceType": $r.instanceType,
+          "id": $r.id,
+          "path": $r._path,
+          "name": $r.name,
+          "code": $r.code.decode & " (" & $r.code.code & ")",
+          "organizationIds": $r.organizationIds
+            ? "["&$join($r.organizationIds.($oid:=$;$oid&": "&($o:=$sv.organizations[id=$oid];$o?$o.name:"Invalid organizationId")),"; ")&"]",
+          "# Valid Organizations": $count($sv.organizations[id in $r.organizationIds])
+        }
                     )},
     "message": "The study role is a sponsor role (code.code is C70793) but it does not point to exactly one organization - it does not have exactly one value for organizationIds that is a valid id value for an organization.",
     "variables": [
         "name",
-        "code.code",
-        "code.decode",
+        "code",
         "organizationIds",
-        "# Organizations",
-        "Organization.id: name"
+        "# Valid Organizations"
     ],
     "scope": {
         "Include": [

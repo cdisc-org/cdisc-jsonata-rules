@@ -22,10 +22,8 @@ Check: |-
         "path": $r._path,
         "name": $r.name,
         "code": $r.code.decode,
-        "assignedPersons.id: name(jobTitle)": "["&$join($r.assignedPersons.(id&": "&name&"("&jobTitle&")"),"; ")&"]",
-        "organizationIds": $r.organizationIds[],
-        "Organization.id: name": 
-          "["&$join($r.organizationIds.($oid:=$;$oid&": "&($o:=$sv.organizations[id=$oid];$o?$o.name:"Invalid organizationId")),"; ")&"]"
+        "assignedPersons": "["&$join($r.assignedPersons.(id&": "&name),"; ")&"]",
+        "organizationIds": "["&$join($r.organizationIds.($oid:=$;$oid&": "&($o:=$sv.organizations[id=$oid];$o?$o.name:"Invalid organizationId")),"; ")&"]"
       }
 Core:
   Id: 'DDF00190'
@@ -39,9 +37,8 @@ Outcome:
   Output Variables:
     - name
     - code
-    - 'assignedPersons.id: name(jobTitle)'
+    - assignedPersons
     - organizationIds
-    - 'Organization.id: name'
 Rule Type: JSONata
 Scope:
   Entities:

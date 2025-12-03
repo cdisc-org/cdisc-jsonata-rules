@@ -15,19 +15,17 @@ Authorities:
 Check: |-
   study.versions@$sv.
     ($sv.roles[code.code = "C70793"])@$r.
-      {
-        "instanceType": $r.instanceType,
-        "id": $r.id,
-        "path": $r._path,
-        "name": $r.name,
-        "code.code": $r.code.code,
-        "code.decode": $r.code.decode,
-        "organizationIds": $r.organizationIds[],
-        "# Organizations": $count($sv.organizations[id in $r.organizationIds]),
-        "Organization.id: name": 
-          $r.organizationIds
-          ? "["&$join($r.organizationIds.($oid:=$;$oid&": "&($o:=$sv.organizations[id=$oid];$o?$o.name:"Invalid organizationId")),"; ")&"]"
-      }[$not($count(organizationIds) = 1 and `# Organizations` = 1)]
+      $r[$not($count(organizationIds) = 1 and $count($sv.organizations[id in $r.organizationIds]) = 1)].
+        {
+          "instanceType": $r.instanceType,
+          "id": $r.id,
+          "path": $r._path,
+          "name": $r.name,
+          "code": $r.code.decode & " (" & $r.code.code & ")",
+          "organizationIds": $r.organizationIds
+            ? "["&$join($r.organizationIds.($oid:=$;$oid&": "&($o:=$sv.organizations[id=$oid];$o?$o.name:"Invalid organizationId")),"; ")&"]",
+          "# Valid Organizations": $count($sv.organizations[id in $r.organizationIds])
+        }
 Core:
   Id: 'DDF00202'
   Status: Draft
@@ -40,11 +38,9 @@ Outcome:
     organizationIds that is a valid id value for an organization.'
   Output Variables:
     - name
-    - code.code
-    - code.decode
+    - code
     - organizationIds
-    - '# Organizations'
-    - 'Organization.id: name'
+    - '# Valid Organizations'
 Rule Type: JSONata
 Scope:
   Entities:

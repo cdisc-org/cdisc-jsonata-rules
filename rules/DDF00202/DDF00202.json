@@ -27,7 +27,7 @@
                 ]
             }
         ],
-        "Check": "study.versions@$sv.\n  ($sv.roles[code.code = \"C70793\"])@$r.\n    {\n      \"instanceType\": $r.instanceType,\n      \"id\": $r.id,\n      \"path\": $r._path,\n      \"name\": $r.name,\n      \"code.code\": $r.code.code,\n      \"code.decode\": $r.code.decode,\n      \"organizationIds\": $r.organizationIds[],\n      \"# Organizations\": $count($sv.organizations[id in $r.organizationIds]),\n      \"Organization.id: name\": \n        $r.organizationIds\n        ? \"[\"&$join($r.organizationIds.($oid:=$;$oid&\": \"&($o:=$sv.organizations[id=$oid];$o?$o.name:\"Invalid organizationId\")),\"; \")&\"]\"\n    }[$not($count(organizationIds) = 1 and `# Organizations` = 1)]",
+        "Check": "study.versions@$sv.\n  ($sv.roles[code.code = \"C70793\"])@$r.\n    $r[$not($count(organizationIds) = 1 and $count($sv.organizations[id in $r.organizationIds]) = 1)].\n      {\n        \"instanceType\": $r.instanceType,\n        \"id\": $r.id,\n        \"path\": $r._path,\n        \"name\": $r.name,\n        \"code\": $r.code.decode & \" (\" & $r.code.code & \")\",\n        \"organizationIds\": $r.organizationIds\n          ? \"[\"&$join($r.organizationIds.($oid:=$;$oid&\": \"&($o:=$sv.organizations[id=$oid];$o?$o.name:\"Invalid organizationId\")),\"; \")&\"]\",\n        \"# Valid Organizations\": $count($sv.organizations[id in $r.organizationIds])\n      }",
         "Core": {
             "Id": "",
             "Status": "Draft",
@@ -39,11 +39,9 @@
             "Message": "The study role is a sponsor role (code.code is C70793) but it does not point to exactly one organization - it does not have exactly one value for organizationIds that is a valid id value for an organization.",
             "Output_Variables": [
                 "name",
-                "code.code",
-                "code.decode",
+                "code",
                 "organizationIds",
-                "# Organizations",
-                "Organization.id: name"
+                "# Valid Organizations"
             ]
         },
         "Scope": {
