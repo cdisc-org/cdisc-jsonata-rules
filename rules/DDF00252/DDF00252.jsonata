@@ -1,21 +1,20 @@
 {
     "check_func" : function($data)
          {
-         (($.**.studyDesigns)@$sd.
-            $sd.elements@$se.
-            $se.
-                [studyInterventionIds[$not($ in $sd.studyInterventionIds)].
+         (($.**.versions)@$sv.
+    $sv.studyDesigns@$sd.
+            $sd.elements[$count(studyInterventionIds[$not ($ in $sd.studyInterventionIds)])>0].
                             {
+                            "instanceType": $se.instanceType,
+                            "id": $se.id,
+                            "path": $se._path,
                             "StudyDesign.id": $sd.id,
                             "StudyDesign.name": $sd.name,
                             "StudyDesign.studyInterventionIds": $sd.studyInterventionIds,
-                            "id": $se.id,
-                            "name": $se.name,
-                            "studyInterventionIds": $se.studyInterventionIds,
-                            "instanceType": $se.instanceType,
-                            "path": $se._path
-                            }
-                ])},
+                            "name": name,
+                            "Invalid studyInterventionIds": studyInterventionIds[$not ($ in $sd.studyInterventionIds)],
+                            "Invalid StudyIntervention.name": "["&$join(studyInterventionIds[$not ($ in $sd.studyInterventionIds)].($oid:=$;$oid&": "&($o:=$sv.studyInterventions[id=$oid];$o?$o.name:"Not defined")),"; ")&"]"
+                            })},
     "message": "The reference to the intervention is not targetting an intervention that has been referenced by the study design as a study intervention.",
     "variables": 
         [
