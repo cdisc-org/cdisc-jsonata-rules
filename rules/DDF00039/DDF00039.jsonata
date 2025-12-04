@@ -1,0 +1,33 @@
+{
+    "check_func" : function($data)
+         {($.**[instanceType="Duration"])@$d.
+    $d.[(
+            $ValU:=function($v){$v.value&($v.unit? " " & $v.unit.standardCode.decode & " ("&$v.unit.standardCode.code&")")};
+            $FValU:=function($n)
+                {
+                    (
+                        $exists($n)
+                            ?   $type($n)="object"
+                                ?   $exists($n.value)
+                                    ? $ValU($n)
+                                    : $exists($n.minValue) or $exists($n.maxValue)
+                                        ? $ValU($n.minValue)&" to "&$ValU($n.maxValue)
+                                        : "Missing"
+                                : $string($n)
+                            : "Missing"
+                    )              
+                };{
+                            "instanceType": $d.instanceType,
+                            "id": $d.id,
+                            "path": $d._path,
+                            "quantity": $FValU(quantity),
+                            "durationWillVary": durationWillVary,
+                            "check": (durationWillVary and quantity) or (durationWillVary=false and $not(quantity))
+                            })][check=true],
+    "message": "The duration quantity is specified while the duration is indicated to vary or vice versa.",
+    "variables": 
+        [
+            "quantity",
+	    "durationWillVary"	   
+	            ]                        
+}
