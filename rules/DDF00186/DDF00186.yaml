@@ -14,39 +14,37 @@ Authorities:
         Version: '4.0'
 Check: |-
   (study.versions.administrableProducts)@$ap.
-     $ap.ingredients@$in.
-     $in.substance@$su.
-     $su.strengths@$st.
-     $st.
-         [(
-             $ValU:=function($v){$v.value&($v.unit? " " & $v.unit.standardCode.decode & " ("&$v.unit.standardCode.code&")")};
-             $FValU:=function($n)
-                 {
-                     (
-                         $exists($n)
-                             ?   $type($n)="object"
-                                 ?   $exists($n.value)
-                                     ? $ValU($n)
-                                     : $exists($n.minValue) or $exists($n.maxValue)
-                                         ? $ValU($n.minValue)&" to "&$ValU($n.maxValue)
-                                         : "Missing"
-                                 : $string($n)
-                             : "Missing"
-                     )              
-                 };
-                 {
-                     "instanceType": $st.instanceType,
-                     "id": $st.id,
-                     "path": $st._path,
-                     "Ingredient.id": $in.id,
-                     "Substance.id": $su.id,
-                     "Substance.name": $su.name,
-                     "name": $st.name,
-                     "denominator.id": $st.denominator.id,
-                     "denominator(value)": $FValU($st.denominator),
-                     "check": $exists($st.denominator.id) and ($exists($st.denominator.unit)=false or $st.denominator.unit=null)
-                 }
-         )][check=true]
+    $ap.ingredients@$in.
+    $in.substance@$su.
+    $su.strengths@$st.
+
+    $st.
+        [(
+            $ValU:=function($v){$v.value&($v.unit? " " & $v.unit.standardCode.decode & " ("&$v.unit.standardCode.code&")")};
+            $FValU:=function($n)
+                {
+                    (
+                        $exists($n)
+                            ?   $type($n)="object"
+                                ?   $exists($n.value)
+                                    ? $ValU($n)
+                                    : $string($n)
+                            : "Missing"
+                    )              
+                };
+                {
+                    "instanceType": $st.instanceType,
+                    "id": $st.id,
+                    "path": $st._path,
+                    "Ingredient.id": $in.id,
+                    "Substance.id": $su.id,
+                    "Substance.name": $su.name,
+                    "name": $st.name,
+                    "denominator.id": $st.denominator.id,
+                    "denominator(value)": $FValU($st.denominator),
+                    "check": $exists($st.denominator.id) and ($exists($st.denominator.unit)=false or $st.denominator.unit=null)
+                }
+        )][check=true]
 Core:
   Id: 'DDF00186'
   Status: Draft
