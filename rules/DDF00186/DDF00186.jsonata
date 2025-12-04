@@ -15,10 +15,7 @@
                             ?   $type($n)="object"
                                 ?   $exists($n.value)
                                     ? $ValU($n)
-                                    : $exists($n.minValue) or $exists($n.maxValue)
-                                        ? $ValU($n.minValue)&" to "&$ValU($n.maxValue)
-                                        : "Missing"
-                                : $string($n)
+                                    : $string($n)
                             : "Missing"
                     )              
                 };
@@ -48,3 +45,4 @@
 
         ]                        
 }
+
