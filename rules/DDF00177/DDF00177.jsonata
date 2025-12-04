@@ -11,24 +11,21 @@
                             ?   $type($n)="object"
                                 ?   $exists($n.value)
                                     ? $ValU($n)
-                                    : $exists($n.minValue) or $exists($n.maxValue)
-                                        ? $ValU($n.minValue)&" to "&$ValU($n.maxValue)
-                                        : "Missing"
                                 : $string($n)
                             : "Missing"
                     )              
                 };
                 {
                     "instanceType": $sa.instanceType,
-                    "id": $i.id,
-                    "path": $i._path,
+                    "id": $sa.id,
+                    "path": $sa._path,
                     "StudyIntervention.id": $si.id,
                     "StudyIntervention.name": $si.name,
                     "name": $sa.name,
                     "dose.id": $sa.dose.id,
-                    "dose(value/range)": $FValU($sa.dose),
+                    "dose(value)": $FValU($sa.dose),
                     "route.id": $sa.route.id,
-                    "route": ($sa.route? $sa.route.standardCode.decode & " (" & $sa.route.standardCode.code & ")"),
+                    "route": ($sa.route? ($sa.route.standardCode.decode & " (" & $sa.route.standardCode.code & ")")),
 					"check":$exists($sa.dose.id) != $exists($sa.route.id)
                 }
         )][check=true]
@@ -45,6 +42,7 @@
 	        "route"
 	            ]                        
 }
+
 
 
 
