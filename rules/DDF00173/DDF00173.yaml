@@ -15,24 +15,27 @@ Authorities:
         Version: '4.0'
 Check: |-
   study.versions@$sv.
-    ($sv.**.*[scopeId and text and instanceType])@$i.
-      ($sv.organizations[id=$i.scopeId])@$o.
+    (
+      $sv.**.*[scopeId and text and instanceType]
         {
-          "group": $join([$i.text,$i.scopeId,$i.instanceType],"|"),
-          "details": $
-            {
-              "instanceType": $i.instanceType,
-              "id": $i.id,
-              "path": $i._path,
-              "text": $i.text,
-              "scopeId": $i.scopeId,
-              "Organization.name": $o.name,
-              "type.decode": $i.type.decode
-            }
-        }{group: $count(details)>1?$.details}
-        ~> $each(function($v){$v}) ~> $reduce($append)
+          $join([text,scopeId,instanceType],"\n"):
+            (
+              $i:=$;
+              $count($i) > 1 ? $i.
+                {
+                  "instanceType": instanceType,
+                  "id": id,
+                  "path": _path,
+                  "text": text,
+                  "scopeId": scopeId,
+                  "Organization.name": ($si:=scopeId;$sv.organizations[id=$si].name),
+                  "type.decode": type.decode
+                }
+            )
+        }
+    ).*
 Core:
-  Id: 'DDF00173'
+  Id: 'CORE-000955'
   Status: Draft
   Version: '1'
 Description: 'Every identifier must be unique within the scope of an identified

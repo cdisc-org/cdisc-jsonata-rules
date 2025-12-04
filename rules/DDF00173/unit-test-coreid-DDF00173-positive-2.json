@@ -251,63 +251,8 @@
             "instanceType": "Code"
           }
         ],
-        "studyIdentifiers": [
-          {
-            "id": "StudyIdentifier_1",
-            "extensionAttributes": [],
-            "text": "H2Q-MC-LZZT",
-            "scopeId": "Organization_1",
-            "instanceType": "StudyIdentifier"
-          },
-          {
-            "id": "StudyIdentifier_2",
-            "extensionAttributes": [],
-            "text": "NCT12345678",
-            "scopeId": "Organization_2",
-            "instanceType": "StudyIdentifier"
-          },
-          {
-            "id": "StudyIdentifier_3",
-            "extensionAttributes": [],
-            "text": "H2Q-MC-LZZT-01",
-            "scopeId": "Organization_1",
-            "instanceType": "StudyIdentifier"
-          }
-        ],
-        "referenceIdentifiers": [
-          {
-            "id": "ReferenceIdentifier_1",
-            "extensionAttributes": [],
-            "text": "LZZT CD Plan 1",
-            "scopeId": "Organization_1",
-            "instanceType": "ReferenceIdentifier",
-            "type": {
-              "id": "Code_94",
-              "extensionAttributes": [],
-              "code": "C142424",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Clinical Development Plan",
-              "instanceType": "Code"
-            }
-          },
-          {
-            "id": "ReferenceIdentifier_2",
-            "extensionAttributes": [],
-            "text": "LZZT PIP",
-            "scopeId": "Organization_1",
-            "instanceType": "ReferenceIdentifier",
-            "type": {
-              "id": "Code_679",
-              "extensionAttributes": [],
-              "code": "C215674",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2024-09-27",
-              "decode": "Pediatric Investigation Plan",
-              "instanceType": "Code"
-            }
-          }
-        ],
+        "studyIdentifiers": [],
+        "referenceIdentifiers": [],
         "studyDesigns": [
           {
             "id": "InterventionalStudyDesign_1",
@@ -6723,14 +6668,7 @@
               "decode": "IMP",
               "instanceType": "Code"
             },
-            "identifiers": [
-              {
-                "id": "AdministrableProductIdentifier_1",
-                "text": "XAN-E-54",
-                "scopeId": "Organization_1",
-                "instanceType": "AdministrableProductIdentifier"
-              }
-            ],
+            "identifiers": [],
             "ingredients": [
               {
                 "id": "Ingredient_1",
@@ -6843,14 +6781,7 @@
               "decode": "IMP",
               "instanceType": "Code"
             },
-            "identifiers": [
-              {
-                "id": "AdministrableProductIdentifier_2",
-                "text": "XAN-E-27",
-                "scopeId": "Organization_1",
-                "instanceType": "AdministrableProductIdentifier"
-              }
-            ],
+            "identifiers": [],
             "ingredients": [
               {
                 "id": "Ingredient_3",
@@ -6945,100 +6876,14 @@
             "id": "MedicalDevice_1",
             "name": "MD_PLAC_50",
             "label": "Placebo TTS 5Ocm2 Patch",
-            "identifiers": [
-              {
-                "id": "MedicalDeviceIdentifier_1",
-                "text": "M12345",
-                "scopeId": "Organization_1",
-                "type": {
-                  "id": "Code_691",
-                  "code": "C99285",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2024-09-27",
-                  "decode": "Model Number",
-                  "instanceType": "Code"
-                },
-                "instanceType": "MedicalDeviceIdentifier"
-              },
-              {
-                "id": "MedicalDeviceIdentifier_2",
-                "text": "B12345",
-                "scopeId": "Organization_1",
-                "type": {
-                  "id": "Code_692",
-                  "code": "C104504",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2024-09-27",
-                  "decode": "Batch Number",
-                  "instanceType": "Code"
-                },
-                "instanceType": "MedicalDeviceIdentifier"
-              },
-              {
-                "id": "MedicalDeviceIdentifier_3",
-                "text": "00123456789012",
-                "scopeId": "Organization_4",
-                "type": {
-                  "id": "Code_694",
-                  "code": "C112279",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2024-09-27",
-                  "decode": "FDA Unique Device Identification",
-                  "instanceType": "Code"
-                },
-                "instanceType": "MedicalDeviceIdentifier"
-              }
-            ],
+            "identifiers": [],
             "instanceType": "MedicalDevice"
           },
           {
             "id": "MedicalDevice_2",
             "name": "MD_PLAC_25",
             "label": "Placebo TTS 25cm2 Patch",
-            "identifiers": [
-              {
-                "id": "MedicalDeviceIdentifier_4",
-                "text": "M23456",
-                "scopeId": "Organization_1",
-                "type": {
-                  "id": "Code_695",
-                  "code": "C99285",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2024-09-27",
-                  "decode": "Model Number",
-                  "instanceType": "Code"
-                },
-                "instanceType": "MedicalDeviceIdentifier"
-              },
-              {
-                "id": "MedicalDeviceIdentifier_5",
-                "text": "B23456",
-                "scopeId": "Organization_1",
-                "type": {
-                  "id": "Code_696",
-                  "code": "C104504",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2024-09-27",
-                  "decode": "Batch Number",
-                  "instanceType": "Code"
-                },
-                "instanceType": "MedicalDeviceIdentifier"
-              },
-              {
-                "id": "MedicalDeviceIdentifier_6",
-                "text": "00123456789013",
-                "scopeId": "Organization_4",
-                "type": {
-                  "id": "Code_697",
-                  "code": "C112279",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2024-09-27",
-                  "decode": "FDA Unique Device Identification",
-                  "instanceType": "Code"
-                },
-                "instanceType": "MedicalDeviceIdentifier"
-              }
-            ],
+            "identifiers": [],
             "instanceType": "MedicalDevice"
           },
           {
@@ -7046,50 +6891,7 @@
             "name": "MD_XANO_50",
             "label": "Xanomeline TTS 5Ocm2 Patch",
             "embeddedProductId": "AdministrableProduct_1",
-            "identifiers": [
-              {
-                "id": "MedicalDeviceIdentifier_7",
-                "text": "M34567",
-                "scopeId": "Organization_1",
-                "type": {
-                  "id": "Code_698",
-                  "code": "C99285",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2024-09-27",
-                  "decode": "Model Number",
-                  "instanceType": "Code"
-                },
-                "instanceType": "MedicalDeviceIdentifier"
-              },
-              {
-                "id": "MedicalDeviceIdentifier_8",
-                "text": "B34567",
-                "scopeId": "Organization_1",
-                "type": {
-                  "id": "Code_699",
-                  "code": "C104504",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2024-09-27",
-                  "decode": "Batch Number",
-                  "instanceType": "Code"
-                },
-                "instanceType": "MedicalDeviceIdentifier"
-              },
-              {
-                "id": "MedicalDeviceIdentifier_9",
-                "text": "00123456789014",
-                "scopeId": "Organization_4",
-                "type": {
-                  "id": "Code_700",
-                  "code": "C112279",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2024-09-27",
-                  "decode": "FDA Unique Device Identification",
-                  "instanceType": "Code"
-                },
-                "instanceType": "MedicalDeviceIdentifier"
-              }
-            ],
+            "identifiers": [],
             "instanceType": "MedicalDevice"
           },
           {
@@ -7097,50 +6899,7 @@
             "name": "MD_XANO_25",
             "label": "Xanomeline TTS 25cm2 Patch",
             "embeddedProductId": "AdministrableProduct_2",
-            "identifiers": [
-              {
-                "id": "MedicalDeviceIdentifier_10",
-                "text": "M45678",
-                "scopeId": "Organization_1",
-                "type": {
-                  "id": "Code_701",
-                  "code": "C99285",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2024-09-27",
-                  "decode": "Model Number",
-                  "instanceType": "Code"
-                },
-                "instanceType": "MedicalDeviceIdentifier"
-              },
-              {
-                "id": "MedicalDeviceIdentifier_11",
-                "text": "B45678",
-                "scopeId": "Organization_1",
-                "type": {
-                  "id": "Code_702",
-                  "code": "C104504",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2024-09-27",
-                  "decode": "Batch Number",
-                  "instanceType": "Code"
-                },
-                "instanceType": "MedicalDeviceIdentifier"
-              },
-              {
-                "id": "MedicalDeviceIdentifier_12",
-                "text": "B45678",
-                "scopeId": "Organization_4",
-                "type": {
-                  "id": "Code_704",
-                  "code": "C112279",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2024-09-27",
-                  "decode": "FDA Unique Device Identification",
-                  "instanceType": "Code"
-                },
-                "instanceType": "MedicalDeviceIdentifier"
-              }
-            ],
+            "identifiers": [],
             "instanceType": "MedicalDevice"
           }
         ],

@@ -27,9 +27,9 @@
                 ]
             }
         ],
-        "Check": "study.versions@$sv.\n  ($sv.**.*[scopeId and text and instanceType])@$i.\n    ($sv.organizations[id=$i.scopeId])@$o.\n      {\n        \"group\": $join([$i.text,$i.scopeId,$i.instanceType],\"|\"),\n        \"details\": $\n          {\n            \"instanceType\": $i.instanceType,\n            \"id\": $i.id,\n            \"path\": $i._path,\n            \"text\": $i.text,\n            \"scopeId\": $i.scopeId,\n            \"Organization.name\": $o.name,\n            \"type.decode\": $i.type.decode\n          }\n      }{group: $count(details)>1?$.details}\n      ~> $each(function($v){$v}) ~> $reduce($append)",
+        "Check": "study.versions@$sv.\n  (\n    $sv.**.*[scopeId and text and instanceType]\n      {\n        $join([text,scopeId,instanceType],\"\\n\"):\n          (\n            $i:=$;\n            $count($i) > 1 ? $i.\n              {\n                \"instanceType\": instanceType,\n                \"id\": id,\n                \"path\": _path,\n                \"text\": text,\n                \"scopeId\": scopeId,\n                \"Organization.name\": ($si:=scopeId;$sv.organizations[id=$si].name),\n                \"type.decode\": type.decode\n              }\n          )\n      }\n  ).*",
         "Core": {
-            "Id": "",
+            "Id": "CORE-000955",
             "Status": "Draft",
             "Version": "1"
         },
