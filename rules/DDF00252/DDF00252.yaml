@@ -18,9 +18,9 @@ Check: |-
     $sv.studyDesigns@$sd.
             $sd.elements[$count(studyInterventionIds[$not ($ in $sd.studyInterventionIds)])>0].
                             {
-                            "instanceType": $se.instanceType,
-                            "id": $se.id,
-                            "path": $se._path,
+                            "instanceType": instanceType,
+                            "id": id,
+                            "path": _path,
                             "StudyDesign.id": $sd.id,
                             "StudyDesign.name": $sd.name,
                             "StudyDesign.studyInterventionIds": $sd.studyInterventionIds,
