@@ -57,7 +57,7 @@ Outcome:
     - StudyIntervention.name
     - name
     - dose.id
-    - dose(value/range)
+    - dose(value)
     - route.id
     - route
 Rule Type: JSONata
