@@ -1,0 +1,37 @@
+{
+    "check_func" : function($data)
+         {
+         ((study.versions.administrableProducts)@$ap.
+    $ap.ingredients@$in.
+    $in.substance@$su.
+    $su.referenceSubstance.
+            [
+                            {
+                            "id": id,
+                            "instanceType": instanceType,
+                            "path": _path,
+                            "AdministrableProduct.id": $ap.id,
+                            "AdministrableProduct.name": $ap.name,
+                            "Ingredient.id": $in.id,
+                            "parent Substance.id": $su.id,
+                            "parent Substance.name": $su.name,
+                            "name": name,
+                            "referenceSubstance.id": referenceSubstance.id,
+                            "referenceSubstance.name": referenceSubstance.name,
+                            "check": $not(referenceSubstance)=false
+                            }
+                ][check=true])},
+    "message": "The referenced substance is referencing a substance.",
+    "variables": 
+        [
+            "AdministrableProduct.id",
+	    "AdministrableProduct.name",
+	    "Ingredient.id",
+	    "parent Substance.id",
+            "parent Substance.name",
+            "name",
+	    "referenceSubstance.id",
+	    "referenceSubstance.name",
+            "studyInterventionIds"
+        ]
+}
