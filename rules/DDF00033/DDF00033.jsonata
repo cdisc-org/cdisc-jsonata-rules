@@ -1,0 +1,18 @@
+{
+    "check_func" : function($data)
+         {($.**[instanceType="Duration"])@$d.
+    $d.[{
+                            "instanceType": $d.instanceType,
+                            "id": $d.id,
+                            "path": $d._path,
+                            "text": $d.text,
+                            "quantity": quantity,
+                            "check": $not(text) and $not(quantity)
+                            }][check=true],
+    "message": "The quantity and text are both missing for the specified duration.",
+    "variables": 
+        [
+            "text",
+            "quantity"	   
+	            ]                        
+}
