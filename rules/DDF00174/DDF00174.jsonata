@@ -1,28 +1,36 @@
 {
-    "check_func" : function($data)
-         {
-          study.versions@$sv.
-                        ($sv.studyIdentifiers)@$i.
-                            ($sv.organizations[id=$i.scopeId])@$o.
-                                {
-                                    "group": $join([$i.scopeId,$i.instanceType],"|"),
-                                    "details": $
-                                        {
-                                            "instanceType": $i.instanceType,
-                                            "id": $i.id,
-                                            "path": $i._path,
-                                            "text": $i.text,
-                                            "scopeId": $i.scopeId,
-                                            "Organization.name": $o.name
-                                        }
-                                }{group: $count(details)>1?$.details}
-                                ~> $each(function($v){$v}) ~> $reduce($append)
-           },
+    "check_func" : function($data){$data.(
+  study.versions@$sv.
+    (
+      $sv.organizations
+        {
+          id: 
+            (
+              $o:=$;
+              $i:=$sv.studyIdentifiers[scopeId=$o.id];
+              $count($i) > 1 ? $i.
+                {
+                  "instanceType": instanceType,
+                  "id": id,
+                  "path": _path,
+                  "text": text,
+                  "scopeId": scopeId,
+                  "Organization.name": $o.name
+                }
+            )
+        }
+    ).*
+           )},
     "message": "More than 1 study identifier is specified for the same organization.",
     "variables": 
         [
             "text",
             "scopeId",
             "Organization.name"
+        ],
+    "scope": {
+        "Include": [
+            "StudyIdentifier"
         ]
+    }
 }
