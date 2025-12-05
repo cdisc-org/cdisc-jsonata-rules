@@ -27,7 +27,7 @@
                 ]
             }
         ],
-        "Check": "study.versions@$sv.\n  ($sv.roles[assignedPersons and organizationIds])@$r.\n    {\n      \"instanceType\": $r.instanceType,\n      \"id\": $r.id,\n      \"path\": $r._path,\n      \"name\": $r.name,\n      \"code\": $r.code.decode,\n      \"assignedPersons\": \"[\"&$join($r.assignedPersons.(id&\": \"&name),\"; \")&\"]\",\n      \"organizationIds\": \"[\"&$join($r.organizationIds.($oid:=$;$oid&\": \"&($o:=$sv.organizations[id=$oid];$o?$o.name:\"Invalid organizationId\")),\"; \")&\"]\"\n    }",
+        "Check": "study.versions@$sv.\n  ($sv.roles[assignedPersons and organizationIds])@$r.\n    {\n      \"instanceType\": $r.instanceType,\n      \"id\": $r.id,\n      \"path\": $r._path,\n      \"name\": $r.name,\n      \"code\": $r.code.decode & \" (\" & $r.code.code & \")\",\n      \"assignedPersons\": \"[\"&$join($r.assignedPersons.(id&\": \"&name),\"; \")&\"]\",\n      \"organizationIds\": \"[\"&$join($r.organizationIds.($oid:=$;$oid&\": \"&($o:=$sv.organizations[id=$oid];$o?$o.name:\"Invalid organizationId\")),\"; \")&\"]\"\n    }",
         "Core": {
             "Id": "",
             "Status": "Draft",

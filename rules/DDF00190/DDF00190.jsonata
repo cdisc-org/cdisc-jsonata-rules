@@ -7,7 +7,7 @@
         "id": $r.id,
         "path": $r._path,
         "name": $r.name,
-        "code": $r.code.decode,
+        "code": $r.code.decode & " (" & $r.code.code & ")",
         "assignedPersons": "["&$join($r.assignedPersons.(id&": "&name),"; ")&"]",
         "organizationIds": "["&$join($r.organizationIds.($oid:=$;$oid&": "&($o:=$sv.organizations[id=$oid];$o?$o.name:"Invalid organizationId")),"; ")&"]"
       }
