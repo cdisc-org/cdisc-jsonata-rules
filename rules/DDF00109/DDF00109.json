@@ -27,7 +27,7 @@
                 ]
             }
         ],
-        "Check": "(\n    $lkp:=$merge($.**.studyDesigns.studyInterventions.{id:%.id});\n    ($.**.studyDesigns)@$s.\n        [\n            $s.elements.studyInterventionIds\n                [\n                    $not($ in $s.studyDesigns.studyInterventions.id)\n                ].\n            {\n            \"StudyDesign.id\": $s.id,\n            \"StudyDesign.name\": $s.name,\n            \"id\": %.id,\n            \"name\": %.name,\n            \"studyInterventionIds value\": $,\n            \"Referenced intervention's parent StudyDesign.id\": $ in $keys($lkp) ? $lookup($lkp,$) : \"[Invalid studyInterventionIds value]\",\n            \"dataset\": %.instanceType\n            }\n        ]\n)",
+        "Check": "(\n    $lkp:=$merge($.**.studyDesigns.studyInterventions.{id:%.id});\n    ($.**.studyDesigns)@$s.\n        [\n            $s.elements.studyInterventionIds\n                [\n                    $not($ in $s.studyDesigns.studyInterventions.id)\n                ].\n            {\n            \"instanceType\": %.instanceType,\n            \"id\": %.id,\n            \"path\": %._path,\n            \"StudyDesign.id\": $s.id,\n            \"StudyDesign.name\": $s.name,\n            \"name\": %.name,\n            \"studyInterventionIds value\": $,\n            \"Referenced intervention's parent StudyDesign.id\": $ in $keys($lkp) ? $lookup($lkp,$) : \"[Invalid studyInterventionIds value]\"\n            }\n        ]\n)",
         "Core": {
             "Id": "",
             "Status": "Draft",
@@ -40,7 +40,6 @@
             "Output_Variables": [
                 "StudyDesign.id",
                 "StudyDesign.name",
-                "id",
                 "name",
                 "studyInterventionIds value",
                 "Referenced intervention's parent StudyDesign.id"

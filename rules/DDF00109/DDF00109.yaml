@@ -24,13 +24,14 @@ Check: |-
                       $not($ in $s.studyDesigns.studyInterventions.id)
                   ].
               {
+              "instanceType": %.instanceType,
+              "id": %.id,
+              "path": %._path,
               "StudyDesign.id": $s.id,
               "StudyDesign.name": $s.name,
-              "id": %.id,
               "name": %.name,
               "studyInterventionIds value": $,
-              "Referenced intervention's parent StudyDesign.id": $ in $keys($lkp) ? $lookup($lkp,$) : "[Invalid studyInterventionIds value]",
-              "dataset": %.instanceType
+              "Referenced intervention's parent StudyDesign.id": $ in $keys($lkp) ? $lookup($lkp,$) : "[Invalid studyInterventionIds value]"
               }
           ]
   )
@@ -47,7 +48,6 @@ Outcome:
   Output Variables:
     - StudyDesign.id
     - StudyDesign.name
-    - id
     - name
     - "studyInterventionIds value"
     - "Referenced intervention's parent StudyDesign.id"
