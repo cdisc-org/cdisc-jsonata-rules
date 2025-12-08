@@ -1,0 +1,18 @@
+{
+    "check_func" : function($data)
+         {($.**[plannedSex])@$p.
+    $p.[{
+            "instanceType": instanceType,
+            "id": id,
+            "path": _path,
+            "name": name,
+            "plannedSex":"["&$join(plannedSex.(id & ": " & decode & " (" & code & ")"),"; ")&"]",
+            "check": ($count(plannedSex.id) != $count($distinct(plannedSex.code))) or false in $map(plannedSex.code,function($v){$v in ["C16576","C20197"]})        
+            }][check=true],
+    "message": "The planned sex does includes more than a single entry of male and/or female either by duplications or unexpected codes.",
+    "variables": 
+        [
+            "name",
+	    "plannedSex"
+	            ]                        
+}
