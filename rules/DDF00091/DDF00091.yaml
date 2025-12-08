@@ -31,28 +31,27 @@ Authorities:
         Version: '4.0'
 Check: |-
   (
-      $idityp:=$.study.versions.**[id]{id:instanceType};
-      $.study.versions.**.conditions.appliesToIds.
-          {
-              "parent_entity": %.%.instanceType,
-              "parent_id": %.%.id,
-              "id": %.id,
-              "name": %.name,
-              "appliesTo id": $,
-              "appliesTo instanceType": $ in $keys($idityp) ? $lookup($idityp,$) : "[Invalid id]",
-              "dataset": %.instanceType
-          }
+    $idityp:=$.study.versions.**[id]{id:instanceType};
+    $.study.versions.**.conditions.appliesToIds.
+      {
+        "instanceType": %.instanceType,
+        "id": %.id,
+        "path": %._path,
+        "name": %.name,
+        "appliesTo id": $,
+        "appliesTo instanceType": $ in $keys($idityp) ? $lookup($idityp,$) : "[Invalid id]"
+      }
+      [
+        $not(`appliesTo instanceType` in
           [
-              $not(`appliesTo instanceType` in
-                  [
-                      'Procedure',
-                      'Activity',
-                      'BiomedicalConcept',
-                      'BiomedicalConceptCategory',
-                      'BiomedicalConceptSurrogate'
-                  ]
-              )
+            'Procedure',
+            'Activity',
+            'BiomedicalConcept',
+            'BiomedicalConceptCategory',
+            'BiomedicalConceptSurrogate'
           ]
+        )
+      ]
   )
 Core:
   Id: 'DDF00091'
@@ -63,14 +62,12 @@ Description: 'When a condition applies to a procedure, activity, biomedical
   instance must be available in the corresponding class with the specified id.'
 Executability: Fully Executable
 Outcome:
-  Message: 'An invalid id value has been specified to indicate what the condition
-    applies to - either the specified id is not an id for anything, or the
-    instance identified by the id is not a procedure, activity, biomedical
-    concept, biomedical concept category, or biomedical concept surrogate.'
+  Message: 'The id value specified to indicate what the condition applies to does
+    not reference a procedure, activity, biomedical concept, biomedical concept
+    category, or biomedical concept surrogate - either the specified id is not
+    an id for anything (it is invalid), or the instance identified by the id is
+    not one of the expected classes.'
   Output Variables:
-    - parent_entity
-    - parent_id
-    - id
     - name
     - 'appliesTo id'
     - 'appliesTo instanceType'

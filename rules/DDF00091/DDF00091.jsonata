@@ -1,38 +1,34 @@
 {
     "check_func" : function($data){$data.(
-                    (
-                        $idityp:=$.study.versions.**[id]{id:instanceType};
-                        $.study.versions.**.conditions.appliesToIds.
-                            {
-                                "parent_entity": %.%.instanceType,
-                                "parent_id": %.%.id,
-                                "id": %.id,
-                                "name": %.name,
-                                "appliesTo id": $,
-                                "appliesTo instanceType": $ in $keys($idityp) ? $lookup($idityp,$) : "[Invalid id]",
-                                "dataset": %.instanceType
-                            }
-                            [
-                                $not(`appliesTo instanceType` in
-                                    [
-                                        'Procedure',
-                                        'Activity',
-                                        'BiomedicalConcept',
-                                        'BiomedicalConceptCategory',
-                                        'BiomedicalConceptSurrogate'
-                                    ]
-                                )
-                            ]
-                    )
+  (
+    $idityp:=$.study.versions.**[id]{id:instanceType};
+    $.study.versions.**.conditions.appliesToIds.
+      {
+        "instanceType": %.instanceType,
+        "id": %.id,
+        "path": %._path,
+        "name": %.name,
+        "appliesTo id": $,
+        "appliesTo instanceType": $ in $keys($idityp) ? $lookup($idityp,$) : "[Invalid id]"
+      }
+      [
+        $not(`appliesTo instanceType` in
+          [
+            'Procedure',
+            'Activity',
+            'BiomedicalConcept',
+            'BiomedicalConceptCategory',
+            'BiomedicalConceptSurrogate'
+          ]
+        )
+      ]
+  )
                 )},
-    "message": "An invalid id value has been specified to indicate what the condition applies to - either the specified id is not an id for anything, or the instance identified by the id is not a procedure, activity, biomedical concept, biomedical concept category, or biomedical concept surrogate.",
+    "message": "The id value specified to indicate what the condition applies to does not reference a procedure, activity, biomedical concept, biomedical concept category, or biomedical concept surrogate - either the specified id is not an id for anything (it is invalid), or the instance identified by the id is not one of the expected classes.",
     "variables": [
-            "parent_entity",
-            "parent_id",
-            "id",
-            "name",
-            "appliesTo id",
-            "appliesTo instanceType"
+        "name",
+        "appliesTo id",
+        "appliesTo instanceType"
         ],
     "scope": {
         "Include": [
