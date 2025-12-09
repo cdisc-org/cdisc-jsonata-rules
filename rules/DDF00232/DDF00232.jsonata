@@ -1,0 +1,23 @@
+{
+    "check_func" : function($data)
+         {(study.versions)@$sv.
+             $sv.studyDesigns@$sd.
+             $sd.    
+             [({
+                    "instanceType": instanceType,
+                    "id": id,
+                    "path": _path,
+                    "name": name,
+                    "studyType": studyType ? studyType.decode & " (" & studyType.code & ")",
+                    "studyPhase": studyPhase ? studyPhase.standardCode.decode & " (" & studyPhase.standardCode.code & ")",
+                    "check": studyType.code in ["C16084","C129000"] and studyPhase.standardCode.code !="C48660"
+                }
+        )][check=true],
+    "message": "The study type is observational (including patient registries) but study phase is not coded as Not Applicable.",
+    "variables": 
+        [
+            "name",
+            "studyType",
+            "studyPhase"
+        ]
+}
