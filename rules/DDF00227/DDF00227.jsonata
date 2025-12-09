@@ -1,0 +1,20 @@
+{
+    "check_func" : function($data)
+         {(study.versions)@$sv.
+    $sv.studyDesigns@$sd.
+    $sd.    [({
+                    "instanceType": instanceType,
+                    "id": id,
+                    "path": _path,
+                    "name": name,
+                    "studyType": studyType ? studyType.decode & " (" & studyType.code & ")",
+                    "check": studyType.code="C98388" and instanceType != "InterventionalStudyDesign"
+                }
+        )][check=true],
+    "message": "The study type is interventional but is not specified using the InterventionalStudyDesign class.",
+    "variables": 
+        [
+            "name",
+            "studyType"
+        ]
+}
