@@ -1,0 +1,24 @@
+{
+    "check_func" : function($data)
+         {(study.versions)@$sv.
+    $sv.studyDesigns@$sd.
+    $sd.biospecimenRetentions.    [({
+                    "instanceType": instanceType,
+                    "id": id,
+                    "path": _path,
+                    "StudyDesign.id": $sd.id,
+                    "StudyDesign.name": $sd.name,
+                    "name": name,
+                    "isRetained": isRetained,
+                    "check": isRetained=true and $not(includesDNA in [true,false])
+                }
+        )][check=true],
+    "message": "The biospecimen retention is indicated as retained (isRetained=true) but information whether it includes DNA (includesDNA attribute) is missing.",
+    "variables": 
+        [
+            "StudyDesign.id",
+            "StudyDesign.name",
+            "name",
+            "isRetained"
+        ]
+}
