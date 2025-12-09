@@ -1,0 +1,28 @@
+{
+    "check_func" : function($data)
+         {(study.versions)@$sv.
+    $sv.administrableProducts@$ap.
+        [($a:=$sv.administrableProducts[id in $distinct($sv.studyInterventions.administrations.administrableProductId)].id;
+          $p:=$sv.administrableProducts[id in $distinct($sv.medicalDevices.embeddedProductId)].id;
+                 $ap.{
+                    "instanceType": instanceType,
+                    "id": id,
+                    "path": _path,
+                    "name": name,
+                    "sourcing": sourcing.(decode & " (" &code&")"),
+                    "MedicalDevice.id": $sv.medicalDevices[embeddedProductId=$ap.id]? "["&$join($sv.medicalDevices[embeddedProductId=$ap.id].id,", ")&"]",
+                    "MedicalDevice.name": $sv.medicalDevices[embeddedProductId=$ap.id]? "["&$join($sv.medicalDevices[embeddedProductId=$ap.id].name,", ")&"]",
+                    "MedicalDevice.embeddedProductId": $sv.medicalDevices[embeddedProductId=$ap.id]? "["&$join($sv.medicalDevices[embeddedProductId=$ap.id].embeddedProductId,", ")&"]",
+                    "check": (id in $p)=true and (id in $a) =false and sourcing
+                }
+        )][check=true]           },
+    "message": "The sourcing is defined while the administrable product is only referenced to as an embedded product for a medical device.",
+    "variables": 
+        [
+            "name",
+            "sourcing",
+            "MedicalDevice.id",
+            "MedicalDevice.name",
+            "MedicalDevice.embeddedProductId"
+        ]
+}
