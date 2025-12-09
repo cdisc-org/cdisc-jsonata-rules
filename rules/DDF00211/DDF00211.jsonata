@@ -1,0 +1,23 @@
+{
+    "check_func" : function($data)
+         {(study.versions)@$sv.
+    $sv.productOrganizationRoles@$pr.
+        [($a:=$sv.administrableProducts.id;
+          $d:=$sv.medicalDevices.id;
+          $x:=$map(appliesToIds,function($v){$v in "xx2"});
+                 $pr.{
+                    "instanceType": instanceType,
+                    "id": id,
+                    "path": _path,
+                    "name": name,
+                    "appliesToIds": appliesToIds ? "[" & $join(appliesToIds,", ")&"]",
+                    "check": $not(appliesToIds and $map(appliesToIds,function($v){($v in $a) or ($v in $d)}))
+                }
+        )][check=true]},
+    "message": "The product organization role does not apply to at least one medical device or administrable product.",
+    "variables": 
+        [
+            "name",
+            "appliesToIds"
+        ]
+}
