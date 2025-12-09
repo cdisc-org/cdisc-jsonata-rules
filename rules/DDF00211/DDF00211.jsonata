@@ -4,7 +4,6 @@
     $sv.productOrganizationRoles@$pr.
         [($a:=$sv.administrableProducts.id;
           $d:=$sv.medicalDevices.id;
-          $x:=$map(appliesToIds,function($v){$v in "xx2"});
                  $pr.{
                     "instanceType": instanceType,
                     "id": id,
