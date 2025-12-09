@@ -18,7 +18,6 @@ Check: |-
     $sv.productOrganizationRoles@$pr.
         [($a:=$sv.administrableProducts.id;
           $d:=$sv.medicalDevices.id;
-          $x:=$map(appliesToIds,function($v){$v in "xx2"});
                  $pr.{
                     "instanceType": instanceType,
                     "id": id,
@@ -34,7 +33,7 @@ Core:
   Version: '1'
 Description: 'A product organization role is expected to apply to at least one
   medical device or administrable product.'
-Executability: Partly Executable (possible overreporting)
+Executability: Partially Executable - Possible Overreporting
 Outcome:
   Message: 'The product organization role does not apply to at least one medical
     device or administrable product.'
