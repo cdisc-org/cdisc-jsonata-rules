@@ -1,0 +1,26 @@
+{
+    "check_func" : function($data)
+         {(study.versions)@$sv.
+    $sv.productOrganizationRoles@$pr.
+        [($a:=$sv.administrableProducts.id;
+          $d:=$sv.medicalDevices.id;
+          $medDev:=function($i){$sv.medicalDevices[id=$i].(id? id &": "&name)};
+          $admProd:=function($i){$sv.administrableProducts[id=$i].(id? id &": "&name)};
+                 $pr.{
+                    "instanceType": instanceType,
+                    "id": id,
+                    "path": _path,
+                    "name": name,
+                    "appliesToIds": appliesToIds ? "[" & $join(appliesToIds,", ")&"]",
+                    "appliesTo name": "["&$join($map(appliesToIds,function($b){$medDev($b)?$medDev($b):($admProd($b)?$admProd($b):$b & ": Invalid reference")}),", ")&"]",
+                    "check": false in $map(appliesToIds,function($v){($v in $a) or ($v in $d)})
+                }
+        )][check=true},
+    "message": "At least one of the 'appliesTo' specifications does not apply to medical devices or administrable products.",
+    "variables": 
+        [
+            "name",
+            "appliesToIds",
+            "appliesTo name"
+        ]
+}
