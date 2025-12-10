@@ -1,0 +1,35 @@
+{
+    "check_func" : function($data)
+         {(study.versions)@$sv.
+    $sv.administrableProducts@$ap.
+    $ap.ingredients@$in.
+    $in.substance@$su.
+    $su.strengths@$st.
+    $st.[(
+            {
+                "instanceType": instanceType,
+                "id": id,
+                "path": _path,
+                "AdministrableProduct.id": $ap.id,
+                "AdministrableProduct.name": $ap.name,
+                "Ingredient.id": $in.id,
+                "Substance.id": $su.id,
+                "Substance.name": $su.name,
+                "name": name,
+                "numerator.value": numerator.value,
+                "check": numerator.value and $not(numerator.unit)
+            }
+        )][check=true]},
+    "message": "The strength numerator quantity is specified but it has no unit.",
+    "variables": 
+        [
+           	"AdministrableProduct.id",
+                "AdministrableProduct.name",
+                "Ingredient.id",
+                "Substance.id",
+                "Substance.name",
+                "name",
+                "numerator.value"
+
+        ]
+}
