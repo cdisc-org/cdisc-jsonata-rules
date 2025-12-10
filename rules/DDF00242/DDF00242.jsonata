@@ -1,0 +1,21 @@
+{
+    "check_func" : function($data)
+         {(study.**[instanceType="Range"])@$rg.
+    $rg.
+        [($ValU:=function($v){$v.value&($v.unit? " " & $v.unit.standardCode.decode & " ("&$v.unit.standardCode.code&")": " (unit not specified)")};
+            {
+                "instanceType": instanceType,
+                "id": id,
+                "path": _path,
+                "minValue": $ValU(minValue) ,
+                "maxValue": $ValU(maxValue) ,
+                "check": $exists(minValue.unit.id) != $exists(maxValue.unit.id)
+            }
+        )][check=true]},
+    "message": "The unit is specified either for the minimum or the maximum value but not for both.",
+    "variables": 
+        [
+                "minValue",
+                "maxValue"
+        ]
+}
