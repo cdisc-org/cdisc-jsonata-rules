@@ -17,8 +17,8 @@
                 "Substance.id": $su.id,
                 "Substance.name": $su.name,
                 "name": name,
-                "numerator.minValue": numerator.minValue.value & $ValU(numerator.minValue) ,
-                "numerator.maxValue": numerator.maxValue.value  & $ValU(numerator.maxValue) ,
+                "numerator.minValue": $ValU(numerator.minValue) ,
+                "numerator.maxValue": $ValU(numerator.maxValue) ,
                 "check": (numerator.minValue.value and $not(numerator.minValue.unit)) or (numerator.maxValue.value and $not(numerator.maxValue.unit))
             }
         )][check=true]},
