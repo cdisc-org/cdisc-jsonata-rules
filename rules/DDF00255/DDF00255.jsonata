@@ -1,0 +1,24 @@
+{
+    "check_func" : function($data)
+         {(study.versions.amendments)@$am.
+    $am.primaryReason@$pr.
+    $pr.
+        [(
+            {
+                "instanceType": instanceType,
+                "id": id,
+                "path": _path,
+                "StudyAmendment.id": $am.id,
+                "StudyAmendment.name": $am.name,
+                "code": code.decode & " ("&code.code&")",
+                "check": code.code="C48660"
+            }
+        )][check=true]},
+    "message": "The primary study amendment reason is 'not applicable' (code=C48660).",
+    "variables": 
+        [
+                "StudyAmendment.id",
+                "StudyAmendment.name",
+                "code"
+        ]
+}
