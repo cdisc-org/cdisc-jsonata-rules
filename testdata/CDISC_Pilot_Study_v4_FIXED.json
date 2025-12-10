@@ -5338,21 +5338,6 @@
         ],
         "titles": [
           {
-            "id": "StudyTitle_1",
-            "extensionAttributes": [],
-            "text": "LZZT",
-            "type": {
-              "id": "Code_7",
-              "extensionAttributes": [],
-              "code": "C94108",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2025-09-26",
-              "decode": "Study Acronym",
-              "instanceType": "Code"
-            },
-            "instanceType": "StudyTitle"
-          },
-          {
             "id": "StudyTitle_2",
             "extensionAttributes": [],
             "text": "Xanomeline (LY246708)",
