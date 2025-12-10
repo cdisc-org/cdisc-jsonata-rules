@@ -1,0 +1,39 @@
+{
+    "check_func" : function($data)
+         {(study.versions)@$sv.
+    $sv.administrableProducts@$ap.
+    $ap.ingredients@$in.
+    $in.substance@$su.
+    $su.strengths@$st.
+    $st.[($ValU:=function($v){$v.value&($v.unit? " " & $v.unit.standardCode.decode & " ("&$v.unit.standardCode.code&")": " - unit not specified")};
+            
+            {
+                "instanceType": instanceType,
+                "id": id,
+                "path": _path,
+                "AdministrableProduct.id": $ap.id,
+                "AdministrableProduct.name": $ap.name,
+                "Ingredient.id": $in.id,
+                "Substance.id": $su.id,
+                "Substance.name": $su.name,
+                "name": name,
+                "numerator.minValue": numerator.minValue.value & $ValU(numerator.minValue) ,
+                "numerator.maxValue": numerator.maxValue.value  & $ValU(numerator.maxValue) ,
+                "check": (numerator.minValue.value and $not(numerator.minValue.unit)) or (numerator.maxValue.value and $not(numerator.maxValue.unit))
+            }
+        )][check=true]},
+    "message": "The strength numerator range is specified but the minValue and/or maxValue does not have a unit.",
+    "variables": 
+        [
+           	"AdministrableProduct.id",
+                "AdministrableProduct.name",
+                "Ingredient.id",
+                "Substance.id",
+                "Substance.name",
+                "Strength.id",
+                "Strength.name",
+                "name",
+                "numerator.minValue",
+                "numerator.maxValue"
+        ]
+}
