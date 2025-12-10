@@ -2977,7 +2977,7 @@
 					"code": "C16576",
 					"codeSystem": "http://www.cdisc.org",
 					"codeSystemVersion": "2025-09-26",
-					"decode": "F",
+					"decode": "Female",
 					"instanceType": "Code"
 					},
 					{
@@ -2986,7 +2986,7 @@
 					"code": "C20197",
 					"codeSystem": "http://www.cdisc.org",
 					"codeSystemVersion": "2025-09-26",
-					"decode": "M",
+					"decode": "Male",
 					"instanceType": "Code"
 					}
               ],
