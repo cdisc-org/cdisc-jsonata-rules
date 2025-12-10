@@ -4,8 +4,8 @@ Authorities:
       - Name: USDM
         References:
           - Citations:
-              - Cited Guidance: 'If a strength numerator quantity is specified, it must have a
-                  unit.'
+              - Cited Guidance: 'If a strength numerator range is specified, both the minValue
+                  and maxValue must have a unit.'
                 Document: 'USDM_CORE_Rules.xlsx'
             Origin: 'USDM Conformance Rules'
             Rule Identifier:
@@ -30,8 +30,8 @@ Check: |-
                 "Substance.id": $su.id,
                 "Substance.name": $su.name,
                 "name": name,
-                "numerator.minValue": numerator.minValue.value & $ValU(numerator.minValue) ,
-                "numerator.maxValue": numerator.maxValue.value  & $ValU(numerator.maxValue) ,
+                "numerator.minValue": $ValU(numerator.minValue) ,
+                "numerator.maxValue": $ValU(numerator.maxValue) ,
                 "check": (numerator.minValue.value and $not(numerator.minValue.unit)) or (numerator.maxValue.value and $not(numerator.maxValue.unit))
             }
         )][check=true]
@@ -39,10 +39,12 @@ Core:
   Id: 'DDF00239'
   Status: Draft
   Version: '1'
-Description: 'If a strength numerator quantity is specified, it must have a unit.'
+Description: 'If a strength numerator range is specified, both the minValue and
+  maxValue must have a unit.'
 Executability: Fully Executable
 Outcome:
-  Message: 'The strength numerator quantity is specified but it has no unit.'
+  Message: 'The strength numerator range is specified but the minValue and/or
+    maxValue does not have a unit.'
   Output Variables:
     - AdministrableProduct.id
     - AdministrableProduct.name
