@@ -1,0 +1,26 @@
+{
+    "check_func" : function($data)
+         {(study.versions.amendments)@$am.
+    $am.secondaryReasons@$sr.
+    $sr.
+        [(
+            {
+                "instanceType": instanceType,
+                "id": id,
+                "path": _path,
+                "StudyAmendment.id": $am.id,
+                "StudyAmendment.name": $am.name,
+                "code": code.decode & " ("&code.code&")",
+                "primaryReason.code": $am.primaryReason.code.decode & " (" & $am.primaryReason.code.code & ")",
+                "check": code.code=$am.primaryReason.code.code
+            }
+        )][check=true]},
+    "message": "The secondary reason code is equal to the primary reason code.",
+    "variables": 
+        [
+                "StudyAmendment.id",
+                "StudyAmendment.name",
+                "code",
+                "primaryReason.code"
+        ]
+}
