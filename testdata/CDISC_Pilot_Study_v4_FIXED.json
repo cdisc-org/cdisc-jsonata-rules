@@ -2972,14 +2972,23 @@
               },
               "plannedSex": [
                 {
-                  "id": "Code_620",
-                  "extensionAttributes": [],
-                  "code": "C49636",
-                  "codeSystem": "http://www.cdisc.org",
-                  "codeSystemVersion": "2025-09-26",
-                  "decode": "BOTH",
-                  "instanceType": "Code"
-                }
+					"id": "Code_620_b",
+					"extensionAttributes": [],
+					"code": "C16576",
+					"codeSystem": "http://www.cdisc.org",
+					"codeSystemVersion": "2025-09-26",
+					"decode": "F",
+					"instanceType": "Code"
+					},
+					{
+					"id": "Code_620_d",
+					"extensionAttributes": [],
+					"code": "C20197",
+					"codeSystem": "http://www.cdisc.org",
+					"codeSystemVersion": "2025-09-26",
+					"decode": "M",
+					"instanceType": "Code"
+					}
               ],
               "criterionIds": [
                 "EligibilityCriterion_1",
