@@ -15,26 +15,26 @@ Authorities:
             Version: '1.0'
         Version: '4.0'
 Check: |-
-  {(study.versions)@$sv.
-             $sv.studyDesigns@$sd.
-             $sd.    
-             [({
-                    "instanceType": instanceType,
-                    "id": id,
-                    "path": _path,
-                    "name": name,
-                    "studyType": studyType ? studyType.decode & " (" & studyType.code & ")",
-                    "studyPhase": studyPhase ? studyPhase.standardCode.decode & " (" & studyPhase.standardCode.code & ")",
-                    "check": studyType.code in ["C16084","C129000"] and studyPhase.standardCode.code !="C48660"
-                }
-        )][check=true]
+  (study.versions)@$sv.
+           $sv.studyDesigns@$sd.
+           $sd.    
+           [({
+                  "instanceType": instanceType,
+                  "id": id,
+                  "path": _path,
+                  "name": name,
+                  "studyType": studyType ? studyType.decode & " (" & studyType.code & ")",
+                  "studyPhase": studyPhase ? studyPhase.standardCode.decode & " (" & studyPhase.standardCode.code & ")",
+                  "check": studyType.code in ["C16084","C129000"] and studyPhase.standardCode.code !="C48660"
+              }
+            )][check=true]
 Core:
   Id: 'DDF00232'
   Status: Draft
   Version: '1'
 Description: 'An observational study (including patient registries) is expected
   to have a study phase value indicating "Not Applicable".'
-Executability: Partly Executable - (Possible overreporting)
+Executability: Partially Executable
 Outcome:
   Message: 'The biospecimen retention is indicated as retained (isRetained=true)
     but information whether it includes DNA (includesDNA attribute) is missing.'
