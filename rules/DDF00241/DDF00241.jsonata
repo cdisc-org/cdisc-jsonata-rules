@@ -1,0 +1,23 @@
+{
+    "check_func" : function($data)
+         {(study.**[instanceType="Range"])@$rg.
+    $rg.
+        [($ValU:=function($v){$v.value&($v.unit? " " & $v.unit.standardCode.decode & " ("&$v.unit.standardCode.code&")": " (unit not specified)")};
+         $EqUnit:=(minValue.unit.standardCode.code=maxValue.unit.standardCode.code) or (minValue.unit=null and maxValue.unit=null);
+            
+            {
+                "instanceType": instanceType,
+                "id": id,
+                "path": _path,
+                "minValue": $ValU(minValue) ,
+                "maxValue": $ValU(maxValue) ,
+                "check": $EqUnit and (maxValue.value <= minValue.value)
+            }
+        )][check=true]},
+    "message": "The maximum value is less or equal to the minimum value while the unit is the same (or missing) for both the minimum and maximum value.",
+    "variables": 
+        [
+                "minValue",
+                "maxValue"
+        ]
+}
