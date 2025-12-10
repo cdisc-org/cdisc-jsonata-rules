@@ -4,7 +4,7 @@ Authorities:
       - Name: USDM
         References:
           - Citations:
-              - Cited Guidance: 'A planned sex must ether include a single entry of male or
+              - Cited Guidance: 'A planned sex must either include a single entry of male or
                   female or both female and male as entries.'
                 Document: 'USDM_CORE_Rules.xlsx'
             Origin: 'USDM Conformance Rules'
@@ -27,11 +27,11 @@ Core:
   Id: 'DDF00188'
   Status: Draft
   Version: '1'
-Description: 'A planned sex must ether include a single entry of male or female
+Description: 'A planned sex must either include a single entry of male or female
   or both female and male as entries.'
 Executability: Fully Executable
 Outcome:
-  Message: 'The planned sex does includes more than a single entry of male and/or
+  Message: 'The planned sex includes more than a single entry of male and/or
     female either by duplications or unexpected codes.'
   Output Variables:
     - name
