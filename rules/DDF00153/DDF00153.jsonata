@@ -1,0 +1,21 @@
+{
+    "check_func" : function($data)
+         {(study.versions.studyDesigns)@$sd.
+    $sd.scheduleTimelines@$st.
+    $st.
+        [(  {
+                "instanceType": instanceType,
+                "id": id,
+                "path": _path,
+                "name": name,
+                "mainTimeline": mainTimeline,
+                "check":  mainTimeline=true and ($exists(plannedDuration)=false or plannedDuration=null)
+            }
+        )][check=true]},
+    "message": "The plannedDuration is not specified for the main timeline.",
+    "variables": 
+        [
+                "name",
+                "mainTimeline"
+        ]
+}
