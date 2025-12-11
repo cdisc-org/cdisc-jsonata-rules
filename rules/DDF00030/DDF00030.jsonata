@@ -1,0 +1,20 @@
+{
+    "check_func" : function($data)
+         {(study.**[instanceType="PersonName"])@$pn.
+    $pn.
+        [(  {
+                "instanceType": instanceType,
+                "id": id,
+                "path": _path,
+                "familyName": familyName,
+                "text": text,
+                "check":  $not(familyName or text)
+            }
+        )]},
+    "message": "Both the text and familyName are missing.",
+    "variables": 
+        [
+                "familyName",
+                "text"
+        ]
+}
