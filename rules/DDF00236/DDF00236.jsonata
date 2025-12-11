@@ -1,0 +1,22 @@
+{
+    "check_func" : function($data)
+         {(study.versions.biomedicalConcepts)@$bc.
+    $bc.
+        [(  {
+                "instanceType": instanceType,
+                "id": id,
+                "path": _path,
+                "name": name,
+                "label": label,
+                "synonyms": "["&$join(synonyms,", ")&"]",
+                "check":  $exists($filter(synonyms,function($v){($lowercase($v) =$lowercase(label))}) )
+            }
+        )][check=true]},
+    "message": "The synonym is equal to the label (case insensitive).",
+    "variables": 
+        [
+                "name",
+                "label/synonym",
+                "synonyms"
+        ]
+}
