@@ -6690,27 +6690,6 @@
                   "id": "Duration_1",
                   "extensionAttributes": [],
                   "text": "",
-                  "quantity": {
-                    "id": "Quantity_2",
-                    "extensionAttributes": [],
-                    "value": 24.0,
-                    "unit": {
-                      "id": "AliasCode_242",
-                      "extensionAttributes": [],
-                      "standardCode": {
-                        "id": "Code_606",
-                        "extensionAttributes": [],
-                        "code": "C29844",
-                        "codeSystem": "http://www.cdisc.org",
-                        "codeSystemVersion": "2025-09-26",
-                        "decode": "Week",
-                        "instanceType": "Code"
-                      },
-                      "standardCodeAliases": [],
-                      "instanceType": "AliasCode"
-                    },
-                    "instanceType": "Quantity"
-                  },
                   "durationWillVary": false,
                   "reasonDurationWillVary": "",
                   "instanceType": "Duration"
@@ -6912,28 +6891,6 @@
                 "duration": {
                   "id": "Duration_3",
                   "extensionAttributes": [],
-                  "text": "",
-                  "quantity": {
-                    "id": "Quantity_2_b",
-                    "extensionAttributes": [],
-                    "value": 24.0,
-                    "unit": {
-                      "id": "AliasCode_242_b",
-                      "extensionAttributes": [],
-                      "standardCode": {
-                        "id": "Code_606_b",
-                        "extensionAttributes": [],
-                        "code": "C29844",
-                        "codeSystem": "http://www.cdisc.org",
-                        "codeSystemVersion": "2025-09-26",
-                        "decode": "Week",
-                        "instanceType": "Code"
-                      },
-                      "standardCodeAliases": [],
-                      "instanceType": "AliasCode"
-                    },
-                    "instanceType": "Quantity"
-                  },
                   "durationWillVary": false,
                   "reasonDurationWillVary": "",
                   "instanceType": "Duration"
@@ -7064,28 +7021,7 @@
                 "duration": {
                   "id": "Duration_1_c",
                   "extensionAttributes": [],
-                  "text": "",
-                  "quantity": {
-                    "id": "Quantity_2_c",
-                    "extensionAttributes": [],
-                    "value": 24.0,
-                    "unit": {
-                      "id": "AliasCode_242_c",
-                      "extensionAttributes": [],
-                      "standardCode": {
-                        "id": "Code_606_c",
-                        "extensionAttributes": [],
-                        "code": "C29844",
-                        "codeSystem": "http://www.cdisc.org",
-                        "codeSystemVersion": "2025-09-26",
-                        "decode": "Week",
-                        "instanceType": "Code"
-                      },
-                      "standardCodeAliases": [],
-                      "instanceType": "AliasCode"
-                    },
-                    "instanceType": "Quantity"
-                  },
+                  "quantity": null,
                   "durationWillVary": false,
                   "reasonDurationWillVary": "",
                   "instanceType": "Duration"
