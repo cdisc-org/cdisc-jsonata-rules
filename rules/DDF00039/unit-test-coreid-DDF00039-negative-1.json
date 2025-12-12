@@ -6933,8 +6933,7 @@
                   "id": "Duration_3",
                   "extensionAttributes": [],
                   "text": "some explanations",
-                  "quantity": null,
-                  "durationWillVary": true,
+                  "durationWillVary": false,
                   "reasonDurationWillVary": "",
                   "instanceType": "Duration"
                 },
