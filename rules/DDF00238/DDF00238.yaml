@@ -31,7 +31,7 @@ Check: |-
                 "Substance.name": $su.name,
                 "name": name,
                 "numerator.value": numerator.value,
-                "check": numerator.value and $not(numerator.unit)
+                "check": numerator.value and ($not(numerator.unit) or $exists(numerator.unit)=false)
             }
         )][check=true]
 Core:
