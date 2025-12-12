@@ -2957,11 +2957,23 @@
               "description": "Patients with Probable Mild to Moderate Alzheimer's Disease",
               "includesHealthySubjects": false,
               "plannedEnrollmentNumber": {
-                "id": "Quantity_8",
+                "id": "Range_1_e",
                 "extensionAttributes": [],
-                "value": 300.0,
-                "unit": null,
-                "instanceType": "Quantity"
+                "minValue": {
+                  "id": "Quantity_9e",
+                  "extensionAttributes": [],
+                  "value": 50.0,
+                  "unit": null,
+                  "instanceType": "Quantity"
+                },
+                "maxValue": {
+                  "id": "Quantity_10e",
+                  "extensionAttributes": [],
+                  "value": 20.0,
+                  "instanceType": "Quantity"
+                },
+                "isApproximate": false,
+                "instanceType": "Range"
               },
               "plannedCompletionNumber": {
                 "id": "Range_1_p",
@@ -7429,28 +7441,13 @@
 							"minValue": {
 							  "id": "Quantity_9_in",
 							  "extensionAttributes": [],
-							  "value": 50.0,
-							  "unit": {
-								"id": "AliasCode_251_in",
-								"extensionAttributes": [],
-								"standardCode": {
-								  "id": "Code_618_in",
-								  "extensionAttributes": [],
-								  "code": "C28253",
-								  "codeSystem": "http://www.cdisc.org",
-								  "codeSystemVersion": "2025-09-26",
-								  "decode": "Milligram",
-								  "instanceType": "Code"
-								},
-								"standardCodeAliases": [],
-								"instanceType": "AliasCode"
-							  },
+							  "value": 100.0,
 							  "instanceType": "Quantity"
 							},
 							"maxValue": {
 							  "id": "Quantity_10_in",
 							  "extensionAttributes": [],
-							  "value": 100.0,
+							  "value": 50.0,
 							  "unit": null,
 							  "instanceType": "Quantity"
 							},
