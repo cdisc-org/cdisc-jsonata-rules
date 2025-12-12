@@ -12,17 +12,17 @@
                                     ? $ValU($n)
                                     : $exists($n.minValue) or $exists($n.maxValue)
                                         ? $ValU($n.minValue)&" to "&$ValU($n.maxValue)
-                                        : "Missing"
+                                        : $string($n)
                                 : $string($n)
                             : "Missing"
                     )              
                 };{
-                            "instanceType": $d.instanceType,
-                            "id": $d.id,
-                            "path": $d._path,
-                            "quantity": $FValU(quantity),
+                            "instanceType": instanceType,
+                            "id": id,
+                            "path": _path,
+                            "quantity(value/range)": $FValU(quantity),
                             "durationWillVary": durationWillVary,
-                            "check": (durationWillVary and quantity) or (durationWillVary=false and $not(quantity))
+                            "check": (durationWillVary and quantity) or (durationWillVary=false and ($not(quantity) or $exists(quantity)=false))
                             })][check=true],
     "message": "The duration quantity is specified while the duration is indicated to vary or vice versa.",
     "variables": 
