@@ -4,9 +4,9 @@ Authorities:
       - Name: USDM
         References:
           - Citations:
-              - Cited Guidance: 'An observational study (including patient registries) is
-                  expected to have a study phase value indicating "Not
-                  Applicable".'
+              - Cited Guidance: 'If a study phase is specified for an observational study
+                  (including patient registries) it is expected to have a study
+                  phase value indicating "Not Applicable".'
                 Document: 'USDM_CORE_Rules.xlsx'
             Origin: 'USDM Conformance Rules'
             Rule Identifier:
@@ -32,12 +32,14 @@ Core:
   Id: 'DDF00232'
   Status: Draft
   Version: '1'
-Description: 'An observational study (including patient registries) is expected
-  to have a study phase value indicating "Not Applicable".'
-Executability: Partially Executable
+Description: 'If a study phase is specified for an observational study
+  (including patient registries) it is expected to have a study phase value
+  indicating "Not Applicable".'
+Executability: Partially Executable - Possible Overreporting
 Outcome:
-  Message: 'The biospecimen retention is indicated as retained (isRetained=true)
-    but information whether it includes DNA (includesDNA attribute) is missing.'
+  Message: 'The study type is observational (including patient registries) as
+    coded by either "C16084" or "C129000" but the study phase is indicating a
+    phase which is not "Not Applicable".'
   Output Variables:
     - name
     - studyType
