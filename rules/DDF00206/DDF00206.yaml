@@ -43,6 +43,7 @@ Outcome:
     referenced to as an embedded product for a medical device.'
   Output Variables:
     - name
+    - sourcing
     - MedicalDevice.id
     - MedicalDevice.name
     - MedicalDevice.embeddedProductId
