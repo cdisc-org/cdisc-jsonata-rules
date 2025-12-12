@@ -16,13 +16,13 @@ Authorities:
 Check: |-
   ($.**[instanceType="Duration"])@$d.
     $d.[{
-        "instanceType": $d.instanceType,
-        "id": $d.id,
-        "path": $d._path,
-        "text": $d.text,
-        "quantity": quantity,
-        "check": $not(text) and $not(quantity)
-        }][check=true]
+                            "instanceType": $d.instanceType,
+                            "id": $d.id,
+                            "path": $d._path,
+                            "text": $d.text,
+                            "quantity": quantity,
+                            "check": $not(text or quantity)
+                            }][check=true]
 Core:
   Id: 'DDF00033'
   Status: Draft
