@@ -7248,44 +7248,16 @@
 					"description": null,
 					"codes": [],
 					"strengths":[{
-						"id": "Str_01",
-						"name": "STRENGTH01",
+						"id": "Str_01_aa",
+						"name": "STRENGTH01aa",
 						"label": null,
 						"description": null,
 						"numerator": {
-							"id": "Range_1_in",
+							"id": "Quantity_d3nn",
 							"extensionAttributes": [],
-							"minValue": {
-							  "id": "Quantity_9_in",
-							  "extensionAttributes": [],
-							  "value": 50.0,
-							  "unit": null,
-							  "instanceType": "Quantity"
-							},
-							"maxValue": {
-							  "id": "Quantity_10_in",
-							  "extensionAttributes": [],
-							  "value": 100.0,
-							  "unit": {
-								"id": "AliasCode_252_in",
-								"extensionAttributes": [],
-								"standardCode": {
-								  "id": "Code_619_in",
-								  "extensionAttributes": [],
-								  "code": "C28253",
-								  "codeSystem": "http://www.cdisc.org",
-								  "codeSystemVersion": "2025-09-26",
-								  "decode": "Milligram",
-								  "instanceType": "Code"
-								},
-								"standardCodeAliases": [],
-								"instanceType": "AliasCode"
-							  },
-							  "instanceType": "Quantity"
-							},
-							"isApproximate": false,
-							"instanceType": "Range"
-						  },
+							"value": 10.0,
+							"instanceType": "Quantity"
+						},
 						"denominator": {
 							"id": "Quantity_d3",
 							"extensionAttributes": [],
