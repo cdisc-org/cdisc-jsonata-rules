@@ -19,7 +19,8 @@ Check: |-
     $ap.ingredients@$in.
     $in.substance@$su.
     $su.strengths@$st.
-    $st.[($ValU:=function($v){$v.value&($v.unit? " " & $v.unit.standardCode.decode & " ("&$v.unit.standardCode.code&")": " - unit not specified")};
+    $st.[($ValU:=function($v){$v.value&($v.unit? " " & $v.unit.standardCode.decode & " ("&$v.unit.standardCode.code&")": " (unit not specified)")};
+            
             {
                 "instanceType": instanceType,
                 "id": id,
@@ -32,7 +33,7 @@ Check: |-
                 "name": name,
                 "numerator.minValue": $ValU(numerator.minValue) ,
                 "numerator.maxValue": $ValU(numerator.maxValue) ,
-                "check": (numerator.minValue.value and $not(numerator.minValue.unit)) or (numerator.maxValue.value and $not(numerator.maxValue.unit))
+                "check": (numerator.minValue.value and ($not(numerator.minValue.unit) or $exists(numerator.minValue.unit)=false)) or (numerator.maxValue.value and ($not(numerator.maxValue.unit) or $exists(numerator.maxValue.unit)=false))
             }
         )][check=true]
 Core:
