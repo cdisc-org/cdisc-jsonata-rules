@@ -18,7 +18,8 @@ Check: |-
   (study.**[instanceType="Range"])@$rg.
     $rg.
         [($ValU:=function($v){$v.value&($v.unit? " " & $v.unit.standardCode.decode & " ("&$v.unit.standardCode.code&")": " (unit not specified)")};
-         $EqUnit:=(minValue.unit.standardCode.code=maxValue.unit.standardCode.code) or (minValue.unit=null and maxValue.unit=null);
+         $EqUnit:=(minValue.unit.standardCode.code=maxValue.unit.standardCode.code) or ((minValue.unit=null or $exists(minValue.unit)=false) and (maxValue.unit=null or $exists(maxValue.unit)=false));
+            
             {
                 "instanceType": instanceType,
                 "id": id,
