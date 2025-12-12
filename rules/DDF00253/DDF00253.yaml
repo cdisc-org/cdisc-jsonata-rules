@@ -40,13 +40,15 @@ Core:
 Description: 'A reference substance must not have a reference substance.'
 Executability: Fully Executable
 Outcome:
-  Message: 'The referenced substance is referencing a substance.'
+  Message: 'A reference substance is specified for the substance, but the
+    substance is a reference substance for another substance (the parent
+    substance).'
   Output Variables:
     - AdministrableProduct.id
     - AdministrableProduct.name
     - Ingredient.id
-    - parent Substance.id
-    - parent Substance.name
+    - Parent Substance.id
+    - Parent Substance.name
     - name
     - referenceSubstance.id
     - referenceSubstance.name
