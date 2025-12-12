@@ -4066,7 +4066,6 @@
                   "id": "Duration_11",
                   "extensionAttributes": [],
                   "text": "It will be approximately 36 weeks.",
-                  "quantity": null,
                   "durationWillVary": true,
                   "reasonDurationWillVary": "A good reason",
                   "instanceType": "Duration"
@@ -6932,7 +6931,6 @@
                 "duration": {
                   "id": "Duration_3",
                   "extensionAttributes": [],
-                  "text": "",
                   "quantity": {
                     "id": "Quantity_2_b",
                     "extensionAttributes": [],
