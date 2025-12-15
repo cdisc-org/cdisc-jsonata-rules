@@ -30,8 +30,6 @@
                 "Ingredient.id",
                 "Substance.id",
                 "Substance.name",
-                "Strength.id",
-                "Strength.name",
                 "name",
                 "numerator.minValue",
                 "numerator.maxValue"
