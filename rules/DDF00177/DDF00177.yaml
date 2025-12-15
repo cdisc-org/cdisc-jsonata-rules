@@ -49,7 +49,7 @@ Core:
   Version: '1'
 Description: 'If an administration''s dose is specified then a corresponding
   route is expected and vice versa.'
-Executability: Fully Executable
+Executability: Partially Executable - Possible Overreporting
 Outcome:
   Message: 'The administration dose has been specified without a route or vice versa.'
   Output Variables:

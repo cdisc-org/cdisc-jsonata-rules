@@ -35,7 +35,7 @@ Core:
   Version: '1'
 Description: 'The same reason is not expected to be given as a primary and
   secondary reason.'
-Executability: Partially Executable
+Executability: Partially Executable - Possible Overreporting
 Outcome:
   Message: 'The secondary reason code is equal to the primary reason code.'
   Output Variables:
