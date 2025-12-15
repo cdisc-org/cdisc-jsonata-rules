@@ -1,6 +1,6 @@
 {
     "check_func" : function($data){$data.(
-  **.[geographicScopes,forGeographicScope][(type.code="C68846")=($exists(code) and code)].
+  **[instanceType="GeographicScope" and (type.code="C68846")=($exists(code) and code)].
     {
       "instanceType": instanceType,
       "id": id,
@@ -11,7 +11,7 @@
       "code.standardCode.decode": code.standardCode.decode
     }
                 )},
-    "message": "The geographic scope is global (type.code = C68846) and a code has been specified or the geographic scope is not global (type.code is not C68846) and no code has been specified.",
+    "message": "The geographic scope is global (type.code = C68846) and a code has been specified for the specific area or the geographic scope is not global (type.code is not C68846) and no code has been specified for the specific area.",
     "variables": [
         "type.code",
         "type.decode",
