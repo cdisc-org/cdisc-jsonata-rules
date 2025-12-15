@@ -41,7 +41,7 @@ Core:
   Version: '1'
 Description: 'Within a document version, the specified displayed section numbers
   for narrative content must be unique.'
-Executability: Partially Executable - Possible Overreporting
+Executability: Fully Executable
 Outcome:
   Message: 'The displayed section number is not unique within the study definition
     document version.'
