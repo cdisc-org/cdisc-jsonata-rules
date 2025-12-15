@@ -30,11 +30,11 @@
         "Check": "study.versions@$sv.\n  (\n    $sv.organizations\n      {\n        id: \n          (\n            $o:=$;\n            $i:=$sv.studyIdentifiers[scopeId=$o.id];\n            $count($i) > 1 ? $i.\n              {\n                \"instanceType\": instanceType,\n                \"id\": id,\n                \"path\": _path,\n                \"text\": text,\n                \"scopeId\": scopeId,\n                \"Organization.name\": $o.name\n              }\n          )\n      }\n  ).*",
         "Core": {
             "Id": "CORE-000956",
-            "Status": "Draft",
+            "Status": "Published",
             "Version": "1"
         },
         "Description": "An identified organization is not expected to have more than 1 identifier for the study.",
-        "Executability": "Partially Executable",
+        "Executability": "Partially Executable - Possible Overreporting",
         "Outcome": {
             "Message": "More than 1 study identifier is specified for the same organization.",
             "Output_Variables": [

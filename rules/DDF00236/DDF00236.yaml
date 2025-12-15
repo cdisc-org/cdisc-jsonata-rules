@@ -27,12 +27,12 @@ Check: |-
             }
         )][check=true]
 Core:
-  Id: 'DDF00236'
-  Status: Draft
+  Id: 'CORE-001006'
+  Status: Published
   Version: '1'
 Description: 'If a synonym is specified then it is not expected to be equal to
   the label of the biomedical concept (case insensitive).'
-Executability: Partially Executable
+Executability: Partially Executable - Possible Overreporting
 Outcome:
   Message: 'The synonym is equal to the label (case insensitive).'
   Output Variables:

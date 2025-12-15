@@ -53,13 +53,13 @@ Check: |-
                 }
         )][check=true]
 Core:
-  Id: 'DDF00185'
-  Status: Draft
+  Id: 'CORE-000969'
+  Status: Published
   Version: '1'
 Description: 'If a dose is specified, then a corresponding administrable product
   must also be specified either directly or embedded in the medical device and
   vice versa.'
-Executability: Partially Executable
+Executability: Fully Executable
 Outcome:
   Message: 'The administration dose has been specified without an administrable
     product (either as a direct administrable product or as an embedded product

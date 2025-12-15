@@ -29,11 +29,11 @@ Check: |-
             }
         )][check=true]
 Core:
-  Id: 'DDF00255'
-  Status: Draft
+  Id: 'CORE-001011'
+  Status: Published
   Version: '1'
 Description: 'A primary study amendment reason is not expected to be ''not applicable''.'
-Executability: Fully Executable
+Executability: Partially Executable - Possible Overreporting
 Outcome:
   Message: 'The primary study amendment reason is ''not applicable'' (code=C48660).'
   Output Variables:
