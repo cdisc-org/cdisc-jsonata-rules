@@ -34,7 +34,7 @@
             "Version": "1"
         },
         "Description": "Narrative content is expected to point to a child and/or to a content item text.",
-        "Executability": "Fully Executable",
+        "Executability": "Partially Executable - Possible Overreporting",
         "Outcome": {
             "Message": "The narrative content does not contain either a child or a narrative content item.",
             "Output_Variables": [
