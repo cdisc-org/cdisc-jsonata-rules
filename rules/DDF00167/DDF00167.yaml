@@ -31,8 +31,9 @@ Description: 'A study definition document version must not be referenced more
   than once by the same study version.'
 Executability: Fully Executable
 Outcome:
-  Message: "The study version is documented more than once by the same study
-    definition document version."
+  Message: "The study version references the same study definition document
+    version more than once (there are duplicate id values in
+    documentVersionIds)."
   Output Variables:
     - versionIdentifier
     - "Duplicate documentVersionIds"
