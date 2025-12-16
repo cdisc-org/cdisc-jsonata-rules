@@ -19,8 +19,6 @@ Check: |-
       (
         $dict := $sv.dictionaries[id=$st.dictionaryId];
         $valid_tags := $dict.parameterMaps.tag;
-        $param_maps := $dict.parameterMaps.{"id": id, "tag": tag} ~>
-                       $map(function($v){$v.tag&"["&$v.id&"]"});
         $match ($st.text,
                     /<usdm:tag((?=[^>]* name=\"(\w+)\")[^>]*)(\/>|><\/usdm:tag>)/
         ) [
@@ -39,7 +37,6 @@ Check: |-
             "Parameter name": groups[1],
             "dictionaryId": $st.dictionaryId,
             "SyntaxTemplateDictionary.name": $dict.name,
-            "SyntaxTemplateDictionary.parameterMaps.tag[id]":  $param_maps,
             "Issue": $st.dictionaryId 
                       ? $dict
                           ? "Parameter not in dictionary"
@@ -61,12 +58,10 @@ Outcome:
     maps."
   Output Variables:
     - name
-    - text
     - Parameter reference
-    - Paremeter name
+    - Parameter name
     - dictionaryId
     - SyntaxTemplateDictionary.name
-    - SyntaxTemplateDictionary.parameterMaps.tag[id]
     - Issue
 Rule Type: JSONata
 Scope:

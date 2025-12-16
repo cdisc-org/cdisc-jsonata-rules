@@ -5,8 +5,6 @@
       (
         $dict := $sv.dictionaries[id=$st.dictionaryId];
         $valid_tags := $dict.parameterMaps.tag;
-        $param_maps := $dict.parameterMaps.{"id": id, "tag": tag} ~>
-                       $map(function($v){$v.tag&"["&$v.id&"]"});
         $match ($st.text,
                     /<usdm:tag((?=[^>]* name=\"(\w+)\")[^>]*)(\/>|><\/usdm:tag>)/
         ) [
@@ -25,7 +23,6 @@
             "Parameter name": groups[1],
             "dictionaryId": $st.dictionaryId,
             "SyntaxTemplateDictionary.name": $dict.name,
-            "SyntaxTemplateDictionary.parameterMaps.tag[id]":  $param_maps,
             "Issue": $st.dictionaryId 
                       ? $dict
                           ? "Parameter not in dictionary"
@@ -36,14 +33,12 @@
                 )},
     "message": "The parameter name referenced in the text is not specified in the data dictionary parameter map - the dictionaryId is missing or invalid, or the parameter name does not match a tag in any of the dictionary's parameter maps.",
     "variables": [
-        "name",
-        "text",
-        "Parameter reference",
-        "Parameter name",
-        "dictionaryId",
-        "SyntaxTemplateDictionary.name",
-        "SyntaxTemplateDictionary.parameterMaps.tag[id]",
-        "Issue"
+                "name",
+                "Parameter reference",
+                "Parameter name",
+                "dictionaryId",
+                "SyntaxTemplateDictionary.name",
+                "Issue"
     ],
     "scope": {
         "Include": [
