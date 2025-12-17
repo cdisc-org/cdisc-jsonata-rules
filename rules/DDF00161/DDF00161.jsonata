@@ -21,17 +21,17 @@
                             $a.childIds and
                             $not($a.nextId in $a.childIds)
                           )
-                          ? "The activity's nextId does not match any of its childIds.",
+                          ? "The activity has children but its nextId does not match any of its childIds.",
                           (
                             $sd.activities[$a.id in childIds] and
                             $not($a.previousId in $sd.activities[$a.id in childIds].[id,childIds])
                           )
-                          ? "The activity is a child but its previousId does not match either the id or any of the childIds of its parent activity.",
+                          ? "The activity is a child but its previousId does not match either the id or any of the childIds of its Parent Activity.",
                           (
                             $sd.activities[id=$a.previousId].childIds and
                             $not($a.id in $sd.activities[id=$a.previousId].childIds)
                           )
-                          ? "The activity's id does not match any of the childIds of the previous activity."
+                          ? "The activity's id does not match any of the childIds of the Previous Activity."
                         ]
           }
         )[`Issue(s)`]
