@@ -15,7 +15,7 @@ Authorities:
         Version: '4.0'
 Check: |-
   **.study.versions@$sv.
-    ($sv.**[$contains(text,/usdm:tag/)])@$st.
+    ($sv.**[$type(text)="string" and $contains(text,/usdm:tag/)])@$st.
       (
         $dict := $sv.dictionaries[id=$st.dictionaryId];
         $valid_tags := $dict.parameterMaps.tag;

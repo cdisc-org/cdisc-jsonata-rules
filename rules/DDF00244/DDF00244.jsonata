@@ -2,55 +2,50 @@
     "check_func" : function($data){$data.(
   (
     $lkp:=**[id and instanceType].$each(function($v,$k){{$join([instanceType,id,$k],"|"):$v}})~>$merge;
-    ($.study.versions)@$sv.
-      ($sv.narrativeContentItems[$contains(text,/usdm:ref/)])@$nci.
-        $match( $nci.text,
-                /<usdm:ref([^>]*)(\/>|><\/usdm:ref>)/
-        )@$ref.
-        (
-          $g0_or_null := function($m){$m ? $m.groups[0] : ""};
-          {
-            "instanceType": $nci.instanceType,
-            "id": $nci.id,
-            "path": $nci._path,
-            "StudyVersion.id": $sv.id,
-            "StudyVersion.name": $sv.name,                            
-            "name": $nci.name,
-            "text": $nci.text,
-            "usdm_ref": {
-                          "match": $ref.match,
-                          "klass": $match($ref.groups[0],/klass=\"([a-zA-Z]+)\"/) ~> $g0_or_null(),
-                          "id": $match($ref.groups[0],/id=\"(\w+)\"/) ~> $g0_or_null(),
-                          "attribute": $match($ref.groups[0],/attribute=\"([a-zA-Z]+)\"/) ~> $g0_or_null()
-                        }
-          }
-        )
-        ~>  $map(function($v)
-              {
-                (
-                  $ref_val := "usdm_ref" in $keys($v)
-                              ? (
-                                  $k := $join([$v.usdm_ref.klass,$v.usdm_ref.id,$v.usdm_ref.attribute],"|");
-                                  $k in $keys($lkp)
-                                  ? $lookup($lkp,$k)
-                                  : "!!NOT FOUND!!"
-                                )
-                              : $v.value;
-                  $v ~> |$|{"Invalid Reference": $v.usdm_ref.match, "Referenced Value": $ref_val},['usdm_ref']|
-                )
-              }
-            )
-        ~>  $filter(function($v)
-              {
-                $v.`Referenced Value` = "!!NOT FOUND!!"
-              }
-            )
+    ($.study.versions.narrativeContentItems[$contains(text,/usdm:ref/)])@$nci.
+      $match( $nci.text,
+              /<usdm:ref([^>]*)(\/>|><\/usdm:ref>)/
+      )@$ref.
+      (
+        $g0_or_null := function($m){$m ? $m.groups[0] : ""};
+        {
+          "instanceType": $nci.instanceType,
+          "id": $nci.id,
+          "path": $nci._path,                     
+          "name": $nci.name,
+          "text": $nci.text,
+          "usdm_ref": {
+                        "match": $ref.match,
+                        "klass": $match($ref.groups[0],/klass=\"([a-zA-Z]+)\"/) ~> $g0_or_null(),
+                        "id": $match($ref.groups[0],/id=\"(\w+)\"/) ~> $g0_or_null(),
+                        "attribute": $match($ref.groups[0],/attribute=\"([a-zA-Z]+)\"/) ~> $g0_or_null()
+                      }
+        }
+      )
+      ~>  $map(function($v)
+            {
+              (
+                $ref_val := "usdm_ref" in $keys($v)
+                            ? (
+                                $k := $join([$v.usdm_ref.klass,$v.usdm_ref.id,$v.usdm_ref.attribute],"|");
+                                $k in $keys($lkp)
+                                ? $lookup($lkp,$k)
+                                : "!!NOT FOUND!!"
+                              )
+                            : $v.value;
+                $v ~> |$|{"Invalid Reference": $v.usdm_ref.match, "Referenced Value": $ref_val},['usdm_ref']|
+              )
+            }
+          )
+      ~>  $filter(function($v)
+            {
+              $v.`Referenced Value` = "!!NOT FOUND!!"
+            }
+          )
   )
     )},
     "message": "The item referenced in the narrative content item text is not available elsewhere in the model.",
     "variables": [
-            "StudyVersion.id",
-            "StudyVersion.name",
             "name",
             "Invalid Reference"
         ],
