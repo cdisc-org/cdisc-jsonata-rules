@@ -2028,7 +2028,7 @@
                   "decode": "Data Generated Within Study",
                   "instanceType": "Code"
                 },
-                "populationIds": [],
+                "populationIds": ["StudyCohort_1"],
                 "notes": [],
                 "instanceType": "StudyArm"
               },
@@ -2660,7 +2660,7 @@
                 "notes": [],
                 "instanceType": "Objective",
                 "level": {
-                  "id": "Code_629",
+                  "id": "Code_629_o",
                   "extensionAttributes": [],
                   "code": "C85827",
                   "codeSystem": "http://www.cdisc.org",
@@ -6458,10 +6458,24 @@
               "instanceType": "Code"
             },
             "appliesToIds": ["InterventionalStudyDesign_1"],
-            "assignedPersons": [],
-            "organizationIds": [
-              "Organization_1"
-            ],
+            "assignedPersons": [{
+				"id": "Pers_001",
+				"name": "INV01",
+				"label": null,
+				"description": null,
+				"personName": { 
+					"id": "PN_001",
+					"text": "Mr. X",
+					"familyName": "X",
+					"givenNames": ["Ab","Theo"],
+					"prefixes": null,
+					"suffixes": null,
+					"instanceType": "PersonName"					
+				},
+				"jobTitle": "Physician",
+				"instanceType": "AssignedPerson"
+			}],
+            "organizationIds": [],
             "masking": {
               "id": "Masking_2",
               "extensionAttributes": [],
@@ -7615,7 +7629,6 @@
             "name": "TEMP2",
             "label": "Temperature",
             "synonyms": [
-              "Temperature",
               "Body Temperature"
             ],
             "reference": "/mdr/specializations/sdtm/packages/2024-12-16/datasetspecializations/TEMP",
@@ -7918,7 +7931,6 @@
             "name": "WGT2",
             "label": "Weight",
             "synonyms": [
-              "WEIGHT",
               "Body Weight"
             ],
             "reference": "/mdr/specializations/sdtm/packages/2024-12-16/datasetspecializations/WEIGHT",
@@ -8108,7 +8120,6 @@
             "name": "HGT2",
             "label": "Height",
             "synonyms": [
-              "HEIGHT",
               "Body Height"
             ],
             "reference": "/mdr/specializations/sdtm/packages/2024-12-16/datasetspecializations/HEIGHT",
@@ -11342,7 +11353,7 @@
             "label": "Systolic Blood Pressure",
             "synonyms": [
               "SYSBP",
-              "Systolic Blood Pressure"
+              "SBP"
             ],
             "reference": "/mdr/specializations/sdtm/packages/2025-04-01/datasetspecializations/SYSBP",
             "properties": [
@@ -11785,7 +11796,7 @@
             "label": "Diastolic Blood Pressure",
             "synonyms": [
               "DIABP",
-              "Diastolic Blood Pressure"
+              "DBP"
             ],
             "reference": "/mdr/specializations/sdtm/packages/2025-04-01/datasetspecializations/DIABP",
             "properties": [
@@ -12227,7 +12238,6 @@
             "name": "TEMP1",
             "label": "Temperature",
             "synonyms": [
-              "Temperature",
               "Body Temperature"
             ],
             "reference": "/mdr/specializations/sdtm/packages/2024-12-16/datasetspecializations/TEMP",
@@ -12530,7 +12540,6 @@
             "name": "WGT1",
             "label": "Weight",
             "synonyms": [
-              "WEIGHT",
               "Body Weight"
             ],
             "reference": "/mdr/specializations/sdtm/packages/2024-12-16/datasetspecializations/WEIGHT",
@@ -12720,7 +12729,6 @@
             "name": "HGT1",
             "label": "Height",
             "synonyms": [
-              "HEIGHT",
               "Body Height"
             ],
             "reference": "/mdr/specializations/sdtm/packages/2024-12-16/datasetspecializations/HEIGHT",
@@ -14634,7 +14642,7 @@
             "label": "Systolic Blood Pressure",
             "synonyms": [
               "SYSBP",
-              "Systolic Blood Pressure"
+              "SBP"
             ],
             "reference": "/mdr/specializations/sdtm/packages/2025-04-01/datasetspecializations/SYSBP",
             "properties": [
@@ -15077,7 +15085,7 @@
             "label": "Diastolic Blood Pressure",
             "synonyms": [
               "DIABP",
-              "Diastolic Blood Pressure"
+              "DBP"
             ],
             "reference": "/mdr/specializations/sdtm/packages/2025-04-01/datasetspecializations/DIABP",
             "properties": [
@@ -15519,8 +15527,7 @@
             "name": "HR1",
             "label": "Heart Rate",
             "synonyms": [
-              "HR",
-              "Heart Rate"
+              "HR"
             ],
             "reference": "/mdr/specializations/sdtm/packages/2025-04-01/datasetspecializations/HR",
             "properties": [
@@ -15963,7 +15970,7 @@
             "label": "Systolic Blood Pressure",
             "synonyms": [
               "SYSBP",
-              "Systolic Blood Pressure"
+              "SBP"
             ],
             "reference": "/mdr/specializations/sdtm/packages/2025-04-01/datasetspecializations/SYSBP",
             "properties": [
@@ -16406,7 +16413,7 @@
             "label": "Diastolic Blood Pressure",
             "synonyms": [
               "DIABP",
-              "Diastolic Blood Pressure"
+              "DBP"
             ],
             "reference": "/mdr/specializations/sdtm/packages/2025-04-01/datasetspecializations/DIABP",
             "properties": [
@@ -17086,8 +17093,7 @@
             "name": "HR2",
             "label": "Heart Rate",
             "synonyms": [
-              "HR",
-              "Heart Rate"
+              "HR"
             ],
             "reference": "/mdr/specializations/sdtm/packages/2025-04-01/datasetspecializations/HR",
             "properties": [

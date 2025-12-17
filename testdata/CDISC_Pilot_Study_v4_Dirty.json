@@ -309,6 +309,13 @@
             "instanceType": "StudyIdentifier"
           },
           {
+            "id": "StudyIdentifier_3",
+            "extensionAttributes": [],
+            "text": "H2Q-MC-LZZT_dirty_duplicate",
+            "scopeId": "Organization_1",
+            "instanceType": "StudyIdentifier"
+          },
+		  {
             "id": "StudyIdentifier_2",
             "extensionAttributes": [],
             "text": "NCT12345678",
@@ -2362,8 +2369,8 @@
                   "decode": "Screening Epoch",
                   "instanceType": "Code"
                 },
-                "previousId": null,
-                "nextId": "StudyEpoch_2",
+                "previousId": "StudyEpoch_2",
+                "nextId": "StudyEpoch_3",
                 "notes": [],
                 "instanceType": "StudyEpoch"
               },
@@ -2382,8 +2389,8 @@
                   "decode": "Treatment Epoch",
                   "instanceType": "Code"
                 },
-                "previousId": "StudyEpoch_1",
-                "nextId": "StudyEpoch_3",
+                "previousId": null,
+                "nextId": "StudyEpoch_1",
                 "notes": [],
                 "instanceType": "StudyEpoch"
               },
@@ -17548,8 +17555,8 @@
 			"description": "Vital signs including SBP/DBP, Temp, Weight",
 			"label": "Vital Signs Category",
             "code": null,
-			"children": [],
-			"members": ["BiomedicalConcept_2","BiomedicalConcept_3","BiomedicalConcept_4","BiomedicalConcept_5"],
+			"childIds": [],
+			"memberIds": ["BiomedicalConcept_2","BiomedicalConcept_3","BiomedicalConcept_4","BiomedicalConcept_5"],
             "instanceType": "BiomedicalConceptCategory",
 			"notes": []
           }, {
@@ -17559,8 +17566,8 @@
 			"description": "Vital signs including SBP/DBP, HR",
 			"label": "Vital Signs Category",
             "code": null,
-			"children": [],
-			"members": ["BiomedicalConcept_2","BiomedicalConcept_3","BiomedicalConcept_16"],
+			"childIds": [],
+			"memberIds": ["BiomedicalConcept_2","BiomedicalConcept_3","BiomedicalConcept_16"],
             "instanceType": "BiomedicalConceptCategory",
 			"notes": []
           },
@@ -17571,8 +17578,8 @@
 			"description": "Biochemistry including ALAT, Alk.Phos, ASAT",
 			"label": "Biochemistry Category",
             "code": null,
-			"children": [],
-			"members": [],
+			"childIds": [],
+			"memberIds": [],
             "instanceType": "BiomedicalConceptCategory",
 			"notes": []
           },
@@ -17583,8 +17590,8 @@
 			"description": "Urinalysis including Albumin, Creatinin, Potassium and Sodium",
 			"label": "Biochemistry Category",
             "code": null,
-			"children": [],
-			"members": ["BiomedicalConcept_8","BiomedicalConcept_11","BiomedicalConcept_12","BiomedicalConcept_13"],
+			"childIds": [],
+			"memberIds": ["BiomedicalConcept_8","BiomedicalConcept_11","BiomedicalConcept_12","BiomedicalConcept_13"],
             "instanceType": "BiomedicalConceptCategory",
 			"notes": []
           }],
