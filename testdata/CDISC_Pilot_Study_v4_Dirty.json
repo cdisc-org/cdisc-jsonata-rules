@@ -184,6 +184,22 @@
                 "otherReason": null,
                 "instanceType": "StudyAmendmentReason"
               }
+			  ,
+			  {
+                "id": "StudyAmendmentReason_5",
+                "extensionAttributes": [],
+                "code": {
+                  "id": "Code_89_extra2",
+                  "extensionAttributes": [],
+                  "code": "C48660",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "decode": "Not Applicable_x",
+                  "instanceType": "Code"
+                },
+                "otherReason": null,
+                "instanceType": "StudyAmendmentReason"
+              }
             ],
             "changes": [
               {
@@ -4521,13 +4537,7 @@
                 "mainTimeline": true,
                 "entryCondition": "Subject suffers an adverse event",
                 "entryId": "ScheduledActivityInstance_1",
-                "exits": [
-                  {
-                    "id": "ScheduleTimelineExit_1",
-                    "extensionAttributes": [],
-                    "instanceType": "ScheduleTimelineExit"
-                  }
-                ],
+                "exits": [],
                 "timings": [
                   {
                     "id": "Timing_17",
@@ -5795,7 +5805,7 @@
               "code": "C94108",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2025-09-26",
-              "decode": "Study Acronym",
+              "decode": "Study Acronym_x",
               "instanceType": "Code"
             },
             "instanceType": "StudyTitle"
@@ -5822,7 +5832,22 @@
             "type": {
               "id": "Code_11",
               "extensionAttributes": [],
-              "code": "C207616",
+              "code": "C207617",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "decode": "Public Study Title",
+              "instanceType": "Code"
+            },
+            "instanceType": "StudyTitle"
+          },
+          {
+            "id": "StudyTitle_5",
+            "extensionAttributes": [],
+            "text": "Safety and Efficacy of the Xanomeline Transdermal Therapeutic System (TTS) in Patients with Mild to Moderate Alzheimer's Disease",
+            "type": {
+              "id": "Code_11_5",
+              "extensionAttributes": [],
+              "code": "C207617",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2025-09-26",
               "decode": "Public Study Title",
@@ -19281,7 +19306,7 @@
                 "previousId": "NarrativeContent_61",
                 "nextId": "NarrativeContent_63",
                 "contentItemId": "NarrativeContentItem_62",
-                "instanceType": "NarrativeContent"
+                "instanceType": "NarrativeContent_tot"
               },
               {
                 "id": "NarrativeContent_63",
@@ -19557,21 +19582,7 @@
                       "decode": "Region",
                       "instanceType": "Code"
                     },
-                    "code": {
-                      "id": "AliasCode_253",
-                      "extensionAttributes": [],
-                      "standardCode": {
-                        "id": "Code_675",
-                        "extensionAttributes": [],
-                        "code": "150",
-                        "codeSystem": "ISO 3166 1 alpha3",
-                        "codeSystemVersion": "2020-08",
-                        "decode": "Europe",
-                        "instanceType": "Code"
-                      },
-                      "standardCodeAliases": [],
-                      "instanceType": "AliasCode"
-                    },
+                    "code": null,
                     "instanceType": "GeographicScope"
                   },
 				  {
@@ -19579,6 +19590,42 @@
                     "extensionAttributes": [],
                     "type": {
                       "id": "Code_674_extra",
+                      "extensionAttributes": [],
+                      "code": "C68846",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2025-09-26",
+                      "decode": "Global",
+                      "instanceType": "Code"
+                    },
+                    "code": null,
+                    "instanceType": "GeographicScope"
+                  }
+                ],
+                "instanceType": "GovernanceDate"
+              }
+			  ,
+			  {
+                "id": "GovernanceDate_4",
+                "extensionAttributes": [],
+                "name": "P_APPROVE2",
+                "label": "Protocol Approval",
+                "description": "Protocol document approval date",
+                "type": {
+                  "id": "Code_673",
+                  "extensionAttributes": [],
+                  "code": "C99903x1",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "decode": "Protocol Effective Date",
+                  "instanceType": "Code"
+                },
+                "dateValue": "2006-07-02",
+                "geographicScopes": [
+				  {
+                    "id": "GeographicScope_6_extra2",
+                    "extensionAttributes": [],
+                    "type": {
+                      "id": "Code_674_extra2",
                       "extensionAttributes": [],
                       "code": "C68846",
                       "codeSystem": "http://www.cdisc.org",
@@ -19636,7 +19683,9 @@
                 "displaySectionTitle": true,
                 "childIds": [
                   "NarrativeContent_79",
-                  "NarrativeContent_81"
+				  "NarrativeContent_80",
+                  "NarrativeContent_81",
+				  "NarrativeContent_1"
                 ],
                 "previousId": "NarrativeContent_78",
                 "nextId": "NarrativeContent_81",
