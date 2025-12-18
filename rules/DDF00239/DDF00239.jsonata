@@ -4,7 +4,7 @@
     $sv.administrableProducts@$ap.
     $ap.ingredients@$in.
     $in.substance@$su.
-    $su.strengths@$st.
+    $su.**.strengths@$st.
     $st.[($ValU:=function($v){$v.value&($v.unit? " " & $v.unit.standardCode.decode & " ("&$v.unit.standardCode.code&")": " (unit not specified)")};
             
             {
