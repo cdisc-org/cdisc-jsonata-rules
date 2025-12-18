@@ -3904,7 +3904,7 @@
                     "relativeToFrom": {
                       "id": "Code_69",
                       "extensionAttributes": [],
-                      "code": "C201355",
+                      "code": "C201355_",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2025-09-26",
                       "decode": "Start to Start",
@@ -4187,7 +4187,7 @@
                       "Activity_25",
                       "Activity_30"
                     ],
-                    "encounterId": "Encounter_4"
+                    "encounterId": "Encounter_44"
                   },
                   {
                     "id": "ScheduledActivityInstance_13",
@@ -4221,7 +4221,7 @@
                     "defaultConditionId": "ScheduledActivityInstance_15",
                     "epochId": "StudyEpoch_3",
                     "instanceType": "ScheduledActivityInstance",
-                    "timelineId": null,
+                    "timelineId": "invalid",
                     "timelineExitId": null,
                     "activityIds": [
                       "Activity_13",
@@ -4385,7 +4385,7 @@
                     "epochId": "StudyEpoch_3",
                     "instanceType": "ScheduledActivityInstance",
                     "timelineId": null,
-                    "timelineExitId": null,
+                    "timelineExitId": "invalid",
                     "activityIds": [
                       "Activity_30"
                     ],
@@ -4421,7 +4421,7 @@
                     "label": "Week 20 NPI",
                     "description": "-",
                     "defaultConditionId": "ScheduledActivityInstance_23",
-                    "epochId": "StudyEpoch_3",
+                    "epochId": "StudyEpoch_55",
                     "instanceType": "ScheduledActivityInstance",
                     "timelineId": null,
                     "timelineExitId": null,
@@ -4574,7 +4574,7 @@
                     "epochId": null,
                     "instanceType": "ScheduledActivityInstance",
                     "timelineId": null,
-                    "timelineExitId": "ScheduleTimelineExit_1",
+                    "timelineExitId": null,
                     "activityIds": [
                       "Activity_31"
                     ],
