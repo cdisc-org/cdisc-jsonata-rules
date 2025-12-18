@@ -2683,10 +2683,10 @@
                     "level": {
                       "id": "Code_624",
                       "extensionAttributes": [],
-                      "code": "C94496",
+                      "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2025-09-26",
-                      "decode": "Primary Endpoint",
+                      "decode": "Secondary Endpoint",
                       "instanceType": "Code"
                     }
                   },
@@ -2704,10 +2704,10 @@
                     "level": {
                       "id": "Code_626",
                       "extensionAttributes": [],
-                      "code": "C94496",
+                      "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2025-09-26",
-                      "decode": "Primary Endpoint",
+                      "decode": "Secondary Endpoint",
                       "instanceType": "Code"
                     }
                   },
@@ -2725,10 +2725,10 @@
                     "level": {
                       "id": "Code_627",
                       "extensionAttributes": [],
-                      "code": "C94496",
+                      "code": "C139173",
                       "codeSystem": "http://www.cdisc.org",
                       "codeSystemVersion": "2025-09-26",
-                      "decode": "Primary Endpoint",
+                      "decode": "Secondary Endpoint",
                       "instanceType": "Code"
                     }
                   }
@@ -6468,8 +6468,8 @@
 					"text": "Mr. X",
 					"familyName": "X",
 					"givenNames": ["Ab","Theo"],
-					"prefixes": null,
-					"suffixes": null,
+					"prefixes": [],
+					"suffixes": [],
 					"instanceType": "PersonName"					
 				},
 				"jobTitle": "Physician",

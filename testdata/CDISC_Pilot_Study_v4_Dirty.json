@@ -1775,7 +1775,7 @@
                       "decode": "Dispensing medication",
                       "instanceType": "Code"
                     },
-                    "studyInterventionId": "StudyIntervention_1",
+                    "studyInterventionId": null,
                     "notes": [],
                     "instanceType": "Procedure"
                   },
@@ -1853,9 +1853,6 @@
                 "nextId": "Activity_28",
                 "childIds": [],
                 "definedProcedures": [],
-                "biomedicalConceptIds": [
-                  "BiomedicalConcept_40"
-                ],
                 "bcCategoryIds": [],
                 "bcSurrogateIds": [],
                 "timelineId": null,
@@ -6682,7 +6679,7 @@
               "decode": "SPONSOR",
               "instanceType": "Code"
             },
-            "appliesToIds": [],
+            "appliesToIds": ["InterventionalStudyDesign_1"],
             "assignedPersons": [],
             "organizationIds": [
               "Organization_1"
@@ -6712,7 +6709,7 @@
               "decode": "Investigator",
               "instanceType": "Code"
             },
-            "appliesToIds": [],
+            "appliesToIds": ["InterventionalStudyDesign_1"],
             "assignedPersons": [],
             "organizationIds": [
               "Organization_1"
@@ -17125,7 +17122,7 @@
                 "datatype": "",
                 "responseCodes": [],
                 "code": {
-                  "id": "AliasCode_165",
+                  "id": "AliasCode _165",
                   "extensionAttributes": [],
                   "standardCode": {
                     "id": "Code_461",
