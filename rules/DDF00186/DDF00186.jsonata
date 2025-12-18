@@ -3,22 +3,9 @@
 (study.versions.administrableProducts)@$ap.
     $ap.ingredients@$in.
     $in.substance@$su.
-    $su.strengths@$st.
-
+    $su.**.strengths@$st.
     $st.
         [(
-            $ValU:=function($v){$v.value&($v.unit? " " & $v.unit.standardCode.decode & " ("&$v.unit.standardCode.code&")")};
-            $FValU:=function($n)
-                {
-                    (
-                        $exists($n)
-                            ?   $type($n)="object"
-                                ?   $exists($n.value)
-                                    ? $ValU($n)
-                                    : $string($n)
-                            : "Missing"
-                    )              
-                };
                 {
                     "instanceType": $st.instanceType,
                     "id": $st.id,
@@ -28,8 +15,8 @@
                     "Substance.name": $su.name,
                     "name": $st.name,
                     "denominator.id": $st.denominator.id,
-                    "denominator(value)": $FValU($st.denominator),
-					"check": $exists($st.denominator.id) and ($exists($st.denominator.unit)=false or $st.denominator.unit=null)
+                    "denominator.value": $st.denominator.value,
+                    "check": $exists($st.denominator.id) and ($exists($st.denominator.unit)=false or $st.denominator.unit=null)
                 }
         )][check=true]
     )},
@@ -45,4 +32,5 @@
 
         ]                        
 }
+
 
