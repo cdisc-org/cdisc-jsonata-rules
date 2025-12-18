@@ -4,9 +4,8 @@ Authorities:
       - Name: USDM
         References:
           - Citations:
-              - Cited Guidance: 'If the intervention model indicates a single group design then
-                  only one intervention is expected. In all other cases more
-                  interventions are expected.'
+              - Cited Guidance: 'If an interventional model indicates a cross-over, parallel or
+                  factorial design then more than 1 intervention is expected.'
                 Document: 'USDM_CORE_Rules.xlsx'
             Origin: 'USDM Conformance Rules'
             Rule Identifier:
@@ -29,24 +28,21 @@ Check: |-
         "# Referenced Study Interventions":  $count($distinct($sd.studyInterventionIds[$ in $sv.studyInterventions.id]))
       }
       [
-        (`model.code` = "C82640" and `# Referenced Study Interventions` != 1) or
-        (`model.code` != "C82640" and `# Referenced Study Interventions` <= 1)
+        (`model.code` in ["C82637","C82639","C82638"] and `# Referenced Study Interventions` <= 1)
       ]
 Core:
   Id: 'DDF00213'
   Status: Draft
   Version: '1'
-Description: 'If the intervention model indicates a single group design then
-  only one intervention is expected. In all other cases more interventions are
-  expected.'
+Description: 'If an interventional model indicates a cross-over, parallel or
+  factorial design then more than 1 intervention is expected.'
 Executability: Partially Executable - Possible Overreporting
 Outcome:
   Message: 'The number of study interventions referenced for the interventional
     study design is not consistent with intervention model specified for the
-    study design - either the model indicates a single group (model.code is
-    C82640) and there is not reference to only one study intervention, or the
-    model does not indicate a single group (model.code is not C82640) and there
-    are not references to multiple study interventions.'
+    study design - the model indicates a cross-over, parallel or factorial
+    design (model.code is C82637, C82639, or C82638) and there are not
+    references to multiple study interventions.'
   Output Variables:
     - name
     - studyType.code
