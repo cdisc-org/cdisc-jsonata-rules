@@ -28,9 +28,10 @@
             "Substance.name",
             "name",
    	    "denominator.id",
-            "denominator(value)"
+            "denominator.value"
 
         ]                        
 }
+
 
 
