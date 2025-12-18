@@ -1109,7 +1109,7 @@
                 "description": "",
                 "previousId": "Activity_3",
                 "nextId": "Activity_4b",
-                "childIds": [],
+                "childIds": ["Activity_4b","Activity_7"],
                 "definedProcedures": [],
                 "biomedicalConceptIds": [
                   "BiomedicalConcept_20",
@@ -7421,7 +7421,25 @@
             "instanceType": "AdministrableProduct"
           }],
         "medicalDevices": [],
-        "productOrganizationRoles": [],
+        "productOrganizationRoles": [
+		{
+			 "id": "ProductRole_1",
+			 "name": "RoleName_1",
+			 "label": "Sponsor Manufacturer",
+			 "description": null,
+			 "code":
+				{
+					"id": "Code_pr001",
+					"extensionAttributes": [],
+					"code": "C25392",
+					"codeSystem": "http://www.cdisc.org",
+					"codeSystemVersion": "2025-09-26",
+					"decode": "Manufacturer",
+					"instanceType": "Code"
+            },
+			"appliesToIds": ["AdmProd_1"],
+			"instanceType": "ProductOrganizationRole"			 
+		   }],
         "biomedicalConcepts": [
           
           {
@@ -17750,10 +17768,10 @@
         "type": {
           "id": "Code_672",
           "extensionAttributes": [],
-          "code": "C12345",
+          "code": "C70817",
           "codeSystem": "http://www.cdisc.org",
           "codeSystemVersion": "2025-09-26",
-          "decode": "Decode",
+          "decode": "Protocol",
           "instanceType": "Code"
         },
         "templateName": "LILLY",
@@ -18990,10 +19008,10 @@
         "type": {
           "id": "Code_678",
           "extensionAttributes": [],
-          "code": "C12345",
+          "code": "C70817",
           "codeSystem": "http://www.cdisc.org",
           "codeSystemVersion": "2025-09-26",
-          "decode": "Decode",
+          "decode": "Protocol",
           "instanceType": "Code"
         },
         "templateName": "M11",
