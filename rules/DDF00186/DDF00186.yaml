@@ -16,22 +16,9 @@ Check: |-
   (study.versions.administrableProducts)@$ap.
     $ap.ingredients@$in.
     $in.substance@$su.
-    $su.strengths@$st.
-
+    $su.**.strengths@$st.
     $st.
         [(
-            $ValU:=function($v){$v.value&($v.unit? " " & $v.unit.standardCode.decode & " ("&$v.unit.standardCode.code&")")};
-            $FValU:=function($n)
-                {
-                    (
-                        $exists($n)
-                            ?   $type($n)="object"
-                                ?   $exists($n.value)
-                                    ? $ValU($n)
-                                    : $string($n)
-                            : "Missing"
-                    )              
-                };
                 {
                     "instanceType": $st.instanceType,
                     "id": $st.id,
@@ -41,13 +28,13 @@ Check: |-
                     "Substance.name": $su.name,
                     "name": $st.name,
                     "denominator.id": $st.denominator.id,
-                    "denominator(value)": $FValU($st.denominator),
+                    "denominator.value": $st.denominator.value,
                     "check": $exists($st.denominator.id) and ($exists($st.denominator.unit)=false or $st.denominator.unit=null)
                 }
         )][check=true]
 Core:
-  Id: 'DDF00186'
-  Status: Draft
+  Id: 'CORE-001020'
+  Status: Published
   Version: '1'
 Description: 'If a strength denominator is specified, it must have a unit.'
 Executability: Fully Executable
@@ -59,7 +46,7 @@ Outcome:
     - Substance.name
     - name
     - denominator.id
-    - denominator(value)
+    - denominator.value
 Rule Type: JSONata
 Scope:
   Entities:
