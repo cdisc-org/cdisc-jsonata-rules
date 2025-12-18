@@ -1518,7 +1518,7 @@
                 "description": "",
                 "previousId": "Activity_14",
                 "nextId": "Activity_16",
-                "childIds": [],
+                "childIds": ["Activity_16","Activity_19"],
                 "definedProcedures": [
 					{
                     "id": "Procedure_9",
@@ -1555,7 +1555,7 @@
                 "description": "",
                 "previousId": "Activity_15",
                 "nextId": "Activity_17",
-                "childIds": [],
+                "childIds": ["Activity_17","Activity_18"],
                 "definedProcedures": [],
                 "biomedicalConceptIds": [
                   "BiomedicalConcept_38"
