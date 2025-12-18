@@ -322,7 +322,7 @@ Check: |-
                 }[Issue]
           )
       }
-    )
+    ) ~> $reduce($append)
   )
 Core:
   Id: 'DDF00262'
