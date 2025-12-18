@@ -1071,7 +1071,7 @@
                 "label": "Patient number assigned",
                 "description": "",
                 "previousId": "Activity_2",
-                "nextId": "Activity_4",
+                "nextId": "Activity_4a",
                 "childIds": [],
                 "definedProcedures": [
                   {
@@ -1102,14 +1102,31 @@
                 "instanceType": "Activity"
               },
               {
+                "id": "Activity_4a",
+                "extensionAttributes": [],
+                "name": "ACT_Row5a",
+                "label": "All Demographics Header",
+                "description": "",
+                "previousId": "Activity_4a",
+                "nextId": "Activity_4",
+                "childIds": ["Activity_4","Activity_4b","Activity_7"],
+                "definedProcedures": [],
+                "biomedicalConceptIds": [],
+                "bcCategoryIds": [],
+                "bcSurrogateIds": [],
+                "timelineId": null,
+                "notes": [],
+                "instanceType": "Activity"
+              },
+              {
                 "id": "Activity_4",
                 "extensionAttributes": [],
                 "name": "ACT_Row5",
                 "label": "Demographics",
                 "description": "",
-                "previousId": "Activity_3",
+                "previousId": "Activity_4a",
                 "nextId": "Activity_4b",
-                "childIds": ["Activity_4b","Activity_7"],
+                "childIds": [],
                 "definedProcedures": [],
                 "biomedicalConceptIds": [
                   "BiomedicalConcept_20",
@@ -7437,6 +7454,7 @@
 					"decode": "Manufacturer",
 					"instanceType": "Code"
             },
+			"organizationId": "Organization_1",
 			"appliesToIds": ["AdmProd_1"],
 			"instanceType": "ProductOrganizationRole"			 
 		   }],
