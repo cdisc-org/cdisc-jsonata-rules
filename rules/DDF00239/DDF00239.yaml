@@ -18,9 +18,8 @@ Check: |-
     $sv.administrableProducts@$ap.
     $ap.ingredients@$in.
     $in.substance@$su.
-    $su.strengths@$st.
+    $su.**.strengths@$st.
     $st.[($ValU:=function($v){$v.value&($v.unit? " " & $v.unit.standardCode.decode & " ("&$v.unit.standardCode.code&")": " (unit not specified)")};
-            
             {
                 "instanceType": instanceType,
                 "id": id,
@@ -37,8 +36,8 @@ Check: |-
             }
         )][check=true]
 Core:
-  Id: 'DDF00239'
-  Status: Draft
+  Id: 'CORE-001008'
+  Status: Published
   Version: '1'
 Description: 'If a strength numerator range is specified, both the minValue and
   maxValue must have a unit.'
