@@ -3,6 +3,7 @@
   study.versions.studyDesigns@$sd.
       $sd.activities@$a.
         (
+          $pacts := $utils.parse_refs("childIds","children",$sd.activities);
           {
             "instanceType": $a.instanceType,
             "id": $a.id,
@@ -14,8 +15,8 @@
             "Previous Activity's childIds": $sd.activities[id=$a.previousId].childIds[],
             "nextId": $a.nextId,
             "childIds": $a.childIds[],
-            "Parent Activity's id": $sd.activities[$a.id in childIds].id,
-            "Parent Activity's childIds": $sd.activities[$a.id in childIds].childIds[],
+            "Parent Activity's id": $pacts[$a.id in children.id].id,
+            "Parent Activity's other descendants' ids": $pacts[$a.id in children.id].children[id!=$a.id].[id,**.children.id].*,
             "Issue(s)": [
                           (
                             $a.childIds and
@@ -23,10 +24,10 @@
                           )
                           ? "The activity has children but its nextId does not match any of its childIds.",
                           (
-                            $sd.activities[$a.id in childIds] and
-                            $not($a.previousId in $sd.activities[$a.id in childIds].[id,childIds])
+                            $pacts[$a.id in children.id] and
+                            $not($a.previousId in $pacts[$a.id in children.id].[id,children[id!=$a.id].id,children[id!=$a.id].**.children.id])
                           )
-                          ? "The activity is a child but its previousId does not match either the id or any of the childIds of its Parent Activity.",
+                          ? "The activity is a child but its previousId does not match the id of either its Parent Activity or any of the Parent Activity's other descendants.",
                           (
                             $sd.activities[id=$a.previousId].childIds and
                             $not($a.id in $sd.activities[id=$a.previousId].childIds)
@@ -46,7 +47,7 @@
             "nextId",
             "childIds",
             "Parent Activity's id",
-            "Parent Activity's childIds",
+            "Parent Activity's other descendants' ids",
             "Issue(s)"
         ],
     "scope": {
