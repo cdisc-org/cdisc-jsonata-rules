@@ -17,7 +17,7 @@ Check: |-
   $.study.documentedBy@$sdd.
     $sdd.versions@$sddv.
       (
-        $sddv.contents[displaySectionNumber=true].
+        $sddv.contents[displaySectionNumber=true and sectionNumber].
           {
             "group": $join([$sdd.id,$sddv.id,sectionNumber],"\n"),
             "details":
@@ -36,7 +36,7 @@ Check: |-
           } {group: $count(details)>1?details}
         ).*
 Core:
-  Id: 'DDF00245'
+  Id: 'CORE-001041'
   Status: Draft
   Version: '1'
 Description: 'Within a document version, the specified displayed section numbers

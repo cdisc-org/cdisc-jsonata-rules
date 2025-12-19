@@ -3,7 +3,7 @@
   $.study.documentedBy@$sdd.
     $sdd.versions@$sddv.
       (
-        $sddv.contents[displaySectionNumber=true].
+        $sddv.contents[displaySectionNumber=true and sectionNumber].
           {
             "group": $join([$sdd.id,$sddv.id,sectionNumber],"\n"),
             "details":

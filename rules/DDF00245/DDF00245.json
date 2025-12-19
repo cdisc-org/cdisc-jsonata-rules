@@ -27,9 +27,9 @@
                 ]
             }
         ],
-        "Check": "$.study.documentedBy@$sdd.\n  $sdd.versions@$sddv.\n    (\n      $sddv.contents[displaySectionNumber=true].\n        {\n          \"group\": $join([$sdd.id,$sddv.id,sectionNumber],\"\\n\"),\n          \"details\":\n            {\n              \"instanceType\": instanceType,\n              \"id\": id,\n              \"path\": _path,\n              \"StudyDefinitionDocument.id\": $sdd.id,\n              \"StudyDefinitionDocument.name\": $sdd.name,\n              \"StudyDefinitionDocumentVersion.id\": $sddv.id,\n              \"StudyDefinitionDocumentVersion.version\": $sddv.version,\n              \"name\": name,\n              \"sectionNumber\": sectionNumber,\n              \"displaySectionNumber\": displaySectionNumber\n            }\n        } {group: $count(details)>1?details}\n      ).*",
+        "Check": "$.study.documentedBy@$sdd.\n  $sdd.versions@$sddv.\n    (\n      $sddv.contents[displaySectionNumber=true and sectionNumber].\n        {\n          \"group\": $join([$sdd.id,$sddv.id,sectionNumber],\"\\n\"),\n          \"details\":\n            {\n              \"instanceType\": instanceType,\n              \"id\": id,\n              \"path\": _path,\n              \"StudyDefinitionDocument.id\": $sdd.id,\n              \"StudyDefinitionDocument.name\": $sdd.name,\n              \"StudyDefinitionDocumentVersion.id\": $sddv.id,\n              \"StudyDefinitionDocumentVersion.version\": $sddv.version,\n              \"name\": name,\n              \"sectionNumber\": sectionNumber,\n              \"displaySectionNumber\": displaySectionNumber\n            }\n        } {group: $count(details)>1?details}\n      ).*",
         "Core": {
-            "Id": "",
+            "Id": "CORE-001041",
             "Status": "Draft",
             "Version": "1"
         },
