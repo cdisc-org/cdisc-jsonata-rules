@@ -27,9 +27,9 @@
                 ]
             }
         ],
-        "Check": "**.study.versions@$sv.\n  ($sv.studyDesigns)@$sd.($sd.**[$contains(text,/usdm:tag/)])@$st.\n    (\n      $dict := $sd.dictionaries[id=$st.dictionaryId];\n      $valid_tags := $dict.parameterMaps.tag;\n      $param_maps := $dict.parameterMaps.{\"id\": id, \"tag\": tag} ~>\n                     $map(function($v){$v.tag&\"[\"&$v.id&\"]\"});\n      $match ($st.text,\n                  /<usdm:tag((?=[^>]* name=\\\"(\\w+)\\\")[^>]*)(\\/>|><\\/usdm:tag>)/\n      ) [\n          $not(\n            $st.dictionaryId and\n            $dict and\n            groups[1] in $valid_tags\n          )\n        ].\n        {\n          \"instanceType\": $st.instanceType,\n          \"id\": $st.id,\n          \"path\": $st._path,\n          \"name\": $st.name,\n          \"Parameter reference\": match,\n          \"Parameter name\": groups[1],\n          \"dictionaryId\": $st.dictionaryId,\n          \"SyntaxTemplateDictionary.name\": $dict.name,\n          \"SyntaxTemplateDictionary.parameterMaps.tag[id]\":  $param_maps,\n          \"Issue\": $st.dictionaryId \n                    ? $dict\n                        ? \"Parameter not in dictionary\"\n                        : \"dictionaryId is invalid\"\n                    : \"dictionaryId is missing\"\n        }\n    )",
+        "Check": "**.study.versions@$sv.\n  ($sv.studyDesigns)@$sd.($sd.**[$type(text)=\"string\" and $contains(text,/usdm:tag/)])@$st.\n    (\n      $dict := $sd.dictionaries[id=$st.dictionaryId];\n      $valid_tags := $dict.parameterMaps.tag;\n      $match ($st.text,\n                  /<usdm:tag((?=[^>]* name=\\\"(\\w+)\\\")[^>]*)(\\/>|><\\/usdm:tag>)/\n      ) [\n          $not(\n            $st.dictionaryId and\n            $dict and\n            groups[1] in $valid_tags\n          )\n        ].\n        {\n          \"instanceType\": $st.instanceType,\n          \"id\": $st.id,\n          \"path\": $st._path,\n          \"name\": $st.name,\n          \"Parameter reference\": match,\n          \"Parameter name\": groups[1],\n          \"dictionaryId\": $st.dictionaryId,\n          \"SyntaxTemplateDictionary.name\": $dict.name,\n          \"Issue\": $st.dictionaryId \n                    ? $dict\n                        ? \"Parameter not in dictionary\"\n                        : \"dictionaryId is invalid\"\n                    : \"dictionaryId is missing\"\n        }\n    )",
         "Core": {
-            "Id": "",
+            "Id": "CORE-001037",
             "Status": "Draft",
             "Version": "1"
         },
@@ -43,7 +43,6 @@
                 "Parameter name",
                 "dictionaryId",
                 "SyntaxTemplateDictionary.name",
-                "SyntaxTemplateDictionary.parameterMaps.tag[id]",
                 "Issue"
             ]
         },

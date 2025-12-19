@@ -16,7 +16,7 @@ Authorities:
 Check: |-
   (
     $lkp:=**[id and instanceType].$each(function($v,$k){{$join([instanceType,id,$k],"|"):$v}})~>$merge;
-    ($.study.versions.narrativeContentItems[$contains(text,/usdm:ref/)])@$nci.
+    ($.study.versions.narrativeContentItems[$type(text)="string" and $contains(text,/usdm:ref/)])@$nci.
       $match( $nci.text,
               /<usdm:ref([^>]*)(\/>|><\/usdm:ref>)/
       )@$ref.
@@ -58,7 +58,7 @@ Check: |-
           )
   )
 Core:
-  Id: 'DDF00244'
+  Id: 'CORE-001073'
   Status: Draft
   Version: '1'
 Description: 'Referenced items in the narrative content item texts must be

@@ -4,7 +4,7 @@
     $lkp:=**[id and instanceType].$each(function($v,$k){{$join([instanceType,id,$k],"|"):$v}})~>$merge;
     ($.study.documentedBy)@$spd.
       ($spd.versions)@$spdv.
-        ($spdv.contents[$contains(text,/usdm:ref/)])@$nc.
+        ($spdv.contents[$type(text)="string" and $contains(text,/usdm:ref/)])@$nc.
           $match( $nc.text,
                   /<usdm:ref([^>]*)(\/>|><\/usdm:ref>)/
           )@$ref.

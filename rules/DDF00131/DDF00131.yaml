@@ -18,7 +18,7 @@ Check: |-
     $lkp:=**[id and instanceType].$each(function($v,$k){{$join([instanceType,id,$k],"|"):$v}})~>$merge;
     ($.study.documentedBy)@$spd.
       ($spd.versions)@$spdv.
-        ($spdv.contents[$contains(text,/usdm:ref/)])@$nc.
+        ($spdv.contents[$type(text)="string" and $contains(text,/usdm:ref/)])@$nc.
           $match( $nc.text,
                   /<usdm:ref([^>]*)(\/>|><\/usdm:ref>)/
           )@$ref.
@@ -66,7 +66,7 @@ Check: |-
               )
   )
 Core:
-  Id: 'DDF00131'
+  Id: 'CORE-001050'
   Status: Draft
   Version: '1'
 Description: 'Referenced items in the narrative content must be available

@@ -15,12 +15,10 @@ Authorities:
         Version: '3.0'
 Check: |-
   **.study.versions@$sv.
-    ($sv.studyDesigns)@$sd.($sd.**[$contains(text,/usdm:tag/)])@$st.
+    ($sv.studyDesigns)@$sd.($sd.**[$type(text)="string" and $contains(text,/usdm:tag/)])@$st.
       (
         $dict := $sd.dictionaries[id=$st.dictionaryId];
         $valid_tags := $dict.parameterMaps.tag;
-        $param_maps := $dict.parameterMaps.{"id": id, "tag": tag} ~>
-                       $map(function($v){$v.tag&"["&$v.id&"]"});
         $match ($st.text,
                     /<usdm:tag((?=[^>]* name=\"(\w+)\")[^>]*)(\/>|><\/usdm:tag>)/
         ) [
@@ -39,7 +37,6 @@ Check: |-
             "Parameter name": groups[1],
             "dictionaryId": $st.dictionaryId,
             "SyntaxTemplateDictionary.name": $dict.name,
-            "SyntaxTemplateDictionary.parameterMaps.tag[id]":  $param_maps,
             "Issue": $st.dictionaryId 
                       ? $dict
                           ? "Parameter not in dictionary"
@@ -48,7 +45,7 @@ Check: |-
           }
       )
 Core:
-  Id: 'DDF00089'
+  Id: 'CORE-001037'
   Status: Draft
   Version: '1'
 Description: 'Any parameter name referenced in a tag in the text should be
@@ -65,7 +62,6 @@ Outcome:
     - Parameter name
     - dictionaryId
     - SyntaxTemplateDictionary.name
-    - SyntaxTemplateDictionary.parameterMaps.tag[id]
     - Issue
 Rule Type: JSONata
 Scope:
